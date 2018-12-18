@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebMathTraining", "WebMathTraining.csproj", "{892AD1E1-EEE3-4BB0-90FB-0B8EB2392B90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{892AD1E1-EEE3-4BB0-90FB-0B8EB2392B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892AD1E1-EEE3-4BB0-90FB-0B8EB2392B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892AD1E1-EEE3-4BB0-90FB-0B8EB2392B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892AD1E1-EEE3-4BB0-90FB-0B8EB2392B90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D2E4E98-970B-4039-B94D-639BC29B6422}
+	EndGlobalSection
+EndGlobal

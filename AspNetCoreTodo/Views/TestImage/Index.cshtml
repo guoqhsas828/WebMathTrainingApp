@@ -1,0 +1,31 @@
+﻿@model TestImageViewModel
+
+<form action="/TestImage/UploadImage" enctype="multipart/form-data" method="post">
+    <input type="file" name="files" />
+    <button>post</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Content Type</td>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.TestImages)
+    {
+        <tr>
+            <td>@item.Id.ToString()</td>
+            <td>@item.Name</td>
+            <td>@item.ContentType</td>
+            <td>
+                <a class="btn btn-viewImage" asp-controller="TestImage" asp-action="ViewImage" asp-route-id="@item.Id">View Image</a>
+            </td>
+            <td>
+                <a class="btn btn-delete" asp-controller="TestImage" asp-action="DeleteConfirmed" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,74 @@
+@model ManageUsersViewModel
+
+@{
+    ViewData["Title"] = "Manage users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Administrators</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>User Name</td>
+            <td>Email</td>
+            <td>UserRole</td>
+            <td>Continent</td>
+            <td>Experience Level</td>
+        </tr>
+    </thead>
+    
+    @foreach (var user in Model.Administrators)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>@Constants.AdministratorRole</td>
+            <td>@user.Continent</td>
+            <td>@user.ExperienceLevel</td>
+        </tr>
+    }
+</table>
+
+<h3>Everyone</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>User Name</td>
+            <td>Email</td>
+            <td>Continent</td>
+            <td>Experience Level</td>
+            <td>Current Status</td>
+            <td>Created Time</td>
+            <td>Last Update</td>
+        </tr>
+    </thead>
+    
+    @foreach (var user in Model.Everyone)
+    {
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.UserName</td>
+        <td>@user.Email</td>
+        <td>@user.Continent</td>
+        <td>@user.ExperienceLevel</td>
+        <td>@user.UserStatus</td>
+        <td>@user.Created</td>
+        <td>@user.LastUpdated</td>
+        <td>
+            <a class="btn btn-delete" asp-controller="ManageUsers" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+        </td>
+        <td>
+            <a class="btn btn-deactivate" asp-controller="ManageUsers" asp-action="DeActivate" asp-route-id="@user.Id">DeActivate</a>
+        </td>
+        <td>
+            <a class="btn btn-activate" asp-controller="ManageUsers" asp-action="Activate" asp-route-id="@user.Id">Activate</a>
+        </td>
+    </tr>
+    }
+</table>
