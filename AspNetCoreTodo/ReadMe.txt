@@ -28,7 +28,12 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 Connect to SQL Database in production
 In your local repository, open Startup.cs and find the following code:
-C#
+//C# Configuration
+"EmailCredentials": {
+    "EmailAcctUserName": "",
+    "EmailAcctAuth": "",
+    "EmailHost": "smtp.sendgrid.net"
+  },
 
 Copy
 services.AddDbContext<MyDatabaseContext>(options =>

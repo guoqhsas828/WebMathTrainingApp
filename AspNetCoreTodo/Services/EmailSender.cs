@@ -36,15 +36,31 @@ namespace WebMathTraining.Services
 
         try
         {
-          if (Configuration.GetSection("EmailCredentials") == null)
-            return Task.CompletedTask;
+         string emailUsr = "";
+          string emailAuth = "";
+          string emailHost = "";
+          if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+          {
+            emailUsr = Environment.GetEnvironmentVariable("EmailAcctUserName");
+            emailAuth = Environment.GetEnvironmentVariable("EmailAcctAuth");
+            emailHost = Environment.GetEnvironmentVariable("EmailHost");
+          }
+          else
+          {
+            if (Configuration.GetSection("EmailCredentials") == null)
+              return Task.CompletedTask;
+
+            emailUsr = Configuration.GetSection("EmailCredentials")["EmailAcctUserName"];
+            emailAuth = Configuration.GetSection("EmailCredentials")["EmailAcctAuth"];
+            emailHost = Configuration.GetSection("EmailCredentials")["EmailHost"];
+          }
+
 
           using (var smtp = new SmtpClient
           {
-            Host = "smtp.sendgrid.net",
+            Host = emailHost,
             Credentials = new System.Net.NetworkCredential
-            (Configuration.GetSection("EmailCredentials")["AcctUserName"],
-              Configuration.GetSection("EmailCredentials")["AcctPassword"]),
+            (emailUsr, emailAuth),
             Port = 587,
             EnableSsl = true
           })
