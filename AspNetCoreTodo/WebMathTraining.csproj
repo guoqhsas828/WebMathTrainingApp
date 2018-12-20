@@ -24,6 +24,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" PrivateAssets="All" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="Sendgrid" Version="9.5.2" />
+    <PackageReference Include="WebApiContrib.Core.Formatter.Protobuf" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>

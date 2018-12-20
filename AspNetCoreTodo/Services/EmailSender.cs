@@ -75,7 +75,7 @@ namespace WebMathTraining.Services
             return Task.CompletedTask;
           }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
           return Task.CompletedTask;
         }

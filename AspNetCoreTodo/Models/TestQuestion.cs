@@ -1,13 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Google.Protobuf;
+using System.IO;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using Google.Protobuf.Compatibility;
-using Google.Protobuf.WellKnownTypes;
+using ProtoBuf;
 
 namespace WebMathTraining.Models
 {
@@ -21,50 +19,88 @@ namespace WebMathTraining.Models
         Text
     }
 
-    public class TestQuestion
+  public class TestQuestion
+  {
+    public string Id { get; set; }
+
+    public string Category { get; set; }
+
+    public int Level { get; set; }
+
+    [Required]
+    public TestImage QuestionImage { get; set; }
+
+    public byte[] AnswerStream { get; set; }
+
+    public string Source { get; set; }
+
+    [NotMapped]
+    public TestAnswer TestAnswer
     {
-        public string Id { get; set; }
-
-        public string Category { get; set; }
-
-        public int Level { get; set; }
-
-        [Required]
-        public TestImage QuestionImage { get; set; }
-
-        public byte[] TestAnswer { get; set; }
-
-        public string Source { get; set; }
-
+      get
+      {
+        if (_testAnswer == null)
+        {
+          using (var stream = new MemoryStream(AnswerStream))
+          {
+            _testAnswer = Serializer.Deserialize<TestAnswer>(stream);
+          }
+        }
+        return _testAnswer;
+      }
+      set
+      {
+        _testAnswer = value;
+        using (var stream = new MemoryStream())
+        {
+          Serializer.Serialize(stream, _testAnswer);
+          AnswerStream = stream.ToArray();
+        }
+      }
     }
+
+    #region Data
+
+    [NotMapped]
+    private TestAnswer _testAnswer;
+
+    #endregion
+  }
 
   [Serializable]
   [ProtoContract]
   [DataContract]
   public class TestAnswer : ICloneable
   {
-    //[ProtoMember()]
+    [ProtoMember(1)]
     [DataMember(Order = 1, IsRequired = true)]
     public TestAnswerType AnswerType { get; set; }
 
+    [ProtoMember(2)]
     [DataMember(Order = 2)]
     public string AnswerChoice1 { get; set; }
 
+    [ProtoMember(3)]
     [DataMember(Order = 3)]
     public string AnswerChoice2 { get; set; }
 
+    [ProtoMember(4)]
     [DataMember(Order = 4)]
     public string AnswerChoice3 { get; set; }
 
+    [ProtoMember(5)]
     [DataMember(Order = 5)]
     public string AnswerChoice4 { get; set; }
 
+    [ProtoMember(6)]
     [DataMember(Order = 6)]
     public string AnswerChoice5 { get; set; }
 
+    [ProtoMember(7)]
     [DataMember(Order = 7)]
     public string AnswerChoice6 { get; set; }
 
+    [ProtoMember(8)]
     [DataMember(Order = 8)]
     public double NumericAnswer
     {
@@ -82,6 +118,7 @@ namespace WebMathTraining.Models
       }
     }
 
+    [ProtoMember(9)]
     [DataMember(Order = 9)]
     public double NumericAccuracy
     {
@@ -99,6 +136,7 @@ namespace WebMathTraining.Models
       }
     }
 
+    [ProtoMember(10)]
     [DataMember(Order = 10)]
     public string TextAnswer { get; set; }
 
@@ -109,26 +147,20 @@ namespace WebMathTraining.Models
       get { return !string.IsNullOrEmpty(TextAnswer); }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public object Clone()
     {
       return MemberwiseClone();
     }
 
     #region Data
-if (riskResult != null)
-                {
-                  using (var stream = new MemoryStream(riskResult))
-                  {
-                    resultList.Items.Add(Serializer.Deserialize<RiskResult>(stream));
-                  }
-                }
+
     private double? _numericAnswer;
     private double? _numericAccuracy;
-using (var stream = new MemoryStream())
-      {
-        Serializer.Serialize(stream, riskResult);
-        _insertTradeRiskResultCommand.Parameters["riskResult"].Value = stream.ToArray();
-      }
+
     #endregion
   }
 }
