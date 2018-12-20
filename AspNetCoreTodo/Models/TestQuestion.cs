@@ -19,11 +19,24 @@ namespace WebMathTraining.Models
         Text
     }
 
+  public enum TestCategory
+  {
+    None,
+    Math,
+    Physics
+  }
+
   public class TestQuestion
   {
-    public string Id { get; set; }
+    public TestQuestion()
+    {
+      Category = TestCategory.Math;
+      Level = 1;
+    }
 
-    public string Category { get; set; }
+    public Guid Id { get; set; }
+
+    public TestCategory Category { get; set; }
 
     public int Level { get; set; }
 
@@ -32,7 +45,7 @@ namespace WebMathTraining.Models
 
     public byte[] AnswerStream { get; set; }
 
-    public string Source { get; set; }
+    //public string Source { get; set; }
 
     [NotMapped]
     public TestAnswer TestAnswer
@@ -128,6 +141,7 @@ namespace WebMathTraining.Models
 
     [XmlIgnore]
     [Browsable(false)]
+    [NotMapped]
     public bool NumericAccuracySpecified
     {
       get
@@ -142,6 +156,7 @@ namespace WebMathTraining.Models
 
     [XmlIgnore]
     [Browsable(false)]
+    [NotMapped]
     public bool TextAnswerSpecified
     {
       get { return !string.IsNullOrEmpty(TextAnswer); }
@@ -158,7 +173,10 @@ namespace WebMathTraining.Models
 
     #region Data
 
+    [NotMapped]
     private double? _numericAnswer;
+
+    [NotMapped]
     private double? _numericAccuracy;
 
     #endregion

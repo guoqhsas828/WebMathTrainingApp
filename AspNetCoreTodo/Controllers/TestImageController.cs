@@ -37,12 +37,12 @@ namespace WebMathTraining.Controllers
                 MemoryStream ms = new MemoryStream();
                 uploadedImage.OpenReadStream().CopyTo(ms);
 
-                //System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+        //System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
 
-                var imageEntity = new TestImage()
+        var imageEntity = new TestImage()
                 {
                     Id = Guid.NewGuid(),
-                    Name = uploadedImage.Name,
+                    Name = uploadedImage.FileName,
                     Data = ms.ToArray(),
                     //Width = image.Width,
                     //Height = image.Height,

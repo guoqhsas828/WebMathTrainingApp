@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WebMathTraining.Migrations.TestDb
 {
-    public partial class ExtraInitial : Migration
+    public partial class DbInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,14 +29,11 @@ namespace WebMathTraining.Migrations.TestDb
                 name: "TestQuestions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AnswerChoices = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    AnswerType = table.Column<int>(type: "int", nullable: false),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FinalAnswer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AnswerStream = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Category = table.Column<int>(type: "int", nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false),
-                    QuestionImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    QuestionImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
