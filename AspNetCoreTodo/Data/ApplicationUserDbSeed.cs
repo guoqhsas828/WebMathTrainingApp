@@ -16,7 +16,7 @@ namespace WebMathTraining.Data
       RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
       // User Info
-      string userName = Constants.AdminUserName;
+      string userName = Constants.AdminEmail;
       string email = Constants.AdminEmail;
       string password = Constants.AdminPswd;
       string role = Constants.AdministratorRole;

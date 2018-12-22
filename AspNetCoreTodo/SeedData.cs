@@ -36,7 +36,7 @@ namespace WebMathTraining
 
             if (testAdmin != null) return;
 
-            testAdmin = new ApplicationUser { UserName = Constants.AdminUserName, Email = Constants.AdminEmail };
+            testAdmin = new ApplicationUser { UserName = Constants.AdminEmail, Email = Constants.AdminEmail };
             await userManager.CreateAsync(testAdmin, Constants.AdminPswd);
             await userManager.AddToRoleAsync(testAdmin, Constants.AdministratorRole);
         }
