@@ -29,7 +29,7 @@ namespace WebMathTraining.Controllers
       return View();
     }
 
-    public IActionResult SaveQuestion(Guid questionId)
+    public IActionResult SaveQuestion(Guid id)
     {
       return RedirectToAction("Index");
     }

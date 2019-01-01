@@ -24,8 +24,10 @@
                 <label asp-for="Level"></label>
                 <input asp-for="Level" class="form-control" />
                 <span asp-validation-for="Level" class="text-danger"></span>
+                <label asp-for="Id"></label>
+                <input asp-for="Id" class="form-control" disabled />
             </div>
-            <button type="SaveQuestion" class="btn btn-SaveQuestion">Save</button>
+            <button class="btn btn-SaveQuestion" asp-action="SaveQuestion" asp-route-id="Id">Save</button>
         </form>
     </div>
 </div>
