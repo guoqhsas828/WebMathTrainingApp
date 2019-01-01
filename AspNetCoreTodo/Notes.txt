@@ -3,3 +3,15 @@
    public async Task<IActionResult> DeleteDevice(int id)
    or, change the a tag so that the asp-route-* attribute matches the name of the parameter, like so:
    <a asp-action="DeleteDevice"       asp-controller="Device"     asp-route-deviceId="@device.DeviceId">    Delete</a>
+2. Related entity data not fetched
+   When EF Core retrieves entities, it populates all of the properties that are stored directly with that entity in the database. 
+   Navigation properties, such as lists of related entities, are not populated and may have their value set to null. 
+   This ensures EF Core is not fetching more data than is needed, which is especially important for web applications, which must quickly process 
+   requests and return responses in an efficient manner. To include relationships with an entity using eager loading, 
+   you specify the property using the Include extension method on the query, as shown:
+      // .Include requires using Microsoft.EntityFrameworkCore
+     var brandsWithItems = await _context.CatalogBrands
+    .Include(b => b.Items)
+    .ToListAsync();
+	You can include multiple relationships, and you can also include sub-relationships using ThenInclude. 
+	EF Core will execute a single query to retrieve the resulting set of entities

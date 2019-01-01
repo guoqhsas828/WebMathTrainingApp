@@ -15,11 +15,11 @@ namespace WebMathTraining.Models
     [Required]
     public int Level { get; set; }
 
-    [Display(Name = "Question Name")]
-    public string QuestionName { get; set; }
+    [Display(Name = "Image Name")]
+    public string ImageName { get { return Image?.Name ?? ""; } }
 
     [Required]
-    public string QuestionId { get; set; }
+    public string ImageId { get { return Image?.Id.ToString() ?? ""; } }
 
     public TestImage Image { get; set; }
     public string StatusMessage { get; set; }

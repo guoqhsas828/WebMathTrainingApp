@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using System.IO;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
@@ -24,27 +24,46 @@ namespace WebMathTraining.Controllers
     [HttpGet]
     public IActionResult Index()
     {
-      //var images = _context.TestImages.ToList();
-      //return View(new TestQuestionViewModel { });
-      return View();
+      var questions = _context.TestQuestions.Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Image = tq.QuestionImage, Level = tq.Level});
+      return View(questions);
     }
 
-    public IActionResult SaveQuestion(Guid id)
+    public IActionResult SaveQuestion(Guid modelId, TestCategory category, int level, string imageId)
     {
+      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
+      if (image != null)
+      {
+        var entity = new TestQuestion()
+        {
+          Id = modelId,
+          Category = category,
+          Level = level,
+          //Width = image.Width,
+          //Height = image.Height,
+          QuestionImage = image
+        };
+
+        _context.TestQuestions.Add(entity);
+
+        _context.SaveChanges();
+      }
+
       return RedirectToAction("Index");
     }
 
-    //[HttpGet]
-    //public FileStreamResult ViewImage(Guid id)
-    //{
-
-    //  var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
-
-    //  MemoryStream ms = new MemoryStream(image.Data);
-
-    //  return new FileStreamResult(ms, image.ContentType);
-
-    //}
+    [HttpGet]
+    public IActionResult Edit(Guid id)
+    {
+      var entity = _context.TestQuestions.Where(q => q.Id == id).Include(q => q.QuestionImage).FirstOrDefault();
+      if (entity == null)
+      {
+        return RedirectToAction("Index");
+      }
+      else
+      {
+        return View(new TestQuestionViewModel { Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage});
+      }
+    }
 
     [HttpGet]
     public IActionResult CreateQuestion(Guid id) //Note, the parameter here 
@@ -58,7 +77,7 @@ namespace WebMathTraining.Controllers
         }
         else
         {
-          return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, Image = testQuestion, QuestionId = id.ToString(), QuestionName = testQuestion.Name });
+          return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, Image = testQuestion });
         }
       }
       catch (Exception ex)
