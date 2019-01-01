@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace WebMathTraining.Models
 {
-    public class TestQuestionViewModel
-    {
-        public string Id { get; set; }
+  public class TestQuestionViewModel
+  {
+    public Guid Id { get; set; }
 
-        public TestCategory Category { get; set; }
+    public TestCategory Category { get; set; }
 
-        [Required]
-        public int Level { get; set; }
+    [Required]
+    public int Level { get; set; }
 
-        [Display(Name = "Question Name")]
-        public string QuestionName { get; set; }
+    [Display(Name = "Question Name")]
+    public string QuestionName { get; set; }
 
-        [Required]
-        public string QuestionId { get; set; }
+    [Required]
+    public string QuestionId { get; set; }
 
-      public string StatusMessage { get; set; }
+    public TestImage Image { get; set; }
+    public string StatusMessage { get; set; }
 
   }
 }

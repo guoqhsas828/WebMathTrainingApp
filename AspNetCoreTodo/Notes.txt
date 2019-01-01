@@ -1,0 +1,5 @@
+﻿1. asp-route-id not properly passing the parameter value into controller function
+   Either change the controller action to:
+   public async Task<IActionResult> DeleteDevice(int id)
+   or, change the a tag so that the asp-route-* attribute matches the name of the parameter, like so:
+   <a asp-action="DeleteDevice"       asp-controller="Device"     asp-route-deviceId="@device.DeviceId">    Delete</a>
