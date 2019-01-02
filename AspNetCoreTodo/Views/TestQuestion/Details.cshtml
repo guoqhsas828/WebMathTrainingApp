@@ -1,0 +1,33 @@
+﻿@model QuestionDetailViewModel
+@{
+    ViewData["Title"] = "Question Detail";
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <img src="@Url.Action("GetTestImageFile", "TestQuestion", new {id = Model.ImageId})" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Category"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level"></label>
+                <input asp-for="Level" class="form-control" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+                <label asp-for="AnswerChoice">Answer Choice</label>
+                <input asp-for="AnswerChoice" class="form-control" />
+            </div>
+            <button class="btn btn-SaveQuestion" asp-action="SaveDetail" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -33,17 +33,26 @@ namespace WebMathTraining.Controllers
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
       if (image != null)
       {
-        var entity = new TestQuestion()
+        var entity = _context.TestQuestions.Find(modelId);
+        if (entity == null)
         {
-          Id = modelId,
-          Category = category,
-          Level = level,
-          //Width = image.Width,
-          //Height = image.Height,
-          QuestionImage = image
-        };
-
-        _context.TestQuestions.Add(entity);
+          entity = new TestQuestion()
+          {
+            Id = modelId,
+            Category = category,
+            Level = level,
+            //Width = image.Width,
+            //Height = image.Height,
+            QuestionImage = image
+          };
+          _context.TestQuestions.Add(entity);
+        }
+        else
+        {
+          entity.Category = category;
+          entity.Level = level;
+          entity.QuestionImage = image;
+        }
 
         _context.SaveChanges();
       }
@@ -85,6 +94,65 @@ namespace WebMathTraining.Controllers
         ModelState.AddModelError("Create Question Error", ex.Message);
       }
       return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult Details(Guid id)
+    {
+      var entity = _context.TestQuestions.Where(q => q.Id == id).Include(q => q.QuestionImage).FirstOrDefault();
+      if (entity == null)
+      {
+        return RedirectToAction("Index");
+      }
+      else
+      {
+        return View(new QuestionDetailViewModel { Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage, AnswerChoice = TestAnswerType.SingleChoice});
+      }
+    }
+
+
+    public IActionResult SaveDetail(Guid modelId, TestCategory category, int level, string imageId, TestAnswerType aType)
+    {
+      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
+      if (image != null)
+      {
+        var entity = _context.TestQuestions.Find(modelId);
+        if (entity == null)
+        {
+          entity = new TestQuestion()
+          {
+            Id = modelId,
+            Category = category,
+            Level = level,
+            TestAnswer = new TestAnswer() {AnswerType = aType},
+            QuestionImage = image
+          };
+          _context.TestQuestions.Add(entity);
+        }
+        else
+        {
+          entity.Category = category;
+          entity.Level = level;
+          entity.QuestionImage = image;
+          entity.TestAnswer = new TestAnswer(){AnswerType = aType};
+        }
+
+        _context.SaveChanges();
+      }
+
+      return RedirectToAction("Index");
+    }
+
+    public IActionResult GetTestImageFile(string id)
+    {
+      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);
+      if (image == null)
+      {
+        return null;
+      }
+
+      FileResult imageUserFile = File(image.Data, "image/jpeg");
+      return imageUserFile;
     }
   }
 }
