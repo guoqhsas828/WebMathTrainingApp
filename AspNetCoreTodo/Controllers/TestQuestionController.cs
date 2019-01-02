@@ -154,5 +154,17 @@ namespace WebMathTraining.Controllers
       FileResult imageUserFile = File(image.Data, "image/jpeg");
       return imageUserFile;
     }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View(new QuestionDetailViewModel { Category = "Math", Id = new Guid(), Level = entity.Level, Image = entity.QuestionImage });
+    }
+
+    private static byte[] StrToByteArray(string str)
+    {
+      var encoding = new System.Text.UTF8Encoding();
+      return encoding.GetBytes(str);
+    }
   }
 }

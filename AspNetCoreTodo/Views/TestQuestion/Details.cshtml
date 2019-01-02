@@ -23,7 +23,7 @@
                 <label asp-for="AnswerChoice">Answer Choice</label>
                 <input asp-for="AnswerChoice" class="form-control" />
             </div>
-            <button class="btn btn-SaveQuestion" asp-action="SaveDetail" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId">Save</button>
+            <button class="btn btn-SaveQuestion" asp-action="SaveDetail" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId" asp-route-aType="@Model.AnswerChoice">Save</button>
         </form>
     </div>
 </div>
