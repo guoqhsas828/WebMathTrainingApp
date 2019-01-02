@@ -60,19 +60,6 @@ namespace WebMathTraining.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet]
-    public IActionResult Edit(Guid id)
-    {
-      var entity = _context.TestQuestions.Where(q => q.Id == id).Include(q => q.QuestionImage).FirstOrDefault();
-      if (entity == null)
-      {
-        return RedirectToAction("Index");
-      }
-      else
-      {
-        return View(new TestQuestionViewModel { Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage});
-      }
-    }
 
     [HttpGet]
     public IActionResult CreateQuestion(Guid id) //Note, the parameter here 
@@ -158,7 +145,7 @@ namespace WebMathTraining.Controllers
     [HttpGet]
     public IActionResult Create()
     {
-        return View(new QuestionDetailViewModel { Category = "Math", Id = new Guid(), Level = entity.Level, Image = entity.QuestionImage });
+        return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = new Guid()});
     }
 
     private static byte[] StrToByteArray(string str)
