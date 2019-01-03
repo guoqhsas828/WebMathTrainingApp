@@ -42,7 +42,7 @@ namespace WebMathTraining.Controllers
             Id = modelId,
             Category = viewModel.Category,
             Level = viewModel.Level,
-            //Width = image.Width,
+            TestAnswer = new TestAnswer { AnswerType = viewModel.AnswerChoice},
             //Height = image.Height,
             QuestionImage = image
           };
@@ -53,6 +53,7 @@ namespace WebMathTraining.Controllers
           entity.Category = viewModel.Category;
           entity.Level = viewModel.Level;
           entity.QuestionImage = image;
+          entity.TestAnswer = new TestAnswer{ AnswerType = viewModel.AnswerChoice};
         }
 
         _context.SaveChanges();
@@ -94,11 +95,17 @@ namespace WebMathTraining.Controllers
       }
       else
       {
-        return View(new QuestionDetailViewModel { Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage, AnswerChoice = TestAnswerType.SingleChoice});
+        return View(new QuestionDetailViewModel
+        {
+          Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage,
+          AnswerChoice = entity.TestAnswer.AnswerType,
+          TextAnswer = entity.TestAnswer.TextAnswer
+        });
       }
     }
 
-    public IActionResult SaveDetail(Guid modelId, TestCategory category, int level, string imageId, TestAnswerType aType)
+    [HttpPost]
+    public IActionResult SaveDetail(Guid modelId, string imageId, QuestionDetailViewModel viewModel)
     {
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
       if (image != null)
@@ -109,19 +116,19 @@ namespace WebMathTraining.Controllers
           entity = new TestQuestion()
           {
             Id = modelId,
-            Category = category,
-            Level = level,
-            TestAnswer = new TestAnswer() {AnswerType = aType},
+            Category = viewModel.Category,
+            Level = viewModel.Level,
+            TestAnswer = new TestAnswer() {AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer},
             QuestionImage = image
           };
           _context.TestQuestions.Add(entity);
         }
         else
         {
-          entity.Category = category;
-          entity.Level = level;
+          entity.Category = viewModel.Category;
+          entity.Level = viewModel.Level;
           entity.QuestionImage = image;
-          entity.TestAnswer = new TestAnswer(){AnswerType = aType};
+          entity.TestAnswer = new TestAnswer(){AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer};
         }
 
         _context.SaveChanges();

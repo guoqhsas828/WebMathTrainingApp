@@ -9,5 +9,7 @@ namespace WebMathTraining
         public const string TrialUserRole = "Trial";
 
         public const string ClientSupportEmail = "TestAdmG1888@hotmail.com";
+
+      public static readonly int[] Levels = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     }
 }

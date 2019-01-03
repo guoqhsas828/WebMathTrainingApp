@@ -12,18 +12,24 @@
                 <img src="@Url.Action("GetTestImageFile", "TestQuestion", new {id = Model.ImageId})" />
             </div>
             <div class="form-group">
-                <label asp-for="Category"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="Category">Category:</label>
+                @Html.DropDownListFor(m => m.Category, Enum.GetNames(typeof(TestCategory)).Select(c =>
+                    new SelectListItem(c, c, Enum.Parse<TestCategory>(c) == @Model.Category)), 
+                    "Select Category")
             </div>
             <div class="form-group">
-                <label asp-for="Level"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
-                <label asp-for="AnswerChoice">Answer Choice</label>
-                <input asp-for="AnswerChoice" class="form-control" />
+                <label asp-for="Level">Level:</label>
+                @Html.DropDownListFor(m => m.Level, Constants.Levels.Select(l =>
+                    new SelectListItem(l.ToString(), l.ToString(), l == @Model.Level)), "Select Level")
+                <label asp-for="AnswerChoice">Answer Type:</label>
+                @Html.DropDownListFor(m => m.AnswerChoice,
+                    Enum.GetNames(typeof(TestAnswerType)).Select(n => 
+                        new SelectListItem(n, n, Enum.Parse<TestAnswerType>(n) == @Model.AnswerChoice)),
+                    "Please select answer type")
+                <label asp-for="TextAnswer">Text Answer:</label>
+                <input asp-for="TextAnswer" class="form-control" />
             </div>
-            <button class="btn btn-SaveQuestion" asp-action="SaveDetail" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId" asp-route-aType="@Model.AnswerChoice">Save</button>
+            <button class="btn btn-SaveQuestion" asp-action="SaveDetail" asp-route-modelId="@Model.Id"  asp-route-imageId="@Model.ImageId">Save</button>
         </form>
     </div>
 </div>
