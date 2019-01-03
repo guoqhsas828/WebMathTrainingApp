@@ -1,19 +1,16 @@
 ﻿@model TestQuestionViewModel
 @{
-    ViewData["Title"] = "Question Detail";
+    ViewData["Title"] = "New Question";
 }
 
 <h4>@ViewData["Title"]</h4>
-@*@Html.Partial("_StatusMessage", Model.StatusMessage)*@
 <div class="row">
     <div class="col-md-6">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ImageId">Image Id</label>
-                <input asp-for="ImageId" class="form-control" disabled />
-                <label asp-for="ImageName">Image Name</label>
-                <input asp-for="ImageName" class="form-control" disabled />
+                <label asp-for="QuestionText">Question</label>
+                @Html.TextAreaFor(model => model.QuestionText, 10, 55, null)
             </div>
             <div class="form-group">
                 <label asp-for="Category"></label>
@@ -27,7 +24,7 @@
                 <label asp-for="Id">Question Id</label>
                 <input asp-for="Id" class="form-control" disabled />
             </div>
-            <button class="btn btn-SaveQuestion" asp-action="SaveQuestion" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId">Save</button>
+            <button class="btn btn-default" asp-action="CreateNew" asp-route-id="@Model.Id">Create</button>
         </form>
     </div>
 </div>

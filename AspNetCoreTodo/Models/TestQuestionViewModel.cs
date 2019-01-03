@@ -15,13 +15,15 @@ namespace WebMathTraining.Models
     [Required]
     public int Level { get; set; }
 
-    [Display(Name = "Image Name")]
-    public string ImageName { get { return Image?.Name ?? ""; } }
+    [DataType(DataType.MultilineText)]
+    public string QuestionText { get; set; }
 
-    [Required]
-    public string ImageId { get { return Image?.Id.ToString() ?? ""; } }
+    public TestAnswerType AnswerChoice { get; set; }
 
-    public TestImage Image { get; set; }
+    public string TextAnswer { get; set; }
+
+    public double NumericAnswer { get; set; }
+
     public string StatusMessage { get; set; }
 
   }

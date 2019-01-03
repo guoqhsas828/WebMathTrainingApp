@@ -24,7 +24,7 @@ namespace WebMathTraining.Controllers
     [HttpGet]
     public IActionResult Index()
     {
-      var questions = _context.TestQuestions.Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Image = tq.QuestionImage, Level = tq.Level});
+      var questions = _context.TestQuestions.Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
       return View(questions);
     }
 
@@ -64,7 +64,7 @@ namespace WebMathTraining.Controllers
 
 
     [HttpGet]
-    public IActionResult CreateQuestion(Guid id) //Note, the parameter here
+    public IActionResult CreateQuestion(Guid id) //Note, the parameter here need to match asp-route-***
     {
       try
       {
@@ -153,6 +153,48 @@ namespace WebMathTraining.Controllers
     public IActionResult Create()
     {
         return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = new Guid()});
+    }
+
+    [HttpPost]
+    public IActionResult CreateNew(Guid id, TestQuestionViewModel viewModel)
+    {
+      var testStr = viewModel.QuestionText;
+      if (!string.IsNullOrEmpty(testStr))
+      {
+        var image = new TestImage()
+        {
+          ContentType = "Text", Data = StrToByteArray(testStr), Id = new Guid(), Length = testStr.Length,
+          Name = id.ToString()
+        };
+
+        _context.TestImages.Add(image);
+        _context.SaveChanges();
+
+        var entity = _context.TestQuestions.Find(id);
+        if (entity == null)
+        {
+          entity = new TestQuestion()
+          {
+            Id = id,
+            Category = viewModel.Category,
+            Level = viewModel.Level,
+            TestAnswer = new TestAnswer() { AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer },
+            QuestionImage = image
+          };
+          _context.TestQuestions.Add(entity);
+        }
+        else
+        {
+          entity.Category = viewModel.Category;
+          entity.Level = viewModel.Level;
+          entity.QuestionImage = image;
+          entity.TestAnswer = new TestAnswer() { AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer };
+        }
+
+        _context.SaveChanges();
+      }
+
+      return RedirectToAction("Index");
     }
 
     private static byte[] StrToByteArray(string str)
