@@ -1,36 +1,46 @@
-﻿@model TestQuestionViewModel
+﻿@model QuestionDetailViewModel
 @{
     ViewData["Title"] = "Question Detail";
 }
 
 <h4>@ViewData["Title"]</h4>
-@*@Html.Partial("_StatusMessage", Model.StatusMessage)*@
-<div class="row">
-    <div class="col-md-6">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ImageId">Image Id</label>
-                <input asp-for="ImageId" class="form-control" disabled />
-                <label asp-for="ImageName">Image Name</label>
-                <input asp-for="ImageName" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-                <label asp-for="Category"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Level"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
-                <label asp-for="Id">Question Id</label>
-                <input asp-for="Id" class="form-control" disabled />
-            </div>
-            <button class="btn btn-SaveQuestion" asp-action="SaveQuestion" asp-route-modelId="@Model.Id" asp-route-category="@Model.Category" asp-route-level="@Model.Level" asp-route-imageId="@Model.ImageId">Save</button>
-        </form>
+@using (Html.BeginForm("SaveQuestion", "TestQuestion", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <img src="@Url.Action("GetTestImageFile", "TestQuestion", new {id = Model.ImageId})"/>
+                    </div>
+                    <label asp-for="ImageId">Image Id</label>
+                    <input asp-for="ImageId" class="form-control" disabled/>
+                    <label asp-for="AnswerChoice">Answer Type:</label>
+                    @Html.DropDownListFor(m => m.AnswerChoice,
+                        Enum.GetNames(typeof(TestAnswerType)).Select(n => new SelectListItem(n, n)), "Please select answer type")
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category"></label>
+                    <input asp-for="Category" class="form-control"/>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Level"></label>
+                    <input asp-for="Level" class="form-control"/>
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                    <label asp-for="Id">Question Id</label>
+                    <input asp-for="Id" class="form-control" disabled/>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" asp-action="SaveQuestion" asp-route-modelId="@Model.Id" asp-route-imageId="@Model.ImageId"/>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+}
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

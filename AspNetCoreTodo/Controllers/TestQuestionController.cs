@@ -28,7 +28,8 @@ namespace WebMathTraining.Controllers
       return View(questions);
     }
 
-    public IActionResult SaveQuestion(Guid modelId, TestCategory category, int level, string imageId)
+    [HttpPost]
+    public IActionResult SaveQuestion(Guid modelId, string imageId, QuestionDetailViewModel viewModel)
     {
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
       if (image != null)
@@ -39,8 +40,8 @@ namespace WebMathTraining.Controllers
           entity = new TestQuestion()
           {
             Id = modelId,
-            Category = category,
-            Level = level,
+            Category = viewModel.Category,
+            Level = viewModel.Level,
             //Width = image.Width,
             //Height = image.Height,
             QuestionImage = image
@@ -49,8 +50,8 @@ namespace WebMathTraining.Controllers
         }
         else
         {
-          entity.Category = category;
-          entity.Level = level;
+          entity.Category = viewModel.Category;
+          entity.Level = viewModel.Level;
           entity.QuestionImage = image;
         }
 
@@ -62,7 +63,7 @@ namespace WebMathTraining.Controllers
 
 
     [HttpGet]
-    public IActionResult CreateQuestion(Guid id) //Note, the parameter here 
+    public IActionResult CreateQuestion(Guid id) //Note, the parameter here
     {
       try
       {
@@ -73,7 +74,7 @@ namespace WebMathTraining.Controllers
         }
         else
         {
-          return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, Image = testQuestion });
+          return View(new QuestionDetailViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, Image = testQuestion, AnswerChoice = TestAnswerType.Text});
         }
       }
       catch (Exception ex)
@@ -96,7 +97,6 @@ namespace WebMathTraining.Controllers
         return View(new QuestionDetailViewModel { Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage, AnswerChoice = TestAnswerType.SingleChoice});
       }
     }
-
 
     public IActionResult SaveDetail(Guid modelId, TestCategory category, int level, string imageId, TestAnswerType aType)
     {
