@@ -47,5 +47,21 @@ namespace WebMathTraining.Models
     public string TextAnswer { get; set; }
 
     public double NumericAnswer { get; set; }
+
+    public string QuestionText
+    {
+      get
+      {
+        if (Image == null ||
+            String.Compare(Image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) != 0)
+          return null;
+
+        var encoding = new System.Text.UTF8Encoding();
+        return encoding.GetString(Image.Data, 0, Image.Data.Length);
+      }
+    }
+
+    public bool IsTextBased => (Image != null &&
+                                string.Compare(Image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0);
   }
 }

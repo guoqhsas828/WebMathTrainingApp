@@ -166,6 +166,17 @@ namespace WebMathTraining.Controllers
       return imageUserFile;
     }
 
+    public string GetTestQuestionString(string id)
+    {
+      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);
+      if (image == null || String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) != 0)
+      {
+        return null;
+      }
+
+      return ByteArrayToStr(image.Data);
+    }
+
     [HttpGet]
     public IActionResult Create()
     {
@@ -218,6 +229,12 @@ namespace WebMathTraining.Controllers
     {
       var encoding = new System.Text.UTF8Encoding();
       return encoding.GetBytes(str);
+    }
+
+    private static string ByteArrayToStr(byte[] bytes)
+    {
+      var encoding = new System.Text.UTF8Encoding();
+      return encoding.GetString(bytes, 0, bytes.Length);
     }
   }
 }
