@@ -54,9 +54,12 @@ namespace WebMathTraining.Models
       {
         if (_testAnswer == null)
         {
-          using (var stream = new MemoryStream(AnswerStream))
+          if (AnswerStream != null)
           {
-            _testAnswer = Serializer.Deserialize<TestAnswer>(stream);
+            using (var stream = new MemoryStream(AnswerStream))
+            {
+              _testAnswer = Serializer.Deserialize<TestAnswer>(stream);
+            }
           }
         }
         return _testAnswer;
@@ -64,10 +67,13 @@ namespace WebMathTraining.Models
       set
       {
         _testAnswer = value;
-        using (var stream = new MemoryStream())
+        if (value != null)
         {
-          Serializer.Serialize(stream, _testAnswer);
-          AnswerStream = stream.ToArray();
+          using (var stream = new MemoryStream())
+          {
+            Serializer.Serialize(stream, _testAnswer);
+            AnswerStream = stream.ToArray();
+          }
         }
       }
     }

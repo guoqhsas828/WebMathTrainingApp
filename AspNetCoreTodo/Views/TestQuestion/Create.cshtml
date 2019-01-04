@@ -10,17 +10,25 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="QuestionText">Question</label>
-                @Html.TextAreaFor(model => model.QuestionText, 10, 55, null)
+                @Html.TextAreaFor(model => model.QuestionText, 10, 60, null)
             </div>
             <div class="form-group">
-                <label asp-for="Category"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="AnswerChoice">Answer Type:</label>
+                @Html.DropDownListFor(m => m.AnswerChoice,
+                    Enum.GetNames(typeof(TestAnswerType)).Select(n =>
+                        new SelectListItem(n, n, Enum.Parse<TestAnswerType>(n) == @Model.AnswerChoice)),
+                    "Please select answer type")
             </div>
             <div class="form-group">
-                <label asp-for="Level"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
+                <label asp-for="Category">Category:</label>
+                @Html.DropDownListFor(m => m.Category, Enum.GetNames(typeof(TestCategory)).Select(c =>
+                    new SelectListItem(c, c, Enum.Parse<TestCategory>(c) == @Model.Category)),
+                    "Select Category")
+            </div>
+            <div class="form-group">
+                <label asp-for="Level">Level:</label>
+                @Html.DropDownListFor(m => m.Level, Constants.Levels.Select(l =>
+                    new SelectListItem(l.ToString(), l.ToString(), l == @Model.Level)), "Select Level")
                 <label asp-for="Id">Question Id</label>
                 <input asp-for="Id" class="form-control" disabled />
             </div>

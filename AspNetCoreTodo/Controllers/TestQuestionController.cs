@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using System.IO;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 
@@ -98,8 +98,8 @@ namespace WebMathTraining.Controllers
         return View(new QuestionDetailViewModel
         {
           Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage,
-          AnswerChoice = entity.TestAnswer.AnswerType,
-          TextAnswer = entity.TestAnswer.TextAnswer
+          AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None,
+          TextAnswer = entity.TestAnswer?.TextAnswer ?? default(string)
         });
       }
     }
@@ -137,15 +137,32 @@ namespace WebMathTraining.Controllers
       return RedirectToAction("Index");
     }
 
-    public IActionResult GetTestImageFile(string id)
+    public IActionResult GetTestImageFile(string id) 
     {
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);
-      if (image == null)
+      if (image == null || String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
       {
         return null;
       }
 
-      FileResult imageUserFile = File(image.Data, "image/jpeg");
+      byte[] imageBytes;
+      if (String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
+      {
+        string base64Str = Convert.ToBase64String(image.Data);
+        imageBytes = Convert.FromBase64String(base64Str);
+        //using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+        //{
+        //  ms.Write(imageBytes, 0, imageBytes.Length);
+        //  System.Drawing.Image = image.FromStream(ms, true);
+        //}
+        //retVal = string.Format("data:image/gif;base64,{0}", base64Str);
+      }
+      else
+      {
+        imageBytes = image.Data;
+      }
+
+      FileResult imageUserFile = File(imageBytes, "image/jpeg");
       return imageUserFile;
     }
 
