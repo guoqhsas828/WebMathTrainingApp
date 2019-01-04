@@ -11,12 +11,15 @@
     var isAdmin = currentUser != null
         && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
 
-    if (isAdmin) {
+    if (isAdmin)
+    {
         <ul class="nav navbar-nav navbar-right">
             <li><a asp-controller="ManageUsers" asp-action="Index">Manage users</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="TestImage" asp-action="Index">Test Questions</a></li>
-        </ul>
     }
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="TestQuestion" asp-action="Index">Test Questions</a></li>
+    </ul>
+
 }

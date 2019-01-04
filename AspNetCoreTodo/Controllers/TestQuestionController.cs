@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
+using System.Threading.Tasks;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 
@@ -15,16 +16,23 @@ namespace WebMathTraining.Controllers
   public class TestQuestionController : Controller
   {
     private readonly TestDbContext _context;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public TestQuestionController(TestDbContext context)
+    public TestQuestionController(TestDbContext context, UserManager<ApplicationUser> userManager)
     {
       _context = context;
+      _userManager = userManager;
     }
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-      var questions = _context.TestQuestions.Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
+      var currentUser = await _userManager.GetUserAsync(User);
+      if (currentUser == null)
+      {
+        return Challenge();
+      }
+      var questions = _context.TestQuestions.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=2).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
       return View(questions);
     }
 
