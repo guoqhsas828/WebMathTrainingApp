@@ -12,88 +12,89 @@ using WebMathTraining.Models;
 
 namespace WebMathTraining.Controllers
 {
-    public class TestImageController : Controller
+  public class TestImageController : Controller
+  {
+    private readonly TestDbContext _context;
+
+    public TestImageController(TestDbContext context)
     {
-        private readonly TestDbContext _context;
+      _context = context;
+    }
 
-        public TestImageController(TestDbContext context)
-        {
-            _context = context;
-        }
+    [HttpGet]
+    public IActionResult Index()
+    {
+      var processedImages = _context.TestQuestions.Select(q => q.QuestionImage.Id.ToString()).ToHashSet<string>();
+      var images = _context.TestImages.Where(img => !processedImages.Contains(img.Id.ToString())).ToList();
+      return View(new TestImageViewModel { TestImages = images });
+    }
 
-        [HttpGet]
-        public IActionResult Index()
-        {
-            var images = _context.TestImages.ToList();
-            return View(new TestImageViewModel { TestImages = images });
-        }
-
-        [HttpPost]
-        public IActionResult UploadImage(IList<IFormFile> files)
-        {
-            IFormFile uploadedImage = files.FirstOrDefault();
-            if (uploadedImage == null || uploadedImage.ContentType.ToLower().StartsWith("image/"))
-            {
-                MemoryStream ms = new MemoryStream();
-                uploadedImage.OpenReadStream().CopyTo(ms);
+    [HttpPost]
+    public IActionResult UploadImage(IList<IFormFile> files)
+    {
+      IFormFile uploadedImage = files.FirstOrDefault();
+      if (uploadedImage == null || uploadedImage.ContentType.ToLower().StartsWith("image/"))
+      {
+        MemoryStream ms = new MemoryStream();
+        uploadedImage.OpenReadStream().CopyTo(ms);
 
         //System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
 
         var imageEntity = new TestImage()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = uploadedImage.FileName,
-                    Data = ms.ToArray(),
-                    //Width = image.Width,
-                    //Height = image.Height,
-                    ContentType = uploadedImage.ContentType
-                };
-
-                _context.TestImages.Add(imageEntity);
-
-               _context.SaveChanges();
-
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public FileStreamResult ViewImage(Guid id)
         {
+          Id = Guid.NewGuid(),
+          Name = uploadedImage.FileName,
+          Data = ms.ToArray(),
+          //Width = image.Width,
+          //Height = image.Height,
+          ContentType = uploadedImage.ContentType
+        };
 
-            var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
+        _context.TestImages.Add(imageEntity);
 
-            MemoryStream ms = new MemoryStream(image.Data);
+        _context.SaveChanges();
 
-            return new FileStreamResult(ms, image.ContentType);
+      }
 
-        }
-
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
-        {
-            try
-            {
-                var movie = _context.TestImages.Find(id);
-                _context.TestImages.Remove(movie);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("Delete Error", ex.Message);
-            }
-
-            return View(new TestImageViewModel { TestImages = _context.TestImages.ToList() });
-        }
-
-        //public async Task<IActionResult> Delete(Guid id)
-        //{
-        //    var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
-        //    if (image == null)
-        //        return NotFound();
-
-        //    return View(image);
-        //}
+      return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public FileStreamResult ViewImage(Guid id)
+    {
+
+      var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
+
+      MemoryStream ms = new MemoryStream(image.Data);
+
+      return new FileStreamResult(ms, image.ContentType);
+
+    }
+
+    public async Task<IActionResult> DeleteConfirmed(Guid id)
+    {
+      try
+      {
+        var movie = _context.TestImages.Find(id);
+        _context.TestImages.Remove(movie);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
+      }
+      catch (Exception ex)
+      {
+        ModelState.AddModelError("Delete Error", ex.Message);
+      }
+
+      return View(new TestImageViewModel { TestImages = _context.TestImages.ToList() });
+    }
+
+    //public async Task<IActionResult> Delete(Guid id)
+    //{
+    //    var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
+    //    if (image == null)
+    //        return NotFound();
+
+    //    return View(image);
+    //}
+  }
 }

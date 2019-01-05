@@ -32,7 +32,7 @@ namespace WebMathTraining.Controllers
       {
         return Challenge();
       }
-      var questions = _context.TestQuestions.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=2).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
+      var questions = _context.TestQuestions.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
       return View(questions);
     }
 
@@ -50,7 +50,7 @@ namespace WebMathTraining.Controllers
             Id = modelId,
             Category = viewModel.Category,
             Level = viewModel.Level,
-            TestAnswer = new TestAnswer { AnswerType = viewModel.AnswerChoice},
+            TestAnswer = viewModel.CreateTestAnswer(),
             //Height = image.Height,
             QuestionImage = image
           };
@@ -61,7 +61,7 @@ namespace WebMathTraining.Controllers
           entity.Category = viewModel.Category;
           entity.Level = viewModel.Level;
           entity.QuestionImage = image;
-          entity.TestAnswer = new TestAnswer{ AnswerType = viewModel.AnswerChoice};
+          entity.TestAnswer = viewModel.CreateTestAnswer();
         }
 
         _context.SaveChanges();
@@ -76,14 +76,14 @@ namespace WebMathTraining.Controllers
     {
       try
       {
-        var testQuestion = _context.TestImages.Find(id);
-        if (testQuestion == null)
+        var testImage = _context.TestImages.Find(id);
+        if (testImage == null)
         {
           return RedirectToAction("Index");
         }
         else
         {
-          return View(new QuestionDetailViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, Image = testQuestion, AnswerChoice = TestAnswerType.Text});
+          return View(new QuestionDetailViewModel(new TestQuestion { Category = TestCategory.Math, Id = Guid.NewGuid(), Level = 1, QuestionImage = testImage, TestAnswer = new TestAnswer()}));
         }
       }
       catch (Exception ex)
@@ -103,12 +103,7 @@ namespace WebMathTraining.Controllers
       }
       else
       {
-        return View(new QuestionDetailViewModel
-        {
-          Category = entity.Category, Id = entity.Id, Level = entity.Level, Image = entity.QuestionImage,
-          AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None,
-          TextAnswer = entity.TestAnswer?.TextAnswer ?? default(string)
-        });
+        return View(new QuestionDetailViewModel(entity));
       }
     }
 
@@ -126,7 +121,7 @@ namespace WebMathTraining.Controllers
             Id = modelId,
             Category = viewModel.Category,
             Level = viewModel.Level,
-            TestAnswer = new TestAnswer() {AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer},
+            TestAnswer = viewModel.CreateTestAnswer(),
             QuestionImage = image
           };
           _context.TestQuestions.Add(entity);
@@ -136,7 +131,7 @@ namespace WebMathTraining.Controllers
           entity.Category = viewModel.Category;
           entity.Level = viewModel.Level;
           entity.QuestionImage = image;
-          entity.TestAnswer = new TestAnswer(){AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer};
+          entity.TestAnswer = viewModel.CreateTestAnswer();
         }
 
         _context.SaveChanges();

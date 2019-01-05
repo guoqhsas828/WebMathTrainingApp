@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebMathTraining.Models
 {
@@ -18,5 +20,8 @@ namespace WebMathTraining.Models
 
     public string ContentType { get; set; }
 
+    //[Key]
+    //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //public long ObjectId { get; set; }
   }
 }

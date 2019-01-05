@@ -35,6 +35,12 @@
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="ExperienceLevel">Grade</label>
+                @Html.DropDownListFor(m => m.ExperienceLevel, Constants.Levels.Select(l =>
+                    new SelectListItem(l.ToString(), l.ToString(), l == @Model.ExperienceLevel)), "Select Grade")
+                <span asp-validation-for="ExperienceLevel" class="text-danger"></span>
+            </div>
             <button type="submit" class="btn btn-default">Save</button>
         </form>
     </div>

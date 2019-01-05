@@ -60,7 +60,8 @@ namespace WebMathTraining.Controllers
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 IsEmailConfirmed = user.EmailConfirmed,
-                StatusMessage = StatusMessage
+                StatusMessage = StatusMessage,
+                ExperienceLevel = user.ExperienceLevel
             };
 
             return View(model);
@@ -100,6 +101,17 @@ namespace WebMathTraining.Controllers
                     throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
                 }
             }
+
+      var experienceLevel = user.ExperienceLevel;
+      if (model.ExperienceLevel != user.ExperienceLevel)
+      {
+        user.ExperienceLevel = model.ExperienceLevel;
+        var setExperience = await _userManager.UpdateAsync(user);
+        if (!setExperience.Succeeded)
+        {
+          throw new ApplicationException($"Unexpected error occurred updating experiene with ID '{user.Id}'.");
+        }
+      }
 
             StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));

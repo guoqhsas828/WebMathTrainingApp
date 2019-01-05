@@ -30,6 +30,27 @@ namespace WebMathTraining.Models
 
   public class QuestionDetailViewModel
   {
+    public QuestionDetailViewModel()
+    {
+    }
+
+    public QuestionDetailViewModel(TestQuestion entity)
+    {
+      Category = entity.Category;
+      Id = entity.Id;
+      Level = entity.Level;
+      Image = entity.QuestionImage;
+      AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None;
+      TextAnswer = entity.TestAnswer?.TextAnswer ?? default(string);
+      AnswerChoice1 = entity.TestAnswer?.AnswerChoice1 ?? "A. ";
+      AnswerChoice2 = entity.TestAnswer?.AnswerChoice2 ?? "B. ";
+      AnswerChoice3 = entity.TestAnswer?.AnswerChoice3 ?? "C. ";
+      AnswerChoice4 = entity.TestAnswer?.AnswerChoice4 ?? "D. ";
+      AnswerChoice5 = entity.TestAnswer?.AnswerChoice5 ?? default(string);
+      AnswerChoice6 = entity.TestAnswer?.AnswerChoice6 ?? default(string);
+
+    }
+
     public Guid Id { get; set; }
 
     public TestCategory Category { get; set; }
@@ -61,7 +82,27 @@ namespace WebMathTraining.Models
       }
     }
 
+    public string AnswerChoice1 { get; set; }
+
+    public string AnswerChoice2 { get; set; }
+
+    public string AnswerChoice3 { get; set; }
+
+    public string AnswerChoice4 { get; set; }
+
+    public string AnswerChoice5 { get; set; }
+
+    public string AnswerChoice6 { get; set; }
+
     public bool IsTextBased => (Image != null &&
                                 string.Compare(Image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0);
+
+    public bool IsChoiceBased => (AnswerChoice == TestAnswerType.MultipleChoice || AnswerChoice == TestAnswerType.SingleChoice);
+
+    public TestAnswer CreateTestAnswer()
+    {
+      return new TestAnswer { AnswerType = AnswerChoice, AnswerChoice1 = AnswerChoice1, AnswerChoice2 = AnswerChoice2,
+      AnswerChoice3 = AnswerChoice3, AnswerChoice4 = AnswerChoice4, AnswerChoice5 = AnswerChoice5, AnswerChoice6 = AnswerChoice6, TextAnswer = TextAnswer};
+    }
   }
 }

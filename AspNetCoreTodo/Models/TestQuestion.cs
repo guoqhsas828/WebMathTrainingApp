@@ -34,6 +34,10 @@ namespace WebMathTraining.Models
       Level = 1;
     }
 
+    //[Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public long ObjectId { get; set; }
+
     public Guid Id { get; set; }
 
     public TestCategory Category { get; set; }

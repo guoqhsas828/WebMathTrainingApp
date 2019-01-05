@@ -10,9 +10,9 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             @if (!Model.IsTextBased)
             {
-            <div class="form-group">
-                <img src="@Url.Action("GetTestImageFile", "TestQuestion", new { id = Model.ImageId })" />
-            </div>
+                <div class="form-group">
+                    <img src="@Url.Action("GetTestImageFile", "TestQuestion", new { id = Model.ImageId })" />
+                </div>
             }
             <div class="form-group">
                 <label asp-for="Category">Category:</label>
@@ -20,12 +20,29 @@
                     new SelectListItem(c, c, Enum.Parse<TestCategory>(c) == @Model.Category)),
                     "Select Category")
             </div>
-        @if (Model.IsTextBased)
-        {
-            <div class="form-group">
-                @Html.TextAreaFor(model => model.QuestionText, 10, 60, null)
-            </div>
-        }
+            @if (Model.IsTextBased)
+            {
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.QuestionText, 10, 60, null)
+                </div>
+            }
+
+            @if (Model.IsChoiceBased)
+            {
+                <label asp-for="AnswerChoice1"></label>
+                <input asp-for="AnswerChoice1" class="form-control" />
+                <label asp-for="AnswerChoice2"></label>
+                <input asp-for="AnswerChoice2" class="form-control" />
+                <label asp-for="AnswerChoice3"></label>
+                <input asp-for="AnswerChoice3" class="form-control" />
+                <label asp-for="AnswerChoice4"></label>
+                <input asp-for="AnswerChoice4" class="form-control" />
+                <label asp-for="AnswerChoice5"></label>
+                <input asp-for="AnswerChoice5" class="form-control" />
+                <label asp-for="AnswerChoice6"></label>
+                <input asp-for="AnswerChoice6" class="form-control" />
+            }
+
             <div class="form-group">
                 <label asp-for="Level">Level:</label>
                 @Html.DropDownListFor(m => m.Level, Constants.Levels.Select(l =>
