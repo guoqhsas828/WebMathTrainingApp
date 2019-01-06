@@ -54,14 +54,9 @@ namespace WebMathTraining.Controllers
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            var model = new IndexViewModel
+            var model = new IndexViewModel (user)
             {
-                Username = user.UserName,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                IsEmailConfirmed = user.EmailConfirmed,
                 StatusMessage = StatusMessage,
-                ExperienceLevel = user.ExperienceLevel
             };
 
             return View(model);

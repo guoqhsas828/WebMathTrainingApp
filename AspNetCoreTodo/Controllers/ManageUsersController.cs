@@ -34,7 +34,7 @@ namespace WebMathTraining.Controllers
             var model = new ManageUsersViewModel
             {
                 Administrators = admins,
-                Everyone = everyone
+                Everyone = everyone.OrderBy(u => u.ObjectId).ToArray()
             };
 
             return View(model);

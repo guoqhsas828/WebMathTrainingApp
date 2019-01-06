@@ -32,7 +32,7 @@ namespace WebMathTraining.Controllers
       {
         return Challenge();
       }
-      var questions = _context.TestQuestions.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
+      var questions = _context.TestQuestions.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1).OrderBy(q => q.ObjectId).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
       return View(questions);
     }
 

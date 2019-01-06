@@ -15,3 +15,5 @@
     .ToListAsync();
 	You can include multiple relationships, and you can also include sub-relationships using ThenInclude. 
 	EF Core will execute a single query to retrieve the resulting set of entities
+	3. Default Database ConnStr
+	"Server=(localdb)\\MSSQLLocalDB;Initial Catalog=TrunkDB;Connection Timeout=30;"

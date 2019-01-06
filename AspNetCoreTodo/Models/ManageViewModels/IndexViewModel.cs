@@ -8,6 +8,19 @@ namespace WebMathTraining.Models.ManageViewModels
 {
   public class IndexViewModel
   {
+    public IndexViewModel()
+    { }
+
+    public IndexViewModel(ApplicationUser user)
+    {
+      Username = user.UserName;
+      Email = user.Email;
+      PhoneNumber = user.PhoneNumber;
+      IsEmailConfirmed = user.EmailConfirmed;
+      ExperienceLevel = user.ExperienceLevel;
+      UserStatus = user.UserStatus;
+    }
+
     public string Username { get; set; }
 
     public bool IsEmailConfirmed { get; set; }
@@ -21,6 +34,9 @@ namespace WebMathTraining.Models.ManageViewModels
     public string PhoneNumber { get; set; }
 
     public int ExperienceLevel { get; set; }
+
+    public UserStatus UserStatus { get; set; }
+
     public string StatusMessage { get; set; }
   }
 }
