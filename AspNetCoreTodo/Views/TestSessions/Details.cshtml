@@ -47,6 +47,12 @@
             @Html.DisplayFor(model => model.PlannedEnd)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.TestQuestions)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TestQuestions)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.LastUpdated)
         </dt>
         <dd>
@@ -55,6 +61,6 @@
     </dl>
 </div>
 <div>
-    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+    <a asp-action="AddQuestion" asp-route-id="@Model.Id">Add Question</a> |
     <a asp-action="Index">Back to List</a>
 </div>

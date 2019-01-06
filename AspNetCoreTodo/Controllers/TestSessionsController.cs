@@ -198,6 +198,35 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    // GET: TestSessions/AddQuestion
+    public IActionResult AddQuestion(Guid id)
+    {
+      return View(new AddQuestionViewModel { TestSessionId = id});
+    }
+
+    // POST: TestSessions/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
+    {
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
+      if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
+        throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
+
+      testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
+      testSession.TestQuestions = testSession.TestQuestions;
+      testSession.LastUpdated = DateTime.UtcNow;
+      _context.Update(testSession);
+      await _context.SaveChangesAsync();
+      return RedirectToAction(nameof(Index));
+    }
+
     private bool TestSessionExists(Guid id)
     {
       return _context.TestSessions.Any(e => e.Id == id);

@@ -1,0 +1,43 @@
+﻿@model WebMathTraining.Models.AddQuestionViewModel
+
+@{
+    ViewData["Title"] = "Add Question to Test Session";
+}
+
+<h2>Add Question</h2>
+
+<h4>TestQuestionItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuestionId" class="control-label"></label>
+                <input asp-for="QuestionId" class="form-control" />
+                @*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="ScorePoint" class="control-label"></label>
+                <input asp-for="ScorePoint" class="form-control" />
+                <span asp-validation-for="ScorePoint" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenaltyPoint" class="control-label"></label>
+                <input asp-for="PenaltyPoint" class="form-control" />
+                <span asp-validation-for="PenaltyPoint" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" asp-action="AddQuestion" asp-route-id="@Model.TestSessionId" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -23,6 +23,13 @@ namespace WebMathTraining.Models
       {
         RegisteredUsers += tester.TesterId + "/";
       }
+
+      TestQuestions = "";
+      foreach (var test in entity.TestQuestions)
+      {
+        TestQuestions += "(" + test.QuestionId + "/" + test.ScorePoint + ")";
+      }
+      LastUpdated = entity.LastUpdated.ToLocalTime();
     }
 
     public Guid Id { get; set; }
@@ -40,5 +47,7 @@ namespace WebMathTraining.Models
     public DateTime LastUpdated { get; set; }
 
     public string RegisteredUsers { get; set; }
+
+    public string TestQuestions { get; set; }
   }
 }
