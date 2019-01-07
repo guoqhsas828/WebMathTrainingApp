@@ -227,6 +227,46 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    // GET: TestSessions/NextQuestion
+    public IActionResult NextQuestion(Guid id, int questionIdx)
+    {
+      var testSession = _context.TestSessions.Find(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
+      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId).Include(q => q.QuestionImage).FirstOrDefault();
+      if (testQuestion == null)
+        return NotFound();
+
+      return View(new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx));
+    }
+
+    // POST: TestSessions/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SubmitAnswer(Guid id, int questionIdx, NextQuestionDetailViewModel viewModel)
+    {
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      //var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
+      //if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
+      //  throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
+
+      //testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
+      //testSession.TestQuestions = testSession.TestQuestions;
+      //testSession.LastUpdated = DateTime.UtcNow;
+      //_context.Update(testSession);
+      //await _context.SaveChangesAsync();
+      return RedirectToAction(nameof(Index));
+    }
+
     private bool TestSessionExists(Guid id)
     {
       return _context.TestSessions.Any(e => e.Id == id);

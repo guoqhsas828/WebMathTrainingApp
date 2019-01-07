@@ -28,6 +28,18 @@ namespace WebMathTraining.Data
 
       sessionBuilder.Property(p => p.ObjectId).UseSqlServerIdentityColumn();
       sessionBuilder.Property(p => p.ObjectId).Metadata.AfterSaveBehavior = PropertySaveBehavior.Ignore;
+
+      builder.Entity<TestResult>(b =>
+      {
+        b.HasKey(e => e.Id);
+        b.Property(e => e.Id).ValueGeneratedOnAdd();
+      });
+
+      //var resultBuilder = builder.Entity<TestResult>();
+
+      //resultBuilder.Property(p => p.Id).UseSqlServerIdentityColumn();
+      //resultBuilder.Property(p => p.Id).Metadata.AfterSaveBehavior = PropertySaveBehavior.Ignore;
+
     }
 
     public DbSet<TestQuestion> TestQuestions { get; set; }
@@ -35,5 +47,7 @@ namespace WebMathTraining.Data
     public DbSet<TestImage> TestImages { get; set; }
 
     public DbSet<TestSession> TestSessions { get; set; }
+
+    public DbSet<TestResult> TestResults { get; set; }
   }
 }

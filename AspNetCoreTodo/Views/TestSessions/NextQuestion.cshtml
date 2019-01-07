@@ -1,0 +1,57 @@
+﻿@model WebMathTraining.Models.NextQuestionDetailViewModel
+
+@{
+    ViewData["Title"] = "Answer Question";
+}
+
+<h2>@Model.TestSessionName</h2>
+<h2>@("Question " + (Model.QuestionIdx+1))</h2>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @if (!Model.IsTextBased)
+            {
+                <div class="form-group">
+                    <img src="@Url.Action("GetTestImageFile", "TestQuestion", new { id = Model.ImageId })" />
+                </div>
+            }
+                @if (Model.IsTextBased)
+            {
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.QuestionText, 10, 60, null)
+                </div>
+            }
+                <div>
+                    @if (Model.IsChoiceBased)
+            {
+                    <label asp-for="AnswerChoice1"></label>
+                    <input asp-for="AnswerChoice1" class="form-control" />
+                    <label asp-for="AnswerChoice2"></label>
+                    <input asp-for="AnswerChoice2" class="form-control" />
+                    <label asp-for="AnswerChoice3"></label>
+                    <input asp-for="AnswerChoice3" class="form-control" />
+                    <label asp-for="AnswerChoice4"></label>
+                    <input asp-for="AnswerChoice4" class="form-control" />
+                    <label asp-for="AnswerChoice5"></label>
+                    <input asp-for="AnswerChoice5" class="form-control" />
+                    <label asp-for="AnswerChoice6"></label>
+                    <input asp-for="AnswerChoice6" class="form-control" />
+            }
+                </div>
+                <div class="form-group">
+                    <label asp-for="TextAnswer" class="control-label">Answer</label>
+                    <input asp-for="TextAnswer" class="form-control" />
+                    <span asp-validation-for="TextAnswer" class="text-danger"></span>
+                </div>
+                    <button class="btn btn-default" asp-action="SubmitAnswer" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx+1)">Submit Answer</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="NextQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@Model.QuestionIdx">Next Question</a> |
+    <a asp-action="Index">Back to Sessions</a>
+</div>
