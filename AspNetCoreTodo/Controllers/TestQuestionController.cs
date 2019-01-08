@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
+using WebMathTraining.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,11 +18,13 @@ namespace WebMathTraining.Controllers
   {
     private readonly TestDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ITestQuestionService _testQuestionService;
 
-    public TestQuestionController(TestDbContext context, UserManager<ApplicationUser> userManager)
+    public TestQuestionController(TestDbContext context, UserManager<ApplicationUser> userManager, ITestQuestionService service)
     {
       _context = context;
       _userManager = userManager;
+      _testQuestionService = service;
     }
 
     [HttpGet]
@@ -177,67 +180,25 @@ namespace WebMathTraining.Controllers
         return null;
       }
 
-      return ByteArrayToStr(image.Data);
+      return TestQuestionService.ByteArrayToStr(image.Data);
     }
 
     [HttpGet]
     public IActionResult Create()
     {
-        return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = new Guid()});
+        return View(new TestQuestionViewModel { Category = TestCategory.Math});
     }
 
     [HttpPost]
-    public IActionResult CreateNew(Guid id, TestQuestionViewModel viewModel)
+    public IActionResult CreateNew(TestQuestionViewModel viewModel)
     {
-      var testStr = viewModel.QuestionText;
-      if (!string.IsNullOrEmpty(testStr))
-      {
-        var image = new TestImage()
-        {
-          ContentType = "Text", Data = StrToByteArray(testStr), Id = new Guid(), Length = testStr.Length,
-          Name = id.ToString()
-        };
-
-        _context.TestImages.Add(image);
-        _context.SaveChanges();
-
-        var entity = _context.TestQuestions.Find(id);
-        if (entity == null)
-        {
-          entity = new TestQuestion()
-          {
-            Id = id,
-            Category = viewModel.Category,
-            Level = viewModel.Level,
-            TestAnswer = new TestAnswer() { AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer },
-            QuestionImage = image
-          };
-          _context.TestQuestions.Add(entity);
-        }
-        else
-        {
-          entity.Category = viewModel.Category;
-          entity.Level = viewModel.Level;
-          entity.QuestionImage = image;
-          entity.TestAnswer = new TestAnswer() { AnswerType = viewModel.AnswerChoice, TextAnswer = viewModel.TextAnswer };
-        }
-
-        _context.SaveChanges();
-      }
-
+      var id = Guid.NewGuid();
+      var imageId = _testQuestionService.CreateTestImage( viewModel.QuestionText, id.ToString());
+      var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,
+        viewModel.Category, viewModel.AnswerChoice);
       return RedirectToAction("Index");
     }
 
-    private static byte[] StrToByteArray(string str)
-    {
-      var encoding = new System.Text.UTF8Encoding();
-      return encoding.GetBytes(str);
-    }
 
-    private static string ByteArrayToStr(byte[] bytes)
-    {
-      var encoding = new System.Text.UTF8Encoding();
-      return encoding.GetString(bytes, 0, bytes.Length);
-    }
   }
 }

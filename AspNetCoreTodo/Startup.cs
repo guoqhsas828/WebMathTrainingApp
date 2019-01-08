@@ -99,6 +99,10 @@ namespace WebMathTraining
 
             services.AddScoped<IAppUserManageService, AppUserManageService>();
 
+          services.AddScoped<ITestQuestionService, TestQuestionService>();
+
+          services.AddScoped<ITestSessionService, TestSessionService>();
+
             services.AddAuthentication();
 
             //// Auth 2/2: Use Cookies (step 1) to create the default authorization policy
@@ -153,7 +157,7 @@ namespace WebMathTraining
 
       app.UseStaticFiles();
 
-      //ApplicationUserDbSeed.Seed(app.ApplicationServices).Wait();
+      //ApplicationDbContextSeed.Seed(app.ApplicationServices);
 
       app.UseAuthentication();
 

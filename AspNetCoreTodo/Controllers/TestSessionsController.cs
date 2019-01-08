@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
+using WebMathTraining.Services;
 
 namespace WebMathTraining.Controllers
 {
@@ -14,11 +15,13 @@ namespace WebMathTraining.Controllers
   {
     private readonly TestDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ITestSessionService _testSessionService;
 
-    public TestSessionsController(TestDbContext context, UserManager<ApplicationUser> userManager)
+    public TestSessionsController(TestDbContext context, UserManager<ApplicationUser> userManager, ITestSessionService service)
     {
       _context = context;
       _userManager = userManager;
+      _testSessionService = service;
     }
 
     // GET: TestSessions
@@ -151,7 +154,7 @@ namespace WebMathTraining.Controllers
     }
 
     // GET: TestSessions/Register/5
-    public async Task<IActionResult> Register(Guid? id)
+    public async Task<IActionResult> Register(Guid id)
     {
       if (id == null)
       {
@@ -172,17 +175,19 @@ namespace WebMathTraining.Controllers
           throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
         }
 
-        var registeredIds = testSession.Testers.Items.Select(t => t.TesterId).ToHashSet<long>();
-        if (registeredIds.Contains(user.ObjectId))
-        {
-          throw new ApplicationException($"User with ID '{_userManager.GetUserId(User)}' already registered.");
-        }
+        _testSessionService.RegisterUser(id, user);
 
-        testSession.Testers.Add(new TesterItem {  TesterId = user.ObjectId, Grade = user.ExperienceLevel, Group = user.Continent.ToString()});
-        testSession.LastUpdated = DateTime.UtcNow;
-        testSession.Testers = testSession.Testers; //Just give the ProtoBuff mechanism a kick
-        _context.Update(testSession);
-        await _context.SaveChangesAsync();
+        //var registeredIds = testSession.Testers.Items.Select(t => t.TesterId).ToHashSet<long>();
+        //if (registeredIds.Contains(user.ObjectId))
+        //{
+        //  throw new ApplicationException($"User with ID '{_userManager.GetUserId(User)}' already registered.");
+        //}
+
+        //testSession.Testers.Add(new TesterItem {  TesterId = user.ObjectId, Grade = user.ExperienceLevel, Group = user.Continent.ToString()});
+        //testSession.LastUpdated = DateTime.UtcNow;
+        //testSession.Testers = testSession.Testers; //Just give the ProtoBuff mechanism a kick
+        //_context.Update(testSession);
+        //await _context.SaveChangesAsync();
       }
       catch (DbUpdateConcurrencyException)
       {
@@ -209,21 +214,22 @@ namespace WebMathTraining.Controllers
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
     {
-      var testSession = await _context.TestSessions.FindAsync(id);
-      if (testSession == null)
-      {
-        return NotFound();
-      }
+      _testSessionService.AddQuestion(id, testQuestionItem.QuestionId, testQuestionItem.ScorePoint, testQuestionItem.PenaltyPoint);
+      //var testSession = await _context.TestSessions.FindAsync(id);
+      //if (testSession == null)
+      //{
+      //  return NotFound();
+      //}
 
-      var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
-      if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
-        throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
+      //var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
+      //if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
+      //  throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
 
-      testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
-      testSession.TestQuestions = testSession.TestQuestions;
-      testSession.LastUpdated = DateTime.UtcNow;
-      _context.Update(testSession);
-      await _context.SaveChangesAsync();
+      //testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
+      //testSession.TestQuestions = testSession.TestQuestions;
+      //testSession.LastUpdated = DateTime.UtcNow;
+      //_context.Update(testSession);
+      //await _context.SaveChangesAsync();
       return RedirectToAction(nameof(Index));
     }
 
@@ -255,16 +261,43 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
-      //var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
-      //if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
-      //  throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
+      var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
+      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId).Include(q => q.QuestionImage).FirstOrDefault();
+      if (testQuestion == null)
+        return NotFound();
 
-      //testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
-      //testSession.TestQuestions = testSession.TestQuestions;
-      //testSession.LastUpdated = DateTime.UtcNow;
-      //_context.Update(testSession);
-      //await _context.SaveChangesAsync();
-      return RedirectToAction(nameof(Index));
+      var testUser = await _userManager.GetUserAsync(User);
+      var testResult = _context.TestResults.FirstOrDefault(tr => tr.TestSessionId == testSession.ObjectId && tr.UserId == testUser.ObjectId);
+      if (testResult == null)
+      {
+        testResult = new TestResult
+        {
+          TestStarted = testSession.PlannedStart,
+          TestSessionId = testSession.ObjectId,
+          UserId = testUser.ObjectId          
+        };
+        _context.TestResults.Add(testResult);
+
+        _context.SaveChanges();
+      }
+
+      var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
+      if (testResultItem == null)
+      {
+        testResultItem = new TestResultItem() { Answer = viewModel.TextAnswer, QuestionId = testQuestion.ObjectId,};
+      }
+      else
+      {
+        testResultItem.Answer = viewModel.TextAnswer;
+      }
+
+      double score = _testSessionService.JudgeAnswer(testSession, testQuestion, ref testResultItem);
+      viewModel.TotalScore += score;
+      testResult.FinalScore = viewModel.TotalScore;
+      testResult.TestResults = testResult.TestResults;
+      _context.Update(testResult);
+      await _context.SaveChangesAsync();
+      return View(viewModel);
     }
 
     private bool TestSessionExists(Guid id)

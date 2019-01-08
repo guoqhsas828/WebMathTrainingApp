@@ -1,0 +1,136 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using WebMathTraining.Data;
+using WebMathTraining.Models;
+
+namespace WebMathTraining.Services
+{
+  public interface ITestSessionService
+  {
+    Guid CreateNewSession(string name);
+    void RegisterUser(Guid sessionId, ApplicationUser user);
+    void AddQuestion(Guid sessionId, long questionId, double scorePoint, double penaltyPoint=0.0);
+    double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer); //Judge the answer and return the score point
+  }
+
+  public class TestSessionService : ITestSessionService
+  {
+    private readonly TestDbContext _context;
+
+    public TestSessionService(TestDbContext context)
+    {
+      _context = context;
+    }
+
+    public Guid CreateNewSession(string name)
+    {
+      var testSession = new TestSession()
+      {
+        Id = Guid.NewGuid(),
+        LastUpdated = DateTime.UtcNow,
+        Name = name,
+        Description = name,
+        PlannedStart = DateTime.UtcNow,
+        PlannedEnd = DateTime.MaxValue
+      };
+      _context.Add(testSession);
+      _context.SaveChanges();
+      return testSession.Id;
+    }
+
+    public void RegisterUser(Guid sessionId, ApplicationUser user)
+    {
+      var testSession = _context.TestSessions.Find(sessionId);
+      if (testSession == null)
+        throw new ArgumentException("sessionId");
+
+      var registeredIds = testSession.Testers.Items.Select(t => t.TesterId).ToHashSet<long>();
+      if (registeredIds.Contains(user.ObjectId))
+      {
+        throw new ApplicationException($"User with ID '{user.ObjectId}' already registered.");
+      }
+
+      testSession.Testers.Add(new TesterItem { TesterId = user.ObjectId, Grade = user.ExperienceLevel, Group = user.Continent.ToString() });
+      testSession.LastUpdated = DateTime.UtcNow;
+      testSession.Testers = testSession.Testers; //Just give the ProtoBuff mechanism a kick
+      _context.Update(testSession);
+      _context.SaveChanges();
+    }
+
+    public void AddQuestion(Guid sessionId, long questionId, double scorePoint, double penaltyPoint = 0.0)
+    {
+      var testSession =  _context.TestSessions.Find(sessionId);
+      if (testSession == null)
+      {
+        throw new ArgumentException("sessionId");
+      }
+
+      var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
+      if (addedQuestionIds.Contains(questionId))
+        return;
+
+      testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = questionId, PenaltyPoint = penaltyPoint, ScorePoint = scorePoint });
+      testSession.TestQuestions = testSession.TestQuestions;
+      testSession.LastUpdated = DateTime.UtcNow;
+      _context.Update(testSession);
+      _context.SaveChanges();
+    }
+
+    public double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer)
+    {
+      if (test == null || question == null) 
+        throw new ArgumentException("Invalid test or question");
+
+      if (answer == null)
+        throw new ArgumentException("Invalid answer");
+
+      if (question.ObjectId != answer.QuestionId)
+        throw new ArgumentException("The answer does not match the question");
+
+      if (question.TestAnswer == null)
+        throw new NotImplementedException();
+
+      var testItem = test.TestQuestions.Items.FirstOrDefault(q => q.QuestionId == question.ObjectId);
+      if (testItem == null)
+        throw new ArgumentException("question");
+
+      switch (question.TestAnswer.AnswerType)
+      {
+        case TestAnswerType.SingleChoice:
+        case TestAnswerType.Text:
+        case TestAnswerType.Integer:
+          answer.CorrectAnswer = question.TestAnswer.TextAnswer;
+          answer.Score = string.IsNullOrEmpty(answer.Answer) ? 0.0 : String.Compare(question.TestAnswer.TextAnswer, answer.Answer,
+                   StringComparison.InvariantCultureIgnoreCase) == 0
+            ? testItem.ScorePoint
+            : testItem.PenaltyPoint;
+          break;
+        case TestAnswerType.Number:
+          answer.CorrectAnswer = question.TestAnswer.NumericAnswer.ToString(CultureInfo.InvariantCulture);
+          if (string.IsNullOrEmpty(answer.Answer))
+            answer.Score = 0.0;
+          else if (!double.TryParse(answer.Answer, out var numAnswer))
+          {
+            answer.Score = testItem.PenaltyPoint;
+          }
+          else
+          {
+            answer.Score =
+              Math.Abs(question.TestAnswer.NumericAnswer - numAnswer) <= question.TestAnswer.NumericAccuracy
+                ? testItem.ScorePoint
+                : testItem.PenaltyPoint;
+          }
+          break;
+        default:
+          throw new ArgumentException($"Test answer type [{question.TestAnswer.AnswerType}] not supported");
+      }
+
+      return answer.Score;
+    }
+  }
+
+}

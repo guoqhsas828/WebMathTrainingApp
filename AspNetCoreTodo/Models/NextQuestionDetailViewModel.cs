@@ -24,6 +24,7 @@ namespace WebMathTraining.Models
       TestSessionName = sessionName;
       QuestionIdx = idx;
       SessionId = id;
+      TotalScore = 0.0;
     }
 
     public Guid SessionId { get; set; }
@@ -75,6 +76,8 @@ namespace WebMathTraining.Models
 
     public double NumericAnswer { get; set; }
 
-    public double TextAnswer { get; set; }
+    public string TextAnswer { get; set; }
+
+    public double TotalScore { get; set; }
   }
 }
