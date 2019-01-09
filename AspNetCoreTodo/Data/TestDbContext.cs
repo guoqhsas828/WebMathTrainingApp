@@ -49,5 +49,7 @@ namespace WebMathTraining.Data
     public DbSet<TestSession> TestSessions { get; set; }
 
     public DbSet<TestResult> TestResults { get; set; }
+
+    public DbSet<TestGroup> TestGroups { get; set; }
   }
 }

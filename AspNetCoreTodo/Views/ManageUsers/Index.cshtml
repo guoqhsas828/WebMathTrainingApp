@@ -60,8 +60,8 @@
         <td>@user.Continent</td>
         <td>@user.ExperienceLevel</td>
         <td>@user.UserStatus</td>
-        <td>@user.Created</td>
-        <td>@user.LastUpdated</td>
+        <td>@user.Created.ToLocalTime()</td>
+        <td>@user.LastUpdated.ToLocalTime()</td>
         <td>
             <a class="btn btn-delete" asp-controller="ManageUsers" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
         </td>
