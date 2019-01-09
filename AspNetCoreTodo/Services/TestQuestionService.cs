@@ -35,7 +35,7 @@ namespace WebMathTraining.Services
       if (string.IsNullOrEmpty(imageStr))
         throw new ArgumentException("imageStr");
 
-      var image = _context.TestImages.FirstOrDefault(g => g.Name == imageName);
+      var image = _context.TestImages.FirstOrDefault(g => String.Compare(g.Name, imageName, StringComparison.InvariantCultureIgnoreCase) ==0);
       if (image == null)
       {
         image = new TestImage()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Linq;
 using ProtoBuf;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
@@ -83,11 +84,24 @@ namespace WebMathTraining.Models
 
     public DateTime LastUpdated { get; set; }
 
+    #region Methods
+
+    public bool IsRegisteredUser(long userId)
+    {
+      return Testers.Items.Any(u => u.TesterId == userId);
+    }
+
+    #endregion
+
+    #region Data
+
     [NotMapped]
     private TestQuestionList _testQuestions;
 
     [NotMapped]
     private TesterList _testers;
+
+    #endregion
   }
 
   [Serializable]

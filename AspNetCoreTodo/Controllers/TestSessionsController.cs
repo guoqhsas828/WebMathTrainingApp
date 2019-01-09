@@ -153,6 +153,21 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    // GET: TestSessions/AddQuestion
+    public IActionResult AddQuestion(Guid id)
+    {
+      return View(new AddQuestionViewModel { TestSessionId = id});
+    }
+
+    // POST: TestSessions/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
+    {
+      _testSessionService.AddQuestion(id, testQuestionItem.QuestionId, testQuestionItem.ScorePoint, testQuestionItem.PenaltyPoint);
+      return RedirectToAction(nameof(Index));
+    }
+
     // GET: TestSessions/Register/5
     public async Task<IActionResult> Register(Guid id)
     {
@@ -176,18 +191,6 @@ namespace WebMathTraining.Controllers
         }
 
         _testSessionService.RegisterUser(id, user);
-
-        //var registeredIds = testSession.Testers.Items.Select(t => t.TesterId).ToHashSet<long>();
-        //if (registeredIds.Contains(user.ObjectId))
-        //{
-        //  throw new ApplicationException($"User with ID '{_userManager.GetUserId(User)}' already registered.");
-        //}
-
-        //testSession.Testers.Add(new TesterItem {  TesterId = user.ObjectId, Grade = user.ExperienceLevel, Group = user.Continent.ToString()});
-        //testSession.LastUpdated = DateTime.UtcNow;
-        //testSession.Testers = testSession.Testers; //Just give the ProtoBuff mechanism a kick
-        //_context.Update(testSession);
-        //await _context.SaveChangesAsync();
       }
       catch (DbUpdateConcurrencyException)
       {
@@ -203,40 +206,12 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
-    // GET: TestSessions/AddQuestion
-    public IActionResult AddQuestion(Guid id)
-    {
-      return View(new AddQuestionViewModel { TestSessionId = id});
-    }
-
-    // POST: TestSessions/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
-    {
-      _testSessionService.AddQuestion(id, testQuestionItem.QuestionId, testQuestionItem.ScorePoint, testQuestionItem.PenaltyPoint);
-      //var testSession = await _context.TestSessions.FindAsync(id);
-      //if (testSession == null)
-      //{
-      //  return NotFound();
-      //}
-
-      //var addedQuestionIds = testSession.TestQuestions.Select(q => q.QuestionId).ToHashSet<long>();
-      //if (addedQuestionIds.Contains(testQuestionItem.QuestionId))
-      //  throw new ApplicationException($"Question with ID '{testQuestionItem.QuestionId}' already added.");
-
-      //testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = testQuestionItem.QuestionId, PenaltyPoint = testQuestionItem.PenaltyPoint, ScorePoint = testQuestionItem.ScorePoint });
-      //testSession.TestQuestions = testSession.TestQuestions;
-      //testSession.LastUpdated = DateTime.UtcNow;
-      //_context.Update(testSession);
-      //await _context.SaveChangesAsync();
-      return RedirectToAction(nameof(Index));
-    }
-
     // GET: TestSessions/NextQuestion
-    public IActionResult NextQuestion(Guid id, int questionIdx)
+    public async Task<IActionResult> NextQuestion(Guid id, int questionIdx)
     {
-      var testSession = _context.TestSessions.Find(id);
+      if (questionIdx < 0) return await Register(id);
+
+      var testSession = await _context.TestSessions.FindAsync(id);
       if (testSession == null)
       {
         return NotFound();

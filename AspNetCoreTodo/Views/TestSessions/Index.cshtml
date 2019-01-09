@@ -39,9 +39,12 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                  var startIdx = item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
+                  var buttonLabel = startIdx >= 0 ? "Start Test" : "Register";
+
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ObjectId)
+                            @Html.DisplayFor(modelItem => item.Id)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
@@ -59,14 +62,7 @@
                             @Html.DisplayFor(modelItem => item.LastUpdated)
                         </td>
                         <td>
-                            @*@if (isAdmin)
-        {*@
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id"> Details </a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id"> Delete </a> |
-                            @*}*@
-                            <a asp-action="Register" asp-route-id="@item.Id">Register</a> |
-                            <a asp-action="NextQuestion" asp-route-id="@item.Id" asp-route-questionIdx="0">Start</a>
+                            <a asp-action="NextQuestion" asp-route-id="@item.Id" asp-route-questionIdx= "@startIdx">@buttonLabel</a>
                         </td>
                     </tr>
                 }

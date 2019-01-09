@@ -28,6 +28,10 @@ namespace WebMathTraining.Services
 
     public Guid CreateNewSession(string name)
     {
+      var existingSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, name, StringComparison.InvariantCultureIgnoreCase) ==0);
+      if (existingSession != null)
+        return existingSession.Id;
+
       var testSession = new TestSession()
       {
         Id = Guid.NewGuid(),
@@ -51,7 +55,7 @@ namespace WebMathTraining.Services
       var registeredIds = testSession.Testers.Items.Select(t => t.TesterId).ToHashSet<long>();
       if (registeredIds.Contains(user.ObjectId))
       {
-        throw new ApplicationException($"User with ID '{user.ObjectId}' already registered.");
+        return;
       }
 
       testSession.Testers.Add(new TesterItem { TesterId = user.ObjectId, Grade = user.ExperienceLevel, Group = user.Continent.ToString() });
