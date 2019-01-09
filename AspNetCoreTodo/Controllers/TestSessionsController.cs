@@ -249,15 +249,31 @@ namespace WebMathTraining.Controllers
         return RedirectToAction("Details", "TestGroups", new {id = testGroup.Id});
       }
 
-        var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
-      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId).Include(q => q.QuestionImage).FirstOrDefault();
+      var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
+      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId)
+        .Include(q => q.QuestionImage).FirstOrDefault();
       if (testQuestion == null)
         return NotFound();
 
       var testUser = await _userManager.GetUserAsync(User);
-      var testResult = _context.TestResults.FirstOrDefault(tr => tr.TestSessionId == testSession.ObjectId && tr.UserId == testUser.ObjectId);
-      var totalScore = testResult?.FinalScore ?? 0.0;
-      return View(new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx) { TotalScore = totalScore});
+      _testSessionService.CreateNewTestResult(testSession.ObjectId, testUser.ObjectId);
+
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId)
+        .FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
+      if (testResult == null)
+      {
+        return NotFound();
+      }
+
+      var vm = new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx)
+        {TotalScore = testResult.FinalScore};
+      var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
+      if (testResultItem != null)
+      {
+        vm.TextAnswer = testResultItem.Answer;
+      }
+
+      return View(vm);
     }
 
     // POST: TestSessions/Create
@@ -272,32 +288,27 @@ namespace WebMathTraining.Controllers
       }
 
       var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
-      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId).Include(q => q.QuestionImage).FirstOrDefault();
+      var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId)
+        .Include(q => q.QuestionImage).FirstOrDefault();
       if (testQuestion == null)
         return NotFound();
 
       var testUser = await _userManager.GetUserAsync(User);
-      var testResult = _context.TestResults.FirstOrDefault(tr => tr.TestSessionId == testSession.ObjectId && tr.UserId == testUser.ObjectId);
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId)
+        .FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
       if (testResult == null)
-      {
-        testResult = new TestResult
-        {
-          TestStarted = testSession.PlannedStart,
-          TestSessionId = testSession.ObjectId,
-          UserId = testUser.ObjectId
-        };
-        _context.TestResults.Add(testResult);
+        return NotFound();
 
-        _context.SaveChanges();
-      }
-
-      var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
+      testResult.TestEnded = DateTime.UtcNow;
+      bool runOvertime = ((testResult.TestEnded - testResult.TestStarted) > testSession.SessionTimeSpan);
+      var testResultItem =
+        testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem == null)
       {
-        testResultItem = new TestResultItem() { Answer = viewModel.TextAnswer, QuestionId = testQuestion.ObjectId, };
+        testResultItem = new TestResultItem() {Answer = viewModel.TextAnswer, QuestionId = testQuestion.ObjectId,};
         testResult.TestResults.Add(testResultItem);
       }
-      else
+      else if (!runOvertime)
       {
         testResultItem.Answer = viewModel.TextAnswer;
       }
@@ -305,9 +316,13 @@ namespace WebMathTraining.Controllers
       double score = _testSessionService.JudgeAnswer(testSession, testQuestion, ref testResultItem);
       testResult.FinalScore = testResult.TestResults.Items.Sum(t => t.Score);
       testResult.TestResults = testResult.TestResults;
+      testResult.TestEnded =
+        runOvertime ? testResult.TestStarted.Add(testSession.SessionTimeSpan) : testResult.TestEnded;
       _context.Update(testResult);
       await _context.SaveChangesAsync();
-      return RedirectToAction("NextQuestion", new { id = id, questionIdx = questionIdx+1 });
+
+      return RedirectToAction("NextQuestion",
+        new {id = id, questionIdx = runOvertime ? Int32.MaxValue : questionIdx + 1});
     }
 
     private bool TestSessionExists(Guid id)

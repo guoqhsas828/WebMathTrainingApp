@@ -84,6 +84,9 @@ namespace WebMathTraining.Models
 
     public DateTime LastUpdated { get; set; }
 
+    [NotMapped]
+    public TimeSpan SessionTimeSpan => PlannedEnd > PlannedStart ? PlannedEnd - PlannedStart : TimeSpan.FromMinutes(10.0);
+
     #region Methods
 
     public bool IsRegisteredUser(long userId)

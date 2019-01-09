@@ -6,7 +6,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Available Tests -- Watch out the SessionTimeSpan (test time limit in minutes) before starting!</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -34,7 +34,7 @@
                         @Html.DisplayNameFor(model => model.PlannedStart)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.PlannedEnd)
+                        @Html.DisplayNameFor(model => model.SessionTimeSpan)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.LastUpdated)
@@ -61,7 +61,7 @@
                             @Html.DisplayFor(modelItem => item.PlannedStart)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PlannedEnd)
+                            @Html.DisplayFor(modelItem => item.SessionTimeSpan)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.LastUpdated)
