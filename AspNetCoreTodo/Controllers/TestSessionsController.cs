@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 using WebMathTraining.Services;
+using WebMathTraining.Views;
 
 namespace WebMathTraining.Controllers
 {
@@ -222,7 +223,18 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
-      if (questionIdx >= testSession.TestQuestions.Count) questionIdx = 0;
+      if (questionIdx >= testSession.TestQuestions.Count)
+      {
+        var user = await _userManager.GetUserAsync(User);
+        //Find a test group that contains this session
+        var testGroup = _context.TestGroups.FirstOrDefault(g =>
+          g.EnrolledSessionIds.Contains(testSession.ObjectId) && g.MemberObjectIds.Contains(user.ObjectId));
+
+        if (testGroup == null)
+          return NotFound();
+
+        return RedirectToAction("Details", "TestGroups", new {id = testGroup.Id});
+      }
 
         var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
       var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId).Include(q => q.QuestionImage).FirstOrDefault();

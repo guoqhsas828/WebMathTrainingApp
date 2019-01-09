@@ -15,6 +15,7 @@ namespace WebMathTraining.Services
     void RegisterUser(Guid sessionId, ApplicationUser user);
     void AddQuestion(Guid sessionId, long questionId, double scorePoint, double penaltyPoint=0.0);
     double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer); //Judge the answer and return the score point
+    IList<TestResult> GetTestResults(long sessionId);
   }
 
   public class TestSessionService : ITestSessionService
@@ -82,6 +83,11 @@ namespace WebMathTraining.Services
       testSession.LastUpdated = DateTime.UtcNow;
       _context.Update(testSession);
       _context.SaveChanges();
+    }
+
+    public IList<TestResult> GetTestResults(long sessionId)
+    {
+      return _context.TestResults.Where(tr => tr.TestSessionId == sessionId).ToList();
     }
 
     public double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer)

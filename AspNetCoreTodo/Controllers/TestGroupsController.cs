@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
+using WebMathTraining.Services;
 
 namespace WebMathTraining.Views
 {
     public class TestGroupsController : Controller
     {
         private readonly TestDbContext _context;
+      private readonly ApplicationDbContext _userContext;
+      private readonly ITestSessionService _testSessionService;
 
-        public TestGroupsController(TestDbContext context)
+        public TestGroupsController(TestDbContext context, ApplicationDbContext userContext, ITestSessionService service)
         {
             _context = context;
+          _userContext = userContext;
+          _testSessionService = service;
         }
 
         // GET: TestGroups
@@ -40,7 +45,30 @@ namespace WebMathTraining.Views
                 return NotFound();
             }
 
-            return View(testGroup);
+          var latestSession = testGroup.EnrolledSessionIds.Any()
+            ? _context.TestSessions.FirstOrDefault(s => s.ObjectId == testGroup.EnrolledSessionIds.Max())
+            : null;
+
+          if (latestSession == null)
+          {
+            return NotFound();
+          }
+
+          var viewModel = new TestGroupSummaryViewModel()
+          {
+            Id = id.Value,
+            SessionId = latestSession.Id,
+            SessionName = latestSession.Name,
+            TeamName = testGroup.Name
+          };
+
+          var testResults = _testSessionService.GetTestResults(latestSession.ObjectId).Select(tr =>
+            new TestResultViewModel()
+              {Tester = _userContext.Users.FirstOrDefault(u => u.ObjectId == tr.UserId),
+                TestResult = tr}).ToList();
+          viewModel.TestResults = testResults;
+
+          return View(viewModel);
         }
 
         // GET: TestGroups/Create

@@ -1,52 +1,37 @@
-﻿@model WebMathTraining.Models.TestGroup
+﻿@model WebMathTraining.Models.TestGroupSummaryViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>TestGroup</h4>
+    <h2>Latest Score Ranking -- @Model.SessionName</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastUpdated)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LastUpdated)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TeamHeadId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TeamHeadId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MembersInfo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.MembersInfo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrolledSessionsInfo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EnrolledSessionsInfo)
-        </dd>
-    </dl>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Team Name</td>
+            <td>User Name</td>
+            <td>Email</td>
+            <td>Continent</td>
+            <td>Experience Level</td>
+            <td>Test Score</td>
+            <td>Last Update</td>
+        </tr>
+        </thead>
+        @foreach (var result in Model.TestResults)
+        {
+            <tr>
+                <td>@Model.TeamName</td>
+                <td>@(result.Tester?.UserName ?? "")</td>
+                <td>@(result.Tester?.Email ?? "")</td>
+                <td>@(result.Tester?.Continent ?? Continents.None)</td>
+                <td>@(result.Tester?.ExperienceLevel ?? 0)</td>
+                <td>@(result.TestResult?.FinalScore ?? 0.0)</td>
+                <td>@(result.TestResult?.TestEnded ?? DateTime.MaxValue)</td>
+            </tr>
+        }
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
