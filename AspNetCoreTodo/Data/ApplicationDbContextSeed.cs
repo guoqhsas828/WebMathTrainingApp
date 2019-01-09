@@ -26,11 +26,13 @@ namespace WebMathTraining.Data
         for (int idx = 0; idx < Constants.TrialQuestions.Length; ++idx)
         {
           var testImageId = testQuestionService.CreateTestImage(Constants.TrialQuestions[idx], "Trial " + (idx + 1));
-          var questionId = Guid.NewGuid();
-          var errMsg =
-            testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
-           
-          testSessionService.AddQuestion(sessionId, idx+1, 3.0, -1.0);
+          if (testQuestionService.CountQuestions() == 0)
+          {
+            var questionId = Guid.NewGuid();
+            var errMsg = testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
+
+            testSessionService.AddQuestion(sessionId, idx + 1, 3.0, -1.0);
+          }
         }
       }
       catch (Exception e)

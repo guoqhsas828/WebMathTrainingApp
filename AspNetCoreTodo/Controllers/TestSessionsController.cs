@@ -49,9 +49,14 @@ namespace WebMathTraining.Controllers
     }
 
     // GET: TestSessions/Create
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
-      return View();
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (isAdmin)
+        return View();
+      else
+        return RedirectToAction(nameof(Index));
     }
 
     // POST: TestSessions/Create
@@ -226,7 +231,7 @@ namespace WebMathTraining.Controllers
 
       var testUser = await _userManager.GetUserAsync(User);
       var testResult = _context.TestResults.FirstOrDefault(tr => tr.TestSessionId == testSession.ObjectId && tr.UserId == testUser.ObjectId);
-      var totalScore = testResult.FinalScore;
+      var totalScore = testResult?.FinalScore ?? 0.0;
       return View(new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx) { TotalScore = totalScore});
     }
 

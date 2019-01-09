@@ -19,6 +19,7 @@ namespace WebMathTraining.Services
     Guid CreateTestImage(string testStr, string imageName);
     string CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
     TestAnswerType answerChoice = TestAnswerType.Text);
+    int CountQuestions();
   }
 
   public class TestQuestionService : ITestQuestionService
@@ -28,6 +29,11 @@ namespace WebMathTraining.Services
     public TestQuestionService(TestDbContext context)
     {
       _context = context;
+    }
+
+    public int CountQuestions()
+    {
+      return _context.TestQuestions.Count();
     }
 
     public Guid CreateTestImage(string imageStr, string imageName)
