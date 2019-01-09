@@ -17,7 +17,7 @@ namespace WebMathTraining.Services
   public interface ITestQuestionService
   {
     Guid CreateTestImage(string testStr, string imageName);
-    string CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
+    long CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
     TestAnswerType answerChoice = TestAnswerType.Text);
     int CountQuestions();
     void DeleteQuestion(Guid id);
@@ -65,15 +65,16 @@ namespace WebMathTraining.Services
       return image.Id;
     }
 
-    public string CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
+    public long CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
       TestAnswerType answerChoice = TestAnswerType.Text)
     {
+      TestQuestion entity = null;
       try
       {
         var image = _context.TestImages.Find(imageId);
         if (image != null)
         {
-          var entity = _context.TestQuestions.Find(id);
+          entity = _context.TestQuestions.Find(id);
           if (entity == null)
           {
             entity = new TestQuestion()
@@ -100,10 +101,10 @@ namespace WebMathTraining.Services
       }
       catch (Exception ex)
       {
-        return ex.Message;
+        return -1;
       }
 
-      return String.Empty;
+      return entity?.ObjectId ?? 0;
     }
 
     public void DeleteQuestion(Guid id)
@@ -115,35 +116,6 @@ namespace WebMathTraining.Services
         _context.SaveChanges();
       }
     }
-    //public async Task<IActionResult> Create(IFormFile Image)
-    //{
-    //    var testQuestion = new TestQuestion();
-    //    if (Image!= null)
-
-    //    {
-    //        if (Image.Length > 0)
-
-    //        //Convert Image to byte and save to database
-
-    //        {
-
-    //            byte[] p1 = null;
-    //            using (var fs1 = Image.OpenReadStream())
-    //            using (var ms1 = new MemoryStream())
-    //            {
-    //                fs1.CopyTo(ms1);
-    //                p1 = ms1.ToArray();
-    //            }
-    //            .Img= p1;
-
-    //        }
-    //    }
-
-    //    _context.Add(client);
-    //    await _context.SaveChangesAsync();
-
-    //    return RedirectToAction("Index");
-    //}
 
     public static byte[] StrToByteArray(string str)
     {

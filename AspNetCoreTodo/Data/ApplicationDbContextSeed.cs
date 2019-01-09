@@ -31,7 +31,7 @@ namespace WebMathTraining.Data
             var questionId = Guid.NewGuid();
             var errMsg = testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
 
-            testSessionService.AddQuestion(sessionId, idx + 1, 3.0, -1.0);
+            testSessionService.AddQuestion(sessionId, errMsg, 3.0, -1.0);
           }
         }
       }
