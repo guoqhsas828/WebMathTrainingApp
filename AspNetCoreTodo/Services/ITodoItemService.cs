@@ -11,6 +11,6 @@ namespace WebMathTraining.Services
 
         Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user);
         
-        Task<bool> MarkDoneAsync(Guid id, ApplicationUser user);
+        Task<bool> MarkDoneAsync(string id, ApplicationUser user);
     }
 }

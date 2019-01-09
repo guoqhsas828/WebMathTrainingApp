@@ -45,7 +45,7 @@
                 @foreach (var item in Model)
                 {
                   var startIdx = item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
-                  var buttonLabel = startIdx >= 0 ? "Start Test" : "Register";
+                  var buttonLabel = startIdx >= 0 ? "Start" : "Register";
 
                     <tr>
                         <td>

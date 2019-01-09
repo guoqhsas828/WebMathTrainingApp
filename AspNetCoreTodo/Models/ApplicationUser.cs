@@ -28,8 +28,9 @@ namespace WebMathTraining.Models
     public ApplicationUser() : base()
     {
       UserStatus = UserStatus.Trial;
-      Created = DateTime.Now;
-      LastUpdated = DateTime.Now;
+      Created = DateTime.UtcNow;
+      LastUpdated = DateTime.UtcNow;
+      Continent = Continents.America;
     }
 
     public Continents Continent { get; set; }

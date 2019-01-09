@@ -38,12 +38,9 @@ namespace WebMathTraining.Services
                 .ToArrayAsync();
         }
 
-        public async Task<bool> MarkDoneAsync(Guid id, ApplicationUser user)
+        public async Task<bool> MarkDoneAsync(string id, ApplicationUser user)
         {
-          var idStr = id.ToString();
-            var item = await _context.TodoItems
-                .Where(x => (string.Compare(x.Id, idStr, StringComparison.InvariantCultureIgnoreCase) ==0) && x.OwnerId == user.Id)
-                .SingleOrDefaultAsync();
+            var item = await _context.TodoItems.FindAsync(id);
 
             if (item == null) return false;
 

@@ -66,9 +66,9 @@ namespace WebMathTraining.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> MarkDone(Guid id)
+        public async Task<IActionResult> MarkDone(string id)
         {
-            if (id == Guid.Empty)
+            if (string.IsNullOrEmpty(id))
             {
                 return RedirectToAction("Index");
             }

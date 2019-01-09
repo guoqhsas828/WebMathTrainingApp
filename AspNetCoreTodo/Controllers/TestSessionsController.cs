@@ -28,7 +28,20 @@ namespace WebMathTraining.Controllers
     // GET: TestSessions
     public async Task<IActionResult> Index()
     {
-      return View(await _context.TestSessions.ToListAsync());
+      var user = await _userManager.GetUserAsync(User);
+      var testSessions = new List<TestSession>();
+      
+      if (user.UserStatus != UserStatus.InActive)
+      {
+        testSessions = await _context.TestSessions.ToListAsync();
+      }
+
+      if (user.UserStatus == UserStatus.Trial)
+      {
+        testSessions = testSessions.Where(s => s.Name.StartsWith("Trial")).ToList();
+      }
+
+      return View(testSessions);
     }
 
     // GET: TestSessions/Details/5
