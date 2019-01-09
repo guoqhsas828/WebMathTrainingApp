@@ -20,6 +20,7 @@ namespace WebMathTraining.Services
     string CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
     TestAnswerType answerChoice = TestAnswerType.Text);
     int CountQuestions();
+    void DeleteQuestion(Guid id);
   }
 
   public class TestQuestionService : ITestQuestionService
@@ -105,6 +106,15 @@ namespace WebMathTraining.Services
       return String.Empty;
     }
 
+    public void DeleteQuestion(Guid id)
+    {
+      var q = _context.TestQuestions.Find(id);
+      if (q != null)
+      {
+        _context.TestQuestions.Remove(q);
+        _context.SaveChanges();
+      }
+    }
     //public async Task<IActionResult> Create(IFormFile Image)
     //{
     //    var testQuestion = new TestQuestion();

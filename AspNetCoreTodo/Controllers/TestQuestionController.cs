@@ -199,6 +199,10 @@ namespace WebMathTraining.Controllers
       return RedirectToAction("Index");
     }
 
-
+    public async Task<IActionResult> Delete(Guid id)
+    {
+      _testQuestionService.DeleteQuestion(id);
+        return RedirectToAction("Index");
+    }
   }
 }
