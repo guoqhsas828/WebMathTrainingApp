@@ -19,14 +19,22 @@ namespace WebMathTraining
     {
       "It takes 6 minutes to cut a lumber into 3 pieces, how long does it take to cut the lumber into 6 pieces?",
       "125 * 111 * 5 * 8 * 4 = ?",
-      "993 + 994 + 995 + 996 + 997 + 998 + 999 = ?"
+      "993 + 994 + 995 + 996 + 997 + 998 + 999 = ?",
+      "At the summer camp, 7 pupils eat ice cream every day, 9 pupils eat ice cream every second day and the rest of the pupils don't eat ice cream at all. Yesterday, 13 pupils had ice cream. How many pupils will eat ice cream today?",
+      "There are 2018 persons in a row. Each of them is either a liar (who always lies) or a knight (who always tells the truth). Each person says 'There are more liars to my left than knights to my right'. How many liars are there in the row?",
+      "If the sum of the positive integer a and 5 is less than 12, what is the sum of all possible values of a?",
+      " John is 33 years old. His three sons are 5, 6 and 10 years old. In how many years will the three sons together be as old as their father? "
     };
 
   public static readonly string[] TrialQuestionAnswers = new[]
     {
       "15",
       "2220000",
-      "6972"
+      "6972",
+      "10",
+      "1009",
+      "21",
+      "4"
     };
   }
 }

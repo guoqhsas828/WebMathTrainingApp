@@ -112,7 +112,7 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd")] TestSession testSession)
+    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd,TesterData,TestQuestionData,LastUpdated")] TestSession testSession)
     {
       if (id != testSession.Id)
       {
@@ -124,6 +124,8 @@ namespace WebMathTraining.Controllers
         try
         {
           testSession.LastUpdated = DateTime.UtcNow;
+          //testSession.TestQuestions = testSession.TestQuestions;
+          //testSession.Testers = testSession.Testers;
           _context.Update(testSession);
           await _context.SaveChangesAsync();
         }

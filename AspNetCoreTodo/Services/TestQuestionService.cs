@@ -74,7 +74,8 @@ namespace WebMathTraining.Services
         var image = _context.TestImages.Find(imageId);
         if (image != null)
         {
-          entity = _context.TestQuestions.Find(id);
+          entity = _context.TestQuestions.Find(id) ?? _context.TestQuestions.Include(q => q.QuestionImage).FirstOrDefault(q => q.QuestionImage.Name == image.Name);
+
           if (entity == null)
           {
             entity = new TestQuestion()
