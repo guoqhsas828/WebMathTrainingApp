@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
+using WebMathTraining.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,12 @@ namespace WebMathTraining.Controllers
   public class TestImageController : Controller
   {
     private readonly TestDbContext _context;
+    private readonly ITestQuestionService _testQuestionService;
 
-    public TestImageController(TestDbContext context)
+    public TestImageController(TestDbContext context, ITestQuestionService service)
     {
       _context = context;
+      _testQuestionService = service;
     }
 
     [HttpGet]
@@ -32,28 +35,17 @@ namespace WebMathTraining.Controllers
     [HttpPost]
     public IActionResult UploadImage(IList<IFormFile> files)
     {
-      IFormFile uploadedImage = files.FirstOrDefault();
-      if (uploadedImage == null || uploadedImage.ContentType.ToLower().StartsWith("image/"))
+      foreach (var uploadedImage in files)
       {
-        MemoryStream ms = new MemoryStream();
-        uploadedImage.OpenReadStream().CopyTo(ms);
-
-        //System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
-
-        var imageEntity = new TestImage()
+        if (uploadedImage != null && uploadedImage.ContentType.ToLower().StartsWith("image/"))
         {
-          Id = Guid.NewGuid(),
-          Name = uploadedImage.FileName,
-          Data = ms.ToArray(),
-          //Width = image.Width,
-          //Height = image.Height,
-          ContentType = uploadedImage.ContentType
-        };
+          var ms = new MemoryStream();
+          uploadedImage.OpenReadStream().CopyTo(ms);
 
-        _context.TestImages.Add(imageEntity);
+          var imageId = _testQuestionService.CreateTestImage(ms.ToArray(), uploadedImage.Name, uploadedImage.ContentType);
+          _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, 1, "");
 
-        _context.SaveChanges();
-
+        }
       }
 
       return RedirectToAction("Index");

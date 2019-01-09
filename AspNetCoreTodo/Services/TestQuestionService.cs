@@ -16,7 +16,7 @@ namespace WebMathTraining.Services
 {
   public interface ITestQuestionService
   {
-    Guid CreateTestImage(string testStr, string imageName);
+    Guid CreateTestImage(byte[] imageData, string imageName, string contentType);
     long CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
     TestAnswerType answerChoice = TestAnswerType.Text);
     int CountQuestions();
@@ -37,20 +37,20 @@ namespace WebMathTraining.Services
       return _context.TestQuestions.Count();
     }
 
-    public Guid CreateTestImage(string imageStr, string imageName)
+    public Guid CreateTestImage(byte[] imageData, string imageName, string contentType)
     {
-      if (string.IsNullOrEmpty(imageStr))
-        throw new ArgumentException("imageStr");
+      if (imageData == null)
+        throw new ArgumentException("imageData");
 
       var image = _context.TestImages.FirstOrDefault(g => String.Compare(g.Name, imageName, StringComparison.InvariantCultureIgnoreCase) ==0);
       if (image == null)
       {
         image = new TestImage()
         {
-          ContentType = "Text",
-          Data = StrToByteArray(imageStr),
+          ContentType = contentType,
+          Data = imageData,
           Id = Guid.NewGuid(),
-          Length = imageStr.Length,
+          Length = imageData.Length,
           Name = imageName
         };
 

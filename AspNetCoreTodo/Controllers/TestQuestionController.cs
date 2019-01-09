@@ -186,16 +186,21 @@ namespace WebMathTraining.Controllers
     [HttpGet]
     public IActionResult Create()
     {
-        return View(new TestQuestionViewModel { Category = TestCategory.Math});
+        return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), SessionId = 0});
     }
 
     [HttpPost]
     public IActionResult CreateNew(TestQuestionViewModel viewModel)
     {
-      var id = Guid.NewGuid();
-      var imageId = _testQuestionService.CreateTestImage( viewModel.QuestionText, id.ToString());
+      var id = viewModel.Id;
+      var imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray( viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, "Text");
       var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,
         viewModel.Category, viewModel.AnswerChoice);
+      if (viewModel.SessionId > 0)
+      {
+        //TODO
+      }
+
       return RedirectToAction("Index");
     }
 

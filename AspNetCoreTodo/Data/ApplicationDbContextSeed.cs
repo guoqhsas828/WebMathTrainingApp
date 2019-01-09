@@ -22,17 +22,16 @@ namespace WebMathTraining.Data
         //testSessionService.RegisterUser(sessionId, user);
 
         var testQuestionService = serviceProvider.GetRequiredService<ITestQuestionService>();
-        //var initialized = testQuestionService.CountQuestions() > 0;
+
         for (int idx = 0; idx < Constants.TrialQuestions.Length; ++idx)
         {
-          var testImageId = testQuestionService.CreateTestImage(Constants.TrialQuestions[idx], "Trial " + (idx + 1));
-          //if (!initialized)
-          //{
-            var questionId = Guid.NewGuid();
-            var errMsg = testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
+          var testImageData = TestQuestionService.StrToByteArray(Constants.TrialQuestions[idx]);
+          var testImageId = testQuestionService.CreateTestImage(testImageData, "Trial " + (idx + 1), "Text");
+          var questionId = Guid.NewGuid();
+          var questionObjectId =
+            testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
 
-            testSessionService.AddQuestion(sessionId, errMsg, 3.0, -1.0);
-          //}
+          testSessionService.AddQuestion(sessionId, questionObjectId, 3.0, -1.0);
         }
       }
       catch (Exception e)

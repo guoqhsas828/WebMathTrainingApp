@@ -26,6 +26,9 @@ namespace WebMathTraining.Models
 
     public string StatusMessage { get; set; }
 
+    public string Name { get; set; }
+
+    public long SessionId { get; set; }
   }
 
   public class QuestionDetailViewModel
