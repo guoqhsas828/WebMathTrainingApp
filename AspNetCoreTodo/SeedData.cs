@@ -31,7 +31,7 @@ namespace WebMathTraining
     private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> userManager)
     {
       var testAdmin = await userManager.Users
-        .Where(x => x.UserName == Constants.AdminUserName)
+        .Where(x => x.Email == Constants.AdminEmail)
         .SingleOrDefaultAsync();
 
       if (testAdmin != null) return;

@@ -21,12 +21,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.LastUpdated)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.TeamHeadId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MembersInfo)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.EnrolledSessionsInfo)
             </th>
@@ -45,18 +45,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastUpdated)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.TeamHeadId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MembersInfo)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.EnrolledSessionsInfo)
             </td>
             <td>
                 @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
-                <a asp-action="Details" asp-route-id="@item.Id">Latest Ranking</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Latest Ranking</a> 
                 @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>

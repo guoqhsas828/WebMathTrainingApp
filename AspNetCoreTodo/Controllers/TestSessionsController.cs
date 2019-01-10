@@ -80,6 +80,11 @@ namespace WebMathTraining.Controllers
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd")] TestSession testSession)
     {
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return Challenge();
+
       if (ModelState.IsValid)
       {
         testSession.Id = Guid.NewGuid();
@@ -119,6 +124,11 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return Challenge();
+
       if (ModelState.IsValid)
       {
         try
@@ -152,6 +162,11 @@ namespace WebMathTraining.Controllers
       {
         return NotFound();
       }
+
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return Challenge();
 
       var testSession = await _context.TestSessions
           .FirstOrDefaultAsync(m => m.Id == id);
@@ -238,6 +253,9 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
+      if (DateTime.UtcNow < testSession.PlannedStart) //Test time has not arrived yet
+        return Challenge();
+
       if (questionIdx >= testSession.TestQuestions.Count)
       {
         var user = await _userManager.GetUserAsync(User);
@@ -302,7 +320,7 @@ namespace WebMathTraining.Controllers
         return NotFound();
 
       testResult.TestEnded = DateTime.UtcNow;
-      bool runOvertime = ((testResult.TestEnded - testResult.TestStarted) > testSession.SessionTimeSpan);
+      bool runOvertime = (testResult.TestStarted >= testSession.PlannedStart && (testResult.TestEnded - testResult.TestStarted) > testSession.SessionTimeSpan);
       var testResultItem =
         testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem == null)
@@ -318,6 +336,11 @@ namespace WebMathTraining.Controllers
       double score = _testSessionService.JudgeAnswer(testSession, testQuestion, ref testResultItem);
       testResult.FinalScore = testResult.TestResults.Items.Sum(t => t.Score);
       testResult.TestResults = testResult.TestResults;
+      if (testResult.TestStarted < testSession.PlannedStart)
+      {
+        testResult.TestStarted = DateTime.UtcNow;
+      }
+
       testResult.TestEnded =
         runOvertime ? testResult.TestStarted.Add(testSession.SessionTimeSpan) : testResult.TestEnded;
       _context.Update(testResult);
