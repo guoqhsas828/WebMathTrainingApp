@@ -111,8 +111,7 @@ namespace WebMathTraining.Controllers
       var userName = user.UserName;
       if (model.Username != userName)
       {
-        user.UserName = model.Username;
-        var resetUserName = await _userManager.UpdateAsync(user);
+        var resetUserName = await _userManager.SetUserNameAsync(user, model.Username);
         if (!resetUserName.Succeeded)
           throw new ApplicationException($"Unexpected error occurred updating user name");
       }

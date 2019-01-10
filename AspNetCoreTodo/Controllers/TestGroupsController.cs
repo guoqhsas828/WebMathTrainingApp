@@ -65,7 +65,7 @@ namespace WebMathTraining.Views
           var testResults = _testSessionService.GetTestResults(latestSession.ObjectId).Select(tr =>
             new TestResultViewModel()
               {Tester = _userContext.Users.FirstOrDefault(u => u.ObjectId == tr.UserId),
-                TestResult = tr}).ToList();
+                TestResult = tr}).OrderByDescending(tr => tr.TestResult.FinalScore).ToList();
           viewModel.TestResults = testResults;
 
           return View(viewModel);
