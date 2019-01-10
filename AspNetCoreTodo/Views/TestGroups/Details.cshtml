@@ -12,7 +12,6 @@
         <tr>
             <td>Team Name</td>
             <td>User Name</td>
-            <td>Email</td>
             <td>Continent</td>
             <td>Experience Level</td>
             <td>Test Score</td>
@@ -24,7 +23,6 @@
             <tr>
                 <td>@Model.TeamName</td>
                 <td>@(result.Tester?.UserName ?? "")</td>
-                <td>@(result.Tester?.Email ?? "")</td>
                 <td>@(result.Tester?.Continent ?? Continents.None)</td>
                 <td>@(result.Tester?.ExperienceLevel ?? 0)</td>
                 <td>@(result.TestResult?.FinalScore ?? 0.0)</td>
