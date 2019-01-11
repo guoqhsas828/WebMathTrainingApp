@@ -22,9 +22,26 @@
             </div>
             @if (Model.IsTextBased)
             {
-                <div class="form-group">
-                    @Html.TextAreaFor(model => model.QuestionText, 10, 60, null)
-                </div>
+            <div class="form-group">
+                @Html.TextAreaFor(model => model.QuestionText, new
+            {
+                //@class = "blue",
+                //@disabled="true",
+                cols = "120",
+                rows = "10",
+                //@title = "Please Enter Your Name",
+                //@tabindex = "0",
+                //@accesskey="z",
+                @align = "left",
+                //@autofocus = "true",
+                @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
+                //@draggable = "true",
+                //@hidden="true",
+                //@maxlength="12",
+                //@minlength = "5",
+                //@required = "true"
+            })
+            </div>
             }
 
             @if (Model.IsChoiceBased)

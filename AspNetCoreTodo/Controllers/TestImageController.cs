@@ -17,11 +17,13 @@ namespace WebMathTraining.Controllers
   {
     private readonly TestDbContext _context;
     private readonly ITestQuestionService _testQuestionService;
+    private readonly ITestSessionService _testSessionService;
 
-    public TestImageController(TestDbContext context, ITestQuestionService service)
+    public TestImageController(TestDbContext context, ITestQuestionService service, ITestSessionService sessionService)
     {
       _context = context;
       _testQuestionService = service;
+      _testSessionService = sessionService;
     }
 
     [HttpGet]
@@ -35,16 +37,38 @@ namespace WebMathTraining.Controllers
     [HttpPost]
     public IActionResult UploadImage(IList<IFormFile> files)
     {
-      foreach (var uploadedImage in files)
+      foreach (var uploadedFile in files)
       {
-        if (uploadedImage != null && uploadedImage.ContentType.ToLower().StartsWith("image/"))
+        if (uploadedFile != null && uploadedFile.ContentType.ToLower().StartsWith("image/"))
         {
           var ms = new MemoryStream();
-          uploadedImage.OpenReadStream().CopyTo(ms);
+          uploadedFile.OpenReadStream().CopyTo(ms);
 
-          var imageId = _testQuestionService.CreateTestImage(ms.ToArray(), uploadedImage.Name, uploadedImage.ContentType);
+          var imageId = _testQuestionService.CreateTestImage(ms.ToArray(), uploadedFile.Name, uploadedFile.ContentType);
           _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, 1, "");
 
+        }
+        else if (uploadedFile != null && uploadedFile.ContentType.ToLower().StartsWith("text/"))
+        {
+          var questionStrList = new List<string>();
+          var result = string.Empty;
+          using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
+          {
+            result = reader.ReadToEnd();
+          }
+
+          var realFileName = uploadedFile.FileName.Split("\\").Last();
+          questionStrList = string.IsNullOrEmpty(result) ? new List<string>() : result.Split('\n').ToList();
+          foreach (var questionStr in questionStrList)
+          {
+            var questionDetails = questionStr.Split("<question_line>");
+            if (questionDetails.Length < 4) continue;
+            var imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray(questionDetails[2]), questionDetails[1], "Text");
+            var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, Convert.ToInt32(questionDetails[0]), questionDetails[3]);
+            var testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, realFileName.Replace(".txt", ""), StringComparison.InvariantCultureIgnoreCase) == 0);
+            if (testSession != null)
+              _testSessionService.AddQuestion(testSession.Id, questionId, 3.0, -1);
+          }
         }
       }
 
