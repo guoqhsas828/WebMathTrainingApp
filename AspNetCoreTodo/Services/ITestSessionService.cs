@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
@@ -18,24 +19,27 @@ namespace WebMathTraining.Services
     double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer); //Judge the answer and return the score point
     IList<TestResult> GetTestResults(long sessionId);
     void CreateNewTestResult(long sessionId, long userId);
-    Task<IList<TestGroup>> FindAllTestGroupAsync();
+    Task<IList<TestGroup>> FindAllTestGroupAsync(ApplicationUser user);
     Task<TestGroup> FindTestGroupAsyncById(Guid groupId);
   }
 
   public class TestSessionService : ITestSessionService
   {
     private readonly TestDbContext _context;
-    private readonly AppUserManageService _userManager;
-
-    public TestSessionService(TestDbContext context, AppUserManageService userManager)
+    
+    public TestSessionService(TestDbContext context)
     {
       _context = context;
-      _userManager = userManager;
     }
 
-    public async Task<IList<TestGroup>> FindAllTestGroupAsync()
+    public async Task<IList<TestGroup>> FindAllTestGroupAsync(ApplicationUser user)
     {
-      return await _context.TestGroups.ToArrayAsync();
+      if (user == null || user.UserStatus != UserStatus.Active)
+      {
+        return await _context.TestGroups.Where(g => g.Name.StartsWith("Trial")).ToArrayAsync();
+      }
+
+      return await _context.TestGroups.Where(g => g.Name.StartsWith("Trial") || g.MemberObjectIds.Contains(user.ObjectId)).ToArrayAsync();
     }
 
     public async Task<TestGroup> FindTestGroupAsyncById(Guid groupId)
@@ -95,6 +99,8 @@ namespace WebMathTraining.Services
       if (addedQuestionIds.Contains(questionId))
         return;
 
+      var question = _context.TestQuestions.FirstOrDefault(q => q.ObjectId == questionId);
+      if (question == null) return; //Avoid adding deleted questions
       testSession.TestQuestions.Add(new TestQuestionItem { Idx = testSession.TestQuestions.Count, QuestionId = questionId, PenaltyPoint = penaltyPoint, ScorePoint = scorePoint });
       testSession.TestQuestions = testSession.TestQuestions;
       testSession.LastUpdated = DateTime.UtcNow;

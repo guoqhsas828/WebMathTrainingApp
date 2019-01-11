@@ -23,10 +23,12 @@ namespace WebMathTraining
       "At the summer camp, 7 pupils eat ice cream every day, 9 pupils eat ice cream every second day and the rest of the pupils don't eat ice cream at all. Yesterday, 13 pupils had ice cream. How many pupils will eat ice cream today?",
       "There are 2018 persons in a row. Each of them is either a liar (who always lies) or a knight (who always tells the truth). Each person says 'There are more liars to my left than knights to my right'. How many liars are there in the row?",
       "If the sum of the positive integer a and 5 is less than 12, what is the sum of all possible values of a?",
-      " John is 33 years old. His three sons are 5, 6 and 10 years old. In how many years will the three sons together be as old as their father? "
+      " John is 33 years old. His three sons are 5, 6 and 10 years old. In how many years will the three sons together be as old as their father? ",
+      //"Calculate 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2",
+      //"The human heart beats approximately 70 times per minute. How many beats approximately will it make in half an hour?",
     };
 
-  public static readonly string[] TrialQuestionAnswers = new[]
+  public static readonly string[] TrialQuestionAnswers = new string[]
     {
       "15",
       "2220000",
@@ -34,7 +36,20 @@ namespace WebMathTraining
       "10",
       "1009",
       "21",
-      "4"
+      "4",
+      //"4",
+      //"2100",
+    };
+
+    public static readonly int[] TrialQuestionLevels = new[]
+    {
+      2,
+      3,
+      4,
+      5,
+      5,
+      4,
+      1
     };
   }
 }

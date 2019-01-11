@@ -190,15 +190,20 @@ namespace WebMathTraining.Controllers
     }
 
     // GET: TestSessions/AddQuestion
-    public IActionResult AddQuestion(Guid id)
+    public async Task<IActionResult> AddQuestion(Guid id)
     {
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return Challenge();
+
       return View(new AddQuestionViewModel { TestSessionId = id});
     }
 
-    // POST: TestSessions/Create
+    // POST: TestSessions/AddQuestion
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
+    public IActionResult AddQuestion(Guid id, AddQuestionViewModel testQuestionItem)
     {
       _testSessionService.AddQuestion(id, testQuestionItem.QuestionId, testQuestionItem.ScorePoint, testQuestionItem.PenaltyPoint);
       return RedirectToAction(nameof(Index));
@@ -207,11 +212,6 @@ namespace WebMathTraining.Controllers
     // GET: TestSessions/Register/5
     public async Task<IActionResult> Register(Guid id)
     {
-      if (id == null)
-      {
-        return NotFound();
-      }
-
       var testSession = await _context.TestSessions.FindAsync(id);
       if (testSession == null)
       {
@@ -271,7 +271,7 @@ namespace WebMathTraining.Controllers
       var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId)
         .Include(q => q.QuestionImage).FirstOrDefault();
       if (testQuestion == null)
-        return NotFound();
+        return BadRequest("This test data has been corrupted, please contact with the administrator");
 
       var testUser = await _userManager.GetUserAsync(User);
       _testSessionService.CreateNewTestResult(testSession.ObjectId, testUser.ObjectId);
@@ -358,6 +358,7 @@ namespace WebMathTraining.Controllers
 
       double score = _testSessionService.JudgeAnswer(testSession, testQuestion, ref testResultItem);
       testResult.FinalScore = testResult.TestResults.Items.Sum(t => t.Score);
+      testResult.MaximumScore = testSession.TestQuestions.Items.Sum(q => q.ScorePoint);
       testResult.TestResults = testResult.TestResults;
       if (testResult.TestStarted < testSession.PlannedStart)
       {

@@ -10,22 +10,22 @@
     <table class="table">
         <thead>
         <tr>
-            <td>Team Name</td>
             <td>User Name</td>
             <td>Continent</td>
             <td>Experience Level</td>
             <td>Test Session</td>
+            <td>Questions Answered</td>
             <td>Final Score</td>
         </tr>
         </thead>
         @foreach (var result in Model.TestResults)
         {
             <tr>
-                <td>@Model.TeamName</td>
                 <td>@(result.Tester?.UserName ?? "")</td>
                 <td>@(result.Tester?.Continent ?? Continents.None)</td>
                 <td>@(result.Tester?.ExperienceLevel ?? 0)</td>
                 <td>@result.SessionName</td>
+                <td>@result.TotalQuestionAnswered</td>
                 <td>@(result.TestResult?.FinalScore ?? 0.0)</td>
             </tr>
         }

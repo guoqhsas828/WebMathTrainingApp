@@ -23,6 +23,11 @@ namespace WebMathTraining.Models
     public Guid SessionId { get; set; } //Latest session?
     public string SessionName { get; set; }
 
+    public int TotalQuestionAnswered
+    {
+      get { return TestResult?.TestResults.Count ?? 0; }
+    }
+
     public ApplicationUser Tester { get; set; }
 
     public TestResult TestResult { get; set; }

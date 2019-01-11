@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,18 +17,23 @@ namespace WebMathTraining.Views
     private readonly TestDbContext _context;
     private readonly ApplicationDbContext _userContext;
     private readonly ITestSessionService _testSessionService;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public TestGroupsController(TestDbContext context, ApplicationDbContext userContext, ITestSessionService service)
+
+    public TestGroupsController(TestDbContext context, ApplicationDbContext userContext, 
+      ITestSessionService service, UserManager<ApplicationUser> userManager)
     {
       _context = context;
       _userContext = userContext;
       _testSessionService = service;
+      _userManager = userManager;
     }
 
     // GET: TestGroups
     public async Task<IActionResult> Index()
     {
-      return View(await _testSessionService.FindAllTestGroupAsync());
+      var user = await _userManager.GetUserAsync(User);
+      return View(await _testSessionService.FindAllTestGroupAsync(user));
     }
 
     // GET: TestGroups/Details/5

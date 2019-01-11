@@ -29,7 +29,7 @@ namespace WebMathTraining.Data
           var testImageId = testQuestionService.CreateTestImage(testImageData, "Trial " + (idx + 1), "Text");
           var questionId = Guid.NewGuid();
           var questionObjectId =
-            testQuestionService.CreateOrUpdate(questionId, testImageId, 1, Constants.TrialQuestionAnswers[idx]);
+            testQuestionService.CreateOrUpdate(questionId, testImageId, Constants.TrialQuestionLevels[idx], Constants.TrialQuestionAnswers[idx]);
 
           testSessionService.AddQuestion(sessionId, questionObjectId, 3.0, -1.0);
         }
