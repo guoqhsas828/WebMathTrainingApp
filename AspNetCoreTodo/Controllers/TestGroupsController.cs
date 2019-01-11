@@ -51,15 +51,20 @@ namespace WebMathTraining.Views
 
       foreach (var session in groupTestSessions.OrderByDescending(s => s.LastUpdated))
       {
-        var testResults = _testSessionService.GetTestResults(session.ObjectId).Select(tr =>
-          new TestResultViewModel()
+        foreach (var tr in _testSessionService.GetTestResults(session.ObjectId).OrderByDescending(s => s.FinalScore))
+        {
+          if (!testGroup.MemberObjectIds.Contains(tr.UserId)) continue; //Only shows score of members in the team
+
+          var testResultV = new TestResultViewModel()
           {
             SessionId = session.Id,
             SessionName = session.Name,
             Tester = _userContext.Users.FirstOrDefault(u => u.ObjectId == tr.UserId),
             TestResult = tr
-          }).OrderByDescending(tr => tr.TestResult.FinalScore).ToList();
-        viewModel.TestResults.AddRange(testResults);
+          };
+
+          viewModel.TestResults.Add(testResultV);
+        }
       }
 
       return View(viewModel);
