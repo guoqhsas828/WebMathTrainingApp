@@ -7,15 +7,22 @@ namespace WebMathTraining.Models
 {
   public class TestGroupSummaryViewModel
   {
-    public Guid SessionId { get; set; } //Latest session?
-    public string SessionName { get; set; }
+    public TestGroupSummaryViewModel(string team)
+    {
+      TeamName = team;
+      TestResults = new List<TestResultViewModel>();
+    }
+
     public string TeamName { get; set; }
 
-    public IList<TestResultViewModel> TestResults { get; set; }
+    public List<TestResultViewModel> TestResults { get; set; }
   }
 
   public class TestResultViewModel
   {
+    public Guid SessionId { get; set; } //Latest session?
+    public string SessionName { get; set; }
+
     public ApplicationUser Tester { get; set; }
 
     public TestResult TestResult { get; set; }

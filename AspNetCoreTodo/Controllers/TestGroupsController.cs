@@ -45,29 +45,22 @@ namespace WebMathTraining.Views
         return NotFound();
       }
 
-      var latestSession = testGroup.EnrolledSessionIds.Any()
-        ? _context.TestSessions.FirstOrDefault(s => s.ObjectId == testGroup.EnrolledSessionIds.Max())
-        : null;
+      var groupTestSessions = _context.TestSessions.Where(s => testGroup.EnrolledSessionIds.Contains(s.ObjectId));
 
-      if (latestSession == null)
+      var viewModel = new TestGroupSummaryViewModel( testGroup.Name);
+
+      foreach (var session in groupTestSessions.OrderByDescending(s => s.LastUpdated))
       {
-        return NotFound();
+        var testResults = _testSessionService.GetTestResults(session.ObjectId).Select(tr =>
+          new TestResultViewModel()
+          {
+            SessionId = session.Id,
+            SessionName = session.Name,
+            Tester = _userContext.Users.FirstOrDefault(u => u.ObjectId == tr.UserId),
+            TestResult = tr
+          }).OrderByDescending(tr => tr.TestResult.FinalScore).ToList();
+        viewModel.TestResults.AddRange(testResults);
       }
-
-      var viewModel = new TestGroupSummaryViewModel()
-      {
-        SessionId = latestSession.Id,
-        SessionName = latestSession.Name,
-        TeamName = testGroup.Name
-      };
-
-      var testResults = _testSessionService.GetTestResults(latestSession.ObjectId).Select(tr =>
-        new TestResultViewModel()
-        {
-          Tester = _userContext.Users.FirstOrDefault(u => u.ObjectId == tr.UserId),
-          TestResult = tr
-        }).OrderByDescending(tr => tr.TestResult.FinalScore).ToList();
-      viewModel.TestResults = testResults;
 
       return View(viewModel);
     }
