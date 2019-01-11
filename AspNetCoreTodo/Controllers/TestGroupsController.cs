@@ -27,7 +27,7 @@ namespace WebMathTraining.Views
     // GET: TestGroups
     public async Task<IActionResult> Index()
     {
-      return View(await _context.TestGroups.ToListAsync());
+      return View(await _testSessionService.FindAllTestGroupAsync());
     }
 
     // GET: TestGroups/Details/5
@@ -39,7 +39,7 @@ namespace WebMathTraining.Views
         return NotFound();
       }
 
-      var testGroup = await _context.TestGroups.FindAsync(id.Value);
+      var testGroup = await _testSessionService.FindTestGroupAsyncById(id.Value);
       if (testGroup == null)
       {
         return NotFound();
@@ -104,7 +104,7 @@ namespace WebMathTraining.Views
         return NotFound();
       }
 
-      var testGroup = await _context.TestGroups.FindAsync(id);
+      var testGroup = await _testSessionService.FindTestGroupAsyncById(id.Value);
       if (testGroup == null)
       {
         return NotFound();
@@ -161,8 +161,7 @@ namespace WebMathTraining.Views
         return NotFound();
       }
 
-      var testGroup = await _context.TestGroups
-        .FirstOrDefaultAsync(m => m.Id == id);
+      var testGroup = await _testSessionService.FindTestGroupAsyncById(id.Value);
       if (testGroup == null)
       {
         return NotFound();
@@ -176,7 +175,7 @@ namespace WebMathTraining.Views
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
-      var testGroup = await _context.TestGroups.FindAsync(id);
+      var testGroup = await _testSessionService.FindTestGroupAsyncById(id);
       _context.TestGroups.Remove(testGroup);
       await _context.SaveChangesAsync();
       return RedirectToAction(nameof(Index));
@@ -184,7 +183,7 @@ namespace WebMathTraining.Views
 
     private bool TestGroupExists(Guid id)
     {
-      return _context.TestGroups.Any(e => e.Id == id);
+      return _testSessionService.FindTestGroupAsyncById(id) != null;
     }
   }
 }

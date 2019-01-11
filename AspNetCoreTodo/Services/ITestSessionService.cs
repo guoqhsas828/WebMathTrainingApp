@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 
@@ -17,16 +18,31 @@ namespace WebMathTraining.Services
     double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer); //Judge the answer and return the score point
     IList<TestResult> GetTestResults(long sessionId);
     void CreateNewTestResult(long sessionId, long userId);
+    Task<IList<TestGroup>> FindAllTestGroupAsync();
+    Task<TestGroup> FindTestGroupAsyncById(Guid groupId);
   }
 
   public class TestSessionService : ITestSessionService
   {
     private readonly TestDbContext _context;
+    private readonly AppUserManageService _userManager;
 
-    public TestSessionService(TestDbContext context)
+    public TestSessionService(TestDbContext context, AppUserManageService userManager)
     {
       _context = context;
+      _userManager = userManager;
     }
+
+    public async Task<IList<TestGroup>> FindAllTestGroupAsync()
+    {
+      return await _context.TestGroups.ToArrayAsync();
+    }
+
+    public async Task<TestGroup> FindTestGroupAsyncById(Guid groupId)
+    {
+      return await _context.TestGroups.FindAsync(groupId);
+    }
+
 
     public Guid CreateNewSession(string name)
     {
