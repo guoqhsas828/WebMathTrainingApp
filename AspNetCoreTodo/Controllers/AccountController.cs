@@ -360,8 +360,9 @@ namespace WebMathTraining.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                if (user == null || !(await _userManager.IsEmailConfirmedAsync(user))
+                    || (await  _userManager.GetEmailAsync(user)) != model.Email)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return RedirectToAction(nameof(ForgotPasswordConfirmation));
