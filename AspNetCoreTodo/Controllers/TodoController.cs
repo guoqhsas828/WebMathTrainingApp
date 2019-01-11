@@ -89,7 +89,7 @@ namespace WebMathTraining.Controllers
 
       var isAdmin = await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
       if (!isAdmin)
-        return Challenge();
+        return BadRequest("Need to have Admin Permission to mark item as done.");
 
       var successful = await _todoItemService.MarkDoneAsync(id, currentUser);
       if (!successful)

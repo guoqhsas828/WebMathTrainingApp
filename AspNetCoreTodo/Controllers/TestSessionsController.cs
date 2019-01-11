@@ -259,14 +259,12 @@ namespace WebMathTraining.Controllers
       if (questionIdx >= testSession.TestQuestions.Count)
       {
         var user = await _userManager.GetUserAsync(User);
-        //Find a test group that contains this session
-        var testGroup = _context.TestGroups.FirstOrDefault(g =>
-          g.EnrolledSessionIds.Contains(testSession.ObjectId) && g.MemberObjectIds.Contains(user.ObjectId));
 
-        if (testGroup == null)
-          return NotFound();
+        if (user == null)
+          return BadRequest("Need to be a valid user to view the test result");
 
-        return RedirectToAction("Details", "TestGroups", new {id = testGroup.Id});
+        return RedirectToAction("TestSessionResult",
+          new { sessionId = id, userId = user.ObjectId, userName = user.UserName});
       }
 
       var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
@@ -286,7 +284,7 @@ namespace WebMathTraining.Controllers
       }
 
       var vm = new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx)
-        {TotalScore = testResult.FinalScore};
+        {TotalScore = testResult.MaximumScore};
       var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem != null)
       {
@@ -294,6 +292,31 @@ namespace WebMathTraining.Controllers
       }
 
       return View(vm);
+    }
+
+    public async Task<IActionResult> TestSessionResult(Guid? sessionId, long userId, string userName)
+    {
+      //If group id provided, show the points for the whole team, otherwise, only the user points
+      if (sessionId == null)
+      {
+        return NotFound();
+      }
+
+      var latestSession = await _context.TestSessions.FindAsync(sessionId.Value);
+
+      if (latestSession == null)
+      {
+        return NotFound();
+      }
+
+      var testResult = _testSessionService.GetTestResults(latestSession.ObjectId)
+        .FirstOrDefault(tr => tr.UserId == userId);
+
+      if (testResult == null)
+        return NotFound();
+
+      var viewModel = new TestResultDetailViewModel(userName, testResult);
+      return View(viewModel);
     }
 
     // POST: TestSessions/Create

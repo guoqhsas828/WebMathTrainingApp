@@ -46,7 +46,6 @@ namespace WebMathTraining.Services
       if (item == null) return false;
 
       item.IsDone = true;
-
       var saveResult = await _context.SaveChangesAsync();
       return saveResult == 1; // One entity should have been updated
     }

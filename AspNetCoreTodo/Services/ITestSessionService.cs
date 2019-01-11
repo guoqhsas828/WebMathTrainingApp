@@ -97,16 +97,18 @@ namespace WebMathTraining.Services
 
       if (testResult != null) return; //Result already exists
 
-        testResult = new TestResult
-        {
-          TestStarted = DateTime.UtcNow,
-          TestSessionId = sessionId,
-          UserId = userId,
-          FinalScore = 0.0,
-         
-        };
-        _context.TestResults.Add(testResult);
-        _context.SaveChanges();
+      var testSession = _context.TestSessions.FirstOrDefault(s => s.ObjectId == sessionId);
+
+      testResult = new TestResult
+      {
+        TestStarted = DateTime.UtcNow,
+        TestSessionId = sessionId,
+        UserId = userId,
+        FinalScore = 0.0,
+        MaximumScore = testSession?.TestQuestions.Items.Sum(t => t.ScorePoint) ?? 0.0
+      };
+      _context.TestResults.Add(testResult);
+      _context.SaveChanges();
     }
 
     public double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer)

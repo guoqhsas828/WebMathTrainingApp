@@ -1,0 +1,31 @@
+﻿@model WebMathTraining.Models.TestResultDetailViewModel
+
+@{
+    ViewData["Title"] = "Test Result Details";
+}
+
+<div>
+    <h2>Test Result -- @Model.Tester -- final score @Model.FinalScore out of maximum @Model.MaximumScore</h2>
+    <h2>Test Started @Model.StartTime -- Ended @Model.EndTime</h2>
+    <hr />
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Question Id</td>
+            <td>Your Answer</td>
+            <td>Score Point</td>
+        </tr>
+        </thead>
+        @foreach (var result in Model.TestResult.TestResults.Items)
+        {
+            <tr>
+                <td>@result.QuestionId</td>
+                <td>@(result.Answer)</td>
+                <td>@(result.Score)</td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
