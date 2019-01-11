@@ -254,7 +254,7 @@ namespace WebMathTraining.Controllers
       }
 
       if (DateTime.UtcNow < testSession.PlannedStart) //Test time has not arrived yet
-        return Challenge();
+        return BadRequest($"Test start time has not arrived yet, please visit back after {testSession.PlannedStart}");
 
       if (questionIdx >= testSession.TestQuestions.Count)
       {
