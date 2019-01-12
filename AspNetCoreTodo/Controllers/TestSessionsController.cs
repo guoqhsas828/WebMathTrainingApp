@@ -30,7 +30,10 @@ namespace WebMathTraining.Controllers
     {
       var user = await _userManager.GetUserAsync(User);
       var testSessions = new List<TestSession>();
-      
+
+      if (user == null)
+        return RedirectToAction("Login", "Account");
+
       if (user.UserStatus != UserStatus.InActive)
       {
         testSessions = await _context.TestSessions.ToListAsync();

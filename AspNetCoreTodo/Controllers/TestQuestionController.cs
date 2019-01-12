@@ -35,7 +35,7 @@ namespace WebMathTraining.Controllers
       {
         return Challenge();
       }
-      var questions = _context.TestQuestions.OrderBy(q => q.ObjectId).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level});
+      var questions = _context.TestQuestions.Include(tq => tq.QuestionImage).OrderBy(q => q.ObjectId).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level, ObjectId = tq.ObjectId, Name = (tq.QuestionImage == null ? "" : tq.QuestionImage.Name)});
       return View(questions); //.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1)
     }
 

@@ -37,38 +37,85 @@ namespace WebMathTraining.Controllers
     [HttpPost]
     public IActionResult UploadImage(IList<IFormFile> files)
     {
-      foreach (var uploadedFile in files)
+      //Pre-processing the files
+      var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
+      var imageFiles = files.Where(f => f.ContentType.ToLower().StartsWith("image/")).ToList();
+
+      if (txtFiles.Count != 1) throw new ArgumentException("Cannot simply upload image files any more, need ONE formatted text file to provide extra information");
+
+      var uploadedFile = txtFiles[0];
+      var fileDirNameInfos = uploadedFile.FileName.Split("\\");
+      if (fileDirNameInfos.Length >= 2)
       {
-        if (uploadedFile != null && uploadedFile.ContentType.ToLower().StartsWith("image/"))
+        var realFileName = fileDirNameInfos[fileDirNameInfos.Length - 1]; //this shall be the test group name
+        var testGroupName = realFileName.Replace(".txt", "");
+        var directFolderName = fileDirNameInfos[fileDirNameInfos.Length - 2]; //This shall be the test session name
+        var testGroup = _context.TestGroups.FirstOrDefault(g => String.Compare(g.Name, testGroupName, StringComparison.InvariantCultureIgnoreCase) == 0);
+        var testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
+        if (testSession == null)
         {
-          var ms = new MemoryStream();
-          uploadedFile.OpenReadStream().CopyTo(ms);
-
-          var imageId = _testQuestionService.CreateTestImage(ms.ToArray(), uploadedFile.Name, uploadedFile.ContentType);
-          _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, 1, "");
-
+          _testSessionService.CreateNewSession(directFolderName);
+          testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
         }
-        else if (uploadedFile != null && uploadedFile.ContentType.ToLower().StartsWith("text/"))
+
+        if (testGroup == null)
         {
-          var questionStrList = new List<string>();
-          var result = string.Empty;
-          using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
+          //_testSessionService.create Create new test group?
+        }
+
+        var questionStrList = new List<string>();
+        var result = string.Empty;
+        using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
+        {
+          result = reader.ReadToEnd();
+        }
+
+        questionStrList = string.IsNullOrEmpty(result) ? new List<string>() : result.Split('\n').ToList();
+        foreach (var questionStr in questionStrList)
+        {
+          var questionDetails = questionStr.Split(Constants.TxtUploadColumnBreaker);
+          if (questionDetails.Length < 6) continue;
+          Int32 gradeLevel;
+          if (!Int32.TryParse(questionDetails[0], out gradeLevel)) gradeLevel = 3;
+          var questionType = questionDetails[1]; //Text or PNG
+          var imageName = questionDetails[2].Replace("\r", "");
+          var imageContent = questionDetails[3].Replace("\r", "");
+          var testAnswer = questionDetails[4].Replace("\r", "");
+          double scorePoint;
+          if (!Double.TryParse(questionDetails[5].Replace("\r", ""), out scorePoint)) scorePoint = 3.0;
+
+          Guid imageId;
+          if (questionType.ToLower() == "text")
           {
-            result = reader.ReadToEnd();
+            imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray(imageContent), imageName, "Text");
+          }
+          else
+          {
+            //we need to locate the image file
+            var imageUploadedFile = imageFiles.FirstOrDefault(f => f.FileName.EndsWith(imageContent, StringComparison.InvariantCultureIgnoreCase));
+            if (imageUploadedFile != null && imageUploadedFile.ContentType.ToLower().StartsWith("image/"))
+            {
+              var ms = new MemoryStream();
+              imageUploadedFile.OpenReadStream().CopyTo(ms);
+
+              imageId = _testQuestionService.CreateTestImage(ms.ToArray(), imageName, imageUploadedFile.ContentType);
+            }
+            else
+            {
+              throw new Exception($"Cannot locate the expected image file in the upload list named {imageContent} with line {imageName}");
+            }
           }
 
-          var realFileName = uploadedFile.FileName.Split("\\").Last();
-          questionStrList = string.IsNullOrEmpty(result) ? new List<string>() : result.Split('\n').ToList();
-          foreach (var questionStr in questionStrList)
-          {
-            var questionDetails = questionStr.Split("<question_line>");
-            if (questionDetails.Length < 4) continue;
-            var imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray(questionDetails[2]), questionDetails[1], "Text");
-            var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, Convert.ToInt32(questionDetails[0]), questionDetails[3]);
-            var testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, realFileName.Replace(".txt", ""), StringComparison.InvariantCultureIgnoreCase) == 0);
-            if (testSession != null)
-              _testSessionService.AddQuestion(testSession.Id, questionId, 3.0, -1);
-          }
+          var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
+
+          if (testSession != null)
+            _testSessionService.AddQuestion(testSession.Id, questionId, scorePoint, -1.0);
+        }
+
+
+        if (testSession != null)
+        {
+          var addSession = _testSessionService.AddSessionIntoTestGroup(testSession.ObjectId, testGroupName);
         }
       }
 

@@ -29,6 +29,8 @@ namespace WebMathTraining.Models
     public string Name { get; set; }
 
     public long SessionId { get; set; }
+
+    public long ObjectId { get; set; }
   }
 
   public class QuestionDetailViewModel

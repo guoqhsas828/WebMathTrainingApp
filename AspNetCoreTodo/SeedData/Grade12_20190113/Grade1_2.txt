@@ -1,0 +1,24 @@
+﻿1<question_line>PNG<question_line>MKG_2012gr0102_1<question_line>Q1.PNG<question_line>C<question_line>3.0
+1<question_line>PNG<question_line>MKG_2012gr0102_2<question_line>Q2.PNG<question_line>B<question_line>3.0
+1<question_line>PNG<question_line>MKG_2012gr0102_3<question_line>Q3.PNG<question_line>D<question_line>3.0
+1<question_line>Text<question_line>MKG_2012gr0102_4<question_line>Helena has written down the word KANGAROO twice. How many times did she write the letter A? <question_line>4<question_line>3.0
+1<question_line>PNG<question_line>MKG_2012gr0102_5<question_line>Q5.PNG<question_line>B<question_line>3.0
+1<question_line>Text<question_line>MKG_2012gr0102_6<question_line>On Friday Dan starts to paint the word BANANA. Each day he paints one letter. On what day will he paint the last letter? <question_line>Wednesday<question_line>3.0
+1<question_line>PNG<question_line>MKG_2012gr0102_7<question_line>Q7.PNG<question_line>E<question_line>3.0
+1<question_line>PNG<question_line>MKG_2012gr0102_8<question_line>Q8.PNG<question_line>C<question_line>3.0
+1<question_line>Text<question_line>MKG_2012gr0102_9<question_line>Thirteen children are playing hide and seek. One of them is the "seeker". After a while nine children have been found. How many children are still hiding?  <question_line>3<question_line>4.0
+1<question_line>PNG<question_line>MKG_2012gr0102_10<question_line>Q10.PNG<question_line>B<question_line>4.0
+1<question_line>Text<question_line>MKG_2012gr0102_11<question_line>Today, Betty added her age and her sister's age and obtained ten as the sum. What would the sum of their ages be after one year?   <question_line>12<question_line>4.0
+1<question_line>PNG<question_line>MKG_2012gr0102_12<question_line>Q12.PNG<question_line>D<question_line>4.0
+2<question_line>Text<question_line>MKG_2012gr0102_13<question_line> A dragon has three heads. Every time a hero cuts off one head, three new heads emerge. The hero cuts one head off, and then he cuts off one more head. How many heads does the dragon have now? <question_line>7<question_line>4.0
+2<question_line>PNG<question_line>MKG_2012gr0102_14<question_line>Q14.PNG<question_line>A<question_line>4.0
+2<question_line>Text<question_line>MKG_2012gr0102_15<question_line> Eve brings twelve candies, Alice nine candies and Irene doesn't bring any candy. They put all the candies together on a table and divide them equally among themselves. How many candies does each of the girls get?   <question_line>7<question_line>4.0
+2<question_line>PNG<question_line>MKG_2012gr0102_16<question_line>Q16.PNG<question_line>B<question_line>4.0
+2<question_line>Text<question_line>MKG_2012gr0102_17<question_line> Winnie the Pooh bought four apple pies and Eeyore bought six cheese cakes. They each paid the same, and together they paid 24 euros. How many euros does one cheese cake cost?  <question_line>2<question_line>5.0
+2<question_line>PNG<question_line>MKG_2012gr0102_18<question_line>Q18.PNG<question_line>E<question_line>5.0
+2<question_line>Text<question_line>MKG_2012gr0102_19<question_line>Grandmother made eleven cookies. She decorated five cookies with raisins and then seven cookies with nuts. At least how many cookies were decorated with both raisins and nuts?   <question_line>1<question_line>5.0
+2<question_line>Text<question_line>MKG_2012gr0102_20<question_line>At a school's party, Dan, Jack and Ben each received a bag with ten candies. Each of the boys ate just one candy and gave one candy to the teacher. How many candies did they have left altogether?  <question_line>24<question_line>5.0
+2<question_line>PNG<question_line>MKG_2012gr0102_21<question_line>Q21.PNG<question_line>D<question_line>5.0
+2<question_line>PNG<question_line>MKG_2012gr0102_22<question_line>Q22.PNG<question_line>E<question_line>5.0
+2<question_line>Text<question_line>MKG_2012gr0102_23<question_line> In a box there are three smaller boxes, each one of which contains three even smaller boxes. How many boxes are there in total?   <question_line>13<question_line>5.0
+2<question_line>PNG<question_line>MKG_2012gr0102_24<question_line>Q24.PNG<question_line>C<question_line>5.0

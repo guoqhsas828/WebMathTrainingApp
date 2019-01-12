@@ -1,2 +1,2 @@
-﻿1<question_line>MKG_2002gr0304_2<question_line>Calculate 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 <question_line>4
-1<question_line>MKG_2002gr0304_5<question_line>The human heart beats approximately 70 times per minute. How many beats approximately will it make in an hour?<question_line>4200
+﻿1<question_line>MKG_2002gr0304_2<question_line>Calculate 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 <question_line>4<question_line>3.0
+1<question_line>MKG_2002gr0304_5<question_line>The human heart beats approximately 70 times per minute. How many beats approximately will it make in an hour?<question_line>4200<question_line>3.0

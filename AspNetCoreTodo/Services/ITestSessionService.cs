@@ -21,6 +21,7 @@ namespace WebMathTraining.Services
     void CreateNewTestResult(long sessionId, long userId);
     Task<IList<TestGroup>> FindAllTestGroupAsync(ApplicationUser user);
     Task<TestGroup> FindTestGroupAsyncById(Guid groupId);
+    bool AddSessionIntoTestGroup(long sessionId, string groupName);
   }
 
   public class TestSessionService : ITestSessionService
@@ -47,6 +48,21 @@ namespace WebMathTraining.Services
       return await _context.TestGroups.FindAsync(groupId);
     }
 
+    public bool AddSessionIntoTestGroup(long sessionId, string groupName)
+    {
+      var testGroup = _context.TestGroups.FirstOrDefault(g => String.Compare(g.Name, groupName, StringComparison.InvariantCultureIgnoreCase) == 0);
+      if (testGroup == null) return false;
+
+      if (!testGroup.EnrolledSessionIds.Contains(sessionId))
+      {
+        testGroup.EnrolledSessionIds.Add(sessionId);
+        testGroup.EnrolledSessionIds = testGroup.EnrolledSessionIds;
+        _context.Update(testGroup);
+        _context.SaveChanges();
+      }
+
+      return true;
+    }
 
     public Guid CreateNewSession(string name)
     {

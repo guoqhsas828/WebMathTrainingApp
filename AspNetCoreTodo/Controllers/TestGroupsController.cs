@@ -33,6 +33,8 @@ namespace WebMathTraining.Views
     public async Task<IActionResult> Index()
     {
       var user = await _userManager.GetUserAsync(User);
+      if (user == null)
+        return RedirectToAction("Login", "Account");
       return View(await _testSessionService.FindAllTestGroupAsync(user));
     }
 
