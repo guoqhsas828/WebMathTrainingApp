@@ -39,11 +39,14 @@ namespace WebMathTraining.Models
     {
     }
 
-    public TestResultDetailViewModel(string userName, TestResult result)
+    public TestResultDetailViewModel(Guid sessionId, string userName, TestResult result)
     {
+      SessionId = sessionId;
       Tester = userName;
       TestResult = result;
     }
+
+    public Guid SessionId { get; set; }
 
     public string Tester { get; set; }
 

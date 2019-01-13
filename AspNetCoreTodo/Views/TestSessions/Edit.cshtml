@@ -42,6 +42,8 @@
                 <input asp-for="LastUpdated" type="hidden" />
                 <input asp-for="TesterData" type="hidden" />
                 <input asp-for="TestQuestionData" type="hidden" />
+                @Html.HiddenFor(model => model.PlannedStart)
+                @Html.HiddenFor(model => model.PlannedEnd)
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

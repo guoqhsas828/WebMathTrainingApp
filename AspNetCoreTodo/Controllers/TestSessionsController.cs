@@ -120,7 +120,7 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd,TesterData,TestQuestionData,LastUpdated")] TestSession testSession)
+    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd,TesterData,TestQuestionData,LastUpdated,PlannedStartLocal,PlannedEndLocal")] TestSession testSession)
     {
       if (id != testSession.Id)
       {
@@ -137,8 +137,6 @@ namespace WebMathTraining.Controllers
         try
         {
           testSession.LastUpdated = DateTime.UtcNow;
-          //testSession.TestQuestions = testSession.TestQuestions;
-          //testSession.Testers = testSession.Testers;
           _context.Update(testSession);
           await _context.SaveChangesAsync();
         }
@@ -312,8 +310,31 @@ namespace WebMathTraining.Controllers
       if (testResult == null)
         return NotFound();
 
-      var viewModel = new TestResultDetailViewModel(userName, testResult);
+      var viewModel = new TestResultDetailViewModel(latestSession.Id, userName, testResult);
       return View(viewModel);
+    }
+
+    public async Task<IActionResult> ReviewQuestion(Guid? id, long questionId)
+    {
+      //If group id provided, show the points for the whole team, otherwise, only the user points
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      for (int idx = 0; idx < testSession.TestQuestions.Count; ++idx)
+      {
+        if (testSession.TestQuestions.Items[idx].QuestionId == questionId)
+          return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = idx });
+      }
+
+      return NotFound();
     }
 
     // POST: TestSessions/Create

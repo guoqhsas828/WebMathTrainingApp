@@ -51,5 +51,7 @@ namespace WebMathTraining
       4,
       1,
     };
+
+    public static readonly string[] AvailableChoices = new[] { "A", "B", "C", "D", "E" };
   }
 }

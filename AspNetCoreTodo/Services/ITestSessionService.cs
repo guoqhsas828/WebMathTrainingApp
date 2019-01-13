@@ -77,7 +77,7 @@ namespace WebMathTraining.Services
         Name = name,
         Description = name,
         PlannedStart = DateTime.UtcNow,
-        PlannedEnd = DateTime.UtcNow.Add(TimeSpan.FromMinutes(5.0))
+        PlannedEnd = DateTime.UtcNow.Add(TimeSpan.FromMinutes(30.0))
       };
       _context.Add(testSession);
       _context.SaveChanges();

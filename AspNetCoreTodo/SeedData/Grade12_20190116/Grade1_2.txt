@@ -1,0 +1,18 @@
+﻿1<question_line>PNG<question_line>MKG_2013gr0102_1<question_line>Q1.PNG<question_line>D<question_line>3.0
+1<question_line>PNG<question_line>MKG_2013gr0102_2<question_line>Q2.PNG<question_line>B<question_line>3.0
+1<question_line>PNG<question_line>MKG_2013gr0102_3<question_line>Q3.PNG<question_line>A<question_line>3.0
+1<question_line>Text<question_line>MKG_2013gr0102_4<question_line>A lot of babies were born in the zoo last year: two baby lions, three baby dolphins and four baby eagles. How many legs do all these babies have altogether? (A) 20  (B) 18  (C) 16  (D) 14  (E) 12  <question_line>C<question_line>3.0
+1<question_line>Text<question_line>MKG_2013gr0102_5<question_line>Several students want to plant 20 tulips in the school garden. It takes ten minutes for them to plant five tulips. They started at 9:00 in the morning. At what time will they finish planting all 20 tulips? (A) At 9:10  (B) At 9:20 (C) At 9:40  (D) At 9:50  (E) At 10:00  <question_line>C<question_line>4.0
+1<question_line>PNG<question_line>MKG_2013gr0102_6<question_line>Q6.PNG<question_line>B<question_line>3.0
+1<question_line>PNG<question_line>MKG_2013gr0102_7<question_line>Q7.PNG<question_line>D<question_line>4.0
+1<question_line>PNG<question_line>MKG_2013gr0102_8<question_line>Q8.PNG<question_line>E<question_line>4.0
+1<question_line>PNG<question_line>MKG_2013gr0102_9<question_line>Q9.PNG<question_line>D<question_line>4.0
+1<question_line>Text<question_line>MKG_2013gr0102_10<question_line> I am a number. If you count by tens you will say my name. I am not ten. If you add me to 30, you will get a number less than 60. Who am I?  (A) 20  (B) 30  (C) 40  (D) 50  (E) 60   <question_line>A<question_line>4.0
+1<question_line>PNG<question_line>MKG_2013gr0102_11<question_line>Q11.PNG<question_line>B<question_line>4.0
+2<question_line>Text<question_line>MKG_2013gr0102_12<question_line>Kasia has 3 brothers and 3 sisters. How many brothers and how many sisters does her brother Mike have? (A) 3 brothers and 3 sisters (B) 3 brothers and 4 sisters (C) 2 brothers and 3 sisters  (D) 3 brothers and 2 sisters (E) 2 brothers and 4 sisters  <question_line>E<question_line>5.0
+2<question_line>PNG<question_line>MKG_2013gr0102_13<question_line>Q13.PNG<question_line>D<question_line>5.0
+2<question_line>PNG<question_line>MKG_2013gr0102_14<question_line>Q14.PNG<question_line>A<question_line>5.0
+2<question_line>PNG<question_line>MKG_2013gr0102_15<question_line>Q15.PNG<question_line>C<question_line>5.0
+2<question_line>PNG<question_line>MKG_2013gr0102_16<question_line>Q16.PNG<question_line>B<question_line>5.0
+2<question_line>Text<question_line>MKG_2013gr0102_17<question_line>A square box is filled with two layers of identical square pieces of chocolate. Kirill has eaten all 20 pieces in the upper layer, which are along the walls of the box. How many pieces of chocolate are left in the box?  (A) 16 (B) 30 (C) 50 (D) 52 (E) 70   <question_line>D<question_line>5.0
+2<question_line>PNG<question_line>MKG_2013gr0102_18<question_line>Q18.PNG<question_line>B<question_line>5.0

@@ -18,11 +18,14 @@
         </thead>
         @foreach (var result in Model.TestResult.TestResults.Items)
         {
-            <tr>
-                <td>@result.QuestionId</td>
-                <td>@(result.Answer)</td>
-                <td>@(result.Score)</td>
-            </tr>
+        <tr>
+            <td>@result.QuestionId</td>
+            <td>@(result.Answer)</td>
+            <td>@(result.Score)</td>
+            <td>
+                <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionId="@result.QuestionId">Review</a>
+            </td>
+        </tr>
         }
     </table>
 </div>

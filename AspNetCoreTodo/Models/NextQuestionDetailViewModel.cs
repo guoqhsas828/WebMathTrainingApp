@@ -15,12 +15,6 @@ namespace WebMathTraining.Models
     public NextQuestionDetailViewModel(TestQuestion entity, Guid id, string sessionName, int idx)
     {
       TestQuestion = entity;
-      AnswerChoice1 = entity.TestAnswer?.AnswerChoice1 ?? "A. ";
-      AnswerChoice2 = entity.TestAnswer?.AnswerChoice2 ?? "B. ";
-      AnswerChoice3 = entity.TestAnswer?.AnswerChoice3 ?? "C. ";
-      AnswerChoice4 = entity.TestAnswer?.AnswerChoice4 ?? "D. ";
-      AnswerChoice5 = entity.TestAnswer?.AnswerChoice5 ?? default(string);
-      AnswerChoice6 = entity.TestAnswer?.AnswerChoice6 ?? default(string);
       TestSessionName = sessionName;
       QuestionIdx = idx;
       SessionId = id;
@@ -51,17 +45,7 @@ namespace WebMathTraining.Models
       }
     }
 
-    public string AnswerChoice1 { get; set; }
-
-    public string AnswerChoice2 { get; set; }
-
-    public string AnswerChoice3 { get; set; }
-
-    public string AnswerChoice4 { get; set; }
-
-    public string AnswerChoice5 { get; set; }
-
-    public string AnswerChoice6 { get; set; }
+    public string ChoiceAnswer { get { return TextAnswer; } set { TextAnswer = value; } }
 
     public bool IsTextBased => (Image != null &&
                                 string.Compare(Image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0);
@@ -81,5 +65,6 @@ namespace WebMathTraining.Models
     public double ScorePoint { get; set; }
 
     public double PenaltyPoint { get; set; }
+
   }
 }

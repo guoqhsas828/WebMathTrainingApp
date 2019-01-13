@@ -41,28 +41,25 @@
                    })
                     </div>
                 }
-                <div>
-                    @if (Model.IsChoiceBased)
-                    {
-                        <label asp-for="AnswerChoice1"></label>
-                        <input asp-for="AnswerChoice1" class="form-control" />
-                        <label asp-for="AnswerChoice2"></label>
-                        <input asp-for="AnswerChoice2" class="form-control" />
-                        <label asp-for="AnswerChoice3"></label>
-                        <input asp-for="AnswerChoice3" class="form-control" />
-                        <label asp-for="AnswerChoice4"></label>
-                        <input asp-for="AnswerChoice4" class="form-control" />
-                        <label asp-for="AnswerChoice5"></label>
-                        <input asp-for="AnswerChoice5" class="form-control" />
-                        <label asp-for="AnswerChoice6"></label>
-                        <input asp-for="AnswerChoice6" class="form-control" />
-                    }
-                </div>
-                <div class="form-group">
-                    <label asp-for="TextAnswer" class="control-label">Answer</label>
-                    <input asp-for="TextAnswer" class="form-control" />
-                    <span asp-validation-for="TextAnswer" class="text-danger"></span>
-                </div>
+                    <div>
+                        @if (!Model.IsTextBased)
+                        {
+                        <div class="form-group">
+                            <hr />
+                            <label asp-for="TextAnswer" class="control-label">Answer</label>
+                            @Html.DropDownListFor(model => model.TextAnswer, Constants.AvailableChoices.Select(c => new SelectListItem(c, c)), "Select Answer")
+                        </div>
+                        }
+                    </div>
+                    <div class="form-group">
+                        @if (Model.IsTextBased)
+                        {
+                            <hr />
+                            <label asp-for="TextAnswer" class="control-label">Answer</label>
+                            <input asp-for="TextAnswer" class="form-control" />
+                            <span asp-validation-for="TextAnswer" class="text-danger"></span>
+                        }
+                    </div>
                 <hr />
                 <button class="btn btn-default" asp-action="SubmitAnswer" asp-route-id="@Model.SessionId" asp-route-questionIdx="@Model.QuestionIdx">Submit Answer</button>
             </form>

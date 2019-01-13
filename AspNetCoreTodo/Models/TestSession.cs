@@ -94,7 +94,7 @@ namespace WebMathTraining.Models
     public DateTime LastUpdatedLocal { get { return LastUpdated.ToLocalTime(); } set { LastUpdated = value.ToUniversalTime(); } }
 
     [NotMapped]
-    public TimeSpan SessionTimeSpan => PlannedEnd > PlannedStart ? PlannedEnd - PlannedStart : TimeSpan.FromMinutes(10.0);
+    public TimeSpan SessionTimeSpan => PlannedEnd - PlannedStart;
 
     #region Methods
 
