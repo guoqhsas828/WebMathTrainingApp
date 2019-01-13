@@ -1,0 +1,47 @@
+﻿@using WebMathTraining.Utilities;
+@model WebMathTraining.Models.FinalSubmitViewModel
+
+@{
+    ViewData["Title"] = "Confirmation to Complete Test Session";
+}
+
+<h2>Please check the test time and finish the test only if all the answers are finalized</h2>
+<h2>Go back to the list to go through the previous questions</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TestSessionId" />
+            <input type="hidden" asp-for="SessionObjectId" />
+            <input type="hidden" asp-for="UserObjectId" />
+            <input type="hidden" asp-for="UserName" />
+            <input type="hidden" asp-for="AllowedTimeSpan" />
+            <div class="form-group">
+                <label asp-for="SessionName" class="control-label"></label>
+                <input asp-for="SessionName" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label asp-for=" AllowedTestTime" class="control-label">Allowed Test Time</label>
+                <input asp-for="AllowedTestTime" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeUsed" class="control-label">Test Time Used</label>
+                <input asp-for="TimeUsed" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <h4>Warning: Test result can NOT be changed after finishing the test results</h4>
+                <input type="submit" value="Finish Test" class="btn btn-default" asp-action="FinalSubmit" asp-route-id="@Model.TestSessionId" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <hr />
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

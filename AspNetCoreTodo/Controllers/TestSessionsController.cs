@@ -259,35 +259,29 @@ namespace WebMathTraining.Controllers
       if (DateTime.UtcNow < testSession.PlannedStart) //Test time has not arrived yet
         return BadRequest($"Test start time has not arrived yet, please visit back after {testSession.PlannedStart}");
 
-      if (questionIdx >= testSession.TestQuestions.Count)
+      var testUser = await _userManager.GetUserAsync(User);
+      _testSessionService.CreateNewTestResult(testSession.ObjectId, testUser.ObjectId);
+
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId).FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
+
+      if (questionIdx >= testSession.TestQuestions.Count) //The user may reach this state by keep moving to next question without submitting answers
       {
-        var user = await _userManager.GetUserAsync(User);
-
-        if (user == null)
-          return BadRequest("Need to be a valid user to view the test result");
-
-        return RedirectToAction("TestSessionResult",
-          new { sessionId = id, userId = user.ObjectId, userName = user.UserName});
+        return RedirectToAction(nameof(FinalSubmit), new { id = id });
       }
 
       var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
       var testQuestion = _context.TestQuestions.Where(q => q.ObjectId == testQuestionItem.QuestionId)
         .Include(q => q.QuestionImage).FirstOrDefault();
       if (testQuestion == null)
-        return BadRequest("This test data has been corrupted, please contact with the administrator");
+        return BadRequest($"This test data of session {testSession.Name} has been corrupted, please contact with the administrator");
 
-      var testUser = await _userManager.GetUserAsync(User);
-      _testSessionService.CreateNewTestResult(testSession.ObjectId, testUser.ObjectId);
-
-      var testResult = _testSessionService.GetTestResults(testSession.ObjectId)
-        .FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
       if (testResult == null)
       {
         return NotFound();
       }
 
       var vm = new NextQuestionDetailViewModel(testQuestion, id, testSession.Name, questionIdx)
-        {TotalScore = testResult.MaximumScore};
+        {ScorePoint = testQuestionItem.ScorePoint, PenaltyPoint = testQuestionItem.PenaltyPoint};
       var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem != null)
       {
@@ -345,13 +339,14 @@ namespace WebMathTraining.Controllers
       if (testResult == null)
         return NotFound();
 
-      testResult.TestEnded = DateTime.UtcNow;
-      bool runOvertime = (testResult.TestStarted >= testSession.PlannedStart && (testResult.TestEnded - testResult.TestStarted) > testSession.SessionTimeSpan);
+      testResult.TestEnded = testResult.TestEnded > DateTime.UtcNow ? testResult.TestEnded : DateTime.UtcNow;
+      bool runOvertime = (testResult.TestStarted >= testSession.PlannedStart && (testResult.TestEnded - testResult.TestStarted) >= testSession.SessionTimeSpan);
       var testResultItem =
         testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem == null)
       {
-        testResultItem = new TestResultItem() {Answer = viewModel.TextAnswer, QuestionId = testQuestion.ObjectId,};
+        var cleanedTestAnswer = viewModel.TextAnswer.TrimEnd();
+        testResultItem = new TestResultItem() {Answer = cleanedTestAnswer, QuestionId = testQuestion.ObjectId,};
         testResult.TestResults.Add(testResultItem);
       }
       else if (!runOvertime)
@@ -373,8 +368,92 @@ namespace WebMathTraining.Controllers
       _context.Update(testResult);
       await _context.SaveChangesAsync();
 
-      return RedirectToAction("NextQuestion",
-        new {id = id, questionIdx = runOvertime ? Int32.MaxValue : questionIdx + 1});
+      if (runOvertime)
+        return RedirectToAction(nameof(TestSessionResult), new { sessionId = id, userId = testUser.ObjectId, userName = testUser.UserName });
+      else if (questionIdx >= testSession.TestQuestions.Count - 1)
+        return RedirectToAction(nameof(FinalSubmit), new { id = id });
+
+      return RedirectToAction(nameof(NextQuestion), new {id = id, questionIdx = questionIdx + 1});
+    }
+
+    // GET: TestSessions/FinalSubmit
+    public async Task<IActionResult> FinalSubmit(Guid? id)
+    {
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      var testUser = await _userManager.GetUserAsync(User);
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId)
+        .FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
+      if (testResult == null)
+        return NotFound();
+
+      return View(new FinalSubmitViewModel() { TestSessionId = id.Value, SessionName = testSession.Name, AllowedTimeSpan = testSession.SessionTimeSpan,
+        TestStart = testResult.TestStarted.ToLocalTime(), SessionObjectId = testSession.ObjectId, UserObjectId = testUser.ObjectId, UserName = testUser.UserName });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> FinalSubmit(Guid id, [Bind("SessionObjectId,UserName,UserObjectId,AllowedTimeSpan,SessionName")]FinalSubmitViewModel viewModel)
+    {
+      //Seal the test result by moving the test end time to the session end time
+      var testResult = _testSessionService.GetTestResults(viewModel.SessionObjectId).FirstOrDefault(tr => tr.UserId == viewModel.UserObjectId);
+      testResult.TestEnded = testResult.TestStarted.Add(viewModel.AllowedTimeSpan.Add(TimeSpan.FromSeconds(1)));
+      _context.Update(testResult);
+      await _context.SaveChangesAsync();
+
+      return RedirectToAction(nameof(TestSessionResult), new { sessionId = id, userId = viewModel.UserObjectId, userName = viewModel.UserName });
+    }
+
+    // GET: TestSessions/TestInstruction
+    public async Task<IActionResult> TestInstruction(Guid? id)
+    {
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      var testUser = await _userManager.GetUserAsync(User);
+      if (!testSession.IsRegisteredUser(testUser.ObjectId))
+      {
+        return RedirectToAction(nameof(Register), new { id = id.Value});
+      }
+
+      return View(new TestInstructionViewModel()
+      {
+        TestSessionId = id.Value,
+        SessionName = testSession.Name,
+        SessionDescription = testSession.Description,
+        AllowedTimeSpan = testSession.SessionTimeSpan,
+        SessionObjectId = testSession.ObjectId,
+        UserObjectId = testUser.ObjectId,
+        UserName = testUser.UserName,
+        TotalQuestions = testSession.TestQuestions.Count,
+        TotalScorePoints = testSession.TestQuestions.Sum(q => q.ScorePoint)
+      });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> TestInstruction(Guid id, [Bind("SessionObjectId,UserName,UserObjectId,AllowedTimeSpan,SessionName")]TestInstructionViewModel viewModel)
+    {
+       _testSessionService.CreateNewTestResult(viewModel.SessionObjectId, viewModel.UserObjectId);
+
+      return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = 0 });
     }
 
     private bool TestSessionExists(Guid id)

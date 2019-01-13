@@ -58,16 +58,16 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PlannedStart)
+                            @Html.DisplayFor(modelItem => item.PlannedStartLocal)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.SessionTimeSpan)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LastUpdated)
+                            @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
                         </td>
                         <td>
-                            <a asp-action="NextQuestion" asp-route-id="@item.Id" asp-route-questionIdx= "@startIdx">@buttonLabel</a>
+                            <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
                         </td>
                     </tr>
                 }

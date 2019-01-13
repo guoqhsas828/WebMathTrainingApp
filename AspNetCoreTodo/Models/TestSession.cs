@@ -52,7 +52,13 @@ namespace WebMathTraining.Models
 
     public DateTime PlannedStart { get; set; }
 
+    [NotMapped]
+    public DateTime PlannedStartLocal { get { return PlannedStart.ToLocalTime(); } set { PlannedStart = value.ToUniversalTime(); } }
+
     public DateTime PlannedEnd { get; set; }
+
+    [NotMapped]
+    public DateTime PlannedEndLocal { get { return PlannedEnd.ToLocalTime(); } set { PlannedEnd = value.ToUniversalTime(); } }
 
     public byte[] TesterData { get; set; }
 
@@ -83,6 +89,9 @@ namespace WebMathTraining.Models
     }
 
     public DateTime LastUpdated { get; set; }
+
+    [NotMapped]
+    public DateTime LastUpdatedLocal { get { return LastUpdated.ToLocalTime(); } set { LastUpdated = value.ToUniversalTime(); } }
 
     [NotMapped]
     public TimeSpan SessionTimeSpan => PlannedEnd > PlannedStart ? PlannedEnd - PlannedStart : TimeSpan.FromMinutes(10.0);

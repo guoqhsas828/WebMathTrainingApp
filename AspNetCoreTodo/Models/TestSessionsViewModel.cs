@@ -16,8 +16,8 @@ namespace WebMathTraining.Models
       ObjectId = entity.ObjectId;
       Name = entity.Name;
       Description = entity.Description;
-      PlannedStart = entity.PlannedStart;
-      PlannedEnd = entity.PlannedEnd;
+      PlannedStart = entity.PlannedStart.ToLocalTime();
+      PlannedEnd = entity.PlannedEnd.ToLocalTime();
       RegisteredUsers = "";
       foreach (var tester in entity.Testers.Items)
       {
