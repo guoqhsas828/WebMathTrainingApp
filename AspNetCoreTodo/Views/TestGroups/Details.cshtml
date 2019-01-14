@@ -11,10 +11,11 @@
         <thead>
         <tr>
             <td>User Name</td>
-            <td>Continent</td>
+            @*<td>Continent</td>*@
             <td>Experience Level</td>
             <td>Test Session</td>
             <td>Questions Answered</td>
+            <td>Correct Ratio</td>
             <td>Final Score</td>
         </tr>
         </thead>
@@ -22,11 +23,15 @@
         {
             <tr>
                 <td>@(result.Tester?.UserName ?? "")</td>
-                <td>@(result.Tester?.Continent ?? Continents.None)</td>
+                @*<td>@(result.Tester?.Continent ?? Continents.None)</td>*@
                 <td>@(result.Tester?.ExperienceLevel ?? 0)</td>
                 <td>@result.SessionName</td>
                 <td>@result.TotalQuestionAnswered</td>
+                <td>@result.CorrectRatio</td>
                 <td>@(result.TestResult?.FinalScore ?? 0.0)</td>
+                <td>
+                    <a asp-controller="TestSessions" asp-action="TestSessionResult" asp-route-sessionId="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)" asp-route-userName="@(result.Tester?.UserName ?? "")">Details</a>
+                </td>
             </tr>
         }
     </table>

@@ -297,6 +297,14 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
+      var user = await _userManager.GetUserAsync(User);
+      if (user.ObjectId != userId)
+      {
+        var isAdmin = user != null && await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
+        if (!isAdmin)
+          return BadRequest($"Only allowed to view the details of your own or pre-authorized test results");
+      }
+
       var latestSession = await _context.TestSessions.FindAsync(sessionId.Value);
 
       if (latestSession == null)
