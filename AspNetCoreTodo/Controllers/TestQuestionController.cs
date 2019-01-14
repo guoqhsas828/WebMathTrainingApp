@@ -43,34 +43,34 @@ namespace WebMathTraining.Controllers
     public IActionResult SaveQuestion(Guid modelId, string imageId, QuestionDetailViewModel viewModel)
     {
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == imageId);
-      if (image != null)
-      {
-        var entity = _context.TestQuestions.Find(modelId);
-        if (entity == null)
-        {
-          entity = new TestQuestion()
-          {
-            Id = modelId,
-            Category = viewModel.Category,
-            Level = viewModel.Level,
-            TestAnswer = viewModel.CreateTestAnswer(),
-            //Height = image.Height,
-            QuestionImage = image
-          };
-          _context.TestQuestions.Add(entity);
-        }
-        else
-        {
-          entity.Category = viewModel.Category;
-          entity.Level = viewModel.Level;
-          entity.QuestionImage = image;
-          entity.TestAnswer = viewModel.CreateTestAnswer();
-        }
+      if (image == null)
+        return BadRequest($"Test image of id {imageId} not found");
 
-        _context.SaveChanges();
+      var entity = _testQuestionService.FindTestQuestion(modelId);
+      if (entity == null)
+      {
+        entity = new TestQuestion()
+        {
+          Id = modelId,
+          Category = viewModel.Category,
+          Level = viewModel.Level,
+          TestAnswer = viewModel.CreateTestAnswer(),
+          //Height = image.Height,
+          QuestionImage = image
+        };
+        _context.TestQuestions.Add(entity);
+      }
+      else
+      {
+        entity.Category = viewModel.Category;
+        entity.Level = viewModel.Level;
+        entity.QuestionImage = image;
+        entity.TestAnswer = viewModel.CreateTestAnswer();
       }
 
-      return RedirectToAction("Index");
+      _context.SaveChanges();
+
+      return RedirectToAction(nameof(Index));
     }
 
 
@@ -102,7 +102,7 @@ namespace WebMathTraining.Controllers
       var entity = _context.TestQuestions.Where(q => q.Id == id).Include(q => q.QuestionImage).FirstOrDefault();
       if (entity == null)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
       else
       {
@@ -135,6 +135,12 @@ namespace WebMathTraining.Controllers
           entity.Level = viewModel.Level;
           entity.QuestionImage = image;
           entity.TestAnswer = viewModel.CreateTestAnswer();
+          if (image.DataText != viewModel.QuestionText)
+          {
+            image.DataText = viewModel.QuestionText;
+            _context.Update(image);
+            _context.SaveChanges();
+          }
         }
 
         _context.SaveChanges();
@@ -198,16 +204,16 @@ namespace WebMathTraining.Controllers
         viewModel.Category, viewModel.AnswerChoice);
       if (viewModel.SessionId > 0)
       {
-        //TODO
+        //TODO need to get a test session service and add this question to a test session
       }
 
       return RedirectToAction("Index");
     }
 
-    public async Task<IActionResult> Delete(Guid id)
+    public IActionResult Delete(Guid id)
     {
       _testQuestionService.DeleteQuestion(id);
-        return RedirectToAction("Index");
+      return RedirectToAction(nameof(Index));
     }
   }
 }

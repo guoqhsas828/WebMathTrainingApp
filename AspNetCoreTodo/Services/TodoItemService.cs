@@ -47,12 +47,23 @@ namespace WebMathTraining.Services
 
       item.IsDone = true;
       var saveResult = await _context.SaveChangesAsync();
-      return saveResult == 1; // One entity should have been updated
+      return true; // One entity should have been updated
     }
 
     public async Task<TodoItem[]> GetAllItemsAsync()
     {
       return await _context.TodoItems.OrderBy(x => x.IsDone).ToArrayAsync();
+    }
+
+    public async Task<bool> DeleteItemAsync(string id)
+    {
+      var item = await _context.TodoItems.FindAsync(id);
+
+      if (item == null) return false;
+
+      _context.TodoItems.Remove(item);
+      var status = await _context.SaveChangesAsync();
+      return true;
     }
   }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Threading.Tasks;
+using WebMathTraining.Services;
 
 namespace WebMathTraining.Models
 {
@@ -47,12 +47,7 @@ namespace WebMathTraining.Models
       Image = entity.QuestionImage;
       AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None;
       TextAnswer = entity.TestAnswer?.TextAnswer ?? default(string);
-      AnswerChoice1 = entity.TestAnswer?.AnswerChoice1 ?? "A. ";
-      AnswerChoice2 = entity.TestAnswer?.AnswerChoice2 ?? "B. ";
-      AnswerChoice3 = entity.TestAnswer?.AnswerChoice3 ?? "C. ";
-      AnswerChoice4 = entity.TestAnswer?.AnswerChoice4 ?? "D. ";
-      AnswerChoice5 = entity.TestAnswer?.AnswerChoice5 ?? default(string);
-      AnswerChoice6 = entity.TestAnswer?.AnswerChoice6 ?? default(string);
+      QuestionText = Image?.DataText;
 
     }
 
@@ -76,15 +71,7 @@ namespace WebMathTraining.Models
 
     public string QuestionText
     {
-      get
-      {
-        if (Image == null ||
-            String.Compare(Image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) != 0)
-          return null;
-
-        var encoding = new System.Text.UTF8Encoding();
-        return encoding.GetString(Image.Data, 0, Image.Data.Length);
-      }
+      get;set;
     }
 
     public string AnswerChoice1 { get; set; }

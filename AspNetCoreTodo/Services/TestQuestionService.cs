@@ -21,6 +21,7 @@ namespace WebMathTraining.Services
     TestAnswerType answerChoice = TestAnswerType.Text);
     int CountQuestions();
     void DeleteQuestion(Guid id);
+    TestQuestion FindTestQuestion(Guid id);
   }
 
   public class TestQuestionService : ITestQuestionService
@@ -30,6 +31,11 @@ namespace WebMathTraining.Services
     public TestQuestionService(TestDbContext context)
     {
       _context = context;
+    }
+
+    public TestQuestion FindTestQuestion(Guid id)
+    {
+      return _context.TestQuestions.Find(id);
     }
 
     public int CountQuestions()

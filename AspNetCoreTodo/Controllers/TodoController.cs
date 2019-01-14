@@ -55,13 +55,13 @@ namespace WebMathTraining.Controllers
     {
       if (!ModelState.IsValid)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
 
       var currentUser = await _userManager.GetUserAsync(User);
       if (currentUser == null)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
 
       var successful = await _todoItemService.AddItemAsync(newItem, currentUser);
@@ -70,7 +70,7 @@ namespace WebMathTraining.Controllers
         return BadRequest("Could not add item.");
       }
 
-      return RedirectToAction("Index");
+      return RedirectToAction(nameof(Index));
     }
 
     [ValidateAntiForgeryToken]
@@ -78,13 +78,13 @@ namespace WebMathTraining.Controllers
     {
       if (string.IsNullOrEmpty(id))
       {
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
 
       var currentUser = await _userManager.GetUserAsync(User);
       if (currentUser == null)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
 
       var isAdmin = await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
@@ -97,7 +97,29 @@ namespace WebMathTraining.Controllers
         return BadRequest("Could not mark item as done.");
       }
 
-      return RedirectToAction("Index");
+      return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Delete(string id)
+    {
+      if (string.IsNullOrEmpty(id))
+        return RedirectToAction(nameof(Index));
+
+      var currentUser = await _userManager.GetUserAsync(User);
+      if (currentUser == null)
+      {
+        return RedirectToAction("Index");
+      }
+
+      var isAdmin = await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return BadRequest("Need to have Admin Permission to delete item.");
+
+      var status = await _todoItemService.DeleteItemAsync(id);
+      if (!status)
+        return BadRequest("Could not delete item");
+
+      return RedirectToAction(nameof(Index));
     }
   }
 }

@@ -14,5 +14,7 @@ namespace WebMathTraining.Services
     Task<bool> MarkDoneAsync(string id, ApplicationUser user);
 
     Task<TodoItem[]> GetAllItemsAsync();
+
+    Task<bool> DeleteItemAsync(string id);
   }
 }

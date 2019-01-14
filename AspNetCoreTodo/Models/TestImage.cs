@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebMathTraining.Services;
 
 namespace WebMathTraining.Models
 {
@@ -20,8 +21,32 @@ namespace WebMathTraining.Models
 
     public string ContentType { get; set; }
 
-    //[Key]
-    //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    //public long ObjectId { get; set; }
+    [NotMapped]
+    public string DataText
+    {
+      get
+      {
+        if (_dataText == null)
+        {
+          if (Data == null || String.Compare(ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) != 0)
+            _dataText = null;
+          else
+            _dataText = TestQuestionService.ByteArrayToStr(Data);
+
+        }
+        return _dataText;
+      }
+      set
+      {
+        if (_dataText != value)
+        {
+          _dataText = value;
+          Data = _dataText == null ? null : TestQuestionService.StrToByteArray(_dataText);
+        }
+      }
+    }
+
+    [NotMapped]
+    private string _dataText;
   }
 }

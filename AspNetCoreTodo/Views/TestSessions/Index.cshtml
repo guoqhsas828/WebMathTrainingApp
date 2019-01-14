@@ -47,29 +47,29 @@
                   var startIdx = item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
                   var buttonLabel = startIdx >= 0 ? "Start" : "Register";
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PlannedStartLocal)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SessionTimeSpan)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
-                        </td>
-                        <td>
-                            <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlannedStartLocal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SessionTimeSpan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
+                    </td>
+                    <td>
+                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

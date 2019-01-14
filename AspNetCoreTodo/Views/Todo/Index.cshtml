@@ -20,17 +20,20 @@
       
       @foreach (var item in Model.Items)
       {
-          <tr>
-              <td>
-                <form asp-action="MarkDone" method="POST">
-                    <input type="checkbox" class="done-checkbox">
-                    <input type="hidden" name="id" value="@item.Id">
-                </form>
-              </td>
-              <td>@item.Title</td>
-              <td>@item.IsDone</td>
-              <td>@System.DateTimeOffset.Parse(item.DueAt).Humanize()</td>
-          </tr>
+      <tr>
+          <td>
+              <form asp-action="MarkDone" method="POST">
+                  <input type="checkbox" class="done-checkbox">
+                  <input type="hidden" name="id" value="@item.Id">
+              </form>
+          </td>
+          <td>@item.Title</td>
+          <td>@item.IsDone</td>
+          <td>@System.DateTimeOffset.Parse(item.DueAt).Humanize()</td>
+          <td>
+              <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+          </td>
+      </tr>
       }
   </table>
   
