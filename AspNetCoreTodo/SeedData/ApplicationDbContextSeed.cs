@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebMathTraining.Models;
 using WebMathTraining.Services;
+using WebMathTraining.Utilities;
 using User = WebMathTraining.Models.ApplicationUser;
 
 namespace WebMathTraining.Data
@@ -25,7 +26,7 @@ namespace WebMathTraining.Data
 
         for (int idx = 0; idx < Constants.TrialQuestions.Length; ++idx)
         {
-          var testImageData = TestQuestionService.StrToByteArray(Constants.TrialQuestions[idx]);
+          var testImageData = EncodingUtil.StrToByteArray(Constants.TrialQuestions[idx]);
           var testImageId = testQuestionService.CreateTestImage(testImageData, "Trial " + (idx + 1), "Text");
           var questionId = Guid.NewGuid();
           var questionObjectId =

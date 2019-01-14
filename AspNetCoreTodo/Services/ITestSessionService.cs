@@ -37,10 +37,10 @@ namespace WebMathTraining.Services
 
     public async Task<Guid> CreateNewTestGroup(string groupName)
     {
-      var testGroup = await FindTestGroupAsyncByName(groupName);
-      if (testGroup != null) return testGroup.Id;
+      var existingTestGroup = await FindTestGroupAsyncByName(groupName);
+      if (existingTestGroup != null) return existingTestGroup.Id;
 
-      testGroup = new TestGroup()
+      var testGroup = new TestGroup()
       {
         Id = Guid.NewGuid(),
         Name = groupName,
@@ -48,7 +48,7 @@ namespace WebMathTraining.Services
         LastUpdated = DateTime.UtcNow,
 
       };
-      _context.TestGroups.Add(testGroup);
+      await _context.TestGroups.AddAsync(testGroup);
       await _context.SaveChangesAsync();
 
       return testGroup.Id;

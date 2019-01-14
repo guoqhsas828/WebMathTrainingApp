@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 using WebMathTraining.Services;
+using WebMathTraining.Utilities;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,15 +29,15 @@ namespace WebMathTraining.Controllers
     }
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
       var processedImages = _context.TestQuestions.Select(q => q.QuestionImage.Id.ToString()).ToHashSet<string>();
-      var images = _context.TestImages.Where(img => !processedImages.Contains(img.Id.ToString())).ToList();
+      var images = await _context.TestImages.Where(img => !processedImages.Contains(img.Id.ToString())).ToListAsync();
       return View(new TestImageViewModel { TestImages = images });
     }
 
     [HttpPost]
-    public IActionResult UploadImage(IList<IFormFile> files)
+    public async Task<IActionResult> UploadImage(IList<IFormFile> files)
     {
       //Pre-processing the files
       var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
@@ -50,16 +52,14 @@ namespace WebMathTraining.Controllers
         var realFileName = fileDirNameInfos[fileDirNameInfos.Length - 1]; //this shall be the test group name
         var testGroupName = realFileName.Replace(".txt", "");
         var directFolderName = fileDirNameInfos[fileDirNameInfos.Length - 2]; //This shall be the test session name
-        if (!string.IsNullOrEmpty(testGroupName))
-          _testSessionService.CreateNewTestGroup(testGroupName);
+        if (string.IsNullOrEmpty(directFolderName) || string.IsNullOrEmpty(testGroupName))
+          return BadRequest("Invalid file name or folder name");
 
-        var testGroup = _context.TestGroups.FirstOrDefault(g => String.Compare(g.Name, testGroupName, StringComparison.InvariantCultureIgnoreCase) == 0);
-        var testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
-        if (testSession == null)
-        {
-          _testSessionService.CreateNewSession(directFolderName);
-          testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
-        }
+        var testGroupId =  await _testSessionService.CreateNewTestGroup(testGroupName);
+        var testGroup = await _testSessionService.FindTestGroupAsyncById(testGroupId);
+
+        var sessionId = _testSessionService.CreateNewSession(directFolderName);
+        var testSession = await _context.TestSessions.FindAsync(sessionId);
 
         var questionStrList = new List<string>();
         var result = string.Empty;
@@ -85,7 +85,7 @@ namespace WebMathTraining.Controllers
           Guid imageId;
           if (questionType.ToLower() == "text")
           {
-            imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray(imageContent), imageName, "Text");
+            imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray(imageContent), imageName, "Text");
           }
           else
           {

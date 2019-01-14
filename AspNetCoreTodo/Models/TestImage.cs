@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using WebMathTraining.Services;
+using WebMathTraining.Utilities;
 
 namespace WebMathTraining.Models
 {
@@ -31,7 +32,7 @@ namespace WebMathTraining.Models
           if (Data == null || String.Compare(ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) != 0)
             _dataText = null;
           else
-            _dataText = TestQuestionService.ByteArrayToStr(Data);
+            _dataText = EncodingUtil.ByteArrayToStr(Data);
 
         }
         return _dataText;
@@ -41,7 +42,7 @@ namespace WebMathTraining.Models
         if (_dataText != value)
         {
           _dataText = value;
-          Data = _dataText == null ? null : TestQuestionService.StrToByteArray(_dataText);
+          Data = _dataText == null ? null : EncodingUtil.StrToByteArray(_dataText);
         }
       }
     }

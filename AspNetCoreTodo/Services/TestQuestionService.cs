@@ -123,17 +123,5 @@ namespace WebMathTraining.Services
         _context.SaveChanges();
       }
     }
-
-    public static byte[] StrToByteArray(string str)
-    {
-      var encoding = new System.Text.UTF8Encoding();
-      return encoding.GetBytes(str);
-    }
-
-    public static string ByteArrayToStr(byte[] bytes)
-    {
-      var encoding = new System.Text.UTF8Encoding();
-      return encoding.GetString(bytes, 0, bytes.Length);
-    }
   }
 }

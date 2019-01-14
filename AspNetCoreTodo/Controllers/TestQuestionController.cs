@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
 using WebMathTraining.Services;
+using WebMathTraining.Utilities;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -186,7 +187,7 @@ namespace WebMathTraining.Controllers
         return null;
       }
 
-      return TestQuestionService.ByteArrayToStr(image.Data);
+      return EncodingUtil.ByteArrayToStr(image.Data);
     }
 
     [HttpGet]
@@ -199,7 +200,7 @@ namespace WebMathTraining.Controllers
     public IActionResult CreateNew(TestQuestionViewModel viewModel)
     {
       var id = viewModel.Id;
-      var imageId = _testQuestionService.CreateTestImage(TestQuestionService.StrToByteArray( viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, "Text");
+      var imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray( viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, "Text");
       var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,
         viewModel.Category, viewModel.AnswerChoice);
       if (viewModel.SessionId > 0)
