@@ -24,13 +24,13 @@ namespace WebMathTraining.Models
     public string MembersInfo { get; set; }
 
     [NotMapped]
-    public IList<long> MemberObjectIds
+    public HashSet<long> MemberObjectIds
     {
       get
       {
         if (_memberObjectIds == null)
         {
-          _memberObjectIds = new List<long>();
+          _memberObjectIds = new HashSet<long>();
 
           if (string.IsNullOrEmpty(MembersInfo)) return _memberObjectIds;
           foreach (var id in MembersInfo.Split('+'))
@@ -55,13 +55,13 @@ namespace WebMathTraining.Models
     public string EnrolledSessionsInfo { get; set; }
 
     [NotMapped]
-    public IList<long> EnrolledSessionIds
+    public HashSet<long> EnrolledSessionIds
     {
       get
       {
         if (_enrolledSessionIds == null)
         {
-          _enrolledSessionIds = new List<long>();
+          _enrolledSessionIds = new HashSet<long>();
 
           if (string.IsNullOrEmpty(EnrolledSessionsInfo)) return _enrolledSessionIds;
           foreach (var id in EnrolledSessionsInfo.Split('+'))
@@ -85,8 +85,11 @@ namespace WebMathTraining.Models
 
     #region Data
 
-    private IList<long> _memberObjectIds;
-    private IList<long> _enrolledSessionIds;
+    [NotMapped]
+    private HashSet<long> _memberObjectIds;
+
+    [NotMapped]
+    private HashSet<long> _enrolledSessionIds;
 
     #endregion
   }

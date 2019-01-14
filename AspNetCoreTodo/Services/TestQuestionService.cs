@@ -106,7 +106,7 @@ namespace WebMathTraining.Services
           _context.SaveChanges();
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         return -1;
       }

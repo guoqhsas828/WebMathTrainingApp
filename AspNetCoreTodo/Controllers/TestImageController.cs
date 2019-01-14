@@ -50,17 +50,15 @@ namespace WebMathTraining.Controllers
         var realFileName = fileDirNameInfos[fileDirNameInfos.Length - 1]; //this shall be the test group name
         var testGroupName = realFileName.Replace(".txt", "");
         var directFolderName = fileDirNameInfos[fileDirNameInfos.Length - 2]; //This shall be the test session name
+        if (!string.IsNullOrEmpty(testGroupName))
+          _testSessionService.CreateNewTestGroup(testGroupName);
+
         var testGroup = _context.TestGroups.FirstOrDefault(g => String.Compare(g.Name, testGroupName, StringComparison.InvariantCultureIgnoreCase) == 0);
         var testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
         if (testSession == null)
         {
           _testSessionService.CreateNewSession(directFolderName);
           testSession = _context.TestSessions.FirstOrDefault(s => String.Compare(s.Name, directFolderName, StringComparison.InvariantCultureIgnoreCase) == 0);
-        }
-
-        if (testGroup == null)
-        {
-          //_testSessionService.create Create new test group?
         }
 
         var questionStrList = new List<string>();
@@ -113,7 +111,7 @@ namespace WebMathTraining.Controllers
         }
 
 
-        if (testSession != null)
+        if (testSession != null && testGroup != null)
         {
           var addSession = _testSessionService.AddSessionIntoTestGroup(testSession.ObjectId, testGroupName);
         }
@@ -134,14 +132,14 @@ namespace WebMathTraining.Controllers
 
     }
 
-    public async Task<IActionResult> DeleteConfirmed(Guid id)
+    public IActionResult DeleteConfirmed(Guid id)
     {
       try
       {
-        var movie = _context.TestImages.Find(id);
-        _context.TestImages.Remove(movie);
+        var image = _context.TestImages.Find(id);
+        _context.TestImages.Remove(image);
         _context.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
       }
       catch (Exception ex)
       {

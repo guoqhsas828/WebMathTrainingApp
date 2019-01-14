@@ -19,8 +19,10 @@ namespace WebMathTraining.Services
     double JudgeAnswer(TestSession test, TestQuestion question, ref TestResultItem answer); //Judge the answer and return the score point
     IList<TestResult> GetTestResults(long sessionId);
     void CreateNewTestResult(long sessionId, long userId);
+    Task<Guid> CreateNewTestGroup(string groupName);
     Task<IList<TestGroup>> FindAllTestGroupAsync(ApplicationUser user);
     Task<TestGroup> FindTestGroupAsyncById(Guid groupId);
+    Task<TestGroup> FindTestGroupAsyncByName(string groupName);
     bool AddSessionIntoTestGroup(long sessionId, string groupName);
   }
 
@@ -33,6 +35,25 @@ namespace WebMathTraining.Services
       _context = context;
     }
 
+    public async Task<Guid> CreateNewTestGroup(string groupName)
+    {
+      var testGroup = await FindTestGroupAsyncByName(groupName);
+      if (testGroup != null) return testGroup.Id;
+
+      testGroup = new TestGroup()
+      {
+        Id = Guid.NewGuid(),
+        Name = groupName,
+        Description = groupName,
+        LastUpdated = DateTime.UtcNow,
+
+      };
+      _context.TestGroups.Add(testGroup);
+      await _context.SaveChangesAsync();
+
+      return testGroup.Id;
+    }
+
     public async Task<IList<TestGroup>> FindAllTestGroupAsync(ApplicationUser user)
     {
       if (user == null || user.UserStatus != UserStatus.Active)
@@ -41,6 +62,11 @@ namespace WebMathTraining.Services
       }
 
       return await _context.TestGroups.Where(g => g.Name.StartsWith("Trial") || g.MemberObjectIds.Contains(user.ObjectId)).ToArrayAsync();
+    }
+
+    public async Task<TestGroup> FindTestGroupAsyncByName(string groupName)
+    {
+      return await _context.TestGroups.FirstOrDefaultAsync(g => String.Compare(g.Name , groupName, StringComparison.InvariantCultureIgnoreCase) == 0);
     }
 
     public async Task<TestGroup> FindTestGroupAsyncById(Guid groupId)
@@ -53,13 +79,10 @@ namespace WebMathTraining.Services
       var testGroup = _context.TestGroups.FirstOrDefault(g => String.Compare(g.Name, groupName, StringComparison.InvariantCultureIgnoreCase) == 0);
       if (testGroup == null) return false;
 
-      if (!testGroup.EnrolledSessionIds.Contains(sessionId))
-      {
         testGroup.EnrolledSessionIds.Add(sessionId);
         testGroup.EnrolledSessionIds = testGroup.EnrolledSessionIds;
         _context.Update(testGroup);
         _context.SaveChanges();
-      }
 
       return true;
     }
