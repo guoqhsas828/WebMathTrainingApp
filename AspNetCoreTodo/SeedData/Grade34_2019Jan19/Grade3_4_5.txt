@@ -11,5 +11,8 @@
 4<brk_/>MKG_2013gr0304_23<brk_/>B<brk_/>5.0<brk_/>PNG<brk_/>Q23.PNG
 4<brk_/>MKG_2013gr0304_24<brk_/>B<brk_/>5.0<brk_/>PNG<brk_/>Q24.PNG
 3<brk_/>Aoshu_0001<brk_/>D<brk_/>5.0<brk_/>Text<brk_/>There are lotus leaf growing from a small section of a big pond, they grow very fast, doubling their covered area every day; on the 16th day, the pond is filled up with the lotus leaf; On which day is the pond half-covered by the lotus leaf? (A) 8 (B) 4 (C) 12 (D) 15 (E) 3 
+3<brk_/>MKG_2002gr0304_10<brk_/>C<brk_/>4.0<brk_/>Text<brk_/>Joseph lives on a short street the houses on that are numbered sequentially from 1 to 24. How many times does the digit 2 occur in the numbers of those houses? A. 2  B. 4  C. 8  D. 16  E. 32 
+3<brk_/>MKG_2002gr0304_13<brk_/>D<brk_/>4.0<brk_/>Text<brk_/>Jenny, Kitty, Susan and Helen were born on March 1st, May 17th, July 20th and March 20th. Kitty and Susan were born in the same month, and Jenny’s and Susan’s birthdays fall on the same dates in different months. Who was born on May 17th? A. Jenny B. Kitty C. Susan D. Helen E. Impossible to determine
 7<brk_/>MathCnt_2018jan22_1<brk_/>2038<brk_/>5.0<brk_/>Text<brk_/>Cara was born on January 1, 2010, and her mother, Sydney, was born on January 1, 1982. In what year will Sydney’s age be twice Cara’s age?
+3<brk_/>MKG_2002gr0304_9<brk_/>E<brk_/>3.0<brk_/>PNG<brk_/>Q9.PNG
 7<brk_/>MathCnt_2018jan22_2<brk_/>26<brk_/>5.0<brk_/>Text<brk_/>Cara’s brother, Nile, celebrated a birthday in the year 2018 on January 4th. Cara’s current age is 4/5 Nile’s current age. How old was Nile’s mom, Sydney, when he was born? 
