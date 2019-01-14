@@ -4,19 +4,14 @@
 2<brk_/>MKG_2002gr0304_4<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>Q4.PNG
 2<brk_/>MKG_2002gr0304_5<brk_/>2100<brk_/>3.0<brk_/>Text<brk_/>The human heart beats approximately 70 times per minute. How many beats approximately will it make in half an hour? 
 2<brk_/>MKG_2002gr0304_6<brk_/>A<brk_/>3.0<brk_/>PNG<brk_/>Q6.PNG
-1<brk_/>MKG_2012gr0102_9<brk_/>3<brk_/>4.0<brk_/>Text<brk_/>Thirteen children are playing hide and seek. One of them is the "seeker". After a while nine children have been found. How many children are still hiding?  
-1<brk_/>MKG_2012gr0102_10<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>Q10.PNG
-1<brk_/>MKG_2012gr0102_11<brk_/>12<brk_/>4.0<brk_/>Text<brk_/>Today, Betty added her age and her sister's age and obtained ten as the sum. What would the sum of their ages be after one year?   
-1<brk_/>MKG_2012gr0102_12<brk_/>D<brk_/>4.0<brk_/>PNG<brk_/>Q12.PNG
-2<brk_/>MKG_2012gr0102_13<brk_/>7<brk_/>4.0<brk_/>Text<brk_/> A dragon has three heads. Every time a hero cuts off one head, three new heads emerge. The hero cuts one head off, and then he cuts off one more head. How many heads does the dragon have now? 
-2<brk_/>MKG_2012gr0102_14<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>Q14.PNG
-2<brk_/>MKG_2012gr0102_15<brk_/>7<brk_/>4.0<brk_/>Text<brk_/> Eve brings twelve candies, Alice nine candies and Irene doesn't bring any candy. They put all the candies together on a table and divide them equally among themselves. How many candies does each of the girls get?   
-2<brk_/>MKG_2012gr0102_16<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>Q16.PNG
-2<brk_/>MKG_2012gr0102_17<brk_/>2<brk_/>5.0<brk_/>Text<brk_/> Winnie the Pooh bought four apple pies and Eeyore bought six cheese cakes. They each paid the same, and together they paid 24 euros. How many euros does one cheese cake cost?  
-2<brk_/>MKG_2012gr0102_18<brk_/>E<brk_/>5.0<brk_/>PNG<brk_/>Q18.PNG
-2<brk_/>MKG_2012gr0102_19<brk_/>1<brk_/>5.0<brk_/>Text<brk_/>Grandmother made eleven cookies. She decorated five cookies with raisins and then seven cookies with nuts. At least how many cookies were decorated with both raisins and nuts?   
-2<brk_/>MKG_2012gr0102_20<brk_/>24<brk_/>5.0<brk_/>Text<brk_/>At a school's party, Dan, Jack and Ben each received a bag with ten candies. Each of the boys ate just one candy and gave one candy to the teacher. How many candies did they have left altogether?  
-2<brk_/>MKG_2012gr0102_21<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q21.PNG
-2<brk_/>MKG_2012gr0102_22<brk_/>E<brk_/>5.0<brk_/>PNG<brk_/>Q22.PNG
-2<brk_/>MathCnt_2018jan22_3<brk_/>2026<brk_/>4.0<brk_/>Text<brk_/>Cara’s, Nile’s and Sydney’s current ages are 8, 10 and 36 in the year of 2018. In what year will the sum of their ages be 78?
-2<brk_/>MKG_2012gr0102_24<brk_/>C<brk_/>5.0<brk_/>PNG<brk_/>Q24.PNG
+1<brk_/>MKG_2002gr0304_7<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>Q7.PNG
+3<brk_/>MKG_2002gr0304_8<brk_/>A<brk_/>4.0<brk_/>Text<brk_/>Adding 17 to the smallest two-digit number and dividing the sum by the biggest onedigit number we get: A. 3  B. 6  C. 9  D. 11  E. 27  
+1<brk_/>MKG_2003gr0304_1<brk_/>C<brk_/>3.0<brk_/>Text<brk_/> What is the sum of   0+1+2+3+4-3-2-1-0 = ? A) 0  B) 2  C) 4  D) 10  E)16 
+2<brk_/>MKG_2003gr0304_2<brk_/>160<brk_/>3.0<brk_/>PNG<brk_/>Q2.PNG
+2<brk_/>MKG_2003gr0304_3<brk_/>B<brk_/>3.0<brk_/>Text<brk_/>Sophie draws kangaroos : a blue one, then a green, then a red, then a black, then a yellow, a blue, a green, a red, a black, and so on…What colour is the 17th kangaroo? A) blue B) green C) red  D) black E) yellow    
+3<brk_/>MKG_2003gr0303_4<brk_/>D<brk_/>4.0<brk_/>PNG<brk_/>Q12.PNG
+3<brk_/>MKG_2003gr0304_5<brk_/>C<brk_/>4.0<brk_/>PNG<brk_/>Q5.PNG
+3<brk_/>MKG_2003gr0304_6<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q14.PNG
+3<brk_/>MKG_2003gr0304_7<brk_/>C<brk_/>4.0<brk_/>Text<brk_/> In the teachers' room there are 6 tables with 4 chairs each, 4 tables with 2 chairs each, and 3 tables with 6 chairs each. How many chairs are there altogether? A) 40  B) 25  C) 50  D) 36  E) 44 
+3<brk_/>MKG_2003gr0304_8<brk_/>B<brk_/>5.0<brk_/>Text<brk_/> Hedgehog Mark complained to his friends: “If I had picked up twice as many apples as I really did, I would have 24 apples more than I have now.” How many apples did Mark pick up? A)  48  B)  24  C)  42  D)  12  E)  36   
+2<brk_/>MathCnt_2018jan22_3<brk_/>2026<brk_/>3.0<brk_/>Text<brk_/>Cara’s, Nile’s and Sydney’s current ages are 8, 10 and 36 in the year of 2018. In what year will the sum of their ages be 78?
