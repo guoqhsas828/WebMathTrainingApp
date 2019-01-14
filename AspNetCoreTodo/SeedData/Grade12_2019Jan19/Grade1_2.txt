@@ -1,11 +1,9 @@
-1<brk_/>MKG_2012gr0102_1<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>Q1.PNG
-1<brk_/>MKG_2012gr0102_2<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>Q2.PNG
-1<brk_/>MKG_2012gr0102_3<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>Q3.PNG
-1<brk_/>MKG_2012gr0102_4<brk_/>4<brk_/>3.0<brk_/>Text<brk_/>Helena has written down the word KANGAROO twice. How many times did she write the letter A? 
-1<brk_/>MKG_2012gr0102_5<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>Q5.PNG
-1<brk_/>MKG_2012gr0102_6<brk_/>Wednesday<brk_/>3.0<brk_/>Text<brk_/>On Friday Dan starts to paint the word BANANA. Each day he paints one letter. On what day will he paint the last letter? 
-1<brk_/>MKG_2012gr0102_7<brk_/>E<brk_/>3.0<brk_/>PNG<brk_/>Q7.PNG
-1<brk_/>MKG_2012gr0102_8<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>Q8.PNG
+2<brk_/>MKG_2002gr0304_1<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>Q1.PNG
+1<brk_/>MKG_2002gr0304_2<brk_/>4<brk_/>3.0<brk_/>Text<brk_/>Calculate 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 
+2<brk_/>MKG_2002gr0304_3<brk_/>D<brk_/>3.0<brk_/>Text<brk_/>Tim got from his friends as birthday presents 10 colour pencils, 3 matchbox cars, 4 balls, 1 book, 3 little teddy bears, and 2 chocolates. How many things did he get? A. 15  B. 17  C. 20  D. 23  E. 27 
+2<brk_/>MKG_2002gr0304_4<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>Q4.PNG
+2<brk_/>MKG_2002gr0304_5<brk_/>2100<brk_/>3.0<brk_/>Text<brk_/>The human heart beats approximately 70 times per minute. How many beats approximately will it make in half an hour? 
+2<brk_/>MKG_2002gr0304_6<brk_/>A<brk_/>3.0<brk_/>PNG<brk_/>Q6.PNG
 1<brk_/>MKG_2012gr0102_9<brk_/>3<brk_/>4.0<brk_/>Text<brk_/>Thirteen children are playing hide and seek. One of them is the "seeker". After a while nine children have been found. How many children are still hiding?  
 1<brk_/>MKG_2012gr0102_10<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>Q10.PNG
 1<brk_/>MKG_2012gr0102_11<brk_/>12<brk_/>4.0<brk_/>Text<brk_/>Today, Betty added her age and her sister's age and obtained ten as the sum. What would the sum of their ages be after one year?   
@@ -20,5 +18,5 @@
 2<brk_/>MKG_2012gr0102_20<brk_/>24<brk_/>5.0<brk_/>Text<brk_/>At a school's party, Dan, Jack and Ben each received a bag with ten candies. Each of the boys ate just one candy and gave one candy to the teacher. How many candies did they have left altogether?  
 2<brk_/>MKG_2012gr0102_21<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q21.PNG
 2<brk_/>MKG_2012gr0102_22<brk_/>E<brk_/>5.0<brk_/>PNG<brk_/>Q22.PNG
-2<brk_/>MKG_2012gr0102_23<brk_/>13<brk_/>5.0<brk_/>Text<brk_/> In a box there are three smaller boxes, each one of which contains three even smaller boxes. How many boxes are there in total?   
+2<brk_/>MathCnt_2018jan22_3<brk_/>2026<brk_/>4.0<brk_/>Text<brk_/>Cara’s, Nile’s and Sydney’s current ages are 8, 10 and 36 in the year of 2018. In what year will the sum of their ages be 78?
 2<brk_/>MKG_2012gr0102_24<brk_/>C<brk_/>5.0<brk_/>PNG<brk_/>Q24.PNG

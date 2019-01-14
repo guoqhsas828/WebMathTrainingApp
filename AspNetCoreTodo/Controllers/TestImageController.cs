@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
@@ -20,12 +21,18 @@ namespace WebMathTraining.Controllers
     private readonly TestDbContext _context;
     private readonly ITestQuestionService _testQuestionService;
     private readonly ITestSessionService _testSessionService;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public TestImageController(TestDbContext context, ITestQuestionService service, ITestSessionService sessionService)
+
+    public TestImageController(TestDbContext context, 
+                               ITestQuestionService service, 
+                               ITestSessionService sessionService, 
+                               UserManager<ApplicationUser> userMgr)
     {
       _context = context;
       _testQuestionService = service;
       _testSessionService = sessionService;
+      _userManager = userMgr;
     }
 
     [HttpGet]
@@ -39,6 +46,12 @@ namespace WebMathTraining.Controllers
     [HttpPost]
     public async Task<IActionResult> UploadImage(IList<IFormFile> files)
     {
+      var currentUser = await _userManager.GetUserAsync(User);
+
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return BadRequest("Only user with admin role can upload questions");
+
       //Pre-processing the files
       var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
       var imageFiles = files.Where(f => f.ContentType.ToLower().StartsWith("image/")).ToList();
@@ -75,22 +88,19 @@ namespace WebMathTraining.Controllers
           if (questionDetails.Length < 6) continue;
           Int32 gradeLevel;
           if (!Int32.TryParse(questionDetails[0], out gradeLevel)) gradeLevel = 3;
-          var questionType = questionDetails[1]; //Text or PNG
-          var imageName = questionDetails[2].Replace("\r", "");
-          var imageContent = questionDetails[3].Replace("\r", "");
-          var testAnswer = questionDetails[4].Replace("\r", "");
+          var questionType = questionDetails[4]; //Text or PNG
+          var imageName = questionDetails[1].Replace("\r", "");
+          var questionContent = questionDetails[5].Replace("\r", "");
+          var testAnswer = questionDetails[2].Replace("\r", "");
           double scorePoint;
-          if (!Double.TryParse(questionDetails[5].Replace("\r", ""), out scorePoint)) scorePoint = 3.0;
+          if (!Double.TryParse(questionDetails[3].Replace("\r", ""), out scorePoint)) scorePoint = 3.0;
 
           Guid imageId;
-          if (questionType.ToLower() == "text")
-          {
-            imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray(imageContent), imageName, "Text");
-          }
-          else
+          if (questionContent.ToUpper().EndsWith(".PNG") || questionType.ToUpper() == "PNG")
           {
             //we need to locate the image file
-            var imageUploadedFile = imageFiles.FirstOrDefault(f => f.FileName.EndsWith(imageContent, StringComparison.InvariantCultureIgnoreCase));
+            var imageUploadedFile = imageFiles.FirstOrDefault(f =>
+              f.FileName.EndsWith(questionContent, StringComparison.InvariantCultureIgnoreCase));
             if (imageUploadedFile != null && imageUploadedFile.ContentType.ToLower().StartsWith("image/"))
             {
               var ms = new MemoryStream();
@@ -100,8 +110,14 @@ namespace WebMathTraining.Controllers
             }
             else
             {
-              throw new Exception($"Cannot locate the expected image file in the upload list named {imageContent} with line {imageName}");
+              throw new Exception(
+                $"Cannot locate the expected image file in the upload list named {questionContent} with line {imageName}");
             }
+          }
+          else
+          {
+            imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray(questionContent), imageName,
+              "Text");
           }
 
           var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
@@ -117,7 +133,7 @@ namespace WebMathTraining.Controllers
         }
       }
 
-      return RedirectToAction("Index");
+      return RedirectToAction(nameof(Index));
     }
 
     [HttpGet]
@@ -157,5 +173,31 @@ namespace WebMathTraining.Controllers
 
     //    return View(image);
     //}
+
+
+    [HttpPost]
+    public async Task<IActionResult> SwapTextColumn(IList<IFormFile> files)
+    {
+      //Pre-processing the files
+      var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
+
+      if (txtFiles.Count != 1) throw new ArgumentException("Cannot simply upload image files any more, need ONE formatted text file to provide extra information");
+
+      var uploadedFile = txtFiles[0];
+      string inputStr = String.Empty;
+      using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
+      {
+        inputStr = reader.ReadToEnd();
+      }
+
+      var processedStrList = EncodingUtil.SwapTextColumns(inputStr, new[] {0, 2, 4, 5, 1, 3});
+      using (var fileWriter = new StreamWriter(uploadedFile.FileName, false))
+      {
+        fileWriter.Write(processedStrList);
+      }
+
+      return RedirectToAction(nameof(Index));
+    }
+
   }
 }

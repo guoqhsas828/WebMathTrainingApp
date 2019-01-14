@@ -1,9 +1,14 @@
 ﻿@model TestImageViewModel
 
 <form action="/TestImage/UploadImage" enctype="multipart/form-data" method="post">
-    <input type="file" name="files" multiple = "multiple" />
-    <button>post</button>
+    <input type="file" name="files" multiple="multiple" />
+    <button>Upload</button>
 </form>
+
+@*<form action="/TestImage/SwapTextColumn" enctype="multipart/form-data" method="post">
+    <input type="file" name="files" />
+    <button>Process</button>
+</form>*@
 
 <table class="table">
     <thead>

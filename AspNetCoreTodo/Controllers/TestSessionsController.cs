@@ -86,7 +86,7 @@ namespace WebMathTraining.Controllers
       var currentUser = await _userManager.GetUserAsync(User);
       var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
       if (!isAdmin)
-        return Challenge();
+        return BadRequest("Only user with admin permission can create a test session");
 
       if (ModelState.IsValid)
       {
@@ -106,6 +106,11 @@ namespace WebMathTraining.Controllers
       {
         return NotFound();
       }
+
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+        return BadRequest("Only user with admin permission can edit a test session");
 
       var testSession = await _context.TestSessions.FindAsync(id);
       if (testSession == null)
