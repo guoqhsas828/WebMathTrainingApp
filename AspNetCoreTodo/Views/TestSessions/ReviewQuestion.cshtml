@@ -1,0 +1,66 @@
+﻿@model WebMathTraining.Models.ReviewQuestionViewModel
+
+@{
+    ViewData["Title"] = "Review Question";
+}
+
+<h2>@("Test Name: " + Model.TestSessionName)</h2>
+<h2>@("Question: " + (Model.QuestionIdx+1) + $" --Scored: {Model.ActualScore} (Score Point:{Model.ScorePoint}, Penalty Point:{Model.PenaltyPoint})")</h2>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @if (!Model.IsTextBased)
+                {
+                    <div class="form-group">
+                        <img src="@Url.Action("GetTestImageFile", "TestQuestion", new { id = Model.ImageId })" />
+                    </div>
+                }
+                @if (Model.IsTextBased)
+                {
+                    <div class="form-group">
+                   @Html.TextAreaFor(model => model.QuestionText, new
+                   {
+                       //@class = "blue",
+                       @disabled="true",
+                       cols = "90",
+                       rows = "10",
+                       //@title = "Please Enter Your Name",
+                       //@tabindex = "0",
+                       //@accesskey="z",
+                       @align = "left",
+                       //@autofocus = "true",
+                       @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
+                       //@draggable = "true",
+                       //@hidden="true",
+                       //@maxlength="12",
+                       //@minlength = "5",
+                       //@required = "true"
+                   })
+                    </div>
+                }
+                <div class="form-group">
+                        <label asp-for="TextAnswer" class="control-label">Your Answer</label>
+                        <input asp-for="TextAnswer" class="form-control" readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                        <label asp-for="CorrectAnswer" class="control-label">Correct Answer</label>
+                        <input asp-for="CorrectAnswer" class="form-control" readonly="readonly"/>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="TheTip" class="control-label">Tip</label>
+                    <input asp-for="TheTip" class="form-control" readonly="readonly"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <hr />
+    <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx-1)" asp-route-userId="@Model.UserId">Prev Question</a> |
+    <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx+1)" asp-route-userId="@Model.UserId">Next Question</a> |
+    <a asp-action="Index">Back to Sessions</a>
+</div>

@@ -1,0 +1,20 @@
+1<brk_/>MKG_2014gr0102_1<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>Q1.PNG
+1<brk_/>MKG_2014gr0102_2<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>Q2.PNG 
+1<brk_/>MKG_2014gr0102_3<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>Q3.PNG 
+1<brk_/>MKG_2014gr0102_4<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>Q4.PNG
+1<brk_/>MKG_2014gr0102_5<brk_/>E<brk_/>3.0<brk_/>Text<brk_/>Alan is five years old. His sister Bethany is seven years older than him. What is the sum of their ages?   (A) 11 (B) 12 (C) 13 (D) 15 (E) 17 
+1<brk_/>MKG_2014gr0102_6<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>Q6.PNG
+1<brk_/>MKG_2014gr0102_7<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>Q7.PNG
+1<brk_/>MKG_2014gr0102_8<brk_/>E<brk_/>4.0<brk_/>PNG<brk_/>Q8.PNG
+1<brk_/>MKG_2014gr0102_9<brk_/>D<brk_/>4.0<brk_/>Text<brk_/> How many numbers between 10 and 31 (including 31) can be written using only the digits 1, 2 and 3? You can repeat digits.  (A) 2 (B) 4 (C) 6 (D) 7 (E) 8  
+2<brk_/>MKG_2014gr0102_10<brk_/>D<brk_/>4.0<brk_/>Text<brk_/>My rabbit eats only cabbage and carrots. Last week he ate either 10 carrots or 2 heads of cabbage each day. If he ate a total of 6 heads of cabbage last week, how many carrots did he eat?  (A) 20 (B) 30 (C) 34 (D) 40 (E) 5
+2<brk_/>MKG_2014gr0102_11<brk_/>B<brk_/>4.0<brk_/>Text<brk_/>Mary has 13 flowers, five of which are roses. The rest are tulips. Six of the flowers are white, and the remaining flowers are red. At least how many tulips are red?   (A) 1 (B) 2 (C) 3 (D) 4 (E) 5   
+2<brk_/>MKG_2014gr0102_12<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>Q12.PNG
+2<brk_/>MKG_2014gr0102_13<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q13.PNG
+2<brk_/>MKG_2014gr0102_14<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q14.PNG
+2<brk_/>MKG_2014gr0102_15<brk_/>A<brk_/>5.0<brk_/>PNG<brk_/>Q15.PNG
+2<brk_/>MKG_2014gr0102_16<brk_/>A<brk_/>5.0<brk_/>PNG<brk_/>Q16.PNG
+2<brk_/>MKG_2014gr0102_17<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>Q17.PNG
+2<brk_/>MKG_2014gr0102_18<brk_/>D<brk_/>5.0<brk_/>Text<brk_/>John wrote the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10 on a whiteboard. John then erased some of the numbers and added up the remaining ones. He got a sum of 24. At most how many numbers were left on the whiteboard? (A) 3 (B) 4 (C) 5 (D) 6 (E) 7 
+4<brk_/>MathCnt_2018Feb05_1<brk_/>-5<brk_/>5.0<brk_/>Text<brk_/>What is the tenth term of the sequence ?50, ?49, ?47, ?44, ?40, ...? 
+4<brk_/>MathCnt_2018Feb05_2<brk_/>35<brk_/>5.0<brk_/>Text<brk_/>What is the sixth term in the sequence 0, 3, 8, 15, 24, ...? 

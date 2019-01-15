@@ -90,7 +90,7 @@ namespace WebMathTraining.Controllers
           if (!Int32.TryParse(questionDetails[0], out gradeLevel)) gradeLevel = 3;
           var questionType = questionDetails[4]; //Text or PNG
           var imageName = questionDetails[1].Replace("\r", "");
-          var questionContent = questionDetails[5].Replace("\r", "");
+          var questionContent = questionDetails[5].Replace("\r", "").TrimEnd();
           var testAnswer = questionDetails[2].Replace("\r", "");
           double scorePoint;
           if (!Double.TryParse(questionDetails[3].Replace("\r", ""), out scorePoint)) scorePoint = 3.0;

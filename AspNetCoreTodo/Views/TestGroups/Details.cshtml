@@ -36,16 +36,16 @@
                     <a asp-controller="TestSessions" asp-action="TestSessionResult" asp-route-sessionId="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)" asp-route-userName="@(result.Tester?.UserName ?? "")">Details</a>
                 </td>
                 <td>
-                    @if (signInManager.IsSignedIn(User))
-                    {
-                        var currentUser = await userManager.GetUserAsync(User);
-                        var isAdmin = currentUser != null
-                                      && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-                        if (isAdmin)
-                        {
-                            <a asp-controller="TestSessions" asp-action="ResetTimer" asp-route-id="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)">ResetTimer</a>
+                    <div>
+                        @{
+                            var currentUser = await userManager.GetUserAsync(User);
+                            var isAdmin = currentUser != null && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+                           if (signInManager.IsSignedIn(User) && isAdmin)
+                             {
+                              <a asp-controller="TestSessions" asp-action="ResetTimer" asp-route-id="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)">ResetTimer</a>
+                             }
                         }
-                    }
+                    </div>
                 </td>
             </tr>
         }

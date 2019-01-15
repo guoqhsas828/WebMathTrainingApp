@@ -327,7 +327,7 @@ namespace WebMathTraining.Controllers
       return View(viewModel);
     }
 
-    public async Task<IActionResult> ReviewQuestion(Guid? id, long questionId)
+    public async Task<IActionResult> ReviewQuestion(Guid? id,  long userId, long questionId, int? questionIdx)
     {
       //If group id provided, show the points for the whole team, otherwise, only the user points
       if (id == null)
@@ -341,12 +341,32 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
+      var testUser = await _userManager.GetUserAsync(User);
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId).FirstOrDefault(tr => tr.UserId == userId);
+
+      if (testUser == null || testUser.UserStatus != UserStatus.Active || testResult == null)
+        return NotFound();
+
       for (int idx = 0; idx < testSession.TestQuestions.Count; ++idx)
       {
-        if (testSession.TestQuestions.Items[idx].QuestionId == questionId)
-          return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = idx });
-      }
+        var testQuestionItem = testSession.TestQuestions.Items[idx];
+        if ((questionIdx.HasValue && idx == questionIdx.Value) || testQuestionItem.QuestionId == questionId)
+        {
+          var testQuestion = await _context.TestQuestions.Include(q => q.QuestionImage).FirstOrDefaultAsync(q => q.ObjectId == testQuestionItem.QuestionId);
+          var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
+          var vm = new ReviewQuestionViewModel(testQuestion, id.Value, testSession.Name, idx)
+            {
+              ScorePoint = testQuestionItem.ScorePoint,
+              PenaltyPoint = testQuestionItem.PenaltyPoint,
+              UserId = testResult.UserId,
+              TextAnswer = testResultItem?.Answer ?? "",
+              ActualScore = testResultItem?.Score ?? 0,
+              CorrectAnswer = testQuestion.TestAnswer?.TextAnswer
+        };
+          return View(vm);
+        }
 
+      }
       return NotFound();
     }
 
@@ -440,9 +460,16 @@ namespace WebMathTraining.Controllers
     {
       //Seal the test result by moving the test end time to the session end time
       var testResult = _testSessionService.GetTestResults(viewModel.SessionObjectId).FirstOrDefault(tr => tr.UserId == viewModel.UserObjectId);
-      testResult.TestEnded = testResult.TestStarted.Add(viewModel.AllowedTimeSpan.Add(TimeSpan.FromSeconds(1)));
-      _context.Update(testResult);
-      await _context.SaveChangesAsync();
+      if (testResult != null)
+      {
+        testResult.TestEnded = testResult.TestStarted.Add(viewModel.AllowedTimeSpan.Add(TimeSpan.FromSeconds(1)));
+        _context.Update(testResult);
+        await _context.SaveChangesAsync();
+      }
+      else
+      {
+        _testSessionService.CreateNewTestResult(viewModel.SessionObjectId, viewModel.UserObjectId);
+      }
 
       return RedirectToAction(nameof(TestSessionResult), new { sessionId = id, userId = viewModel.UserObjectId, userName = viewModel.UserName });
     }
@@ -508,7 +535,7 @@ namespace WebMathTraining.Controllers
       if (testResult == null)
         return RedirectToAction(nameof(Index));
 
-      testResult.TestStarted = DateTime.UtcNow;
+      testResult.TestStarted = testSession.PlannedStart.AddMinutes(-1);
       _context.TestResults.Update(testResult);
       await _context.SaveChangesAsync();
       return RedirectToAction(nameof(Index));

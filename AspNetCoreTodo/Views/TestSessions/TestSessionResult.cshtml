@@ -23,7 +23,7 @@
             <td>@(result.Answer)</td>
             <td>@(result.Score)</td>
             <td>
-                <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionId="@result.QuestionId">Review</a>
+                <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionId="@result.QuestionId" asp-route-userId="@(Model.TestResult?.UserId ?? 0)">Review</a>
             </td>
         </tr>
         }

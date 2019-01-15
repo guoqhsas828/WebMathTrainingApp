@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="SeedData\Grade34_2019Jan26\" />
   </ItemGroup>
 
 </Project>
