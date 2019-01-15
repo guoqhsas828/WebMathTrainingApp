@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,17 +23,19 @@ namespace WebMathTraining.Controllers
     private readonly ITestQuestionService _testQuestionService;
     private readonly ITestSessionService _testSessionService;
     private readonly UserManager<ApplicationUser> _userManager;
-
+    private readonly IEmailSender _emailSender;
 
     public TestImageController(TestDbContext context, 
                                ITestQuestionService service, 
                                ITestSessionService sessionService, 
-                               UserManager<ApplicationUser> userMgr)
+                               UserManager<ApplicationUser> userMgr,
+                               IEmailSender emailSender)
     {
       _context = context;
       _testQuestionService = service;
       _testSessionService = sessionService;
       _userManager = userMgr;
+      _emailSender = emailSender;
     }
 
     [HttpGet]
@@ -46,91 +49,118 @@ namespace WebMathTraining.Controllers
     [HttpPost]
     public async Task<IActionResult> UploadImage(IList<IFormFile> files)
     {
-      var currentUser = await _userManager.GetUserAsync(User);
+      var uploadProcessLogger = new StringBuilder();
 
-      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-      if (!isAdmin)
-        return BadRequest("Only user with admin role can upload questions");
-
-      //Pre-processing the files
-      var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
-      var imageFiles = files.Where(f => f.ContentType.ToLower().StartsWith("image/")).ToList();
-
-      if (txtFiles.Count != 1) throw new ArgumentException("Cannot simply upload image files any more, need ONE formatted text file to provide extra information");
-
-      var uploadedFile = txtFiles[0];
-      var fileDirNameInfos = uploadedFile.FileName.Split("\\");
-      if (fileDirNameInfos.Length >= 2)
+      try
       {
-        var realFileName = fileDirNameInfos[fileDirNameInfos.Length - 1]; //this shall be the test group name
-        var testGroupName = realFileName.Replace(".txt", "");
-        var directFolderName = fileDirNameInfos[fileDirNameInfos.Length - 2]; //This shall be the test session name
-        if (string.IsNullOrEmpty(directFolderName) || string.IsNullOrEmpty(testGroupName))
-          return BadRequest("Invalid file name or folder name");
+        var currentUser = await _userManager.GetUserAsync(User);
+        uploadProcessLogger.AppendLine($"Files: {String.Join(',', files.Select(f => f.FileName))}");
 
-        var testGroupId =  await _testSessionService.CreateNewTestGroup(testGroupName);
-        var testGroup = await _testSessionService.FindTestGroupAsyncById(testGroupId);
+        var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+        uploadProcessLogger.AppendLine($"isAdmin: {isAdmin}");
+        if (!isAdmin)
+          return BadRequest("Only user with admin role can upload questions");
 
-        var sessionId = _testSessionService.CreateNewSession(directFolderName);
-        var testSession = await _context.TestSessions.FindAsync(sessionId);
+        //Pre-processing the files
+        var txtFiles = files.Where(f => f.ContentType.ToLower().StartsWith("text/")).ToList();
+        var imageFiles = files.Where(f => f.ContentType.ToLower().StartsWith("image/")).ToList();
 
-        var questionStrList = new List<string>();
-        var result = string.Empty;
-        using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
+        if (txtFiles.Count != 1)
         {
-          result = reader.ReadToEnd();
+          throw new ArgumentException(
+            "Cannot simply upload image files any more, need ONE formatted text file to provide extra information");
         }
 
-        questionStrList = string.IsNullOrEmpty(result) ? new List<string>() : result.Split('\n').ToList();
-        foreach (var questionStr in questionStrList)
+        var uploadedFile = txtFiles[0];
+        var fileDirNameInfos = uploadedFile.FileName.Split("\\");
+        if (fileDirNameInfos.Length >= 1)
         {
-          var questionDetails = questionStr.Split(Constants.TxtUploadColumnBreaker);
-          if (questionDetails.Length < 6) continue;
-          Int32 gradeLevel;
-          if (!Int32.TryParse(questionDetails[0], out gradeLevel)) gradeLevel = 3;
-          var questionType = questionDetails[4]; //Text or PNG
-          var imageName = questionDetails[1].Replace("\r", "");
-          var questionContent = questionDetails[5].Replace("\r", "").TrimEnd();
-          var testAnswer = questionDetails[2].Replace("\r", "");
-          double scorePoint;
-          if (!Double.TryParse(questionDetails[3].Replace("\r", ""), out scorePoint)) scorePoint = 3.0;
+          var realFileName = fileDirNameInfos[fileDirNameInfos.Length - 1]; //this shall be the test group name
+          var testGroupName = realFileName.Replace(".txt", "");
+          var dateTimeNow = DateTime.Now;
+          var testSessionName = fileDirNameInfos.Length >= 2
+            ? fileDirNameInfos[fileDirNameInfos.Length - 2]
+            : $"{testGroupName}_{dateTimeNow.Day:D2}-{$"{(Constants.Month)dateTimeNow.Month}".Substring(0, 3)}-{dateTimeNow.Year:D4}";
 
-          Guid imageId;
-          if (questionContent.ToUpper().EndsWith(".PNG") || questionType.ToUpper() == "PNG")
+          if (string.IsNullOrEmpty(testSessionName) || string.IsNullOrEmpty(testGroupName))
+            return BadRequest("Invalid file name or folder name");
+
+          var testGroupId = await _testSessionService.CreateNewTestGroup(testGroupName);
+          var testGroup = await _testSessionService.FindTestGroupAsyncById(testGroupId);
+          uploadProcessLogger.AppendLine($"TestGoup: {testGroupId} is null ? {testGroup == null}");
+          var sessionId = _testSessionService.CreateNewSession(testSessionName);
+          var testSession = await _context.TestSessions.FindAsync(sessionId);
+          uploadProcessLogger.AppendLine($"TestSession: {sessionId} is null ? {testSession == null}");
+          string result;
+          using (var reader = new StreamReader(uploadedFile.OpenReadStream()))
           {
-            //we need to locate the image file
-            var imageUploadedFile = imageFiles.FirstOrDefault(f =>
-              f.FileName.EndsWith(questionContent, StringComparison.InvariantCultureIgnoreCase));
-            if (imageUploadedFile != null && imageUploadedFile.ContentType.ToLower().StartsWith("image/"))
-            {
-              var ms = new MemoryStream();
-              imageUploadedFile.OpenReadStream().CopyTo(ms);
+            result = reader.ReadToEnd();
+          }
 
-              imageId = _testQuestionService.CreateTestImage(ms.ToArray(), imageName, imageUploadedFile.ContentType);
+          var questionStrList = string.IsNullOrEmpty(result) ? new List<string>() : result.Split('\n').ToList();
+          foreach (var questionStr in questionStrList)
+          {
+            var questionDetails = questionStr.Split(Constants.TxtUploadColumnBreaker);
+            if (questionDetails.Length < 6) continue;
+            if (!Int32.TryParse(questionDetails[0], out var gradeLevel)) gradeLevel = 3;
+            var questionType = questionDetails[4]; //Text or PNG
+            var imageName = questionDetails[1].Replace("\r", "");
+            var questionContent = questionDetails[5].Replace("\r", "").TrimEnd();
+            var testAnswer = questionDetails[2].Replace("\r", "");
+            if (!Double.TryParse(questionDetails[3].Replace("\r", ""), out var scorePoint)) scorePoint = 3.0;
+
+            Guid imageId;
+            if (questionContent.ToUpper().EndsWith(".PNG") || questionType.ToUpper() == "PNG")
+            {
+              //we need to locate the image file
+              var imageUploadedFile = imageFiles.FirstOrDefault(f =>
+                f.FileName.EndsWith(questionContent, StringComparison.InvariantCultureIgnoreCase));
+              if (imageUploadedFile != null && imageUploadedFile.ContentType.ToLower().StartsWith("image/"))
+              {
+                var ms = new MemoryStream();
+                imageUploadedFile.OpenReadStream().CopyTo(ms);
+
+                imageId = _testQuestionService.CreateTestImage(ms.ToArray(), imageName, imageUploadedFile.ContentType);
+              }
+              else
+              {
+                throw new Exception($"Cannot locate the expected image file in the upload list named {questionContent} with line {imageName}");
+              }
             }
             else
             {
-              throw new Exception(
-                $"Cannot locate the expected image file in the upload list named {questionContent} with line {imageName}");
+              imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray(questionContent), imageName,
+                "Text");
+            }
+
+            uploadProcessLogger.AppendLine($"ImageId: {imageId}");
+            var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
+            uploadProcessLogger.AppendLine($"QuestionId: {questionId}");
+            if (testSession != null)
+            {
+              _testSessionService.AddQuestion(testSession.Id, questionId, scorePoint, -1.0);
+              uploadProcessLogger.AppendLine($"Test question {questionId} added to session {testSession.Id}");
             }
           }
-          else
+
+
+          if (testSession != null && testGroup != null)
           {
-            imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray(questionContent), imageName,
-              "Text");
+            var addSession = _testSessionService.AddSessionIntoTestGroup(testSession.ObjectId, testGroupName);
+            uploadProcessLogger.AppendLine($"Test session {testSession.Name} added into group {testGroupName}");
           }
-
-          var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
-
-          if (testSession != null)
-            _testSessionService.AddQuestion(testSession.Id, questionId, scorePoint, -1.0);
         }
-
-
-        if (testSession != null && testGroup != null)
-        {
-          var addSession = _testSessionService.AddSessionIntoTestGroup(testSession.ObjectId, testGroupName);
-        }
+      }
+      catch (Exception e)
+      {
+        uploadProcessLogger.AppendLine("Exception:");
+        uploadProcessLogger.AppendLine(e.Message);
+        uploadProcessLogger.AppendLine(e.InnerException?.Message ?? "");
+      }
+      finally
+      {
+        await _emailSender.SendEmailAsync(Constants.AdminEmail, $"File upload log {DateTime.Now}",
+          uploadProcessLogger.ToString());
       }
 
       return RedirectToAction(nameof(Index));

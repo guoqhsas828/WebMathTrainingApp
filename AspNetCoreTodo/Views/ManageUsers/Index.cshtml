@@ -63,13 +63,13 @@
         <td>@user.Created.ToLocalTime()</td>
         <td>@user.LastUpdated.ToLocalTime()</td>
         <td>
-            <a class="btn btn-delete" asp-controller="ManageUsers" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+            <a class="btn btn-default" asp-controller="ManageUsers" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
         </td>
         <td>
-            <a class="btn btn-deactivate" asp-controller="ManageUsers" asp-action="DeActivate" asp-route-id="@user.Id">DeActivate</a>
+            <a class="btn btn-default" asp-controller="ManageUsers" asp-action="DeActivate" asp-route-id="@user.Id">DeActivate</a>
         </td>
         <td>
-            <a class="btn btn-activate" asp-controller="ManageUsers" asp-action="Activate" asp-route-id="@user.Id">Activate</a>
+            <a class="btn btn-default" asp-controller="ManageUsers" asp-action="Activate" asp-route-id="@user.Id">Activate</a>
         </td>
     </tr>
     }

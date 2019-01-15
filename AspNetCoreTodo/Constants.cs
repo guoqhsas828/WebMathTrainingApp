@@ -13,7 +13,7 @@ namespace WebMathTraining
     public const string TxtUploadColumnBreaker = "<brk_/>";
     public const string ClientSupportEmail = "TestAdmG1888@hotmail.com";
 
-    public static readonly int[] Levels = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    public static readonly int[] Levels = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
     public static readonly string[] TrialQuestions = new[] 
     {
@@ -53,5 +53,21 @@ namespace WebMathTraining
     };
 
     public static readonly string[] AvailableChoices = new[] { "A", "B", "C", "D", "E" };
+
+    public enum Month
+    {
+      January = 1,
+      February = 2,
+      March = 3,
+      April = 4,
+      May = 5,
+      June = 6,
+      July = 7,
+      August = 8,
+      September = 9,
+      October = 10,
+      November = 11,
+      December = 12
+    }
   }
 }

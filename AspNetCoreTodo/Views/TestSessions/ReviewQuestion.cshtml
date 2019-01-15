@@ -60,7 +60,10 @@
 </div>
 <div>
     <hr />
-    <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx-1)" asp-route-userId="@Model.UserId">Prev Question</a> |
     <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx+1)" asp-route-userId="@Model.UserId">Next Question</a> |
-    <a asp-action="Index">Back to Sessions</a>
+    <a asp-action="Index">Back to Test List</a>
+    @if (Model.QuestionIdx > 0)
+    {
+        <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx-1)" asp-route-userId="@Model.UserId"> | Prev Question</a> 
+    }
 </div>

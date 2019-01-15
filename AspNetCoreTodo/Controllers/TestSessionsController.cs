@@ -365,9 +365,9 @@ namespace WebMathTraining.Controllers
         };
           return View(vm);
         }
-
       }
-      return NotFound();
+
+      return RedirectToAction(nameof(TestInstruction), new {id = id});
     }
 
     // POST: TestSessions/Create
