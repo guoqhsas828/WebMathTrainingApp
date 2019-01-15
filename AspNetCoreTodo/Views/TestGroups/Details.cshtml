@@ -1,4 +1,7 @@
-﻿@model WebMathTraining.Models.TestGroupSummaryViewModel
+﻿@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+@model WebMathTraining.Models.TestGroupSummaryViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -9,15 +12,15 @@
     <hr />
     <table class="table">
         <thead>
-        <tr>
-            <td>User Name</td>
-            @*<td>Continent</td>*@
-            <td>Experience Level</td>
-            <td>Test Session</td>
-            <td>Questions Answered</td>
-            <td>Correct Ratio</td>
-            <td>Final Score</td>
-        </tr>
+            <tr>
+                <td>User Name</td>
+                @*<td>Continent</td>*@
+                <td>Experience Level</td>
+                <td>Test Session</td>
+                <td>Questions Answered</td>
+                <td>Correct Ratio</td>
+                <td>Final Score</td>
+            </tr>
         </thead>
         @foreach (var result in Model.TestResults)
         {
@@ -31,6 +34,18 @@
                 <td>@(result.TestResult?.FinalScore ?? 0.0)</td>
                 <td>
                     <a asp-controller="TestSessions" asp-action="TestSessionResult" asp-route-sessionId="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)" asp-route-userName="@(result.Tester?.UserName ?? "")">Details</a>
+                </td>
+                <td>
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        var currentUser = await userManager.GetUserAsync(User);
+                        var isAdmin = currentUser != null
+                                      && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+                        if (isAdmin)
+                        {
+                            <a asp-controller="TestSessions" asp-action="ResetTimer" asp-route-id="@result.SessionId" asp-route-userId="@(result.Tester?.ObjectId ?? 0)">ResetTimer</a>
+                        }
+                    }
                 </td>
             </tr>
         }

@@ -456,12 +456,13 @@ namespace WebMathTraining.Controllers
       }
 
       var testSession = await _context.TestSessions.FindAsync(id);
-      if (testSession == null)
+      var testUser = await _userManager.GetUserAsync(User);
+
+      if (testSession == null || testUser == null)
       {
         return NotFound();
       }
 
-      var testUser = await _userManager.GetUserAsync(User);
       if (!testSession.IsRegisteredUser(testUser.ObjectId))
       {
         return RedirectToAction(nameof(Register), new { id = id.Value});
@@ -489,6 +490,30 @@ namespace WebMathTraining.Controllers
 
       return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = 0 });
     }
+
+    // GET: TestSessions
+    public async Task<IActionResult> ResetTimer(Guid id, long userId)
+    {
+      var currentUser = await _userManager.GetUserAsync(User);
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+
+      if (!isAdmin)
+        return BadRequest("Only user with admin role has the permission to restart the test");
+
+      var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+        return NotFound();
+
+      var testResult = _testSessionService.GetTestResults(testSession.ObjectId).FirstOrDefault(tr => tr.UserId == userId);
+      if (testResult == null)
+        return RedirectToAction(nameof(Index));
+
+      testResult.TestStarted = DateTime.UtcNow;
+      _context.TestResults.Update(testResult);
+      await _context.SaveChangesAsync();
+      return RedirectToAction(nameof(Index));
+    }
+
 
     private bool TestSessionExists(Guid id)
     {

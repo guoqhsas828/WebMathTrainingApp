@@ -1,4 +1,7 @@
 ﻿@using WebMathTraining.Utilities;
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
 @model WebMathTraining.Models.TestInstructionViewModel
 
 @{
@@ -32,13 +35,25 @@
                 <label asp-for=" AllowedTimeSpan" class="control-label">Planned Test Time</label>
                 <input asp-for="AllowedTimeSpan" class="form-control" readonly="readonly" />
             </div>
-        <div class="form-group">
+            <div class="form-group">
                 <label asp-for="TotalQuestions" class="control-label">Total Questions</label>
                 <input asp-for="TotalQuestions" class="form-control" readonly="readonly" />
             </div>
-<div class="form-group">
-    <input type="submit" value="Begin Test" class="btn btn-default" asp-action="TestInstruction" asp-route-id="@Model.TestSessionId" />
-</div>
+            <div class="form-group">
+                <input type="submit" value="Begin Test" class="btn btn-default" asp-action="TestInstruction" asp-route-id="@Model.TestSessionId" />
+            </div>
+            <div>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    var currentUser = await userManager.GetUserAsync(User);
+                    var isAdmin = currentUser != null
+                                  && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+                    if (isAdmin)
+                    {
+                        <input type="submit" value = "Reset Timer" class ="btn btn-default" asp-action="ResetTimer" asp-route-id="@Model.TestSessionId" asp-route-userId="@Model.UserObjectId"/>
+                    }
+                }
+            </div>
         </form>
     </div>
 </div>

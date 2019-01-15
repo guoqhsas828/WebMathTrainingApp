@@ -30,14 +30,9 @@ namespace WebMathTraining.Models
     {
       get
       {
-        if (_testQuestions == null)
-        {
-          if (TestQuestionData == null)
-            _testQuestions = new TestQuestionList();
-          else
-            _testQuestions = TestQuestionList.Deserialize(TestQuestionData);
-        }
-        return _testQuestions;
+        return _testQuestions ?? (_testQuestions = TestQuestionData == null
+                 ? new TestQuestionList()
+                 : TestQuestionList.Deserialize(TestQuestionData));
       }
       set
       {
@@ -152,7 +147,7 @@ namespace WebMathTraining.Models
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="rr"></param>
+    /// <param name="item"></param>
     public void Add(TestQuestionItem item)
     {
       Items.Add(item);
@@ -264,7 +259,7 @@ namespace WebMathTraining.Models
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="rr"></param>
+    /// <param name="item"></param>
     public void Add(TesterItem item)
     {
       Items.Add(item);
