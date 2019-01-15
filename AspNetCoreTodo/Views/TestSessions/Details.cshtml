@@ -1,10 +1,10 @@
 ﻿@model WebMathTraining.Models.TestSessionsViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Test Session Details";
 }
 
-<h2>Details</h2>
+<h2>Test Session Configuration</h2>
 
 <div>
     <h4>TestSession</h4>
@@ -29,12 +29,6 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.RegisteredUsers)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RegisteredUsers)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.PlannedStart)
         </dt>
         <dd>
@@ -47,12 +41,6 @@
             @Html.DisplayFor(model => model.PlannedEnd)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.TestQuestions)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TestQuestions)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.LastUpdated)
         </dt>
         <dd>
@@ -60,7 +48,24 @@
         </dd>
     </dl>
 </div>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group" >
+                <label asp-for="RegisteredUsers">Registered Testers:</label>
+                <input asp-for="RegisteredUsers" class="form-control" />
+                <label asp-for="TestQuestions">Test Questions:</label>
+                <input asp-for="TestQuestions" class="form-control" />
+                <label asp-for="ScorePoints">Score Points:</label>
+                <input asp-for="ScorePoints" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
 <div>
-    <a asp-action="AddQuestion" asp-route-id="@Model.Id">Add Question</a> |
     <a asp-action="Index">Back to List</a>
 </div>

@@ -65,6 +65,54 @@ namespace WebMathTraining.Controllers
       return View(new TestSessionsViewModel(testSession));
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Details(Guid? id, TestSessionsViewModel viewModel)
+    {
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      var testSession = await _context.TestSessions
+        .FirstOrDefaultAsync(m => m.Id == id);
+      if (testSession == null)
+      {
+        return NotFound();
+      }
+
+      if (viewModel.DistinctQuestionIds.Count != viewModel.TestScores.Count)
+        return BadRequest("Question and scores not matching");
+
+      testSession.Testers.Items.Clear();
+      foreach (var tester in viewModel.DistinctTesters)
+      {
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.ObjectId == tester);
+        if (user == null) continue;
+        testSession.Testers.Add(new TesterItem(){TesterId = tester, Grade = user.ExperienceLevel, Group = user.Continent.ToString()});
+      }
+
+      testSession.TestQuestions.Clear();
+      for (var idx =0; idx < viewModel.DistinctQuestionIds.Count; ++idx)
+      {
+        var questionId = viewModel.DistinctQuestionIds[idx];
+        var q = await _context.TestQuestions.FirstOrDefaultAsync(qt => qt.ObjectId == questionId);
+        if (q == null) continue;
+        testSession.TestQuestions.Add(new TestQuestionItem()
+        {
+          Idx = idx, PenaltyPoint = -1, QuestionId = questionId, ScorePoint = viewModel.TestScores[idx]
+        });
+      }
+
+      testSession.LastUpdatedLocal = DateTime.Now;
+      testSession.Testers = testSession.Testers;
+      testSession.TestQuestions = testSession.TestQuestions;
+      _context.Update(testSession);
+      await _context.SaveChangesAsync();
+
+      return RedirectToAction(nameof(Index));
+    }
+
     // GET: TestSessions/Create
     public async Task<IActionResult> Create()
     {
