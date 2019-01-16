@@ -61,5 +61,9 @@ namespace WebMathTraining.Models
     public int TotalQuestions { get; set; }
 
     public double TotalScorePoints { get; set; }
+
+    public string AllowedTestTime { get { return AllowedTimeSpan.Display(); } set { return; } }
+
+    public string UsedTestTime { get { return (DateTime.UtcNow - TestStart).Display(); } }
   }
 }

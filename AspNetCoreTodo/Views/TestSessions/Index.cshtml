@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.OrderByDescending(s => s.ObjectId))
                 {
                   var startIdx = currentUser != null && item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
                   var buttonLabel = startIdx >= 0 ? "Start" : "Register";

@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<WebMathTraining.Models.TestGroup>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Membmer Teams";
 }
 
-<h2>Index</h2>
+<h2>Registered Member Teams</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastUpdated)
+                @Html.DisplayNameFor(model => model.LastUpdatedLocal)
             </th>
             @*<th>
                 @Html.DisplayNameFor(model => model.TeamHeadId)

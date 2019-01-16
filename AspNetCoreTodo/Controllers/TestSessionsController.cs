@@ -543,6 +543,8 @@ namespace WebMathTraining.Controllers
         return RedirectToAction(nameof(Register), new { id = id.Value});
       }
 
+      var existingTestResult = _testSessionService.GetTestResults(testSession.ObjectId).FirstOrDefault(tr => tr.UserId == testUser.ObjectId);
+
       return View(new TestInstructionViewModel()
       {
         TestSessionId = id.Value,
@@ -552,6 +554,7 @@ namespace WebMathTraining.Controllers
         SessionObjectId = testSession.ObjectId,
         UserObjectId = testUser.ObjectId,
         UserName = testUser.UserName,
+        TestStart = existingTestResult?.TestStarted ?? DateTime.UtcNow,
         TotalQuestions = testSession.TestQuestions.Count,
         TotalScorePoints = testSession.TestQuestions.Sum(q => q.ScorePoint)
       });
@@ -559,7 +562,7 @@ namespace WebMathTraining.Controllers
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> TestInstruction(Guid id, [Bind("SessionObjectId,UserName,UserObjectId,AllowedTimeSpan,SessionName")]TestInstructionViewModel viewModel)
+    public async Task<IActionResult> TestInstruction(Guid id, [Bind("SessionObjectId,UserName,UserObjectId,AllowedTimeSpan,SessionName, TestStart")]TestInstructionViewModel viewModel)
     {
        _testSessionService.CreateNewTestResult(viewModel.SessionObjectId, viewModel.UserObjectId);
 

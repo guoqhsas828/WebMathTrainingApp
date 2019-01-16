@@ -19,6 +19,9 @@ namespace WebMathTraining.Models
 
     public DateTime LastUpdated { get; set; }
 
+    [NotMapped]
+    public DateTime LastUpdatedLocal { get { return LastUpdated.ToLocalTime(); } set { LastUpdated = value.ToUniversalTime(); } }
+
     public long TeamHeadId { get; set; }
 
     public string MembersInfo { get; set; }
