@@ -41,13 +41,26 @@
                    })
                     </div>
                 }
-                <div class="form-group">
+                    <div class="form-group">
                         <label asp-for="TextAnswer" class="control-label">Your Answer</label>
-                        <input asp-for="TextAnswer" class="form-control" readonly="readonly"/>
-                </div>
-                <div class="form-group">
+                        <input asp-for="TextAnswer" class="form-control" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="QuestionIdx" />
+                        <input type="hidden" asp-for="CorrectAnswer" />
+                        <input type="hidden" asp-for="ShowAnswer" />
+                        <input type="checkbox" class="done-checkbox" asp-action="ReviewQuestion">
                         <label asp-for="CorrectAnswer" class="control-label">Correct Answer</label>
-                        <input asp-for="CorrectAnswer" class="form-control" readonly="readonly"/>
+                        <input asp-for="ShownCorrectAnswer" class="form-control" readonly="readonly" />
+                    </div>
+                <div>
+                    <input type="hidden" asp-for="ImageId" />
+                    <input type="hidden" asp-for="SessionId" />
+                    <input type="hidden" asp-for="ActualScore" />
+                    <input type="hidden" asp-for="ScorePoint" />
+                    <input type="hidden" asp-for="PenaltyPoint" />
+                    <input type="hidden" asp-for="QuestionText" />
+                    <input type="hidden" asp-for="TestSessionName" />
                 </div>
                 <hr />
                 <div class="form-group">

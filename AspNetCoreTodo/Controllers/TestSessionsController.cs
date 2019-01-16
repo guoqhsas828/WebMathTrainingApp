@@ -418,6 +418,17 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(TestInstruction), new {id = id});
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ReviewQuestion([Bind(@"UserId,SessionId,TestSessionName,
+                                                           QuestionText,ImageId,CorrectAnswer,
+                                                           QuestionIdx,TextAnswer,ShowAnswer,
+                                                           ScorePoint,PenaltyPoint,ActualScore,TheTip")]ReviewQuestionViewModel vm)
+    {
+      vm.ShowAnswer = !vm.ShowAnswer;
+      return View(vm);
+    }
+
     // POST: TestSessions/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
