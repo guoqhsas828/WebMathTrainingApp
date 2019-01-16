@@ -167,15 +167,29 @@ namespace WebMathTraining.Controllers
     }
 
     [HttpGet]
-    public FileStreamResult ViewImage(Guid id)
+    public async Task<IActionResult> ViewImage(Guid? id)
     {
+      string contentType = "image/png";
+      MemoryStream ms;
+      if (id == null)
+      {
+        var randomizer = new Random(DateTime.Now.Second);
+        var cloudUtil = new CloudBlobUtility();
+        var data = await cloudUtil.DownloadBlobToByteArrayAsync(Constants.FunTips[randomizer.Next(0, Constants.FunTips.Length-1)]);
+        ms = new MemoryStream(data.Item1);
+        contentType = data.Item2;
+        return new FileStreamResult(ms, contentType);
+      }
+      else
+      {
+        var image = _context.TestImages.FirstOrDefault(m => m.Id == id.Value);
+        if (image == null)
+          return NotFound();
 
-      var image = _context.TestImages.FirstOrDefault(m => m.Id == id);
-
-      MemoryStream ms = new MemoryStream(image.Data);
-
-      return new FileStreamResult(ms, image.ContentType);
-
+        ms = new MemoryStream(image.Data);
+        contentType = image.ContentType;
+      }
+      return new FileStreamResult(ms, contentType);
     }
 
     public IActionResult DeleteConfirmed(Guid id)
