@@ -83,7 +83,6 @@ namespace WebMathTraining.Models
       QuestionIdx = idx;
       SessionId = id;
       TheTip = entity.TestAnswer?.AnswerChoice6;//"Sing the Nyan Cat song until it drives everyone crazy";
-      ShowAnswer = false;
     }
 
     public long UserId { get; set; }

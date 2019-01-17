@@ -21,44 +21,43 @@
                 @if (Model.IsTextBased)
                 {
                     <div class="form-group">
-                   @Html.TextAreaFor(model => model.QuestionText, new
-                   {
-                       //@class = "blue",
-                       @disabled="true",
-                       cols = "90",
-                       rows = "10",
-                       //@title = "Please Enter Your Name",
-                       //@tabindex = "0",
-                       //@accesskey="z",
-                       @align = "left",
-                       //@autofocus = "true",
-                       @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
-                       //@draggable = "true",
-                       //@hidden="true",
-                       //@maxlength="12",
-                       //@minlength = "5",
-                       //@required = "true"
-                   })
+                        @Html.TextAreaFor(model => model.QuestionText, new
+                        {
+                            //@class = "blue",
+                            @disabled="true",
+                            cols = "90",
+                            rows = "10",
+                            //@title = "Please Enter Your Name",
+                            //@tabindex = "0",
+                            //@accesskey="z",
+                            @align = "left",
+                            //@autofocus = "true",
+                            @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
+                            //@draggable = "true",
+                            //@hidden="true",
+                            //@maxlength="12",
+                            //@minlength = "5",
+                            //@required = "true"
+                        })
                     </div>
                 }
-                    <div class="form-group">
-                        <label asp-for="TextAnswer" class="control-label">Your Answer</label>
-                        <input asp-for="TextAnswer" class="form-control" readonly="readonly" />
-                    </div>
+                <div class="form-group">
+                    <label asp-for="TextAnswer" class="control-label">Your Answer</label>
+                    <input asp-for="TextAnswer" class="form-control" readonly="readonly" />
+                </div>
                 <div class="form-group">
                     <input type="hidden" asp-for="ImageId" />
                     <input type="hidden" asp-for="SessionId" />
-                    <input type="hidden" asp-for="ActualScore" />
+                    <input type="hidden" asp-for="@Model.ActualScore" />
                     <input type="hidden" asp-for="ScorePoint" />
                     <input type="hidden" asp-for="PenaltyPoint" />
                     <input type="hidden" asp-for="QuestionText" />
                     <input type="hidden" asp-for="TestSessionName" />
-                    <input type="hidden" asp-for="QuestionIdx"/>
-                    <input type="hidden" asp-for="CorrectAnswer"/>
-                    <input type="hidden" asp-for="ShowAnswer"/>
-                    <input type="checkbox" class="done-checkbox" asp-action="ReviewQuestion">
-                    <label asp-for="CorrectAnswer" class="control-label">Correct Answer</label>
-                    <input asp-for="ShownCorrectAnswer" class="form-control" readonly="readonly"/>
+                    <input type="hidden" asp-for="QuestionIdx" />
+                    <input type="hidden" asp-for="CorrectAnswer" />
+                    <input asp-for="@Model.ShownCorrectAnswer" class="form-control" readonly="readonly" />
+                    <input asp-for="ShowAnswer" />
+                    <button>Reveal Answer</button>
                 </div>
                 <hr />
                 <div class="form-group">

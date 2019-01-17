@@ -409,7 +409,8 @@ namespace WebMathTraining.Controllers
               UserId = testResult.UserId,
               TextAnswer = testResultItem?.Answer ?? "",
               ActualScore = testResultItem?.Score ?? 0,
-              CorrectAnswer = testQuestion.TestAnswer?.TextAnswer
+              CorrectAnswer = testQuestion.TestAnswer?.TextAnswer,
+              ShowAnswer = false
         };
           return View(vm);
         }
@@ -420,13 +421,13 @@ namespace WebMathTraining.Controllers
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> ReviewQuestion([Bind(@"UserId,SessionId,TestSessionName,
+    public IActionResult ReviewQuestion([Bind(@"UserId,SessionId,TestSessionName,
                                                            QuestionText,ImageId,CorrectAnswer,
                                                            QuestionIdx,TextAnswer,ShowAnswer,
-                                                           ScorePoint,PenaltyPoint,ActualScore,TheTip")]ReviewQuestionViewModel vm)
+                                                           ScorePoint,PenaltyPoint,ActualScore,TheTip")]ReviewQuestionViewModel Model)
     {
-      vm.ShowAnswer = !vm.ShowAnswer;
-      return View(vm);
+      //Model.ShowAnswer = !Model.ShowAnswer;
+      return View(Model);
     }
 
     // POST: TestSessions/Create
