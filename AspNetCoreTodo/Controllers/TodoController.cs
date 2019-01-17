@@ -50,6 +50,7 @@ namespace WebMathTraining.Controllers
       return View(model);
     }
 
+    [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddItem(TodoItem newItem)
     {
@@ -73,6 +74,7 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MarkDone(string id)
     {

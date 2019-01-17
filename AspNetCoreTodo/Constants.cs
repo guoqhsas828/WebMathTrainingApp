@@ -72,6 +72,6 @@ namespace WebMathTraining
 
     public static readonly string[] FunTips = new[]
       {"Humor1.PNG", "Humor2.PNG", "Humor3.jpg", "Humor4.jpg", "Humor5.jpg", "Humor6.gif",
-        "Humor7.jpg", "Humor8.jpg","Humor9.png"};
+        "Humor7.jpg", "Humor8.jpg","Humor9.png", "Humor10.jpg", "Humor11.jpg"};
   }
 }

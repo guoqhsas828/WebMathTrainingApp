@@ -121,6 +121,7 @@ namespace WebMathTraining.Models
 
     [ProtoMember(7)]
     [DataMember(Order = 7)]
+    [DisplayName("Answer Tip")]
     public string AnswerChoice6 { get; set; }
 
     [ProtoMember(8)]

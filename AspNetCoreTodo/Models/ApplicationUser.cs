@@ -45,11 +45,12 @@ namespace WebMathTraining.Models
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long ObjectId { get; set; }
 
+    public DateTime LatestLogin { get; set; }
+
     //TOBEDONE: convert the training process to be team-wise treasury hunting game
-    [NotMapped]
     public double AchievedPoints { get; set; }
 
-    [NotMapped] public int AchievedLevel { get; set; }
+    public int AchievedLevel { get; set; }
 
     [NotMapped] public GeographyPoint Location { get; set; }
   }

@@ -48,7 +48,7 @@ namespace WebMathTraining.Models
       AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None;
       TextAnswer = entity.TestAnswer?.TextAnswer ?? default(string);
       QuestionText = Image?.DataText;
-
+      AnswerChoice6 = entity.TestAnswer?.AnswerChoice6;
     }
 
     public Guid Id { get; set; }
@@ -84,6 +84,7 @@ namespace WebMathTraining.Models
 
     public string AnswerChoice5 { get; set; }
 
+    [Display(Name="Answer Tip")]
     public string AnswerChoice6 { get; set; }
 
     public bool IsTextBased => (Image != null &&

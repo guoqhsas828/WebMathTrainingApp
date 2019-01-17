@@ -1,7 +1,7 @@
 @model ManageUsersViewModel
 
 @{
-    ViewData["Title"] = "Manage users";
+    ViewData["Title"] = "Current Users";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -14,7 +14,6 @@
             <td>Id</td>
             <td>User Name</td>
             <td>Email</td>
-            <td>UserRole</td>
             <td>Continent</td>
             <td>Experience Level</td>
         </tr>
@@ -26,7 +25,6 @@
             <td>@user.Id</td>
             <td>@user.UserName</td>
             <td>@user.Email</td>
-            <td>@Constants.AdministratorRole</td>
             <td>@user.Continent</td>
             <td>@user.ExperienceLevel</td>
         </tr>
@@ -47,6 +45,7 @@
             <td>Current Status</td>
             <td>Created Time</td>
             <td>Last Update</td>
+            <td>Recent Login</td>
         </tr>
     </thead>
     
@@ -62,9 +61,10 @@
         <td>@user.UserStatus</td>
         <td>@user.Created.ToLocalTime()</td>
         <td>@user.LastUpdated.ToLocalTime()</td>
-        <td>
+        <td>@user.LatestLogin.ToLocalTime()</td>
+        @*<td>
             <a class="btn btn-default" asp-controller="ManageUsers" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
-        </td>
+        </td>*@
         <td>
             <a class="btn btn-default" asp-controller="ManageUsers" asp-action="DeActivate" asp-route-id="@user.Id">DeActivate</a>
         </td>
