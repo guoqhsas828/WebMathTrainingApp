@@ -82,7 +82,7 @@ namespace WebMathTraining.Models
       TestSessionName = sessionName;
       QuestionIdx = idx;
       SessionId = id;
-      TheTip = "Work harder, check-double-triple-check";
+      TheTip = entity.TestAnswer.AnswerChoice6;//"Sing the Nyan Cat song until it drives everyone crazy";
       ShowAnswer = false;
     }
 
