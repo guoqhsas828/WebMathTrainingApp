@@ -13,6 +13,12 @@ namespace WebMathTraining.Models
 {
   public class TestSession
   {
+    public TestSession()
+    {
+      PlannedStart = DateTime.UtcNow;
+      PlannedEnd = DateTime.UtcNow.AddMinutes(30);
+    }
+
     public Guid Id { get; set; }
 
     //[Key]

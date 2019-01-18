@@ -159,7 +159,7 @@ namespace WebMathTraining.Controllers
             picked.Add(random.Next(testQuestions.Count));
 
           foreach (var idx in picked)
-            questionList.Add(questionList[idx]);
+            questionList.Add(testQuestions[idx]);
         }
 
         foreach (var q in questionList)
@@ -168,6 +168,7 @@ namespace WebMathTraining.Controllers
             ScorePoint = q.Item2 > currentUser.ExperienceLevel ? 5.0 : (q.Item2 < currentUser.ExperienceLevel ? 3.0 : 4.0)});
         }
 
+        testSession.TestQuestions = testSession.TestQuestions;
         _context.Add(testSession);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
