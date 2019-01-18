@@ -11,7 +11,7 @@
             @if (!Model.IsTextBased)
             {
                 <div class="form-group">
-                    <img src="@Url.Action("GetTestImageFile", "TestQuestion", new { id = Model.ImageId })" />
+                    <img src="@Url.Action("GetTestImageFile", "TestImage", new { id = Model.ImageId })" />
                 </div>
             }
             <div class="form-group">
@@ -27,7 +27,7 @@
             {
                 //@class = "blue",
                 //@disabled="true",
-                cols = "90",
+                cols = "70",
                 rows = "10",
                 //@title = "Please Enter Your Name",
                 //@tabindex = "0",

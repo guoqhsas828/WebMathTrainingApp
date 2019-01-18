@@ -24,18 +24,21 @@ namespace WebMathTraining.Controllers
     private readonly ITestSessionService _testSessionService;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IEmailSender _emailSender;
+    private readonly IBlobFileService _blobFileService;
 
     public TestImageController(TestDbContext context, 
                                ITestQuestionService service, 
                                ITestSessionService sessionService, 
                                UserManager<ApplicationUser> userMgr,
-                               IEmailSender emailSender)
+                               IEmailSender emailSender,
+                               IBlobFileService blobFileService)
     {
       _context = context;
       _testQuestionService = service;
       _testSessionService = sessionService;
       _userManager = userMgr;
       _emailSender = emailSender;
+      _blobFileService = blobFileService;
     }
 
     [HttpGet]
@@ -174,8 +177,7 @@ namespace WebMathTraining.Controllers
       if (id == null)
       {
         var randomizer = new Random(DateTime.Now.Second);
-        var cloudUtil = new CloudBlobUtility();
-        var data = await cloudUtil.DownloadBlobToByteArrayAsync(Constants.FunTips[randomizer.Next(0, Constants.FunTips.Length-1)]);
+        var data = await _blobFileService.DownloadBlobToByteArrayAsync(Constants.FunTips[randomizer.Next(0, Constants.FunTips.Length-1)]);
         ms = new MemoryStream(data.Item1);
         contentType = data.Item2;
         return new FileStreamResult(ms, contentType);
@@ -186,8 +188,23 @@ namespace WebMathTraining.Controllers
         if (image == null)
           return NotFound();
 
-        ms = new MemoryStream(image.Data);
-        contentType = image.ContentType;
+        if (String.Compare(image.ContentType, "CloudBlob", StringComparison.InvariantCultureIgnoreCase) == 0)
+        {
+          var cleanImageName = image.Name.ToLower().Replace("_", "-");
+          var filePartsCloudContainer = cleanImageName.Split('-');
+          var fileName = $"Q{filePartsCloudContainer[filePartsCloudContainer.Length - 1]}";
+          var containerName = cleanImageName.Substring(0, cleanImageName.Length - fileName.Length);
+
+          if (fileName.IndexOf('.') < 0) fileName += ".PNG";
+          var cloudData = await _blobFileService.DownloadBlobToByteArrayAsync(fileName, containerName);
+          ms = new MemoryStream(cloudData.Item1);
+          contentType = cloudData.Item2;
+        }
+        else
+        {
+          ms = new MemoryStream(image.Data);
+          contentType = image.ContentType;
+        }
       }
       return new FileStreamResult(ms, contentType);
     }
@@ -218,6 +235,39 @@ namespace WebMathTraining.Controllers
     //    return View(image);
     //}
 
+    public async Task<IActionResult> GetTestImageFile(string id)
+    {
+      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);
+      if (image == null || String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
+      {
+        return null;
+      }
+
+      byte[] imageBytes;
+      string contentType;
+      if (String.Compare(image.ContentType, "CloudBlob", StringComparison.InvariantCultureIgnoreCase) == 0)
+      {
+        //string base64Str = Convert.ToBase64String(image.Data);
+        //imageBytes = Convert.FromBase64String(base64Str);
+        var cleanImageName = image.Name.ToLower().Replace("_", "-");
+        var filePartsCloudContainer = cleanImageName.Split('-');
+        var fileName = $"Q{filePartsCloudContainer[filePartsCloudContainer.Length - 1]}";
+        var containerName = cleanImageName.Substring(0, cleanImageName.Length - fileName.Length);
+
+        if (fileName.IndexOf('.') < 0) fileName += ".PNG";
+        var cloudData = await _blobFileService.DownloadBlobToByteArrayAsync(fileName, containerName);
+        imageBytes = cloudData.Item1;
+        contentType = cloudData.Item2;
+      }
+      else
+      {
+        imageBytes = image.Data;
+        contentType = image.ContentType;
+      }
+
+      FileResult imageUserFile = File(imageBytes, contentType);
+      return imageUserFile;
+    }
 
     [HttpPost]
     public async Task<IActionResult> SwapTextColumn(IList<IFormFile> files)

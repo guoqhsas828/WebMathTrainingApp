@@ -150,35 +150,6 @@ namespace WebMathTraining.Controllers
       return RedirectToAction("Index");
     }
 
-    public IActionResult GetTestImageFile(string id) 
-    {
-      var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);
-      if (image == null || String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
-      {
-        return null;
-      }
-
-      byte[] imageBytes;
-      if (String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
-      {
-        string base64Str = Convert.ToBase64String(image.Data);
-        imageBytes = Convert.FromBase64String(base64Str);
-        //using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-        //{
-        //  ms.Write(imageBytes, 0, imageBytes.Length);
-        //  System.Drawing.Image = image.FromStream(ms, true);
-        //}
-        //retVal = string.Format("data:image/gif;base64,{0}", base64Str);
-      }
-      else
-      {
-        imageBytes = image.Data;
-      }
-
-      FileResult imageUserFile = File(imageBytes, "image/jpeg");
-      return imageUserFile;
-    }
-
     public string GetTestQuestionString(string id)
     {
       var image = _context.TestImages.FirstOrDefault(tim => tim.Id.ToString() == id);

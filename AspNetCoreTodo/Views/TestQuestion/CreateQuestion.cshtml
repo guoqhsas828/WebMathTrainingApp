@@ -12,7 +12,7 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <div class="form-group">
-                        <img src="@Url.Action("GetTestImageFile", "TestQuestion", new {id = Model.ImageId})"/>
+                        <img src="@Url.Action("GetTestImageFile", "TestImage", new {id = Model.ImageId})"/>
                     </div>
                     <label asp-for="ImageId">Image Id</label>
                     <input asp-for="ImageId" class="form-control" disabled/>

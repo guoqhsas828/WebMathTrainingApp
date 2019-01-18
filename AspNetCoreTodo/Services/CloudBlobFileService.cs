@@ -7,29 +7,35 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 
-namespace WebMathTraining.Utilities
+namespace WebMathTraining.Services
 {
-  public class CloudBlobUtility
+  public class CloudBlobFileService : IBlobFileService
   {
-    public CloudBlobUtility()
+    private readonly IConfiguration Configuration;
+
+    public CloudBlobFileService(IConfiguration config)
     {
+      Configuration = config;
       if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
       {
         _loginStr = Environment.GetEnvironmentVariable("STORAGE_CONNSTR");
       }
       else
       {
-        throw new NotImplementedException();      
+        if (Configuration.GetSection("STORAGE_CONNSTR") == null)
+          throw new ArgumentException("config");
+
+        _loginStr = Configuration.GetSection("STORAGE_CONNSTR")["ConnectionString"];
       }
       StorageAccount = CloudStorageAccount.Parse(_loginStr);
     }
 
-    public CloudBlobUtility(string acctName, string acctKey) 
+    public CloudBlobFileService(string acctName, string acctKey) 
       : this($"DefaultEndpointsProtocol=https;AccountName={acctName};AccountKey={acctKey}")
     {
     }
 
-    public CloudBlobUtility(string userConnStr)
+    public CloudBlobFileService(string userConnStr)
     {
       StorageAccount = CloudStorageAccount.Parse(userConnStr);
     }
@@ -61,7 +67,12 @@ namespace WebMathTraining.Utilities
       //blockBlob.Delete();
     }
 
-    public async Task<Tuple<byte[],string>> DownloadBlobToByteArrayAsync(string BlobName, string ContainerName = _containerName)
+    public async Task<Tuple<byte[], string>> DownloadBlobToByteArrayAsync(string BlobName)
+    {
+      return await DownloadBlobToByteArrayAsync(BlobName, _containerName);
+    }
+
+    public async Task<Tuple<byte[],string>> DownloadBlobToByteArrayAsync(string BlobName, string ContainerName)
     {
       CloudBlobClient blobClient = StorageAccount.CreateCloudBlobClient();
       CloudBlobContainer container = blobClient.GetContainerReference(ContainerName);
