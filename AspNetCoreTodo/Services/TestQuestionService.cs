@@ -16,7 +16,7 @@ namespace WebMathTraining.Services
 {
   public interface ITestQuestionService
   {
-    Guid CreateTestImage(byte[] imageData, string imageName, string contentType);
+    Guid CreateTestImage(byte[] imageData, string imageName, string contentType,string container=null);
     long CreateOrUpdate(Guid id, Guid imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
     TestAnswerType answerChoice = TestAnswerType.Text);
     int CountQuestions();
@@ -43,12 +43,15 @@ namespace WebMathTraining.Services
       return _context.TestQuestions.Count();
     }
 
-    public Guid CreateTestImage(byte[] imageData, string imageName, string contentType)
+    public Guid CreateTestImage(byte[] imageData, string imageName, string contentType, string container=null)
     {
-      if (imageData == null)
-        throw new ArgumentException("imageData");
-
       var image = _context.TestImages.FirstOrDefault(g => String.Compare(g.Name, imageName, StringComparison.InvariantCultureIgnoreCase) ==0);
+      var containerType = CloudContainer.None;
+      if (!String.IsNullOrEmpty(container) && !Enum.TryParse<CloudContainer>(container, out containerType))
+      {
+        containerType = CloudContainer.None;
+      }
+
       if (image == null)
       {
         image = new TestImage()
@@ -56,16 +59,24 @@ namespace WebMathTraining.Services
           ContentType = contentType,
           Data = imageData,
           Id = Guid.NewGuid(),
-          Length = imageData.Length,
-          Name = imageName
+          Length = imageData?.Length ?? 0,
+          Name = imageName,
+          Width = containerType
         };
 
         _context.TestImages.Add(image);
         _context.SaveChanges();
+
       }
       else
       {
-        //Image exists, don't update
+        //Image exists, do update
+        image.ContentType = contentType;
+        image.Width = containerType;
+        image.Data = imageData;
+        image.Length = imageData?.Length ?? 0;
+        _context.Update(image);
+        _context.SaveChanges();
       }
 
       return image.Id;

@@ -64,7 +64,11 @@
                         @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
                     </td>
                     <td>
-                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
+                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a> 
+                        @if (startIdx >= 0)
+                        {
+                          <a asp-action="TestSessionResult" asp-route-sessionId="@item.Id" asp-route-userId="@(currentUser?.ObjectId ?? 0)" asp-route-userName="@(currentUser?.UserName ?? "")"> | Review Results</a>
+                        }
                     </td>
                 </tr>
                 }

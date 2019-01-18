@@ -16,7 +16,7 @@ namespace WebMathTraining.Models
 
     public int Length { get; set; }
 
-    public int Width { get; set; }
+    public CloudContainer Width { get; set; }
 
     public int Height { get; set; }
 

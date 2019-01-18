@@ -125,9 +125,9 @@ namespace WebMathTraining.Controllers
 
                 imageId = _testQuestionService.CreateTestImage(ms.ToArray(), imageName, imageUploadedFile.ContentType);
               }
-              else
+              else //the image file must be in the cloud
               {
-                throw new Exception($"Cannot locate the expected image file in the upload list named {questionContent} with line {imageName}");
+                imageId = _testQuestionService.CreateTestImage(null, imageName, "image/PNG", questionContent);
               }
             }
             else
@@ -188,12 +188,10 @@ namespace WebMathTraining.Controllers
         if (image == null)
           return NotFound();
 
-        if (String.Compare(image.ContentType, "CloudBlob", StringComparison.InvariantCultureIgnoreCase) == 0)
+        if (image.Width != CloudContainer.None)
         {
-          var cleanImageName = image.Name.ToLower().Replace("_", "-");
-          var filePartsCloudContainer = cleanImageName.Split('-');
-          var fileName = $"Q{filePartsCloudContainer[filePartsCloudContainer.Length - 1]}";
-          var containerName = cleanImageName.Substring(0, cleanImageName.Length - fileName.Length);
+          var fileName = image.Name;
+          var containerName = image.Width.ToString();
 
           if (fileName.IndexOf('.') < 0) fileName += ".PNG";
           var cloudData = await _blobFileService.DownloadBlobToByteArrayAsync(fileName, containerName);
@@ -245,14 +243,12 @@ namespace WebMathTraining.Controllers
 
       byte[] imageBytes;
       string contentType;
-      if (String.Compare(image.ContentType, "CloudBlob", StringComparison.InvariantCultureIgnoreCase) == 0)
+      if (image.Width != CloudContainer.None)
       {
         //string base64Str = Convert.ToBase64String(image.Data);
         //imageBytes = Convert.FromBase64String(base64Str);
-        var cleanImageName = image.Name.ToLower().Replace("_", "-");
-        var filePartsCloudContainer = cleanImageName.Split('-');
-        var fileName = $"Q{filePartsCloudContainer[filePartsCloudContainer.Length - 1]}";
-        var containerName = cleanImageName.Substring(0, cleanImageName.Length - fileName.Length);
+        var fileName = image.Name;
+        var containerName = image.Width.ToString();
 
         if (fileName.IndexOf('.') < 0) fileName += ".PNG";
         var cloudData = await _blobFileService.DownloadBlobToByteArrayAsync(fileName, containerName);
