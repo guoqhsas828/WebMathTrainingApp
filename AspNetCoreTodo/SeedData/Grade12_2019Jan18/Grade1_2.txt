@@ -1,0 +1,21 @@
+1<brk_/>MKG_2016gr0102_1<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_2<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_3<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_4<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_5<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_6<brk_/>D<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_7<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_8<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+1<brk_/>MKG_2016gr0102_9<brk_/>D<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_10<brk_/>C<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_11<brk_/>E<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_12<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_13<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_14<brk_/>B<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_15<brk_/>E<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_16<brk_/>A<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_17<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+2<brk_/>MKG_2016gr0102_18<brk_/>C<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+3<brk_/>MathCnt_2018Apr02_1<brk_/>18<brk_/>5.0<brk_/>Text<brk_/>A baby rabbit moves 5 inches forward with each hop and his mother moves 14 inches forward with each hop. After the mother and baby each hop 10 hops in the same direction, the mother stops and waits for her baby to catch up. How many hops does the baby have to take to catch up?   
+3<brk_/>MathCnt_2018Apr02_2<brk_/>7.5<brk_/>5.0<brk_/>Text<brk_/>A mother duck has 5 ducklings. The average weight of the 5 ducklings is 6 ounces. If the average weight of three of the ducklings is 5 ounces, what is the average weight, in ounces, of the other 2 ducklings?   
+3<brk_/>MathCnt_2018Apr02_3<brk_/>33.1<brk_/>5.0<brk_/>Text<brk_/>Four piglets are placed in order by weight from lightest to heaviest. Each piglet, after the first is 1/10 heavier than the one before it. What percent heavier is the heaviest piglet than the lightest piglet? Express your answer to a decimal number.   

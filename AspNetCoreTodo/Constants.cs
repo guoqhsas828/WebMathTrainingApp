@@ -24,8 +24,6 @@ namespace WebMathTraining
       "There are 2018 persons in a row. Each of them is either a liar (who always lies) or a knight (who always tells the truth). Each person says 'There are more liars to my left than knights to my right'. How many liars are there in the row?",
       "If the sum of the positive integer a and 5 is less than 12, what is the sum of all possible values of a?",
       " John is 33 years old. His three sons are 5, 6 and 10 years old. In how many years will the three sons together be as old as their father? ",
-      //"Calculate 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2 - 2 + 2",
-      //"The human heart beats approximately 70 times per minute. How many beats approximately will it make in half an hour?",
     };
 
   public static readonly string[] TrialQuestionAnswers = new string[]
@@ -37,8 +35,6 @@ namespace WebMathTraining
       "1009",
       "21",
       "4",
-      //"4",
-      //"2100",
     };
 
     public static readonly int[] TrialQuestionLevels = new[]

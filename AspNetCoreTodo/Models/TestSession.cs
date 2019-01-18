@@ -98,6 +98,9 @@ namespace WebMathTraining.Models
       get { return SessionTimeSpan.Display(); }
     }
 
+    [NotMapped]
+    public int QuestionRequest { get; set; }
+
     #region Methods
 
     public bool IsRegisteredUser(long userId)

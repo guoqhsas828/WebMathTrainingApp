@@ -137,12 +137,15 @@ namespace WebMathTraining.Controllers
             }
 
             uploadProcessLogger.AppendLine($"ImageId: {imageId}");
-            var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
-            uploadProcessLogger.AppendLine($"QuestionId: {questionId}");
-            if (testSession != null)
+            if (gradeLevel > 0)
             {
-              _testSessionService.AddQuestion(testSession.Id, questionId, scorePoint, -1.0);
-              uploadProcessLogger.AppendLine($"Test question {questionId} added to session {testSession.Id}");
+              var questionId = _testQuestionService.CreateOrUpdate(Guid.NewGuid(), imageId, gradeLevel, testAnswer);
+              uploadProcessLogger.AppendLine($"Question with Id: {questionId} Added");
+              if (testSession != null)
+              {
+                _testSessionService.AddQuestion(testSession.Id, questionId, scorePoint, -1.0);
+                uploadProcessLogger.AppendLine($"Test question {questionId} added to session {testSession.Id}");
+              }
             }
           }
 

@@ -116,12 +116,12 @@ namespace WebMathTraining.Controllers
     // GET: TestSessions/Create
     public async Task<IActionResult> Create()
     {
-      var currentUser = await _userManager.GetUserAsync(User);
-      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-      if (isAdmin)
+      //var currentUser = await _userManager.GetUserAsync(User);
+      //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      //if (isAdmin)
         return View();
-      else
-        return RedirectToAction(nameof(Index));
+      //else
+      //  return RedirectToAction(nameof(Index));
     }
 
     // POST: TestSessions/Create
@@ -129,17 +129,45 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd")] TestSession testSession)
+    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest")] TestSession testSession)
     {
       var currentUser = await _userManager.GetUserAsync(User);
-      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-      if (!isAdmin)
-        return BadRequest("Only user with admin permission can create a test session");
+      //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      //if (!isAdmin)
+      //  return BadRequest("Only user with admin permission can create a test session");
+      if (currentUser == null || currentUser.ExperienceLevel <= 0)
+        return BadRequest(
+          "Only valid user with properly configured Grade information can create test sessions, please update your profile");
 
       if (ModelState.IsValid)
       {
         testSession.Id = Guid.NewGuid();
         testSession.LastUpdated = DateTime.UtcNow;
+        var testQuestions = _context.TestQuestions.Where(q =>
+          q.Level >= currentUser.ExperienceLevel - 1 && q.Level <= currentUser.ExperienceLevel + 1).Select(q => new Tuple<long, int>(q.ObjectId, q.Level)).ToList();
+
+        var questionList = new List<Tuple<long, int>>();
+        if (testQuestions.Count <= testSession.QuestionRequest)
+        {
+          questionList.AddRange(testQuestions);
+        }
+        else if (testSession.QuestionRequest > 0)
+        {
+          var random = new Random(DateTime.Now.Second);
+          HashSet<int> picked = new HashSet<int>();
+          while (picked.Count < testSession.QuestionRequest)
+            picked.Add(random.Next(testQuestions.Count));
+
+          foreach (var idx in picked)
+            questionList.Add(questionList[idx]);
+        }
+
+        foreach (var q in questionList)
+        {
+          testSession.TestQuestions.Add(new TestQuestionItem(){Idx = testSession.TestQuestions.Count, PenaltyPoint = -1, QuestionId = q.Item1,
+            ScorePoint = q.Item2 > currentUser.ExperienceLevel ? 5.0 : (q.Item2 < currentUser.ExperienceLevel ? 3.0 : 4.0)});
+        }
+
         _context.Add(testSession);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));

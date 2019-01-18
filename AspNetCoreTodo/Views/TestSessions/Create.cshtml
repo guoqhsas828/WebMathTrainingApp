@@ -33,6 +33,11 @@
                 <span asp-validation-for="PlannedEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="QuestionRequest" class="control-label">Number of Questions</label>
+                <input asp-for="QuestionRequest" class="form-control" />
+                <span asp-validation-for="QuestionRequest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
