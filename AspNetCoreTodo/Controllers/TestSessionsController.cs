@@ -26,7 +26,7 @@ namespace WebMathTraining.Controllers
     }
 
     // GET: TestSessions
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int levelFilter)
     {
       var user = await _userManager.GetUserAsync(User);
       var testSessions = new List<TestSession>();
@@ -37,6 +37,8 @@ namespace WebMathTraining.Controllers
       if (user.UserStatus != UserStatus.InActive)
       {
         testSessions = await _context.TestSessions.ToListAsync();
+        if (levelFilter > 0)
+          testSessions = testSessions.Where(t => t.TargetGrade == levelFilter).ToList();
       }
 
       if (user.UserStatus == UserStatus.Trial)
@@ -104,6 +106,7 @@ namespace WebMathTraining.Controllers
         });
       }
 
+      testSession.TargetGrade = viewModel.TargetGrade;
       testSession.LastUpdatedLocal = DateTime.Now;
       testSession.Testers = testSession.Testers;
       testSession.TestQuestions = testSession.TestQuestions;
@@ -129,7 +132,7 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest")] TestSession testSession)
+    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade")] TestSession testSession)
     {
       var currentUser = await _userManager.GetUserAsync(User);
       //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
@@ -143,8 +146,10 @@ namespace WebMathTraining.Controllers
       {
         testSession.Id = Guid.NewGuid();
         testSession.LastUpdated = DateTime.UtcNow;
+        if (testSession.TargetGrade <= 0) testSession.TargetGrade = currentUser.ExperienceLevel;
+        var targetTestGrade = testSession.TargetGrade;
         var testQuestions = _context.TestQuestions.Where(q =>
-          q.Level >= currentUser.ExperienceLevel - 1 && q.Level <= currentUser.ExperienceLevel + 1).Select(q => new Tuple<long, int>(q.ObjectId, q.Level)).ToList();
+          q.Level >= targetTestGrade - 1 && q.Level <= targetTestGrade + 2).Select(q => new Tuple<long, int>(q.ObjectId, q.Level)).ToList();
 
         var questionList = new List<Tuple<long, int>>();
         if (testQuestions.Count <= testSession.QuestionRequest)
@@ -202,7 +207,7 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd,TesterData,TestQuestionData,LastUpdated,PlannedStartLocal,PlannedEndLocal")] TestSession testSession)
+    public async Task<IActionResult> Edit(Guid id, [Bind("Id,ObjectId,Name,Description,PlannedStart,PlannedEnd,TargetGrade,TesterData,TestQuestionData,LastUpdated,PlannedStartLocal,PlannedEndLocal")] TestSession testSession)
     {
       if (id != testSession.Id)
       {

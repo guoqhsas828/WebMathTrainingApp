@@ -24,6 +24,7 @@ namespace WebMathTraining.Models
       TestQuestions = String.Join('+', entity.TestQuestions.OrderBy(id => id.QuestionId).Select(q => q.QuestionId));
       LastUpdated = entity.LastUpdated.ToLocalTime();
       ScorePoints = String.Join('+', entity.TestQuestions.OrderBy(q => q.QuestionId).Select(q => q.ScorePoint));
+      TargetGrade = entity.TargetGrade;
     }
 
     public Guid Id { get; set; }
@@ -93,5 +94,7 @@ namespace WebMathTraining.Models
         return retVal;
       }
     }
+
+    public int TargetGrade { get; set; }
   }
 }

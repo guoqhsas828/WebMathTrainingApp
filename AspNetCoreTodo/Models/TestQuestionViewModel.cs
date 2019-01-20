@@ -63,6 +63,8 @@ namespace WebMathTraining.Models
     [Required]
     public string ImageId { get { return Image?.Id.ToString() ?? ""; } }
 
+    public string ImageName { get { return Image?.Name; } }
+
     public TestAnswerType AnswerChoice { get; set; }
 
     public string TextAnswer { get; set; }

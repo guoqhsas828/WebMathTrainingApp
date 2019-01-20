@@ -107,6 +107,8 @@ namespace WebMathTraining.Models
     [NotMapped]
     public int QuestionRequest { get; set; }
 
+    public int TargetGrade { get; set; }
+
     #region Methods
 
     public bool IsRegisteredUser(long userId)

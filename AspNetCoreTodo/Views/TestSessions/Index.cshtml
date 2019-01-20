@@ -11,17 +11,30 @@
 @if (signInManager.IsSignedIn(User))
 {
     var currentUser = await userManager.GetUserAsync(User);
-
-    var isAdmin = currentUser != null;
-    //&& await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-    if (isAdmin)
+    if (currentUser != null)
     {
-             <p>
-                 <a asp-action="Create">Create New</a>
-             </p>
-         }
+        <form asp-controller="TestSessions" asp-action="Index">
+            <p>
+                @*Name Filter: <input type="text" name="nameStr">*@
+                <div style="margin-top: 1%"></div>
+                Grade Filter: <select id="levelFilter" name="levelFilter" class="form-control" value="@currentUser.ExperienceLevel">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
     <table class="table">
-            <thead>
+        <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
@@ -30,24 +43,27 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.TargetGrade)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.PlannedStart)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.SessionTimeSpan)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.LastUpdated)
-                </th>
+                </th>*@
             </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.OrderByDescending(s => s.ObjectId))
-                {
-                  var startIdx = currentUser != null && item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
-                  var buttonLabel = startIdx >= 0 ? "Start" : "Register";
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderByDescending(s => s.ObjectId))
+            {
+                var startIdx = currentUser != null && item.IsRegisteredUser(currentUser.ObjectId) ? 0 : -1;
+                var buttonLabel = startIdx >= 0 ? "Start" : "Register";
 
                 <tr>
-                        @Html.HiddenFor(modelItem => item.Id)
+                    @Html.HiddenFor(modelItem => item.Id)
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
@@ -55,23 +71,26 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.TargetGrade)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.PlannedStartLocal)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.SessionTime)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
-                    </td>
+                    </td>*@
                     <td>
-                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a> 
+                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
                         @if (startIdx >= 0)
                         {
-                          <a asp-action="TestSessionResult" asp-route-sessionId="@item.Id" asp-route-userId="@(currentUser?.ObjectId ?? 0)" asp-route-userName="@(currentUser?.UserName ?? "")"> | Review Results</a>
+                            <a asp-action="TestSessionResult" asp-route-sessionId="@item.Id" asp-route-userId="@(currentUser?.ObjectId ?? 0)" asp-route-userName="@(currentUser?.UserName ?? "")"> | Review Results</a>
                         }
                     </td>
                 </tr>
-                }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
 }
