@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<TestQuestionViewModel>
 @{
-    ViewData["Title"] = "Question Library";
+    ViewData["Title"] = $"Question Library (Total {Model.Count()})";
 }
 
 <h4>@ViewData["Title"]</h4>
@@ -9,7 +9,12 @@
 </p>
 <form asp-controller="TestQuestion" asp-action="Index">
     <p>
-        Level: <input type="text" name="level">
+        Name Filter: <input type="text" name="nameStr">
+        <div style="margin-top: 1%"></div>
+        Level Filter: <select id="levelFilter" name="levelFilter" class="form-control">    <option>0</option>
+    <option>1</option>    <option>2</option>    <option>3</option>    <option>4</option>    <option>5</option>
+    <option>6</option>    <option>7</option>    <option>8</option>    <option>9</option>    <option>10</option>
+    <option>11</option>    <option>12</option></select>
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -49,7 +54,7 @@
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
         }

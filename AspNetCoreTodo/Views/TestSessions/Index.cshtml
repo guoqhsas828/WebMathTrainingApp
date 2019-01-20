@@ -12,10 +12,10 @@
 {
     var currentUser = await userManager.GetUserAsync(User);
 
-    var isAdmin = currentUser != null
-        && await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+    var isAdmin = currentUser != null;
+    //&& await userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
     if (isAdmin)
-         {
+    {
              <p>
                  <a asp-action="Create">Create New</a>
              </p>

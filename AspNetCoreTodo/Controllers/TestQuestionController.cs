@@ -28,17 +28,20 @@ namespace WebMathTraining.Controllers
       _testQuestionService = service;
     }
 
-    public async Task<IActionResult> Index(string level)
+    public async Task<IActionResult> Index(string nameStr, int levelFilter)
     {
       var currentUser = await _userManager.GetUserAsync(User);
       if (currentUser == null)
       {
         return Challenge();
       }
+      //Process the filter
+      //var searchParts = nameStr.Split("&&");
+
       var questions = _context.TestQuestions.Include(tq => tq.QuestionImage).OrderBy(q => q.ObjectId).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level, ObjectId = tq.ObjectId, Name = (tq.QuestionImage == null ? "" : tq.QuestionImage.Name)});
-      if (!string.IsNullOrWhiteSpace(level))
-        questions = questions.Where(q => q.Level.ToString() == level);
-      return View(questions); //.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1)
+      if (!string.IsNullOrWhiteSpace(nameStr))
+        questions = questions.Where(q => q.Name.ToLower().StartsWith(nameStr.ToLower()) && (levelFilter > 0 ? q.Level == levelFilter : q.Level > 0));
+      return View(questions); 
     }
 
     [HttpPost]

@@ -48,4 +48,44 @@ namespace WebMathTraining.ActionFilters
     private bool _auth;
     #endregion
   }
+
+  public class ValidUserAttribute : TypeFilterAttribute
+  {
+    public ValidUserAttribute() : base(typeof(ValidUserFilterImpl))
+    {
+    }
+
+    private class ValidUserFilterImpl : IAsyncActionFilter
+    {
+      public ValidUserFilterImpl(UserManager<ApplicationUser> userMgr)
+      {
+        _userManager = userMgr;
+      }
+
+      //Runs after the OnAuthentication method  
+      public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+      {
+        if (context.ActionArguments.ContainsKey("id"))
+        {
+          var id = context.ActionArguments["id"] as string;
+          if (!string.IsNullOrEmpty(id))
+          {
+            if ((await _userManager.FindByIdAsync(id)) != null)
+            {
+              context.Result = new NotFoundObjectResult(id);
+              return;
+            }
+          }
+        }
+        await next();
+      }
+
+      private readonly UserManager<ApplicationUser> _userManager;
+    }
+
+    #region Data
+
+    private bool _auth;
+    #endregion
+  }
 }
