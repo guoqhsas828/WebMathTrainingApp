@@ -266,7 +266,16 @@ namespace WebMathTraining.Controllers
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
+      //Need to remove all test results related to such session
       var testSession = await _context.TestSessions.FindAsync(id);
+      if (testSession == null)
+        return NotFound();
+      var testResults = _testSessionService.GetTestResults(testSession.ObjectId);
+      foreach (var result in testResults)
+      {
+        _context.TestResults.Remove(result);
+      }
+
       _context.TestSessions.Remove(testSession);
       await _context.SaveChangesAsync();
       return RedirectToAction(nameof(Index));

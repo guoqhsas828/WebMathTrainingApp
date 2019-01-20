@@ -34,7 +34,7 @@ namespace WebMathTraining
       "10",
       "1009",
       "21",
-      "4",
+      "6",
     };
 
     public static readonly int[] TrialQuestionLevels = new[]

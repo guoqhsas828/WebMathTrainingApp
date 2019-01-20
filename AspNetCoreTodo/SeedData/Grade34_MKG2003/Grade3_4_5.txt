@@ -1,0 +1,35 @@
+3<brk_/>MKG_2003gr0304_9<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+3<brk_/>MKG_2003gr0304_10<brk_/>A<brk_/>4.0<brk_/>Text<brk_/>Jumpy the kangaroo has been training for the Animal Olympics. His longest jump during the training was 50 dm 50 cm and 50 mm long. He won the gold medal at the end of the Olympics with a jump that was 123 cm longer. How long was Jumpy's winning jump? A)  6 m 78 cm  B)  5 m 73 cm  C)  5 m 55 cm D) 11 m 28 cm  E)  7 m 23 cm 
+3<brk_/>MKG_2003gr0304_11<brk_/>A<brk_/>4.0<brk_/>Text<brk_/> Betty likes calculating the sum of the digits that she sees on her digital clock (for instance, if the clock shows 21:17, then Betty gets 11). What is the biggest sum she can get if the clock is a 24-hour clock? A) 24  B) 36  C) 19  D) 25  E) 23  
+3<brk_/>MKG_2003gr0304_12<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+4<brk_/>MKG_2003gr0304_13<brk_/>C<brk_/>4.0<brk_/>Text<brk_/> Annie fell asleep at 9:30 pm and woke up at 6:45 am the next morning. Her brother Martin had been sleeping 1 hour 50 min longer. How many hours and minutes had Martin been sleeping? A)  30 h 5 min  B)  11 h 35 min  C)  11 h 5 min  D)  9 h 5 min   E)  8 h 35 min 
+4<brk_/>MKG_2003gr0304_14<brk_/>E<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+4<brk_/>MKG_2003gr0304_15<brk_/>D<brk_/>4.0<brk_/>Text<brk_/>In a class there are 29 children. 12 children have a sister and 18 children have a brother. Tina, Bert, and Anne have no brother and no sister. How many children in that class have both a brother and a sister? A) no one B) 1  C) 3  D) 4  E) 6
+4<brk_/>MKG_2003gr0304_16<brk_/>C<brk_/>4.0<brk_/>Text<brk_/> The number of digits used to write all the page numbers in a book is 35. How many pages is the book in total? A) 12  B) 15  C) 22  D) 28  E) 35
+4<brk_/>MKG_2003gr0304_17<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+4<brk_/>MKG_2003gr0304_18<brk_/>C<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_1<brk_/>C<brk_/>3.0<brk_/>Text<brk_/>Which of the following is the greatest number? A) 2 + 0 + 0 + 3  B) 2 x 0 x 0 x 3  C) (2 +0) x (0 + 3) D) 20 x 0 x 3   E) (2 x 0) + (0 x 3) 
+5<brk_/>MKG_2003gr0506_2<brk_/>A<brk_/>3.0<brk_/>Text<brk_/> Sophie draws kangaroos: a blue one, then a green, then a red, then a black, a blue, a green, a red, a black, and so on…What colour is the 29th kangaroo? A) blue B) green C) red  D) black E) it’s impossible to know 
+5<brk_/>MKG_2003gr0506_3<brk_/>A<brk_/>3.0<brk_/>Text<brk_/> How many integers can one find in the interval from 2.09 to 15.3? A) 13  B) 14  C) 11  D) 12  E) infinitely many 
+5<brk_/>MKG_2003gr0506_4<brk_/>C<brk_/>3.0<brk_/>Text<brk_/>Which is the smallest positive integer divisible by 2, 3, and 4? A) 1                       B) 6                           C) 12                         D) 24                          E) 36  
+5<brk_/>MKG_2003gr0506_5<brk_/>B<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_6<brk_/>A<brk_/>3.0<brk_/>Text<brk_/>Tom has 9 bills of 100 euro, 9 bills of 10 euro, and 10 coins of 1 euro. How many euro does he have in total? A) 1000  B) 991  C) 9910   D) 9901  E)99010 
+5<brk_/>MKG_2003gr0506_7<brk_/>A<brk_/>3.0<brk_/>Text<brk_/>Betty likes calculating the sum of the digits that she sees on her digital clock (for instance, if the clock shows 21:17, then Betty gets 11). What is the biggest sum she can get if the clock is a 24-hour clock? A) 24  B) 36  C) 19  D) 25  E) another answer 
+5<brk_/>MKG_2003gr0506_8<brk_/>C<brk_/>3.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_9<brk_/>D<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_10<brk_/>C<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_11<brk_/>C<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+5<brk_/>MKG_2003gr0506_12<brk_/>B<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_13<brk_/>D<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_14<brk_/>B<brk_/>4.0<brk_/>Text<brk_/> Benito has 20 small balls of different colours: yellow, green, blue and black. 17 of the balls are not green, 5 are black, 12 are not yellow. How many blue balls does Benito have? A) 3  B) 4  C) 5  D) 8  E) 15 
+6<brk_/>MKG_2003gr0506_15<brk_/>B<brk_/>4.0<brk_/>Text<brk_/> There are 17 trees along the road from Basil?s home to a pool. Basil marked some trees with a red strip as follows. On his way to his swimming lesson he has marked the first tree, and then every second tree, and on his way back, again, he has marked the first tree, and then every third tree. How many trees have no mark after that? A) 4  B) 5  C) 6  D) 7  E) 8
+6<brk_/>MKG_2003gr0506_16<brk_/>A<brk_/>4.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_17<brk_/>A<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_18<brk_/>B<brk_/>5.0<brk_/>Text<brk_/>What date will it be exactly 2003 minutes after 20-03-2003 at 20:03 A) 21-03-2003    B) 22-03-2003    C) 23-03-2003  D) 21-04-200          E) 22-04-2003  
+6<brk_/>MKG_2003gr0506_19<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_20<brk_/>C<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_21<brk_/>D<brk_/>5.0<brk_/>Text<brk_/>You have six sticks of lengths 1 cm, 2 cm, 3 cm, 2001 cm, 2002 cm and 2003 cm. You have to choose three of these sticks and form a triangle. How many different choices of three sticks are there which work?  A) 1   B) 3  C) 5  D) 6  E) more than 50
+6<brk_/>MKG_2003gr0506_22<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_23<brk_/>A<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+6<brk_/>MKG_2003gr0506_24<brk_/>D<brk_/>5.0<brk_/>PNG<brk_/>mkgothers
+
