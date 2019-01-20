@@ -28,8 +28,7 @@ namespace WebMathTraining.Controllers
       _testQuestionService = service;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string level)
     {
       var currentUser = await _userManager.GetUserAsync(User);
       if (currentUser == null)
@@ -37,6 +36,8 @@ namespace WebMathTraining.Controllers
         return Challenge();
       }
       var questions = _context.TestQuestions.Include(tq => tq.QuestionImage).OrderBy(q => q.ObjectId).Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level, ObjectId = tq.ObjectId, Name = (tq.QuestionImage == null ? "" : tq.QuestionImage.Name)});
+      if (!string.IsNullOrWhiteSpace(level))
+        questions = questions.Where(q => q.Level.ToString() == level);
       return View(questions); //.Where(q => Math.Abs(q.Level - currentUser.ExperienceLevel) <=1)
     }
 

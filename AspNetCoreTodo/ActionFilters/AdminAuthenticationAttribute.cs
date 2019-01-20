@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using WebMathTraining.Models;
+
+namespace WebMathTraining.ActionFilters
+{
+  public class UserInAdminRoleAttribute : TypeFilterAttribute
+  {
+    public UserInAdminRoleAttribute() : base(typeof(ValidUserInAdminRoleFilterImpl))
+    {
+    }
+
+    private class ValidUserInAdminRoleFilterImpl : IAsyncActionFilter
+    {
+      public ValidUserInAdminRoleFilterImpl(UserManager<ApplicationUser> userMgr)
+      {
+        _userManager = userMgr;
+      }
+
+      //Runs after the OnAuthentication method  
+      public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+      {
+        if (context.ActionArguments.ContainsKey("id"))
+        {
+          var id = context.ActionArguments["id"] as long?;
+          if (id.HasValue)
+          {
+            if (!(await _userManager.GetUsersInRoleAsync(Constants.AdministratorRole)).Any(u => u.ObjectId == id.Value))
+            {
+              context.Result = new NotFoundObjectResult(id.Value);
+              return;
+            }
+          }
+        }
+        await next();
+      }
+
+      private readonly UserManager<ApplicationUser> _userManager;
+    }
+
+    #region Data
+
+    private bool _auth;
+    #endregion
+  }
+}

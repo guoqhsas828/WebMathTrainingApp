@@ -1,12 +1,18 @@
 ﻿@model IEnumerable<TestQuestionViewModel>
 @{
-    ViewData["Title"] = "Question List";
+    ViewData["Title"] = "Question Library";
 }
 
 <h4>@ViewData["Title"]</h4>
 <p>
-    <a asp-action="Create">Create New</a>
+    @*<a asp-action="Create">Create New</a>*@
 </p>
+<form asp-controller="TestQuestion" asp-action="Index">
+    <p>
+        Level: <input type="text" name="level">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
