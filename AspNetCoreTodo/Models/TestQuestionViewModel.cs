@@ -24,7 +24,7 @@ namespace WebMathTraining.Models
 
     public double NumericAnswer { get; set; }
 
-    public string StatusMessage { get; set; }
+    public CloudContainer ImageContainer { get; set; }
 
     public string Name { get; set; }
 

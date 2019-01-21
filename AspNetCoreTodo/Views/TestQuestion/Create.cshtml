@@ -1,6 +1,6 @@
 ﻿@model TestQuestionViewModel
 @{
-    ViewData["Title"] = "New Question";
+    ViewData["Title"] = "New Question (Text based or cloud-image based only)";
 }
 
 <h4>@ViewData["Title"]</h4>
@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label asp-for="Name">Name</label>
                 <input asp-for="Name" class="form-control" />
-                <label asp-for="QuestionText">Question</label>
+                <label asp-for="QuestionText">Question Text (leave empty for image base question)</label>
                 @Html.TextAreaFor(model => model.QuestionText, 10, 90, null)
             </div>
             <div class="form-group">
@@ -27,14 +27,17 @@
                     new SelectListItem(c, c, Enum.Parse<TestCategory>(c) == @Model.Category)),
                     "Select Category")
             </div>
+            <hr />
             <div class="form-group">
                 <label asp-for="Level">Level:</label>
                 @Html.DropDownListFor(m => m.Level, Constants.Levels.Select(l =>
                     new SelectListItem(l.ToString(), l.ToString(), l == @Model.Level)), "Select Level")
-                <label asp-for="Id">Question Id</label>
-                <input asp-for="Id" class="form-control" disabled />
-                <label asp-for="SessionId">Session Id</label>
-                <input asp-for="SessionId" class="form-control" />
+                <label asp-for="TextAnswer"></label>
+                <input asp-for="TextAnswer" class="form-control" />
+                <label asp-for="ImageContainer">Cloud Image Container (None for text)</label>
+                @Html.DropDownListFor(m => m.ImageContainer, Enum.GetNames(typeof(CloudContainer)).Select(c =>
+                    new SelectListItem(c, c)),
+                    "Select Cloud Image Container")
             </div>
             <button class="btn btn-default" asp-action="CreateNew" asp-route-id="@Model.Id">Create</button>
         </form>

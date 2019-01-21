@@ -149,7 +149,7 @@ namespace WebMathTraining.Controllers
         if (testSession.TargetGrade <= 0) testSession.TargetGrade = currentUser.ExperienceLevel;
         var targetTestGrade = testSession.TargetGrade;
         var testQuestions = _context.TestQuestions.Where(q =>
-          q.Level >= targetTestGrade - 1 && q.Level <= targetTestGrade + 2).Select(q => new Tuple<long, int>(q.ObjectId, q.Level)).ToList();
+          q.Level >= targetTestGrade - 1 && q.Level <= targetTestGrade + 1).Select(q => new Tuple<long, int>(q.ObjectId, q.Level)).ToList();
 
         var questionList = new List<Tuple<long, int>>();
         if (testQuestions.Count <= testSession.QuestionRequest)
@@ -565,9 +565,13 @@ namespace WebMathTraining.Controllers
       var testResult = _testSessionService.GetTestResults(viewModel.SessionObjectId).FirstOrDefault(tr => tr.UserId == viewModel.UserObjectId);
       if (testResult != null)
       {
+        var testUser = await _userManager.GetUserAsync(User);
         testResult.TestEnded = testResult.TestStarted.Add(viewModel.AllowedTimeSpan.Add(TimeSpan.FromSeconds(1)));
         _context.Update(testResult);
+
         await _context.SaveChangesAsync();
+        testUser.AchievedPoints += Math.Max(testResult.FinalScore - testResult.MaximumScore * 0.8, 0.0);
+        await _userManager.UpdateAsync(testUser);
       }
       else
       {

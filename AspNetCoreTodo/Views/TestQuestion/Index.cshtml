@@ -4,9 +4,6 @@
 }
 
 <h4>@ViewData["Title"]</h4>
-<p>
-    @*<a asp-action="Create">Create New</a>*@
-</p>
 <form asp-controller="TestQuestion" asp-action="Index">
     <p>
         Name Filter: <input type="text" name="nameStr">
@@ -18,6 +15,9 @@
         <input type="submit" value="Filter" />
     </p>
 </form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>

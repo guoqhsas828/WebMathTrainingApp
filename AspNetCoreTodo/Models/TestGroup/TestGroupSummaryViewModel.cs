@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using WebMathTraining.Utilities;
 
 namespace WebMathTraining.Models
 {
@@ -28,7 +28,7 @@ namespace WebMathTraining.Models
       get { return TestResult?.TestResults.Count ?? 0; }
     }
 
-    public string CorrectRatio { get { return String.Format("{0}%", TestResult == null || TestResult.MaximumScore==0.0 ? 0.0 : Math.Round(TestResult.FinalScore * 100.0 / TestResult.MaximumScore, 2)); } }
+    public string CorrectRatio { get { return TestResult.CorrectRatio(); } }
 
     public ApplicationUser Tester { get; set; }
 

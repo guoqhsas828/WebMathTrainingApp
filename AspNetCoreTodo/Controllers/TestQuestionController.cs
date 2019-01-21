@@ -170,14 +170,14 @@ namespace WebMathTraining.Controllers
     [HttpGet]
     public IActionResult Create()
     {
-        return View(new TestQuestionViewModel { Category = TestCategory.Math, Id = Guid.NewGuid(), SessionId = 0});
+        return View(new TestQuestionViewModel { Category = TestCategory.Math, ImageContainer = CloudContainer.None, AnswerChoice = TestAnswerType.Text, Level = 4});
     }
 
     [HttpPost]
     public IActionResult CreateNew(TestQuestionViewModel viewModel)
     {
-      var id = viewModel.Id;
-      var imageId = _testQuestionService.CreateTestImage(EncodingUtil.StrToByteArray( viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, "Text");
+      var id = Guid.NewGuid();
+      var imageId = _testQuestionService.CreateTestImage(string.IsNullOrEmpty(viewModel.QuestionText) ? null : EncodingUtil.StrToByteArray( viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, viewModel.ImageContainer == CloudContainer.None ? "Text" : "PNG", viewModel.ImageContainer.ToString());
       var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,
         viewModel.Category, viewModel.AnswerChoice);
       if (viewModel.SessionId > 0)
@@ -185,7 +185,7 @@ namespace WebMathTraining.Controllers
         //TODO need to get a test session service and add this question to a test session
       }
 
-      return RedirectToAction("Index");
+      return RedirectToAction(nameof(Index), new { levelFilter=viewModel.Level, nameStr = viewModel.Name});
     }
 
     public IActionResult Delete(Guid id)

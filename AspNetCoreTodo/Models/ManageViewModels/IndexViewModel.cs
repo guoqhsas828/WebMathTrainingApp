@@ -19,6 +19,8 @@ namespace WebMathTraining.Models.ManageViewModels
       IsEmailConfirmed = user.EmailConfirmed;
       ExperienceLevel = user.ExperienceLevel;
       UserStatus = user.UserStatus;
+      AchievedPoints = user.AchievedPoints;
+      AchievedLevel = user.AchievedLevel;
     }
 
     public string Username { get; set; }
@@ -38,5 +40,9 @@ namespace WebMathTraining.Models.ManageViewModels
     public UserStatus UserStatus { get; set; }
 
     public string StatusMessage { get; set; }
+
+    public double AchievedPoints { get; set; }
+
+    public int AchievedLevel { get; set; }
   }
 }
