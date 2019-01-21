@@ -34,11 +34,16 @@ namespace WebMathTraining.Controllers
       if (user == null)
         return RedirectToAction("Login", "Account");
 
+      var isAdmin = user != null && await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
+
       if (user.UserStatus != UserStatus.InActive)
       {
         testSessions = await _context.TestSessions.ToListAsync();
+        var privateSessionsNotForUser = isAdmin ? new HashSet<long>() : testSessions.Where(s => s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
         if (levelFilter > 0)
-          testSessions = testSessions.Where(t => t.TargetGrade == levelFilter).ToList();
+          testSessions = testSessions.Where(t => t.TargetGrade == levelFilter && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
+        else
+          testSessions = testSessions.Where(t => !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
       }
 
       if (user.UserStatus == UserStatus.Trial)
@@ -135,9 +140,12 @@ namespace WebMathTraining.Controllers
     public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade")] TestSession testSession)
     {
       var currentUser = await _userManager.GetUserAsync(User);
-      //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
-      //if (!isAdmin)
-      //  return BadRequest("Only user with admin permission can create a test session");
+      var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      if (!isAdmin)
+      {
+        testSession.Description = $"Private Test ({currentUser.UserName}) Created {DateTime.Now}";
+      }
+
       if (currentUser == null || currentUser.ExperienceLevel <= 0)
         return BadRequest(
           "Only valid user with properly configured Grade information can create test sessions, please update your profile");
