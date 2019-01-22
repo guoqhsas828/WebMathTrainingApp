@@ -17,7 +17,7 @@
             <li><a asp-controller="ManageUsers" asp-action="Index">Manage Users</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="TestQuestion" asp-action="Index">Manage Questions</a></li>
+            <li><a asp-controller="TestQuestion" asp-action="Index" asp-route-levelFilter="@currentUser.ExperienceLevel">Manage Questions</a></li>
         </ul>
     }
 

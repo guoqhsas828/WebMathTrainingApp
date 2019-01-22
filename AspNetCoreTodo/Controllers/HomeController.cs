@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using WebMathTraining.Models;
 
 namespace WebMathTraining.Controllers
@@ -12,10 +13,12 @@ namespace WebMathTraining.Controllers
   public class HomeController : Controller
   {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IStringLocalizer<HomeController> _localizer;
 
-    public HomeController(UserManager<ApplicationUser> userManager)
+    public HomeController(IStringLocalizer<HomeController> localizer, UserManager<ApplicationUser> userManager)
     {
       _userManager = userManager;
+      _localizer = localizer;
     }
 
     public async Task<IActionResult> Index()
@@ -37,14 +40,14 @@ namespace WebMathTraining.Controllers
 
     public IActionResult About()
     {
-      ViewData["Message"] = "";
+      ViewData["Message"] = _localizer["About"];
 
       return View();
     }
 
     public IActionResult Contact()
     {
-      ViewData["Message"] = "";
+      ViewData["Message"] = _localizer["Contact"];
 
       return View();
     }
