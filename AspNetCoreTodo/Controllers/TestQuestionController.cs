@@ -38,7 +38,8 @@ namespace WebMathTraining.Controllers
 
       var questions = await _context.TestQuestions.Include(tq => tq.QuestionImage)
                             .OrderBy(q => q.ObjectId)
-                            .Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level, ObjectId = tq.ObjectId, Name = (tq.QuestionImage == null ? "" : tq.QuestionImage.Name)})
+                            .Select(tq => new TestQuestionViewModel { Category = tq.Category, Id = tq.Id, Level = tq.Level, ObjectId = tq.ObjectId,
+                              TextAnswer = tq.TestAnswer == null ? null : tq.TestAnswer.TextAnswer, Name = (tq.QuestionImage == null ? "" : tq.QuestionImage.Name)})
                             .Where(q => (levelFilter > 0 ? q.Level == levelFilter : q.Level > 0)).ToListAsync();
 
       if (!string.IsNullOrWhiteSpace(nameStr))
