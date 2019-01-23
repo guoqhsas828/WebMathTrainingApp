@@ -1,5 +1,9 @@
-﻿@{
-    ViewData["Title"] = "About";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using WebMathTraining.Services
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{
+    ViewData["Title"] = Localizer["About"];
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
