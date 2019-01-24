@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
 using WebMathTraining.Data;
 using WebMathTraining.Models;
+using WebMathTraining.Resources;
 using WebMathTraining.Services;
 using WebMathTraining.Utilities;
 
@@ -142,14 +143,18 @@ namespace WebMathTraining
       //});
 
       // services.AddSingleton<IClaimsTransformation, ClaimsTransformer>();
+      services.AddSingleton<LocService>();
       services.AddLocalization(options => options.ResourcesPath = "Resources");
-      services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).
-        AddDataAnnotationsLocalization(
-      //    options =>
-      //{
-      //  options.DataAnnotationLocalizerProvider = (type, factory) =>
-      //    factory.Create(typeof(SharedResource));
-      //}
+
+      services.AddMvc().AddViewLocalization(
+        //LanguageViewLocationExpanderFormat.Suffix,
+        //  opts => { opts.ResourcesPath = "Resources";}
+        ).AddDataAnnotationsLocalization(
+          options =>
+      {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+          factory.Create(typeof(SharedResource));
+      }
           );
 
       services.Configure<RequestLocalizationOptions>(options =>
@@ -162,15 +167,13 @@ namespace WebMathTraining
         options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
         options.SupportedCultures = supportedCultures;
         options.SupportedUICultures = supportedCultures;
+        options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
       });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-      var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-      app.UseRequestLocalization(locOptions.Value);
-
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -183,7 +186,8 @@ namespace WebMathTraining
 
       app.UseStaticFiles();
 
-      //ApplicationDbContextSeed.Seed(app.ApplicationServices);
+      var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+      app.UseRequestLocalization(locOptions.Value);
 
       app.UseAuthentication();
 

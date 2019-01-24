@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Http;
 using WebMathTraining.Models;
+using WebMathTraining.Resources;
 
 namespace WebMathTraining.Controllers
 {
   public class HomeController : Controller
   {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly IStringLocalizer<HomeController> _localizer;
+    private readonly LocService _localizer;
 
-    public HomeController(IStringLocalizer<HomeController> localizer, UserManager<ApplicationUser> userManager)
+    public HomeController(LocService localizer, UserManager<ApplicationUser> userManager)
     {
       _userManager = userManager;
       _localizer = localizer;
@@ -42,14 +43,31 @@ namespace WebMathTraining.Controllers
 
     public IActionResult About()
     {
-      ViewData["Message"] = _localizer["About"];
+      var messages = new[]
+      {
+        "This online math training site provides all levels of contest questions to enhance the mathematics skills for interested students",
+        "We also seek to build a social platform for kids to train and work within a team, motivating the members to dig out their full potentials",
+        "The site is still in the trial run status for function enhancement, there are over 600 questions in the test library covering various grades, more will be posted over time",
+        "The primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), we will group students into the 1-2 grade team and 3-5 grade team",
+        "The usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other",
+        "We are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome",
+        "",
+      };
+      var sbr = new StringBuilder();
+      ViewData["Title"] = _localizer.GetLocalizedHtmlString("About");
+      foreach (var str in messages)
+      {
+        sbr.Append(_localizer.GetLocalizedHtmlString(str));
+        sbr.AppendLine(".");
+      }
 
+      ViewData["Message"] = sbr.ToString();
       return View();
     }
 
     public IActionResult Contact()
     {
-      ViewData["Message"] = _localizer["Contact"];
+      ViewData["Message"] = _localizer.GetLocalizedHtmlString("Contact");
 
       return View();
     }

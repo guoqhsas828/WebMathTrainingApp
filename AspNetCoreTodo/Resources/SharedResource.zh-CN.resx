@@ -117,7 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>关羽</value>
+  <data name="about" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>各</value>
+  </data>
+  <data name="application uses" xml:space="preserve">
+    <value>使用指南</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>联系</value>
+  </data>
+  <data name="contest" xml:space="preserve">
+    <value>竞赛</value>
+  </data>
+  <data name="enhance" xml:space="preserve">
+    <value>提高</value>
+  </data>
+  <data name="interested" xml:space="preserve">
+    <value>感兴趣的</value>
+  </data>
+  <data name="language:" xml:space="preserve">
+    <value>语言:</value>
+  </data>
+  <data name="levels" xml:space="preserve">
+    <value>级</value>
+  </data>
+  <data name="math" xml:space="preserve">
+    <value>数学</value>
+  </data>
+  <data name="mathematics" xml:space="preserve">
+    <value>数学</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="online" xml:space="preserve">
+    <value>线上</value>
+  </data>
+  <data name="provide" xml:space="preserve">
+    <value>提供</value>
+  </data>
+  <data name="provides" xml:space="preserve">
+    <value>提供</value>
+  </data>
+  <data name="question" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="questions" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="select the menu items on top of the carousel" xml:space="preserve">
+    <value>选择旋转木马顶部的菜单项</value>
+  </data>
+  <data name="site" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="skills" xml:space="preserve">
+    <value>技能</value>
+  </data>
+  <data name="students" xml:space="preserve">
+    <value>学生</value>
+  </data>
+  <data name="the primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), we will group students into the 1-2 grade team and 3-5 grade team" xml:space="preserve">
+    <value>这个阶段的主要重点是为小学（1-5年级）的学生提供测试题，我们将把学生分成1-2级小组和3-5级小组</value>
+  </data>
+  <data name="the site is still in the trial run status for function enhancement, there are over 600 questions in the test library covering various grades, more will be posted over time" xml:space="preserve">
+    <value>该网站仍处于试运行状态，功能增强，测试库中有600多个问题涵盖各个等级，更多将随时间发布</value>
+  </data>
+  <data name="the usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other" xml:space="preserve">
+    <value>该网站的使用将仅限于一小群与社交有关的孩子，以便他们可以互相培训，竞争和互动</value>
+  </data>
+  <data name="this" xml:space="preserve">
+    <value>这个</value>
+  </data>
+  <data name="this online math training site provides all levels of contest questions to enhance the mathematics skills for interested students" xml:space="preserve">
+    <value>这个在线数学培训网站提供各级竞赛问题，以提高感兴趣的学生的数学技能</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>以</value>
+  </data>
+  <data name="train" xml:space="preserve">
+    <value>练习</value>
+  </data>
+  <data name="training" xml:space="preserve">
+    <value>训练</value>
+  </data>
+  <data name="we also seek to build a social platform for kids to train and work within a team, motivating the members to dig out their full potentials" xml:space="preserve">
+    <value>我们还寻求为孩子们建立一个社交平台，让他们在团队中进行培训和工作，激励会员挖掘他们的全部潜力。</value>
+  </data>
+  <data name="we are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome" xml:space="preserve">
+    <value>我们计划推出更多由网络支持的媒体功能，可能会将测试过程转变为基于团队的寻宝探险游戏，欢迎提出建议</value>
   </data>
 </root>

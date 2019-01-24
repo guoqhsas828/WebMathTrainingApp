@@ -1,19 +1,14 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@using WebMathTraining.Services
-@inject IViewLocalizer Localizer
-@inject IHtmlLocalizer<SharedResource> SharedLocalizer
-@{
-    ViewData["Title"] = Localizer["About"];
-}
+﻿@using WebMathTraining.Resources
+@inject LocService SharedLocalizer
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-<p>This online math training site provides all levels of contest questions to enhance the mathematics skills for interested students.</p>
-<p>We also seek to build a social platform for kids to train and work within a team, motivating the members to dig out their full potentials.</p>
-<p>The site is still in the trial run status for function enhancement, there are over 300 questions in the test library covering various grades, more will be posted over time.</p>
-<p>The primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), </p>
-<p>We will group students into the 1-2 grade team and 3-5 grade team</p>
-<p>The usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other.</p>
-<p>We are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome</p>
+<h5>@ViewData["Message"]</h5>
+@*<p>This online math training site provides all levels of contest questions to enhance the mathematics skills for interested students.</p>*@
+@*<p>We also seek to build a social platform for kids to train and work within a team, motivating the members to dig out their full potentials.</p>*@
+@*<p>The site is still in the trial run status for function enhancement, there are over 300 questions in the test library covering various grades, more will be posted over time.</p>*@
+@*<p>The primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), </p>
+<p>We will group students into the 1-2 grade team and 3-5 grade team</p>*@
+@*<p>The usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other.</p>*@
+@*<p>We are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome</p>*@
 <p>Privacy will be protected at the best effort, please do report any functionality you suspect will compromise the privacy information you provide to the site.</p>
 <p>Please leave notes in the bug report section</p>
 <p>Please go to your account to verify your email after <a href="http://webmathtraining.azurewebsites.net/Account/Register">register</a> and login --- so that you can recover your passwd in the future (I won't be avaiable to help except deleting your account)</p>
