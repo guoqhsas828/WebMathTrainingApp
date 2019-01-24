@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Http;
 using WebMathTraining.Models;
 
 namespace WebMathTraining.Controllers
@@ -50,6 +52,18 @@ namespace WebMathTraining.Controllers
       ViewData["Message"] = _localizer["Contact"];
 
       return View();
+    }
+
+    [HttpPost]
+    public IActionResult SetLanguage(string culture, string returnUrl)
+    {
+      Response.Cookies.Append(
+          CookieRequestCultureProvider.DefaultCookieName,
+          CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+          new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+      );
+
+      return LocalRedirect(returnUrl);
     }
 
     public IActionResult Error()
