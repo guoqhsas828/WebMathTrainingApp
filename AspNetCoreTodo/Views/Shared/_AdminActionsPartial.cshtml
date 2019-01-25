@@ -1,6 +1,8 @@
 @using Microsoft.AspNetCore.Identity
 @using WebMathTraining.Models
+@using WebMathTraining.Resources
 
+@inject LocService SharedLocalizer
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
 
@@ -14,15 +16,15 @@
     if (isAdmin)
     {
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="ManageUsers" asp-action="Index">Manage Users</a></li>
+            <li><a asp-controller="ManageUsers" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Manage Users")</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="TestQuestion" asp-action="Index" asp-route-levelFilter="@currentUser.ExperienceLevel">Manage Questions</a></li>
+            <li><a asp-controller="TestQuestion" asp-action="Index" asp-route-levelFilter="@currentUser.ExperienceLevel">@SharedLocalizer.GetLocalizedHtmlString("Manage Questions")</a></li>
         </ul>
     }
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-controller="TestSessions" asp-action="Index">My Tests</a></li>
+        <li><a asp-controller="TestSessions" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("My Tests")</a></li>
     </ul>
 
 }

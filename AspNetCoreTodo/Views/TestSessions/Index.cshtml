@@ -1,6 +1,9 @@
-﻿@model IEnumerable<WebMathTraining.Models.TestSession>
+﻿@using WebMathTraining.Resources
+@using WebMathTraining.Services
+@model IEnumerable<WebMathTraining.Models.TestSession>
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
+@inject LocService SharedLocalizer
 
 @{
     ViewData["Title"] = "My Tests";
@@ -52,8 +55,8 @@
                     @Html.DisplayNameFor(model => model.SessionTimeSpan)
                 </th>
                 @*<th>
-                    @Html.DisplayNameFor(model => model.LastUpdated)
-                </th>*@
+                        @Html.DisplayNameFor(model => model.LastUpdated)
+                    </th>*@
             </tr>
         </thead>
         <tbody>
@@ -80,13 +83,13 @@
                         @Html.DisplayFor(modelItem => item.SessionTime)
                     </td>
                     @*<td>
-                        @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
-                    </td>*@
+                            @Html.DisplayFor(modelItem => item.LastUpdatedLocal)
+                        </td>*@
                     <td>
-                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@buttonLabel</a>
+                        <a asp-action="TestInstruction" asp-route-id="@item.Id">@SharedLocalizer.GetLocalizedHtmlString(buttonLabel)</a>
                         @if (startIdx >= 0)
                         {
-                            <a asp-action="TestSessionResult" asp-route-sessionId="@item.Id" asp-route-userId="@(currentUser?.ObjectId ?? 0)" asp-route-userName="@(currentUser?.UserName ?? "")"> | Review Results</a>
+                            <a asp-action="TestSessionResult" asp-route-sessionId="@item.Id" asp-route-userId="@(currentUser?.ObjectId ?? 0)" asp-route-userName="@(currentUser?.UserName ?? "")"> | @SharedLocalizer.GetLocalizedHtmlString("Review  Results", "  ")</a>
                         }
                     </td>
                 </tr>

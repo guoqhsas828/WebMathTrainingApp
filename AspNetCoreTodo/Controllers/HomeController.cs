@@ -45,23 +45,27 @@ namespace WebMathTraining.Controllers
     {
       var messages = new[]
       {
-        "This online math training site provides all levels of contest questions to enhance the mathematics skills for interested students",
-        "We also seek to build a social platform for kids to train and work within a team, motivating the members to dig out their full potentials",
-        "The site is still in the trial run status for function enhancement, there are over 600 questions in the test library covering various grades, more will be posted over time",
-        "The primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), we will group students into the 1-2 grade team and 3-5 grade team",
-        "The usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other",
-        "We are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome",
-        "Privacy will be protected at the best effort, please do report any functionality you suspect will compromise the privacy information you provide to the site",
-        "Please leave notes in the bug report section",
-        "Newly registered user will only have access to the trial test questions,  till getting upgraded into active status",
-        "Please go to your account to verify the email and update your school grade information",
+        "This  online  math  training  site  provides  all  levels  of  contest  questions  to  enhance  the mathematics  skills  for  interested  students",
+        "We  also  seek to  build  a  social  platform  for kids  to  train  and  work  within  a  team  ,  motivating  the members  to  dig out  their  full  potentials",
+        "The  site  is still  in  the trial run  status  ,  there are  over 600  questions  in  the  competition  library  covering  various  grades  ,  more  questions  will  be added  and  functions  enhanced",
+        "The  primary  focus  of  this  stage  is  to  provide  test  questions  for  the  students  in  the  elementary school  (1-5  grade  ),  we  will  group students into the  1-2  grade  team  and  3-5  grade  team",
+        "The usage of this site  will  be limited  to  a  small  group  of  connected  kids  so that  they  can  train  ,  compete  and  interact with each other",
+        "We  are  planning  to  introduce  more  multi-media  features  ,  may  transform  the  test  process  to  a  team  based  treasury-hunting  game",
+        "Privacy  will  be protected at the best effort  ,  please  report  any  functionality  you  suspect  will  compromise  the  privacy  information  you  provide  to  the  site",
+        "Please  leave  notes  in  the  bug report  section",
+        "Newly registered  user  will  only  have access to  the  trial  test  questions  ,  till  getting upgraded into  active  status",
+        "Please  go to  your  account  to  verify  the  email  and  update  your  school  grade  information",
 
       };
       var sbr = new StringBuilder();
       ViewData["Title"] = _localizer.GetLocalizedHtmlString("About");
       foreach (var str in messages)
       {
-        sbr.Append(_localizer.GetLocalizedHtmlString(str));
+        foreach (var subStr in str.Split("  "))
+        {
+          sbr.Append(_localizer.GetLocalizedHtmlString(subStr));
+        }
+
         sbr.AppendLine(".");
       }
 

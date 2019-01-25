@@ -23,11 +23,13 @@ namespace WebMathTraining.Models.ManageViewModels
       AchievedLevel = user.AchievedLevel;
     }
 
+    [Required(ErrorMessage = "userNameRequired")]
+    [Display(Name="User Name")]
     public string Username { get; set; }
 
     public bool IsEmailConfirmed { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "emailRequired")]
     [EmailAddress]
     public string Email { get; set; }
 

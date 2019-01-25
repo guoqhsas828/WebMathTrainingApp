@@ -2,8 +2,10 @@
 @using Microsoft.AspNetCore.Http.Features
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
+@using WebMathTraining.Resources
 
-@inject IViewLocalizer Localizer
+@inject LocService SharedLocalizer
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,10 +38,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">@Localizer["About"]</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">@Localizer["Contact"]</a></li>
-                    <li><a asp-area="" asp-controller="Todo" asp-action="Index">@Localizer["Bug Report"]</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Home")</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("About")</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("Contact")</a></li>
+                    <li><a asp-area="" asp-controller="Todo" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Bug Report")</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
                 @await Html.PartialAsync("_AdminActionsPartial")

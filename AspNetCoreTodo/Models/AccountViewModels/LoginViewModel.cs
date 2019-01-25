@@ -8,11 +8,11 @@ namespace WebMathTraining.Models.AccountViewModels
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "userNameRequired")]
         [Display(Name="User Name")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "passwordRequired")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
