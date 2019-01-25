@@ -123,6 +123,9 @@
   <data name="all" xml:space="preserve">
     <value>各</value>
   </data>
+  <data name="and" xml:space="preserve">
+    <value>并</value>
+  </data>
   <data name="application uses" xml:space="preserve">
     <value>使用指南</value>
   </data>
@@ -144,6 +147,9 @@
   <data name="levels" xml:space="preserve">
     <value>级</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>登录</value>
+  </data>
   <data name="math" xml:space="preserve">
     <value>数学</value>
   </data>
@@ -153,8 +159,20 @@
   <data name="menu" xml:space="preserve">
     <value>菜单</value>
   </data>
+  <data name="newly registered user will only have access to the trial test questions,  till getting upgraded into active status" xml:space="preserve">
+    <value>新注册的用户只能访问试用试题，直到升级为活动状态</value>
+  </data>
   <data name="online" xml:space="preserve">
     <value>线上</value>
+  </data>
+  <data name="please go to your account to verify the email and update your school grade information" xml:space="preserve">
+    <value>请转到您的帐户验证电子邮件并更新您的学校成绩信息</value>
+  </data>
+  <data name="please leave notes in the bug report section" xml:space="preserve">
+    <value>请在错误报告部分留言</value>
+  </data>
+  <data name="privacy will be protected at the best effort, please do report any functionality you suspect will compromise the privacy information you provide to the site" xml:space="preserve">
+    <value>隐私将受到最大程度的保护，请报告您怀疑会破坏您提供给网站的隐私信息的任何功能</value>
   </data>
   <data name="provide" xml:space="preserve">
     <value>提供</value>
@@ -167,6 +185,9 @@
   </data>
   <data name="questions" xml:space="preserve">
     <value>问题</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>注册</value>
   </data>
   <data name="select the menu items on top of the carousel" xml:space="preserve">
     <value>选择旋转木马顶部的菜单项</value>

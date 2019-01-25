@@ -51,7 +51,11 @@ namespace WebMathTraining.Controllers
         "The primary focus of this stage is to provide test questions for the students in the elementary school (grade 1-5), we will group students into the 1-2 grade team and 3-5 grade team",
         "The usage of this site will be limited to be a small group of socially connected kids so that they can train, compete and interact with each other",
         "We are planning to introduce more media features supported by the web, may transform the testing process to a team based treasury-hunting game, ideas are welcome",
-        "",
+        "Privacy will be protected at the best effort, please do report any functionality you suspect will compromise the privacy information you provide to the site",
+        "Please leave notes in the bug report section",
+        "Newly registered user will only have access to the trial test questions,  till getting upgraded into active status",
+        "Please go to your account to verify the email and update your school grade information",
+
       };
       var sbr = new StringBuilder();
       ViewData["Title"] = _localizer.GetLocalizedHtmlString("About");
