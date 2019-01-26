@@ -249,6 +249,9 @@
   <data name="have access to" xml:space="preserve">
     <value>访问</value>
   </data>
+  <data name="hello" xml:space="preserve">
+    <value>你好</value>
+  </data>
   <data name="home" xml:space="preserve">
     <value>主页</value>
   </data>
@@ -285,6 +288,9 @@
   <data name="language:" xml:space="preserve">
     <value>语言:</value>
   </data>
+  <data name="learn" xml:space="preserve">
+    <value>学习</value>
+  </data>
   <data name="leave" xml:space="preserve">
     <value>留</value>
   </data>
@@ -294,11 +300,20 @@
   <data name="library" xml:space="preserve">
     <value>库</value>
   </data>
+  <data name="links" xml:space="preserve">
+    <value>链接</value>
+  </data>
+  <data name="log in" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="log out" xml:space="preserve">
+    <value>登出</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>登录</value>
   </data>
-  <data name="manage users" xml:space="preserve">
-    <value>管理用户</value>
+  <data name="manage" xml:space="preserve">
+    <value>管理</value>
   </data>
   <data name="math" xml:space="preserve">
     <value>数学</value>
@@ -492,6 +507,9 @@
   <data name="update" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="useful" xml:space="preserve">
+    <value>有用的</value>
+  </data>
   <data name="user" xml:space="preserve">
     <value>用户</value>
   </data>
@@ -503,6 +521,9 @@
   </data>
   <data name="we" xml:space="preserve">
     <value>我们</value>
+  </data>
+  <data name="website" xml:space="preserve">
+    <value>网站</value>
   </data>
   <data name="will" xml:space="preserve">
     <value>将</value>

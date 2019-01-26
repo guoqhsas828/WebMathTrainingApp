@@ -16,10 +16,10 @@
     if (isAdmin)
     {
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="ManageUsers" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Manage Users")</a></li>
+            <li><a asp-controller="ManageUsers" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Manage  User", "  ")</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="TestQuestion" asp-action="Index" asp-route-levelFilter="@currentUser.ExperienceLevel">@SharedLocalizer.GetLocalizedHtmlString("Manage Questions")</a></li>
+            <li><a asp-controller="TestQuestion" asp-action="Index" asp-route-levelFilter="@currentUser.ExperienceLevel">@SharedLocalizer.GetLocalizedHtmlString("Manage  Questions", "  ")</a></li>
         </ul>
     }
 
