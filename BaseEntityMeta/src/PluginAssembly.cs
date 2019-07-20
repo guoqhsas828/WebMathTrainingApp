@@ -11,9 +11,9 @@ namespace BaseEntity.Metadata
   /// Defines an assembly that is dynamically loaded by risk as an
   /// extension to the system
   /// </summary>
-  [Entity(EntityId = 3, Key = new[] {"Name"}, AuditPolicy = AuditPolicy.History, OldStyleValidFrom = true,
+  [Entity(EntityId = 3, Key = new[] {"Name"},  OldStyleValidFrom = true, //AuditPolicy = AuditPolicy.History,
     Description = "Defines an assembly that is dynamically loaded as an extension to the risk system")]
-  public class PluginAssembly : AuditedObject
+  public class PluginAssembly : PersistentObject
   {
     /// <summary>
     /// Uniquely identifies this plugin assembly

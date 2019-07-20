@@ -423,7 +423,7 @@ namespace BaseEntity.Metadata
     #region Data
 
     [NotMapped]
-    private Int64 _objectId;
+    private Int64 _objectId { get { return Id; } set { Id = value; } }
 
     #endregion
   }

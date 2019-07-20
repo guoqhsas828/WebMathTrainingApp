@@ -35,7 +35,7 @@ namespace StoreManager.Models
   public class BaseEntityModel<T> where T : struct
   {
     [NotMapped]
-    public int Id { get; set; }
+    public T Id { get; set; }
   }
 
   public enum TestAnswerType

@@ -9,6 +9,6 @@ namespace StoreManager.Interfaces
     Task<SalesOrder> GetByIdWithItemsAsync(int id);
   }
 
-  public interface ICatalogRepository<T> : IAsyncRepository<T> where T : BaseEntityModel
+  public interface ICatalogRepository<T> : IAsyncRepository<T> where T : CatalogEntityModel
   { }
 }

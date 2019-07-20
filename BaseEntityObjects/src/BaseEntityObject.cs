@@ -2,6 +2,7 @@
 // Copyright (c) WebMathTraining 2002-2014. All rights reserved.
 // 
 
+using StoreManager.Models;
 using System;
 using System.Collections;
 using System.Text;
@@ -133,7 +134,7 @@ namespace BaseEntity.Shared
   /// </remarks>
   ///
   [Serializable]
-  public abstract class BaseEntityObject : IBaseEntityObject
+  public abstract class BaseEntityObject : BaseEntityModel<long>, IBaseEntityObject
   {
     #region Methods
 

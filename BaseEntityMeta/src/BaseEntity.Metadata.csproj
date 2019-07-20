@@ -52,6 +52,7 @@
   </ItemGroup>
     
   <ItemGroup>
+    <ProjectReference Include="..\..\ApplicationCore\ApplicationCore.csproj" />
     <ProjectReference Include="..\..\BaseEntityObjects\src\BaseEntityObjects.csproj" />
     <ProjectReference Include="..\..\ObjectModels\src\BaseEntity.Configuration.csproj" />
   </ItemGroup>
