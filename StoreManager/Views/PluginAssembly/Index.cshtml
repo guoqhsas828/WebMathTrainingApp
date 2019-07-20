@@ -84,9 +84,9 @@
                 allowPaging: true,
                 pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                 columns: [
-                    { field: "ObjectId", headerText: 'ObjectId', isPrimaryKey: true, isIdentity: true, visible: false },
-                    { field: "Name", headerText: 'Name', validationRules: { required: true } },
-                    { field: "Description", headerText: 'Description' },
+                    { field: "ObjectId", headerText: 'ObjectId', isPrimaryKey: true, isIdentity: true, visible: true },
+                    { field: "Name", headerText: 'Name', validationRules: { required: true } , allowEditing: true},
+                    { field: "Description", headerText: 'Description' , allowEditing: true},
                     { field: "FileName", headerText: 'FileName' },
                     { field: "Enabled", headerText: 'Enabled' },
                     { field: "PluginType", headerText: 'PluginType' },

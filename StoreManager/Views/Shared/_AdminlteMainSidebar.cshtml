@@ -195,6 +195,11 @@
                     <i class="fa fa-users"></i> <span>@MainMenu.User.PageName</span>
                 </a>
             </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PluginConfig.ControllerName, action: MainMenu.PluginConfig.ActionName)">
+                <a href="@MainMenu.PluginConfig.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.PluginConfig.PageName</span>
+                </a>
+            </li>
             <li class="@Html.IsSelected(controller: MainMenu.ChangePassword.ControllerName, action: MainMenu.ChangePassword.ActionName)">
                 <a href="@MainMenu.ChangePassword.Path">
                     <i class="fa fa-key"></i> <span>@MainMenu.ChangePassword.PageName</span>
@@ -208,11 +213,6 @@
             <li class="@Html.IsSelected(controller: MainMenu.ChangeRole.ControllerName, action: MainMenu.ChangeRole.ActionName)">
                 <a href="@MainMenu.ChangeRole.Path">
                     <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
-                </a>
-            </li>
-            <li class="@Html.IsSelected(controller: MainMenu.PluginConfig.ControllerName, action: MainMenu.PluginConfig.ActionName)">
-                <a href="@MainMenu.PluginConfig.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.PluginConfig.PageName</span>
                 </a>
             </li>
         </ul>

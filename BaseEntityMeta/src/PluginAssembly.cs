@@ -2,6 +2,7 @@
 // Copyright (c) WebMathTraining 2002-2017. All rights reserved.
 // 
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using BaseEntity.Configuration;
 using BaseEntity.Shared;
@@ -14,6 +15,7 @@ namespace BaseEntity.Metadata
   /// </summary>
   [Entity(EntityId = 3, Key = new[] {"Name"},  OldStyleValidFrom = true, //AuditPolicy = AuditPolicy.History,
     Description = "Defines an assembly that is dynamically loaded as an extension to the risk system")]
+  [Serializable]
   public class PluginAssembly : PersistentObject
   {
     /// <summary>
