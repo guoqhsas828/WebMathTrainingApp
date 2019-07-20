@@ -1,0 +1,51 @@
+﻿DROP EXTERNAL TABLE dbo.AspNetUsers1
+DROP EXTERNAL DATA SOURCE DB2Access
+DROP DATABASE SCOPED CREDENTIAL DB2Security
+DROP MASTER KEY
+CREATE MASTER KEY ENCRYPTION BY PASSWORD='Yx922rui';
+CREATE DATABASE SCOPED CREDENTIAL DBSecurity
+WITH IDENTITY = 'guoqhsas828',
+SECRET='Yx922rui';
+GO
+CREATE EXTERNAL DATA SOURCE DBTrunkAccess
+WITH (
+TYPE=RDBMS,
+LOCATION='mathtrainingsql.database.windows.net',
+DATABASE_NAME='TrunkDb',
+CREDENTIAL=DBSecurity);
+GO
+
+CREATE External TABLE [dbo].[AspNetUsers1](
+	[Id] [nvarchar](450) NOT NULL,
+	[AccessFailedCount] [int] NOT NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+	[Continent] [int] NOT NULL,
+	[Created] [datetime2](7) NOT NULL,
+	[Email] [nvarchar](256) NULL,
+	[EmailConfirmed] [bit] NOT NULL,
+	[ExperienceLevel] [int] NOT NULL,
+	[LastUpdated] [datetime2](7) NOT NULL,
+	[LockoutEnabled] [bit] NOT NULL,
+	[LockoutEnd] [datetimeoffset](7) NULL,
+	[NormalizedEmail] [nvarchar](256) NULL,
+	[NormalizedUserName] [nvarchar](256) NULL,
+	[PasswordHash] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[PhoneNumberConfirmed] [bit] NOT NULL,
+	[SecurityStamp] [nvarchar](max) NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+	[UserName] [nvarchar](256) NULL,
+	[UserStatus] [int] NOT NULL,
+	[ObjectId] [bigint]  NOT NULL,
+	[AchievedLevel] [int] NOT NULL,
+	[AchievedPoints] [float] NOT NULL,
+	[LatestLogin] [datetime2](7) NOT NULL,
+	)
+ WITH 
+(
+  DATA_SOURCE=DBTrunkAccess
+  )
+
+GO
+
+select * from AspNetUsers1

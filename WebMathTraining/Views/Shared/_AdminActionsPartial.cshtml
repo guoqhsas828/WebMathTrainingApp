@@ -1,0 +1,25 @@
+@using Microsoft.AspNetCore.Identity
+@using StoreManager.Models
+@using WebMathTraining.Models
+@using WebMathTraining.Resources
+
+@inject LocService SharedLocalizer
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+@if (signInManager.IsSignedIn(User))
+{
+    var currentUser = await userManager.GetUserAsync(User);
+
+    if (currentUser != null && currentUser.SupportsBlogFeature())
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a asp-controller="Blog" asp-action="Index" asp-route-page="0">@SharedLocalizer.GetLocalizedHtmlString("My  Blog", "  ")</a></li>
+        </ul>
+    }
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-controller="TestSessions" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("My Tests")</a></li>
+    </ul>
+
+}

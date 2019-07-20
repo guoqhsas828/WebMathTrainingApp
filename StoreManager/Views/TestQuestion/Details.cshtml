@@ -1,0 +1,131 @@
+﻿@using StoreManager.Models
+@model WebMathTraining.Models.QuestionDetailViewModel
+@{
+    ViewData["Title"] = $"Question Detail ({Model.ImageName})";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-building"></i> @ViewData["Title"]</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="content-container-fluid">
+                    <div class="row">
+                        <form method="post">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Id)
+                                </dd>
+                                <dd>
+                                    @if (!Model.IsTextBased)
+                                    {
+                                        <div class="form-group">
+                                            <img src="@Url.Action("GetTestImageFile", "TestImage", new {id = Model.ImageId})" />
+                                        </div>
+                                    }
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Category)
+                                </dt>
+                                <dd>
+                                    @Html.DropDownListFor(m => m.Category, Enum.GetNames(typeof(TestCategory)).Select(c =>
+                                        new SelectListItem(c, c, Enum.Parse<TestCategory>(c) == @Model.Category)),
+                                        "Select Category")
+                                </dd>
+                                <dd>
+                                    @if (Model.IsTextBased)
+                                    {
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(model => model.QuestionText, new
+                                            {
+                                                //@class = "blue",
+                                                //@disabled="true",
+                                                cols = "70",
+                                                rows = "10",
+                                                //@title = "Please Enter Your Name",
+                                                //@tabindex = "0",
+                                                //@accesskey="z",
+                                                @align = "left",
+                                                //@autofocus = "true",
+                                                @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
+                                                //@draggable = "true",
+                                                //@hidden="true",
+                                                //@maxlength="12",
+                                                //@minlength = "5",
+                                                //@required = "true"
+                                            })
+                                        </div>
+                                    }
+
+                                    @if (Model.IsChoiceBased)
+                                    {
+                                        <label asp-for="AnswerChoice1"></label>
+                                        <input asp-for="AnswerChoice1" class="form-control" />
+                                        <label asp-for="AnswerChoice2"></label>
+                                        <input asp-for="AnswerChoice2" class="form-control" />
+                                        <label asp-for="AnswerChoice3"></label>
+                                        <input asp-for="AnswerChoice3" class="form-control" />
+                                        <label asp-for="AnswerChoice4"></label>
+                                        <input asp-for="AnswerChoice4" class="form-control" />
+                                        <label asp-for="AnswerChoice5"></label>
+                                        <input asp-for="AnswerChoice5" class="form-control" />
+                                    }
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Level)
+                                </dt>
+                                <dd>
+                                    @Html.DropDownListFor(m => m.Level, Constants.Levels.Select(l =>
+                                        new SelectListItem(l.ToString(), l.ToString(), l == @Model.Level)), "Select Level")
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.AnswerChoice)
+                                </dt>
+                                <dd>
+                                    @Html.DropDownListFor(m => m.AnswerChoice,
+                                        Enum.GetNames(typeof(TestAnswerType)).Select(n =>
+                                            new SelectListItem(n, n, Enum.Parse<TestAnswerType>(n) == @Model.AnswerChoice)),
+                                        "Please select answer type")
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TextAnswer)
+                                </dt>
+                                <dd>
+                                    @Html.EditorFor(model => model.TextAnswer)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.AnswerChoice6)
+                                </dt>
+                                <dd>
+                                    @Html.EditorFor(model => model.AnswerChoice6)
+                                </dd>
+                            </dl>
+                            <button class="btn btn-default" asp-action="SaveDetail" asp-route-modelId="@Model.Id" asp-route-imageId="@Model.ImageId">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <!-- /.box-footer-->
+        </div>
+    </section>
+</div>
+

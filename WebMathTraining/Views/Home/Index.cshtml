@@ -1,0 +1,106 @@
+﻿@using WebMathTraining.Resources
+@inject LocService SharedLocalizer
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/math.PNG" alt="ASP.NET" class="img-responsive" height="50" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    @SharedLocalizer.GetLocalizedHtmlString("Like  to  challenge  yourself  with  tough  questions  ?", "  ")
+                    <a class="btn btn-default" href="https://webmathtraining.azurewebsites.net/Home/About"></a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/math2.jpg" alt="Visual Studio" class="img-responsive" height="50" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    @SharedLocalizer.GetLocalizedHtmlString("Love  mathematics  ?","  ")
+                    <a class="btn btn-default" href="https://webmathtraining.azurewebsites.net/Home/About"></a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/math3.jpg" alt="Package Management" class="img-responsive" height="50" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    @SharedLocalizer.GetLocalizedHtmlString("Want  to  be  the one  in  the  spotlight  .","  ")
+                    <a class="btn btn-default" href="https://webmathtraining.azurewebsites.net/Home/About">
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/math4.jpg" alt="Microsoft Azure" class="img-responsive" height="50" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    @SharedLocalizer.GetLocalizedHtmlString("Full of  confidence", "  ")
+                    <a class="btn btn-default" href="https://webmathtraining.azurewebsites.net/Home/About">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>@SharedLocalizer.GetLocalizedHtmlString("Application uses")</h2>
+        <ul>
+            <li>@SharedLocalizer.GetLocalizedHtmlString("Select  the  menu  items  on top of the carousel", "  ")</li>
+            <li>@SharedLocalizer.GetLocalizedHtmlString("Register  /  Login  and  Check  the", "  ") <a href="https://webmathtraining.azurewebsites.net/TestSessions/Index">@SharedLocalizer.GetLocalizedHtmlString("Latest  Test","  ")</a></li>
+            <li>@SharedLocalizer.GetLocalizedHtmlString("View  the", "  ") <a href="https://webmathtraining.azurewebsites.net/TestGroups/Index">@SharedLocalizer.GetLocalizedHtmlString("Team  Ranking", "  ")</a> </li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>@SharedLocalizer.GetLocalizedHtmlString("How to")</h2>
+        <ul>
+            <li><a href="https://webmathtraining.azurewebsites.net/Todo/Index">@SharedLocalizer.GetLocalizedHtmlString("Report  bug","  ")</a></li>
+            <li><a href="https://webmathtraining.azurewebsites.net/Home/About">@SharedLocalizer.GetLocalizedHtmlString("Learn  more  about  this  website", "  ")</a></li>
+        </ul>
+    </div>
+    <div class="col-md-5">
+        <h2>@SharedLocalizer.GetLocalizedHtmlString("Progress  update", "  ")</h2>
+        <ul>
+            <li>2019-06-05 15.Add data validation on some numeric type test results</li>
+            <li style="background-color: #FFFF00">2019-05-17 14.Congratulations to Jason Guo's excellent performance in 2019 Math Kangaroo contest: 2nd in state rank and 6th in national rank</li>
+            <li>2019-01-25 13.Add support for the Chinese language localization</li>
+            <li>2019-01-20 12.The user now has the support to create a test with randomly picked questions matching his own grade</li>
+            <li>2019-01-12 11.Add new set of practice questions</li>
+            <li>2019-01-11 10.Add detailed result breakdown at the conclusion of the test</li>
+            <li>2019-01-10 9.Progress timeline added</li>
+            <li>2019-01-10 8.Time limit enforced for test sessions</li>
+            <li>2019-01-09 7.Team result summary provided on home page</li>
+            <li>2019-01-09 6.First external team taking online trial tests.</li>
+            <li>2019-01-07 5.First external trial user register</li>
+            <li>2019-01-04 4.First online math test taken on the site</li>
+            <li>2018-12-21 3.Trial run starts</li>
+            <li>2018-12-15 2.Publish the first version of the WebMathTraining site</li>
+            <li>2018-12-12 1.Start the Azure and ASP.Net Core experiment</li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>@SharedLocalizer.GetLocalizedHtmlString("Useful  links", "  ")</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/List_of_mathematics_competitions">List of mathematics competitions</a></li>
+        </ul>
+    </div>
+</div>

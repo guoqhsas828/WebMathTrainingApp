@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Microsoft.eShopWeb.ApplicationCore</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Ardalis.GuardClauses" Version="1.2.8" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+		<PackageReference Include="System.Security.Claims" Version="4.3.0" />
+		<PackageReference Include="Twilio" Version="5.30.0" />
+		<PackageReference Include="WebApiContrib.Core.Formatter.Protobuf" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Microsoft.Extensions.Identity.Core">
+	    <HintPath>..\..\.nuget\packages\microsoft.extensions.identity.core\2.0.4\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Identity.Stores">
+	    <HintPath>..\..\.nuget\packages\microsoft.extensions.identity.stores\2.0.4\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+</Project>

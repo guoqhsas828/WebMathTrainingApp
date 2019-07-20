@@ -1,0 +1,91 @@
+﻿@using  WebMathTraining.Resources;
+@inject LocService SharedLocalizer;
+@model WebMathTraining.Models.ReviewQuestionViewModel
+
+@{
+    ViewData["Title"] = "Review Question";
+}
+
+<h2>@("Test Name: " + Model.TestSessionName)</h2>
+<h2>@("Question: " + (Model.QuestionIdx + 1) + $" --Scored: {Model.ActualScore} (Score Point:{Model.ScorePoint}, Penalty Point:{Model.PenaltyPoint})")</h2>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @if (!Model.IsTextBased)
+                {
+                    <div class="form-group">
+                        <img src="@Url.Action("GetTestImageFile", "TestImage", new { id = Model.ImageId })" />
+                    </div>
+                }
+                @if (Model.IsTextBased)
+                {
+                    <div class="form-group">
+                        @Html.TextAreaFor(model => model.QuestionText, new
+                        {
+                            //@class = "blue",
+                            @disabled="true",
+                            cols = "90",
+                            rows = "10",
+                            //@title = "Please Enter Your Name",
+                            //@tabindex = "0",
+                            //@accesskey="z",
+                            @align = "left",
+                            //@autofocus = "true",
+                            @style = "color:black;background-color:orange;font-weight:bold;font-size:20px",
+                            //@draggable = "true",
+                            //@hidden="true",
+                            //@maxlength="12",
+                            //@minlength = "5",
+                            //@required = "true"
+                        })
+                    </div>
+                }
+                <div class="form-group">
+                    <label asp-for="TextAnswer" class="control-label">Your Answer</label>
+                    <input asp-for="TextAnswer" class="form-control" readonly="readonly" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="ImageId" />
+                    <input type="hidden" asp-for="SessionId" />
+                    <input type="hidden" asp-for="@Model.ActualScore" />
+                    <input type="hidden" asp-for="ScorePoint" />
+                    <input type="hidden" asp-for="PenaltyPoint" />
+                    <input type="hidden" asp-for="QuestionText" />
+                    <input type="hidden" asp-for="TestSessionName" />
+                    <input type="hidden" asp-for="QuestionIdx" />
+                    <input type="hidden" asp-for="CorrectAnswer" />
+                    <input type="hidden" asp-for="TestUserName" />
+                    <input asp-for="@Model.ShownCorrectAnswer" class="form-control" readonly="readonly" />
+                    @if (Model.ShowAnswer)
+                    {
+                        <input asp-for="ShowAnswer" checked readonly="readonly" />
+                    }
+                    else
+                    {
+                        <input asp-for="ShowAnswer" readonly ="readonly" />
+                    }
+                    <button>Reveal Answer</button>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="TheTip" class="control-label">Tip</label>
+                    <input asp-for="TheTip" class="form-control" readonly="readonly" />
+                    <a asp-controller="TestImage" asp-action="ViewImage">Show More Tip</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <hr />
+    <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx+1)" asp-route-userId="@Model.UserId">@SharedLocalizer.GetLocalizedHtmlString("Next  Question", "  ")</a>  |
+    <a asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("Back  to  Test  List", "  ")</a>  |
+    <a asp-action="TestSessionResult" asp-route-sessionId="@Model.SessionId" asp-route-userId="@Model.UserId" asp-route-userName="@Model.TestUserName">  @SharedLocalizer.GetLocalizedHtmlString("Back  to  Results", "  ")</a>  |
+    @if (Model.QuestionIdx > 0)
+    {
+        <a asp-action="ReviewQuestion" asp-route-id="@Model.SessionId" asp-route-questionIdx="@(Model.QuestionIdx-1)" asp-route-userId="@Model.UserId"> Prev Question</a>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@using Microsoft.Extensions.Options;
+@using WebMathTraining.Data;
+@model IEnumerable<BlogPost>
+@inject IOptionsSnapshot<BlogSettings> settings
+@{
+  int currentPage = int.Parse(ViewContext.ViewData["page"]?.ToString() ?? "0");// int.Parse(ViewContext.RouteData.Values["page"] as string ?? "0");
+}
+
+@foreach (var post in Model)
+{
+    await Html.RenderPartialAsync("Post.cshtml", post);
+}
+
+<nav class="pagination container" aria-label="Pagination">
+    @if (Model.Any())
+    {
+        <a  asp-controller="Blog" asp-action="Index" asp-route-page="@(currentPage+1)" title="Older posts">&laquo; Older</a>
+    }
+    @if (currentPage > 0)
+    {
+        <a asp-controller="Blog" asp-action="Index" asp-route-page="@(currentPage <=1 ? 0 : currentPage-1)" title="Newer posts">Newer &raquo;</a>
+    }
+    <br /><br />
+
+    @section Head {
+        @if (Model.Any())
+        {
+            <link rel="prev" href="@ViewData["prev"]" />
+        }
+        @if (currentPage > 0)
+        {
+            <link rel="next" href="@ViewData["next"]" />
+        }
+    }
+</nav>
+
+@*@{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}*@
