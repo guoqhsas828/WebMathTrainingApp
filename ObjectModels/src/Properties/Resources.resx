@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="defaultConfigXml" xml:space="preserve">
+    <value>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;log4net xmlns=""&gt;
+    &lt;appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender"&gt;
+      &lt;layout type="log4net.Layout.PatternLayout"&gt;
+        &lt;conversionPattern value="%-4r [%t] %-5p %c %x - %m%n" /&gt;
+      &lt;/layout&gt;
+    &lt;/appender&gt;
+    &lt;appender name="TraceAppender" type="log4net.Appender.TraceAppender"&gt;
+      &lt;layout type="log4net.Layout.PatternLayout"&gt;
+        &lt;param name="ConversionPattern" value="%d [%t][%a] %-5p %c [%x] - %m @%X{file}#%X{line} -%X{Context}%n " /&gt;
+      &lt;/layout&gt;
+      &lt;param name="Threshold" value="ALL" /&gt;
+    &lt;/appender&gt;
+    &lt;root&gt;
+      &lt;level value="INFO" /&gt;
+      &lt;appender-ref ref="TraceAppender" /&gt;
+      &lt;appender-ref ref="ConsoleAppender" /&gt;
+    &lt;/root&gt;
+&lt;/log4net&gt;&lt;DefaultPricingDate Date="Today" /&gt;
+  &lt;DefaultBookingEntity Name="ETFC" /&gt;
+  &lt;TagDefinitions path="C:\Databases\TagDefinitions.xml" /&gt;
+  &lt;CalendarDir path="C:\Databases\" /&gt;
+  &lt;Database&gt;
+    &lt;Dialect&gt;MsSql2008&lt;/Dialect&gt;
+    &lt;ConnectString&gt;Server=LENOVO-PC\SQLEXPRESS;Initial Catalog=Trunk;User ID=sa;Password=wmOD6CfXHgM+iWoipIDS8g==&lt;/ConnectString&gt;
+    &lt;ShowSql&gt;false&lt;/ShowSql&gt;
+	&lt;Password&gt;wmOD6CfXHgM+iWoipIDS8g==&lt;/Password&gt;
+    &lt;Assemblies&gt;&lt;Assembly path="MagnoliaIG.Risks.dll"/&gt;&lt;/Assemblies&gt;
+	&lt;SqliteDirectory&gt;C:\Databases&lt;/SqliteDirectory&gt;
+  &lt;/Database&gt;
+  &lt;RiskDataWareHouse ReportingServiceName="SharedReportingService" /&gt;
+  &lt;TradeBlotter RepositoryServiceName="InMemoryRiskRepositoryService" EngineServiceName="InMemoryRiskEngineService" /&gt;
+  &lt;unity xmlns="http://schemas.microsoft.com/practices/2010/unity"&gt;
+   &lt;alias alias="IExcelReaderWriter" type="MagnoliaIG.IO.Excel.IExcelReaderWriter, MagnoliaIG.IO" /&gt;
+   &lt;alias alias="EPPlusExcelReaderWriter" type="MagnoliaIG.IO.Excel.EPPlusExcelReaderWriter, MagnoliaIG.IO" /&gt;
+   &lt;alias alias="IServiceClient" type="MagnoliaIG.Risks.Services.ServiceModel.IServiceClient`1, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="IDuplexServiceClient" type="MagnoliaIG.Risks.Services.ServiceModel.IDuplexServiceClient`2, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="RemoteServiceClient" type="MagnoliaIG.Risks.Services.ServiceModel.RemoteServiceClient`1, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="DuplexRemoteServiceClient" type="MagnoliaIG.Risks.Services.ServiceModel.DuplexRemoteServiceClient`2, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="SelfHostedServiceClient" type="MagnoliaIG.Risks.Services.ServiceModel.SelfHostedServiceClient`1, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IRiskRepositoryService" type="MagnoliaIG.Risks.Services.IRiskRepositoryService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="RiskRepositoryService" type="MagnoliaIG.Risks.Services.RiskRepositoryService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IRiskRepository" type="MagnoliaIG.Risks.Services.ServiceModel.IRiskRepository, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="StandardRiskRepository" type="MagnoliaIG.Risks.Services.ServiceModel.StandardRiskRepository, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="InMemoryRiskRepository" type="MagnoliaIG.Risks.Services.ServiceModel.InMemoryRiskRepository, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IDataMartLoader" type="MagnoliaIG.Risks.Reporting.IDataMartLoader, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IDataMartTableProvider" type="MagnoliaIG.Risks.DataMart.IDataMartTableProvider, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="DimensionTableProvider" type="MagnoliaIG.Risks.DataMart.DimensionTableProvider, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="TradeBlotterTableProvider" type="MagnoliaIG.Risks.DataMart.TradeBlotterTableProvider, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="RiskRunTableProvider" type="MagnoliaIG.Risks.DataMart.RiskRunTableProvider, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="CashAndPnlTableProvider" type="MagnoliaIG.Risks.DataMart.CashAndPnlTableProvider, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="DataMartLoader" type="MagnoliaIG.Risks.Reporting.DataMartDirectLoader, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IDataMartReaderWriter" type="MagnoliaIG.Risks.DataMart.IDataMartReaderWriter, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="EagerWriter" type="MagnoliaIG.Risks.DataMart.EagerWriter, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IDataMart" type="MagnoliaIG.Risks.DataMart.IDataMart, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="SQLiteDataMart" type="MagnoliaIG.Risks.DataMart.SQLiteDataMart, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IBlotterComponent" type="MagnoliaIG.API.IBlotterComponent, MagnoliaIG.API" /&gt;
+   &lt;alias alias="ReportViewPanel" type="RiskDataWareHouse.ReportViewPanel, RiskDataWareHouse" /&gt;
+   &lt;alias alias="IEventSink" type="MagnoliaIG.Objects.IEventSink, MagnoliaIG.Objects" /&gt;
+   &lt;alias alias="RiskRunEventSink" type="MagnoliaIG.Risks.Services.ServiceModel.RiskRunEventSink, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="AvailableRunManager" type="MagnoliaIG.Risks.Reporting.AvailableRunManager, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IReportingService" type="MagnoliaIG.Risks.Services.IReportingService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="ReportingService" type="MagnoliaIG.Risks.Services.ReportingService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="ICommandOptimizer" type="MagnoliaIG.Objects.ICommandOptimizer, MagnoliaIG.Objects" /&gt;
+   &lt;alias alias="ReportingServiceSimpleCommandOptimizer" type="MagnoliaIG.Risks.Services.ServiceModel.SimpleCommandOptimizer, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IEventSource" type="MagnoliaIG.Objects.IEventSource, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="CommitEventSource" type="MagnoliaIG.Database.CommitEventSource, MagnoliaIG.Database" /&gt;
+   &lt;alias alias="RefreshDimensionsEventSink" type="MagnoliaIG.Risks.Services.ServiceModel.RefreshDimensionsEventSink, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IRiskResultService" type="MagnoliaIG.Risks.Services.IRiskResultService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="RiskResultService" type="MagnoliaIG.Risks.Services.RiskResultService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IRiskEngineService" type="MagnoliaIG.Risks.Services.IRiskEngineService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="RiskEngineService" type="MagnoliaIG.Risks.Services.RiskEngineService, MagnoliaIG.Risks" /&gt; 
+   &lt;alias alias="IEventService" type="MagnoliaIG.ObjectModel.IEventService, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="SelfHostedEventService" type="MagnoliaIG.Risks.Services.SelfHostedEventService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="EventService" type="MagnoliaIG.Risks.Services.WcfEventService, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="IMarketHistoryService" type="StockTraderRI.Infrastructure.Interfaces.IMarketHistoryService, StockTraderRI.Infrastructure" /&gt;
+   &lt;alias alias="MarketHistoryService" type="StockTraderRI.Modules.Market.Services.MarketHistoryService, StockTraderRI.Infrastructure" /&gt;
+   &lt;alias alias="IPluginLoader" type="MagnoliaIG.ObjectModel.IPluginLoader, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="DatabasePluginLoader" type="MagnoliaIG.Database.DatabasePluginLoader, MagnoliaIG.Database" /&gt;
+   &lt;alias alias="ToolkitPluginLoader" type="MagnoliaIG.ToolKits.Util.Configuration.ToolkitPluginLoader, MagnoliaIG.ToolKits" /&gt;
+   &lt;alias alias="IEventChannel" type="MagnoliaIG.Objects.IEventChannel, MagnoliaIG.ObjectModel" /&gt;
+   &lt;alias alias="IEventClient" type="MagnoliaIG.ObjectModel.IEventClient, MagnoliaIG.ObjectModel" /&gt;
+    &lt;alias alias="EventClient" type=" MagnoliaIG.Risks.Services.ServiceModel.EventClient, MagnoliaIG.WcfService" /&gt;
+   &lt;alias alias="WcfEventChannel" type="MagnoliaIG.Risks.Services.ServiceModel.WcfEventChannel, MagnoliaIG.WcfService" /&gt;
+   &lt;alias alias="DatabaseCalendarRepository" type="MagnoliaIG.Risks.DatabaseCalendarRepository, MagnoliaIG.Risks" /&gt;
+   &lt;alias alias="FileCalendarRepository" type="MagnoliaIG.Objects.FileCalendarRepository, MagnoliaIG.Objects" /&gt;
+   &lt;alias alias="ICalendarRepository" type="MagnoliaIG.ToolKits.Base.ICalendarRepository, MagnoliaIG.Objects" /&gt;
+   &lt;container&gt;
+    &lt;register type="IExcelReaderWriter" mapTo="EPPlusExcelReaderWriter" /&gt;
+	  &lt;register type="IEventService" mapTo="EventService" /&gt;
+    &lt;register type="IEventChannel" mapTo="WcfEventChannel" /&gt;
+    &lt;register type="IReportingService" mapTo="ReportingService" /&gt;
+    &lt;register type="IRiskEngineService" mapTo="RiskEngineService" /&gt;
+     &lt;register type="IEventClient" mapTo="EventClient" /&gt;
+	 &lt;register type="ICalendarRepository" mapTo="FileCalendarRepository"&gt;
+        &lt;lifetime type="singleton" /&gt;
+      &lt;/register&gt;
+   &lt;/container&gt;
+   &lt;container name="MarketHistoryService"&gt;
+     &lt;register type="IMarketHistoryService" mapTo="MarketHistoryService" name="MarketHistoryService"&gt;
+       &lt;lifetime type="singleton" /&gt;
+     &lt;/register&gt;
+    &lt;register type="IServiceClient[IMarketHistoryService]" mapTo="RemoteServiceClient[IMarketHistoryService]"&gt;
+	 &lt;constructor&gt;
+	 &lt;param name="baseAddress" value="localhost:8000/ServiceModelSamples/Service" /&gt;
+	 &lt;param name="name" value="MarketHistoryService" /&gt;
+	 &lt;param name="userPrincipalName" value="MagnoliaIG\jguo" /&gt;
+	 &lt;/constructor&gt;
+	 &lt;/register&gt;
+   &lt;/container&gt;
+   &lt;container name="DeskTopApp"&gt;
+    &lt;register name="ToolkitPluginLoader" type="IPluginLoader" mapTo="ToolkitPluginLoader" /&gt;
+    &lt;register name="DatabasePluginLoader" type="IPluginLoader" mapTo="DatabasePluginLoader" /&gt;
+   &lt;/container&gt;
+    &lt;container name="EventService"&gt;
+      &lt;register type="IDuplexServiceClient[IEventService, IEventClient]" mapTo="DuplexRemoteServiceClient[IEventService, IEventClient]"&gt;
+        &lt;constructor&gt;
+          &lt;param name="baseAddress" value="localhost:8001/ServiceModelSamples/Service" /&gt;
+          &lt;param name="name" value="EventService" /&gt;
+          &lt;param name="userPrincipalName" value="MagnoliaIG\jguo" /&gt;
+          &lt;param name="callback" dependencyType="IEventClient" /&gt;
+        &lt;/constructor&gt;
+      &lt;/register&gt;
+    &lt;/container&gt;
+   &lt;container name="RiskDataWareHouse"&gt;
+    &lt;register type="IBlotterComponent" mapTo="ReportViewPanel" name="RiskDataWareHouse.ReportViewPanel" /&gt;
+   &lt;/container&gt;
+   &lt;container name="StandardRiskRepositoryService"&gt;
+    &lt;register type="IServiceClient[IRiskRepositoryService]" mapTo="SelfHostedServiceClient[IRiskRepositoryService]" /&gt;
+	&lt;register type="IRiskRepositoryService" mapTo="RiskRepositoryService"&gt;
+	 &lt;lifetime type="singleton" /&gt;
+	 &lt;/register&gt;
+	 &lt;register type="IRiskRepository" mapTo="StandardRiskRepository" /&gt;
+   &lt;/container&gt;
+   &lt;container name="InMemoryRiskRepositoryService"&gt;
+    &lt;register type="IServiceClient[IRiskRepositoryService]" mapTo="SelfHostedServiceClient[IRiskRepositoryService]" /&gt;
+	&lt;register type="IRiskRepositoryService" mapTo="RiskRepositoryService"&gt;
+	 &lt;lifetime type="singleton" /&gt;
+	 &lt;/register&gt;
+	 &lt;register type="IRiskRepository" mapTo="InMemoryRiskRepository" &gt;
+	  &lt;lifetime type="singleton" /&gt;
+	 &lt;/register&gt;
+	 &lt;register type="IRiskEngineService" mapTo="RiskEngineService"&gt;
+	  &lt;lifetime type="singleton" /&gt;
+	  &lt;constructor&gt;
+	   &lt;param name="repositoryServiceName" value="InMemoryRiskRepositoryService" /&gt;
+	  &lt;/constructor&gt;
+	 &lt;/register&gt;
+   &lt;/container&gt;
+   &lt;container name="InMemoryRiskEngineService"&gt;
+   &lt;register type="IServiceClient" mapTo="SelfHostedServiceClient" /&gt;
+   &lt;register type="IRiskEngineService" mapTo="RiskEngineService"&gt;  
+    &lt;lifetime type="singleton" /&gt;
+	&lt;constructor&gt;
+	 &lt;param name="repositoryServiceName" value="InMemoryRiskRepositoryService" /&gt;
+	&lt;/constructor&gt;
+   &lt;/register&gt;
+   &lt;/container&gt;
+   &lt;container name="SharedReportingService"&gt;
+      &lt;!-- Self-hosted --&gt;
+	 &lt;register type="IServiceClient" mapTo="SelfHostedServiceClient" /&gt;
+     &lt;register type="IReportingService" mapTo="ReportingService"&gt;
+	 &lt;!--register type="IRiskRepositoryService" mapTo="RiskRepositoryService" /--&gt;
+        &lt;lifetime type="singleton" /&gt;
+      &lt;/register&gt;
+      &lt;register type="IDataMart" mapTo="SQLiteDataMart"&gt;
+        &lt;constructor&gt;
+          &lt;param name="path" value="%TEMP%" /&gt;
+        &lt;/constructor&gt;
+      &lt;/register&gt;
+      &lt;register type="IDataMartReaderWriter" mapTo="EagerWriter"/&gt;
+      &lt;register name="DimensionTableProvider" type="IDataMartTableProvider" mapTo="DimensionTableProvider"/&gt;
+      &lt;register name="RiskRunTableProvider" type="IDataMartTableProvider" mapTo="RiskRunTableProvider"/&gt;
+	  &lt;register name="CashAndPnlTableProvider" type="IDataMartTableProvider" mapTo="CashAndPnlTableProvider"/&gt;
+      &lt;register type="IDataMartLoader" mapTo="DataMartLoader"&gt;
+        &lt;lifetime type="singleton" /&gt;
+        &lt;property name="SequentialMode" value="false" /&gt;
+      &lt;/register&gt;
+      &lt;register type="AvailableRunManager"&gt;
+        &lt;lifetime type="singleton" /&gt;
+      &lt;/register&gt;
+      &lt;register name="RiskRunEventSink" type="IEventSink" mapTo="RiskRunEventSink" /&gt;
+      &lt;register type="ICommandOptimizer" mapTo="ReportingServiceSimpleCommandOptimizer" /&gt;
+      &lt;register name="CommitEventSource" type="IEventSource" mapTo="CommitEventSource" /&gt;
+      &lt;register name="RefreshDimensionsEventSink" type="IEventSink" mapTo="RefreshDimensionsEventSink" /&gt;
+    &lt;!-- Remote-hosted --&gt;
+      &lt;!--
+      &lt;register type="IServiceClient[IReportingService]" mapTo="RemoteServiceClient[IReportingService]"&gt;
+        &lt;constructor&gt;
+          &lt;param name="baseAddress" value="localhost:4343" /&gt;
+          &lt;param name="name" value="SharedReportingService" /&gt;
+        &lt;/constructor&gt;
+      &lt;/register&gt;
+      --&gt;
+ &lt;/container&gt;
+ &lt;container name="StandardRiskEngineService"&gt;
+   &lt;register type="IServiceClient" mapTo="SelfHostedServiceClient" /&gt;
+   &lt;register type="IRiskEngineService" mapTo="RiskEngineService"&gt;  
+    &lt;lifetime type="singleton" /&gt;
+	&lt;constructor&gt;
+	 &lt;param name="repositoryServiceName" value="StandardRiskRepositoryService" /&gt;
+	&lt;/constructor&gt;
+   &lt;/register&gt;
+ &lt;/container&gt;
+ &lt;container name="StandardRiskResultService"&gt;
+	&lt;register type="IServiceClient[IRiskResultService]" mapTo="SelfHostedServiceClient[IRiskResultService]" /&gt;
+	&lt;register type="IRiskResultService" mapTo="RiskResultService"&gt;
+	 &lt;lifetime type="singleton" /&gt;
+	&lt;/register&gt;
+	&lt;register type="IRiskRepository" mapTo="StandardRiskRepository" /&gt;
+ &lt;/container&gt;
+ &lt;container name="TradeBlotter"&gt;
+   &lt;register name="DimensionTableProvider" type="IDataMartTableProvider" mapTo="DimensionTableProvider" /&gt;
+   &lt;register name="TradeBlotterTableProvider" type="IDataMartTableProvider" mapTo="TradeBlotterTableProvider" /&gt;
+   &lt;register type="IDataMartReaderWriter" mapTo="EagerWriter"/&gt;
+   &lt;register type="IDataMart" mapTo="SQLiteDataMart"&gt;
+        &lt;constructor&gt;
+          &lt;param name="path" value="%TEMP%" /&gt;
+        &lt;/constructor&gt;
+    &lt;/register&gt;
+	&lt;register type="IDataMartLoader" mapTo="DataMartLoader"&gt;
+	 &lt;lifetime type="hierarchical" /&gt;
+	 &lt;property name="SequentialMode" value="true" /&gt;
+	 &lt;/register&gt;
+  &lt;/container&gt;
+  &lt;container name="PrivateReportingService"&gt;
+      &lt;!-- Self-hosted --&gt;
+	 &lt;register type="IServiceClient" mapTo="SelfHostedServiceClient" /&gt;
+     &lt;register type="IReportingService" mapTo="ReportingService"&gt;
+	 &lt;!--register type="IRiskRepositoryService" mapTo="RiskRepositoryService" /--&gt;
+        &lt;lifetime type="singleton" /&gt;
+      &lt;/register&gt;
+      &lt;register type="IDataMart" mapTo="SQLiteDataMart"&gt;
+        &lt;constructor&gt;
+          &lt;param name="path" value="%TEMP%" /&gt;
+        &lt;/constructor&gt;
+      &lt;/register&gt;
+      &lt;register type="IDataMartReaderWriter" mapTo="EagerWriter"/&gt;
+      &lt;register name="DimensionTableProvider" type="IDataMartTableProvider" mapTo="DimensionTableProvider"/&gt;
+      &lt;register name="RiskRunTableProvider" type="IDataMartTableProvider" mapTo="RiskRunTableProvider"/&gt;
+	  &lt;register name="CashAndPnlTableProvider" type="IDataMartTableProvider" mapTo="CashAndPnlTableProvider"/&gt;
+      &lt;register type="IDataMartLoader" mapTo="DataMartLoader"&gt;
+        &lt;lifetime type="singleton" /&gt;
+        &lt;property name="SequentialMode" value="false" /&gt;
+      &lt;/register&gt;
+      &lt;register type="AvailableRunManager"&gt;
+        &lt;lifetime type="singleton" /&gt;
+      &lt;/register&gt;
+      &lt;register name="RiskRunEventSink" type="IEventSink" mapTo="RiskRunEventSink" /&gt;
+      &lt;register type="ICommandOptimizer" mapTo="ReportingServiceSimpleCommandOptimizer" /&gt;
+      &lt;register name="CommitEventSource" type="IEventSource" mapTo="CommitEventSource" /&gt;
+      &lt;register name="RefreshDimensionsEventSink" type="IEventSink" mapTo="RefreshDimensionsEventSink" /&gt;
+  &lt;/container&gt;
+    &lt;!--&lt;container name="RiskEngineService"&gt;
+      &lt;register type="IServiceClient[IRiskEngineService]" mapTo="RemoteServiceClient[IRiskEngineService]"&gt;
+        &lt;constructor&gt;
+          &lt;param name="baseAddress" value="localhost:8000/ServiceModelSamples/Service" /&gt;
+          &lt;param name="name" value="RiskEngineService" /&gt;
+          &lt;param name="userPrincipalName" value="MagnoliaIG\jguo" /&gt;
+        &lt;/constructor&gt;
+      &lt;/register&gt;
+    &lt;/container&gt;--&gt;
+  &lt;/unity&gt;</value>
+  </data>
+</root>

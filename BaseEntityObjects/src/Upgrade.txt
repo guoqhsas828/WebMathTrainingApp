@@ -1,0 +1,226 @@
+﻿create table NamedEntity (
+        ObjectId BIGINT not null,
+       EntityId INT not null,
+       ObjectVersion INT not null,
+       ValidFrom DATETIME not null,
+       LastUpdated DATETIME not null,
+       UpdatedById BIGINT null,
+       Name NVARCHAR(32) not null,
+       Description NVARCHAR(512) null,
+       ExtendedData XML null,
+       primary key (ObjectId)
+    )
+GO
+create table PluginAssembly (
+        ObjectId BIGINT not null,
+       ObjectVersion INT not null,
+       ValidFrom DATETIME not null,
+       LastUpdated DATETIME not null,
+       UpdatedById BIGINT null,
+       Name NVARCHAR(128) not null,
+       Description NVARCHAR(512) null,
+       FileName NVARCHAR(1024) null,
+       Enabled BIT not null,
+       PluginType INT not null,
+       primary key (ObjectId)
+    )
+GO
+create table [User] (
+        ObjectId BIGINT not null,
+       ObjectVersion INT not null,
+       ValidFrom DATETIME not null,
+       LastUpdated DATETIME not null,
+       UpdatedById BIGINT null,
+       Name NVARCHAR(32) not null,
+       LastName NVARCHAR(32) null,
+       FirstName NVARCHAR(32) null,
+       Description NVARCHAR(64) null,
+       Email NVARCHAR(32) null,
+       Password NVARCHAR(256) null,
+       IsLocked BIT not null,
+       IsActive BIT not null,
+       LastPasswordChangedDate DATETIME null,
+       LastLoginDate DATETIME null,
+       LastLockoutDate DATETIME null,
+       CreationDate DATETIME null,
+       PhoneNumber NVARCHAR(16) null,
+       FaxNumber NVARCHAR(16) null,
+       Address NVARCHAR(64) null,
+       RoleId BIGINT null,
+       primary key (ObjectId)
+    )
+GO
+create table UserRole (
+        ObjectId BIGINT not null,
+       ObjectVersion INT not null,
+       ValidFrom DATETIME not null,
+       LastUpdated DATETIME not null,
+       UpdatedById BIGINT null,
+       Name NVARCHAR(32) not null,
+       ReadOnly BIT not null,
+       Administrator BIT not null,
+       ExtendedData XML null,
+       primary key (ObjectId)
+    )
+GO
+create table BusinessEvent (
+        ObjectId BIGINT not null,
+       EffectiveDate DATETIME not null,
+       EventOrder BIGINT not null,
+       TargetId BIGINT not null,
+       Description NVARCHAR(512) null,
+       primary key (ObjectId)
+    )
+GO
+create table EntityTagDefinition (
+        ObjectId BIGINT not null,
+       ObjectVersion INT not null,
+       ValidFrom DATETIME not null,
+       LastUpdated DATETIME not null,
+       UpdatedById BIGINT null,
+       Name NVARCHAR(128) not null,
+       Fixed BIT not null,
+       primary key (ObjectId)
+    )
+GO
+create table EntityTagDefinitionTags (
+        EntityTagDefinitionId BIGINT not null,
+       Name NVARCHAR(64) not null,
+       DataType NVARCHAR(128) null,
+       DefaultValue NVARCHAR(128) null,
+       Choices NVARCHAR(MAX) null,
+       CopyToUnwindTrade BIT not null,
+       CopyToAssignTrade BIT not null,
+       AllowItemsNotInChoices BIT not null,
+       Idx INT not null,
+       primary key (EntityTagDefinitionId, Idx)
+    )
+GO
+create table CommitLog (
+        Tid INT IDENTITY NOT NULL,
+       LastUpdated DATETIME not null,
+       UpdatedBy BIGINT not null,
+       Comment NVARCHAR(140) null,
+       TransactionId UNIQUEIDENTIFIER null,
+       primary key (Tid)
+    )
+GO
+create table AuditLog (
+        Tid INT not null,
+       ObjectId BIGINT not null,
+       RootObjectId BIGINT not null,
+       ParentObjectId BIGINT not null,
+       EntityId INT not null,
+       ValidFrom DATETIME not null,
+       Action INT not null,
+       ObjectDelta VARBINARY(MAX) null,
+       IsArchived BIT not null,
+       primary key (Tid, ObjectId)
+    )
+GO
+create table AuditHistory (
+        Tid INT not null,
+       RootObjectId BIGINT not null,
+       ValidFrom DATETIME not null,
+       ObjectDelta VARBINARY(MAX) null,
+       primary key (Tid, RootObjectId)
+    )
+GO
+alter table NamedEntity 
+        add constraint FKD8E59F23D328FD68 
+        foreign key (UpdatedById) 
+        references [User]
+GO
+alter table PluginAssembly 
+        add constraint FK403EE1EDD328FD68 
+        foreign key (UpdatedById) 
+        references [User]
+GO
+alter table [User] 
+        add constraint FK61780684D328FD68 
+        foreign key (UpdatedById) 
+        references [User]
+GO
+alter table [User] 
+        add constraint FK61780684C9397B65 
+        foreign key (RoleId) 
+        references UserRole
+Go
+alter table UserRole 
+        add constraint FK3ED61DFFD328FD68 
+        foreign key (UpdatedById) 
+        references [User]
+GO
+alter table EntityTagDefinition 
+        add constraint FKE37B1483D328FD68 
+        foreign key (UpdatedById) 
+        references [User]
+GO
+alter table EntityTagDefinitionTags 
+        add constraint FKD7A7BE7C28F455FB 
+        foreign key (EntityTagDefinitionId) 
+        references EntityTagDefinition
+GO
+CREATE TABLE NamedEntity_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO NamedEntity_id VALUES ( 0 )
+GO
+CREATE TABLE PluginAssembly_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO PluginAssembly_id VALUES ( 0 )
+GO
+CREATE TABLE User_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO User_id VALUES ( 0 )
+GO
+CREATE TABLE UserRole_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO UserRole_id VALUES ( 0 )
+GO
+CREATE TABLE BusinessEvent_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO BusinessEvent_id VALUES ( 0 )
+GO
+CREATE TABLE EntityTagDefinition_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO EntityTagDefinition_id VALUES ( 0 )
+GO
+ALTER TABLE NamedEntity ADD CONSTRAINT NamedEntity_AltKey UNIQUE (Name)
+ALTER TABLE PluginAssembly ADD CONSTRAINT PluginAssembly_AltKey UNIQUE (Name)
+ALTER TABLE [User] ADD CONSTRAINT User_AltKey UNIQUE (Name)
+ALTER TABLE UserRole ADD CONSTRAINT UserRole_AltKey UNIQUE (Name)
+ALTER TABLE EntityTagDefinition ADD CONSTRAINT EntityTagDefinition_AltKey UNIQUE (Name)
+CREATE TABLE Trade_key (next_id int NOT NULL)
+CREATE TABLE BusinessEvent_key (next_id int NOT NULL)
+CREATE TABLE PnlAdjustment_key (next_id int NOT NULL)
+CREATE TABLE SystemConfig (id int identity(1,1) NOT NULL, metamodel nvarchar(max) null)
+INSERT INTO Trade_key VALUES (1)
+INSERT INTO BusinessEvent_key VALUES (1)
+INSERT INTO PnlAdjustment_key VALUES (1)
+GO
+create procedure InsertCommitLog @userId bigint, @comment nvarchar(140), @transactionId UNIQUEIDENTIFIER as declare @tid bigint; insert CommitLog (LastUpdated, UpdatedBy, Comment, TransactionId) select getutcdate(), @userId, @comment, @transactionId; set @tid = (select SCOPE_IDENTITY()); return @tid
+GO
+CREATE TABLE TestImage_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO TestImage_id VALUES ( 0 )
+GO
+CREATE TABLE TestQuestion_id (
+         next_hi BIGINT 
+    )
+GO
+INSERT INTO TestQuestion_id VALUES ( 0 )
+GO

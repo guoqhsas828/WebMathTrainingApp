@@ -1,0 +1,36 @@
+{
+  "name": "WebMathTraining.Shared",
+  "version": "0.1.1-pre15",
+  "description": "Utility classes shared by name WebMathTraining projects",
+  "copyright": "WebMathTraining, Inc. 2016",
+  "language": "en-US",
+  "dependencies": {
+    "log4net": "2.0.6",
+    "Microsoft.CodeAnalysis":  "*"
+  },
+  "buildOptions": {
+    "xmlDoc": true
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "dependencies": {
+        "System.Data.Common": "4.3.0",
+        "System.Collections.Concurrent": "4.3.0",
+        "System.ComponentModel": "4.3.0",
+        "System.Linq.Expressions": "4.3.0",
+        "System.Net.Http": "4.3.0",
+        "System.Dynamic.Runtime": "4.3.0",
+        "System.Xml.XmlDocument": "4.3.0",
+        "System.Collections.NonGeneric": "*",
+        "System.Reflection": "*",
+        "System.Reflection.Extensions": "*",
+        "System.Reflection.TypeExtensions": "*",
+        "System.Reflection.Emit.ILGeneration": "*",
+        "System.Reflection.Emit.Lightweight": "*",
+        "System.Runtime.Serialization.Formatters": "*",
+        "System.Runtime.Serialization.Primitives": "*"
+      },
+      "imports": "portable-net45+win8+wp8+wpa81"
+    }
+  }
+}

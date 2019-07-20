@@ -1,0 +1,189 @@
+<?xml version="1.0" standalone="yes"?>
+<conf xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Toolkit settings-->
+  <ToolkitConfig>
+    <!--
+        Purpose:
+          Whether to use the natural settlement
+          Whether to include the short name from the total principal (relevant only with shortnames)
+      -->
+    <BasketPricer UseNaturalSettlement="True" SubstractShortedFromPrincipal="False" UseCurveRecoveryForBaseCorrelation="True" ExactJumpToDefault="False" DeepCloningInParallelSensitivity="False" ConsistentSensitivity="True" />
+    <!--
+        Purpose:
+          Whether to use arbitrage-free tree model as the default model to evaluate Bermudan swaption
+      -->
+    <BermudanSwaption EnableArbitrageFreeTreeModel="False"  />
+    <!--
+        Purpose:
+          whether to discount the first coupon fully for bonds
+      -->
+    <BondPricer DiscountingAccrued="True" BackwardCompatibleCashflows="False" AllowNegativeCDSSpreads="True" BackwardCompatibleCallableZSpread="False" />
+    <!--
+        Purpose:
+          Set the default method used to clone object graphs (Serialization or FastClone)
+      -->
+    <Cloning DefaultObjectGraphCloneMethod="FastClone" />
+    <!--
+        Purpose:
+          determines direction of cashflow date generation when first/last coupon dates not set explicitly
+      -->
+    <SwapLeg StubAtEnd="False" />
+    <!--
+        Purpose:
+          whether to discount the first coupon fully for swaps
+      -->
+    <SwapLegPricer DiscountingAccrued="True" />
+    <!--
+        Purpose:
+          whether to determine the projected rate using end of period or index tenor
+      -->
+    <InterestCouponCalculator EndSetByIndexTenor="True" ImplicitUseDiscountRateForCompounding="False" NoCycleRuleForCompounding="False" />
+    <!--
+        Purpose:
+          Whether or not to use the last premium date as effective date of cashflow for calculating Accrured.
+      -->
+    <CashflowPricer DiscountingAccrued="False" RollLastPaymentDate="True" BackwardCompatibleSchedule="False" BackwardCompatibleModel="False" IncludeAccruedOnDefaultAtSettle="True" UseConsistentCashflowEffective="True" IgnoreAccruedInProtection="true" />
+    <!--TODO: set IgnoreAccruedInProtection to FALSE -->
+    <!--
+        Purpose:
+          Whether or not to include maturity date in Acrrual/Protection calculation.
+      -->
+    <CDSCashflowPricer UseCycleDateForAccruals="False" UseConsistentCashflowEffective="True"
+                       IncludeMaturityAccrual="True" IncludeMaturityProtection="True"
+                       IncludeSettlePaymentDefault="False" SupportAccrualRebateAfterDefault="False" />
+    <!--
+        Purpose:
+          CalendarCalc - Calendar config
+          CalendarDir - Directory for calendards (default "Data/hols/", recommended "Data/hols/")
+      -->
+    <CalendarCalc CalendarDir="Data/hols/" />
+    <CapFloorPricer TimeToExpiryInActual365="true" />
+    <!--
+      To enable the built-in optimization in exposure calculation
+    -->
+    <CcrPricer EnableForwardVolatilityTermStructure="False"
+      EnableFastCalibrationFromSwaptionVolatility="True"
+      EnableOptimizedExposureCalculator="True"
+      FixVolatilityForConvexityAdjustment="True"
+      CmsCapletConvexityFromExposureDate="False" />
+    <Concurrency WorkerThreads="Automatic" />
+    <DiscountBootstrapCalibrator SwapCalibrationMethod="Extrap" />
+    <FxCalibrator ForwardCurveAlwaysLinear="True" />
+    <!--
+    -->
+    <FxOption MapCallPutToUpDownForNoTouchOptions="True"
+      ConsistentOverHedgeAdjustmentAcrossOptions="False"
+      ExactDoubleBarrierProbability="False"
+    />
+    <!--
+      -->
+    <SemiAnalyticBasketPricer MulticoreSupport="True" UseOldLcdxTrancheModel="False" StochasticFixedRecovery="False" />
+    <!--
+        Purpose:
+          Whether to use natural settlement (t+1 effective) in survival calibrator
+      -->
+    <SurvivalCalibrator UseNaturalSettlement="True" ToleranceX="1E-6" ToleranceF="1E-6" />
+    <SwaptionVolatilityFactory AtmVolatilityOnly="False" AllowExtrapolation="True" BloombergConsistentSwapBermudan="True" />
+    <!--
+        Purpose:
+          Whether to use original notional instead of effective notional for fee calculation
+          (relevant for CDOs with defaulted names ot forward CDOs)
+      -->
+    <SyntheticCDOPricer IgnoreAccruedSetting="False" UseOriginalNotionalForFee="False"
+                        AdjustDurationForRemainingNotional="True" SupportAccrualRebateAfterDefault="False" />
+    <NtdPricer HeterogeneousNtdModelThreshold="0" />
+    <CDXPricer AdjustDurationForRemainingNotional="True"
+      MarketPayoffsForIndexOptions="True" MarkAtPreviousFactorUntilRecovery="False" />
+    <LCDXPricer AdjustDurationForRemainingNotional="True" />
+    <LoanModel UseFrequencyForTimeGrid="False" UseSettleForPricing="False" AllowNegativeOptionValue="False" UseBackwardCompatibleCashflowForCLO="False" />
+    <Dt RollFollowingCDSDate="True" StdCdsRollCutoverDate="20151221" />
+    <ThetaSensitivity RecalibrateWithRolledCdsMaturity="False" RecalibrateWithNewCdsEffective="False" />
+    <!-- In simulation, whether to correct for the discrepancies caused by curve date changes -->
+    <Simulations 
+      EnableDualCurveVolatility="False"
+      EnableCorrectionForCurveTenorChange="False"
+      AlwaysUseApproximateForFastCalculation="True" />
+    <!-- Name of xml file containing RateIndex terms -->
+    <ReferenceRate DefinitionsFilename="built-in" />
+    <!-- Name of xml file containing Standard Product Terms -->
+    <StandardProductTerms DefinitionsFilename="built-in" />
+    <!--
+        Purpose:
+          controls FMA3 Haswell x64 CPU extensions (True = allowed, False = disabled)
+      -->
+    <CpuExtensions Fma3="False" />
+  </ToolkitConfig>
+  <RiskConfig>
+    <StandardRiskRepository LoadResultsWithNoLock="False" />
+    <FxCurveFromQuotes BackwardCompatible="True" />
+    <TrancheAccruedToDefault BackwardCompatible="False" />
+  </RiskConfig>
+  <RiskNavigator ReportingServiceName="SharedReportingService" />
+  <RiskManager ReportingServiceName="SharedReportingService" RepositoryServiceName="StandardRiskRepositoryService" EngineServiceName="StandardRiskEngineService" />
+  <TradeBlotter RepositoryServiceName="InMemoryRiskRepositoryService" EngineServiceName="InMemoryRiskEngineService" />
+  <BatchRiskViewer ReportingServiceName="SharedReportingService" />
+  <!--Grid configuration sample-->
+  <Grids DefaultGrid="ChildProcess">
+  </Grids>
+  <!--
+  AddinMgr - Addin manager config
+    UserSettingsFile - location of addminmgr.settings file
+  -->
+  <AddinMgr UserSettingsFile="AddinMgr.Settings" />
+  <!--
+  Database - DB Config
+  -->
+  <Database>
+    <ConnectString>Server=tcp:mathtrainingsql.database.windows.net,1433;Initial Catalog=TrunkDb;Persist Security Info=False;User ID=guoqhsas828;Password=Yx922rui;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</ConnectString>
+  </Database>
+  <!--
+    Purpose:
+      TagDefinitions - config for entity tags
+      path = path of file defining entity tags
+      <TagDefinitions path="" />
+  -->
+  <!--
+    Purpose:
+      ReportingCurrency - config for reporting currency
+      name = name of reporting currency (default USD)
+  -->
+  <ReportingCurrency name="USD" />
+  <!--
+  RiskPricingSettings - configure pricing in RISK
+    CalcRecoveryFunding = True for CDS/BasketCDS pricing to include contribution in Pv for project cost of funding any recovery payments. Default False
+  -->
+  <RiskPricingSettings CalcRecoveryFunding="False" />
+  <!--
+  MarkitImport - config for Markit data import
+  -->
+  <MarkitImport>
+    <CDSQuote recoveryPrecision="2" />
+  </MarkitImport>
+  <!-- Local help files -->
+  <!--
+  <ClientPortal Server="localhost" Secure="false">
+    <Doc product="XL" path="excel/docs/site/index.html" />
+    <Doc product="TOOLKITSDK" path="toolkit/docs/sandcastle/Help/index.html" />
+    <Doc product="RISKSDK" path="risk/docs/Help/index.html" />
+  </ClientPortal>
+  -->
+  <!--
+    Purpose:
+      How should Trader's user name be displayed - options are "FirstName LastName", "LastName, FirstName", or "LoginName"
+  -->
+  <TraderName DisplayFormat="LoginName" />
+  <!--
+			Show trade remaining amount (net of related unwinds/assigns) columnn in filtered set of trades (DataExplorer etc).
+			Introduces small performance overhead querying the trades
+  -->
+  <TradeFilter ShowRemainingAmount="False" />
+  <!--
+  Date used as pricing date for applications when they are first started
+  Date can be either:
+  A specific date formatted as YYYYMMDD
+  Today - indicating to use DateTime.Today
+  BackwardCompatible - indicating to use old method of looking for the latest quote date in the database
+  -->
+  <DefaultPricingDate Date="Today" />
+  
+</conf>

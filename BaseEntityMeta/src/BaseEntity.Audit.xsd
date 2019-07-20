@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://WebMathTrainingsolutions.com/Audit"
+           elementFormDefault="qualified"
+           xmlns="http://WebMathTrainingsolutions.com/Audit"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="BusinessKeyType">
+    <xs:sequence>
+      <xs:element name="Property" type="PropertyValueType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="type" />
+  </xs:complexType>
+
+  <xs:complexType name="EntityType">
+    <xs:sequence>
+      <xs:element name="Property" type="PropertyValueType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="type" />
+  </xs:complexType>
+
+  <xs:group name="SimpleChangeGroup">
+    <xs:sequence>
+      <xs:element name="Old" type="PropertyValueType" minOccurs="1" maxOccurs="1" nillable="true" />
+      <xs:element name="New" type="PropertyValueType" minOccurs="1" maxOccurs="1" nillable="true" />
+    </xs:sequence>
+  </xs:group>
+
+  <xs:group name="KeyedValueChangeGroup">
+    <xs:choice>
+      <xs:group ref="SimpleChangeGroup" />
+      <xs:element name="Changed" type="ChangedType" />
+    </xs:choice>
+  </xs:group>
+  
+  <xs:complexType name="SimplePropertyChangeType">
+    <xs:group ref="SimpleChangeGroup" />
+    <xs:attribute name="name" />
+  </xs:complexType>
+
+  <xs:complexType name="ComplexPropertyChangeType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Added" type="CollectionItemValueType" />
+      <xs:element name="Removed" type="CollectionItemValueType" />
+      <xs:element name="Changed" type="ChangedType" />
+    </xs:choice>
+    <xs:attribute name="name" />
+  </xs:complexType>
+
+  <xs:complexType name="CollectionItemValueType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:sequence>
+        <xs:element name="Key" type="PropertyValueType" minOccurs="1" maxOccurs="1" />
+        <xs:element name="Value" type="PropertyValueType" minOccurs="1" maxOccurs="1" nillable="true" />
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element name="Idx" type="xs:int" minOccurs="1" maxOccurs="1" />
+        <xs:element name="Value" type="PropertyValueType" minOccurs="1" maxOccurs="1" nillable="true" />
+      </xs:sequence>
+      <xs:element name="Entity" type="EntityType" minOccurs="1" maxOccurs="1" />
+      <xs:element name="BusinessKey" type="BusinessKeyType" minOccurs="1" maxOccurs="1" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyValueType" mixed="true">
+    <xs:choice>
+      <xs:element name="Entity" type="EntityType" minOccurs="0" maxOccurs="1" />
+      <xs:element name="BusinessKey" type="BusinessKeyType" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Item" type="CollectionItemValueType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+    </xs:choice>
+    <xs:attribute name="name" />
+  </xs:complexType>
+
+  <xs:group name="PropertyChangeGroup">
+    <xs:choice>
+      <xs:element name="SimplePropertyChange" type="SimplePropertyChangeType" minOccurs="1" maxOccurs="1" />
+      <xs:element name="ComplexPropertyChange" type="ComplexPropertyChangeType" minOccurs="1" maxOccurs="1" />
+    </xs:choice>
+  </xs:group>
+  
+  <xs:complexType name="PropertyChangeType">
+    <xs:group ref="PropertyChangeGroup" />
+  </xs:complexType>
+
+  <xs:complexType name="ChangedType">
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="Key" type="PropertyValueType" minOccurs="0" maxOccurs="1" />
+        <xs:group ref="KeyedValueChangeGroup" />
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element name="BusinessKey" type="BusinessKeyType" minOccurs="0" maxOccurs="1" />
+        <xs:group ref="PropertyChangeGroup" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="AuditHistory">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Added" type="PropertyValueType" />
+        <xs:element name="Removed" type="PropertyValueType" />
+        <xs:element name="Changed" type="ChangedType" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
