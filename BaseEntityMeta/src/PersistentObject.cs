@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -385,6 +386,7 @@ namespace BaseEntity.Metadata
     /// </remarks>
     [DataMember]
     [ObjectIdProperty(IsPrimaryKey = true)]
+    [Key]
     public long ObjectId
     {
       get { return _objectId; }

@@ -25,7 +25,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                 name: "TestGroup",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    TestGroupId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 128, nullable: true),
                     Description = table.Column<string>(maxLength: 512, nullable: true),
@@ -36,7 +36,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TestGroup", x => x.Id);
+                    table.PrimaryKey("PK_TestGroup", x => x.TestGroupId);
                 });
 
             migrationBuilder.CreateTable(

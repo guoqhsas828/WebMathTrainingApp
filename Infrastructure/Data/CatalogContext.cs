@@ -1,4 +1,5 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Entities;
+﻿using BaseEntity.Metadata;
+using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
@@ -78,7 +79,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
     public DbSet<TestSession> TestSession { get; set; }
     public DbSet<TestGroup> TestGroup { get; set; }
 
-    //public DbSet<Order> Orders { get; set; }
+    public DbSet<PluginAssembly> PluginAssembly { get; set; }
     //public DbSet<OrderItem> OrderItems { get; set; }
     //public DbSet<CatalogItem> CatalogItems { get; set; }
 

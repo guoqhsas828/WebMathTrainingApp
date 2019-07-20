@@ -210,6 +210,11 @@
                     <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
                 </a>
             </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PluginConfig.ControllerName, action: MainMenu.PluginConfig.ActionName)">
+                <a href="@MainMenu.PluginConfig.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.PluginConfig.PageName</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

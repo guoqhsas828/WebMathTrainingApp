@@ -58,7 +58,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
 
             modelBuilder.Entity("WebMathTraining.Models.TestGroup", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TestGroupId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -76,7 +76,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
 
                     b.Property<int>("TeamHeadId");
 
-                    b.HasKey("Id");
+                    b.HasKey("TestGroupId");
 
                     b.ToTable("TestGroup");
                 });

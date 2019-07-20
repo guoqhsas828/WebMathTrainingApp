@@ -29,5 +29,9 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
+	  <ProjectReference Include="..\BaseEntity.Database\BaseEntity.Database.csproj" />
+	  <ProjectReference Include="..\BaseEntityMeta\src\BaseEntity.Metadata.csproj" />
+	  <ProjectReference Include="..\BaseEntityObjects\src\BaseEntityObjects.csproj" />
+	  <ProjectReference Include="..\ObjectModels\src\BaseEntity.Configuration.csproj" />
 	</ItemGroup>
 </Project>

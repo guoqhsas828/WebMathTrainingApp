@@ -277,6 +277,15 @@ namespace StoreManager.Pages
       public const string ActionName = "ChangeRole";
     }
 
+    public static class PluginConfig
+    {
+      public const string PageName = "Plugin Assembly";
+      public const string RoleName = "Plugin Assembly";
+      public const string Path = "/PluginAssembly/Index";
+      public const string ControllerName = "PluginAssembly";
+      public const string ActionName = "PluginAssembly";
+    }
+
     public static class Dashboard
     {
       public const string PageName = "Dashboard Main";

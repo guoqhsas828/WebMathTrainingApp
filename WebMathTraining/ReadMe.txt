@@ -63,6 +63,7 @@ git push azure master
 //Make further entity schema change,Run a few commands to make updates to your local database.
 dotnet ef migrations add AddProperty           (equivalent of enable-migrations  > add-migration AddProperty)
 dotnet ef database update                      (equivalent of Update-Database)
+Script-Migration -From InitCatalogDb -To CatalogDbUpgrade1 -Context CatalogContext -Project Infrastructure
 
 //Update from repository
 git reset --hard HEAD
@@ -70,4 +71,4 @@ git pull
 //Publish changes to Azure
 git add .
 git commit -m "added done field"
-git push azure master
+git push origin master

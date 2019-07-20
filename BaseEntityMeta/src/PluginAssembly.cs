@@ -2,6 +2,7 @@
 // Copyright (c) WebMathTraining 2002-2017. All rights reserved.
 // 
 
+using System.ComponentModel.DataAnnotations;
 using BaseEntity.Configuration;
 using BaseEntity.Shared;
 
@@ -19,18 +20,21 @@ namespace BaseEntity.Metadata
     /// Uniquely identifies this plugin assembly
     /// </summary>
     [StringProperty(MaxLength = 128)]
+    [MaxLength(128)]
     public string Name { get; set; }
 
     /// <summary>
     /// Description of the contents of this plugin
     /// </summary>
     [StringProperty(MaxLength = 512)]
+    [MaxLength(512)]
     public string Description { get; set; }
 
     /// <summary>
     /// Assembly name
     /// </summary>
     [StringProperty(MaxLength = 1024)]
+    [MaxLength(1024)]
     public string FileName { get; set; }
 
     /// <summary>
