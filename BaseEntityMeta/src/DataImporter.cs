@@ -242,7 +242,7 @@ namespace BaseEntity.Metadata
         var keyMeta = cm; 
         while (keyMeta.IsDerivedEntity)
           keyMeta = keyMeta.BaseEntity;
-        string key = PersistentObject.FormKey(keyMeta, keyValues);
+        string key = PersistentObjectUtil.FormKey(keyMeta, keyValues);
         _entityCache[key] = obj;
       }
 
@@ -342,7 +342,7 @@ namespace BaseEntity.Metadata
     {
       while (cm.IsDerivedEntity)
         cm = cm.BaseEntity;
-      string hashKey = PersistentObject.FormKey(cm, keyList);
+      string hashKey = PersistentObjectUtil.FormKey(cm, keyList);
       if (_entityCache.ContainsKey(hashKey))
         return _entityCache[hashKey];
 
@@ -353,7 +353,7 @@ namespace BaseEntity.Metadata
         return null;
       }
 
-      _entityCache[PersistentObject.FormKey(po, true)] = po;
+      _entityCache[PersistentObjectUtil.FormKey(po, true)] = po;
 
       return po;
     }

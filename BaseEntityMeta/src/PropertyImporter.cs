@@ -216,11 +216,11 @@ namespace BaseEntity.Metadata
       if (childObjects == null || childObjects.Count == 0)
         return null;
 
-      string hashKey = PersistentObject.FormChildKeyFromKeyValues(childClassMeta, key);
+      string hashKey = PersistentObjectUtil.FormChildKeyFromKeyValues(childClassMeta, key);
 
       return (from IBaseEntityObject co in childObjects
         let chikdKeys = childClassMeta.ChildKeyPropertyList.Select(keyProp => keyProp.GetValue(co)).ToList()
-        let childKeyStr = PersistentObject.FormChildKeyFromKeyValues(childClassMeta, chikdKeys)
+        let childKeyStr = PersistentObjectUtil.FormChildKeyFromKeyValues(childClassMeta, chikdKeys)
         where string.Equals(hashKey, childKeyStr, StringComparison.OrdinalIgnoreCase)
         select co).FirstOrDefault();
     }
@@ -653,7 +653,7 @@ namespace BaseEntity.Metadata
         if (childObj == null)
         {
           // The object wasn't imported by this importer, and its key wasn't found in the database, so throw
-          throw new MetadataException($"{PersistentObject.FormKey(childClassMeta, key)} not found");
+          throw new MetadataException($"{PersistentObjectUtil.FormKey(childClassMeta, key)} not found");
         }
       }
 
@@ -774,7 +774,7 @@ namespace BaseEntity.Metadata
             {
               if (childObj == null)
               {
-                throw new MetadataException($"{PersistentObject.FormKey(childClassMeta, key)} not found");
+                throw new MetadataException($"{PersistentObjectUtil.FormKey(childClassMeta, key)} not found");
               }
               if (list.Contains(childObj))
               {
@@ -880,7 +880,7 @@ namespace BaseEntity.Metadata
             else
             {
               if (childObj == null)
-                throw new MetadataException(PersistentObject.FormKey(childClassMeta, childObjKey) + " not found");
+                throw new MetadataException(PersistentObjectUtil.FormKey(childClassMeta, childObjKey) + " not found");
             }
 
             dict[dictKey] = childObj;
@@ -944,7 +944,7 @@ namespace BaseEntity.Metadata
           if (isOwned)
           {
             // Look for the entity in the original list in order to get its object id
-            var keyStr = cm.HasChildKey ? PersistentObject.FormChildKey(cm, key) : PersistentObject.FormKey(cm, key);
+            var keyStr = cm.HasChildKey ? PersistentObjectUtil.FormChildKey(cm, key) : PersistentObjectUtil.FormKey(cm, key);
             childObj = prevMap.TryGetValue(keyStr, out childObj) ? childObj : null;
             if (childObj != null)
             {
@@ -963,7 +963,7 @@ namespace BaseEntity.Metadata
           }
           if (childObj == null)
           {
-            throw new MetadataException($"{PersistentObject.FormKey(cm, key)} not found");
+            throw new MetadataException($"{PersistentObjectUtil.FormKey(cm, key)} not found");
           }
 
           list.Add(childObj);
@@ -991,12 +991,12 @@ namespace BaseEntity.Metadata
       var dict = childObjects as IDictionary;
       if (dict != null)
       {
-        string childKeyStr = PersistentObject.FormChildKeyFromKeyValues(childClassMeta, key);
+        string childKeyStr = PersistentObjectUtil.FormChildKeyFromKeyValues(childClassMeta, key);
         return dict.Contains(childKeyStr) ? dict[childKeyStr] as PersistentObject : null;
       }
 
-      string hashKey = PersistentObject.FormChildKey(childClassMeta, key);
-      return childObjects.Cast<PersistentObject>().FirstOrDefault(childObj => hashKey == PersistentObject.FormChildKey(childObj));
+      string hashKey = PersistentObjectUtil.FormChildKey(childClassMeta, key);
+      return childObjects.Cast<PersistentObject>().FirstOrDefault(childObj => hashKey == PersistentObjectUtil.FormChildKey(childObj));
     }
 
     /// <summary>

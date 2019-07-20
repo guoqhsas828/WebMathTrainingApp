@@ -4,6 +4,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using BaseEntity.Configuration;
 using BaseEntity.Shared;
 
@@ -16,8 +17,23 @@ namespace BaseEntity.Metadata
   [Entity(EntityId = 3, Key = new[] {"Name"},  OldStyleValidFrom = true, //AuditPolicy = AuditPolicy.History,
     Description = "Defines an assembly that is dynamically loaded as an extension to the risk system")]
   [Serializable]
-  public class PluginAssembly : PersistentObject
+  public class PluginAssembly : BaseEntityObject
   {
+
+    /// <summary>
+    ///   Object id
+    /// </summary>
+    /// <remarks>
+    ///   For internal use only.
+    /// </remarks>
+    //[DataMember]
+    [ObjectIdProperty(IsPrimaryKey = true)]
+    [Key]
+    public long ObjectId
+    {
+      get { return _objectId; }
+      set { _objectId = value; }
+    }
     /// <summary>
     /// Uniquely identifies this plugin assembly
     /// </summary>
@@ -62,5 +78,12 @@ namespace BaseEntity.Metadata
       if (PluginType.ToString() == "0")
         InvalidValue.AddError(errors, this, "PluginType", "Value cannot be empty!");
     }
+
+    #region Data
+
+    [NotMapped]
+    private long _objectId { get { return Id; } set { Id = value; } }
+
+    #endregion
   }
 }

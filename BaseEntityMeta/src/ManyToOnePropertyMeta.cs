@@ -270,7 +270,7 @@ namespace BaseEntity.Metadata
       sb.Append('{');
       var childObj = (PersistentObject) obj;
       if (childObj != null)
-        sb.Append(PersistentObject.FormKey(childObj));
+        sb.Append(PersistentObjectUtil.FormKey(childObj));
       sb.Append('}');
       return sb.ToString();
     }

@@ -89,21 +89,21 @@ namespace BaseEntity.Shared
         switch (v.ErrorLevel)
         {
           case ErrorLevel.Error:
-            Logger.Error(message);
+            //Logger.Error(message);
             sb.AppendLine(message);
             break;
           case ErrorLevel.Warning:
-            Logger.Warn(message);
+            //Logger.Warn(message);
             break;
           case ErrorLevel.Info:
-            Logger.Info(message);
+            //Logger.Info(message);
             break;
         }
       }
       return sb.ToString();
     }
 
-    private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(typeof(Validation));
+    //private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(typeof(Validation));
   }
 
 

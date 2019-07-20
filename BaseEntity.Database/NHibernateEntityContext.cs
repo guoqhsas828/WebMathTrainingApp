@@ -274,7 +274,7 @@ namespace BaseEntity.Database
       }
       catch (Exception ex)
       {
-        string hashKey = PersistentObject.FormKey(cm, keyList);
+        string hashKey = PersistentObjectUtil.FormKey(cm, keyList);
         throw new DatabaseException($"Error querying {cm.Name} with criteria [{hashKey}] : {ex}");
       }
     }

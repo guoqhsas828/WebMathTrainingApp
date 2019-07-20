@@ -35,7 +35,7 @@ namespace BaseEntity.Database
 
       var keyList = cm.KeyPropertyList.Select(keyProp => keyProp.GetValue(po)).ToList();
 
-      string keyStr = PersistentObject.FormKey(cm, keyList);
+      string keyStr = PersistentObjectUtil.FormKey(cm, keyList);
 
       // Lookup in database
       var keyPropList = cm.KeyPropertyList;
