@@ -34,11 +34,19 @@ namespace BaseEntity.Metadata
   {
     protected override PersistentObject Create(Type objectType, JObject jObject)
     {
-      //if (FieldExists("PluginType", jObject))
-      //{
-      //  return new PluginAssembly();
-      //}
-      //else
+      if (FieldExists("PluginType", jObject))
+      {
+        return new PluginAssembly()
+        {
+          ObjectId =  FieldValue<long>(jObject, "ObjectId"),
+          Description = FieldValue<string>(jObject, "Description"),
+          Enabled = FieldValue<bool>(jObject, "Enabled"),
+          FileName = FieldValue<string>(jObject, "FileName"),
+          Name=FieldValue<string>(jObject, "Name"),
+          //PluginType = FieldValue<Enum>(jObject, "")
+        };
+      }
+      else
       {
         throw new NotImplementedException();
       }
@@ -52,6 +60,11 @@ namespace BaseEntity.Metadata
     private bool FieldExists(string fieldName, JObject jObject)
     {
       return jObject[fieldName] != null;
+    }
+
+    private static T FieldValue<T>(JObject jObject, string fieldName)
+    {
+      return jObject[fieldName].Value<T>();
     }
   }
 

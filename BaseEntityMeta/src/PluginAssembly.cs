@@ -20,23 +20,23 @@ namespace BaseEntity.Metadata
     Description = "Defines an assembly that is dynamically loaded as an extension to the risk system")]
   [Serializable]
   [JsonConverter(typeof(PersistentObjectConverter))]
-  public class PluginAssembly : BaseEntityObject
+  public class PluginAssembly : PersistentObject
   {
 
-    /// <summary>
-    ///   Object id
-    /// </summary>
-    /// <remarks>
-    ///   For internal use only.
-    /// </remarks>
-    [DataMember]
-    [ObjectIdProperty(IsPrimaryKey = true)]
-    [Key]
-    public long ObjectId
-    {
-      get { return _objectId; }
-      set { _objectId = value; }
-    }
+    ///// <summary>
+    /////   Object id
+    ///// </summary>
+    ///// <remarks>
+    /////   For internal use only.
+    ///// </remarks>
+    //[DataMember]
+    //[ObjectIdProperty(IsPrimaryKey = true)]
+    //[Key]
+    //public long ObjectId
+    //{
+    //  get { return _objectId; }
+    //  set { _objectId = value; }
+    //}
 
     /// <summary>
     /// Uniquely identifies this plugin assembly
