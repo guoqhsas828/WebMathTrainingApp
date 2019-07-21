@@ -1,4 +1,5 @@
-﻿using StoreManager.Interfaces;
+﻿using System;
+using StoreManager.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using StoreManager.Models;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Services
       _dbContext = catalogContext;
     }
 
-    public virtual async Task<T> GetByIdAsync(int id)
+    public virtual async Task<T> GetByIdAsync(object id)
     {
-      return await _dbContext.Set<T>().FindAsync(id);
+      return await _dbContext.Set<T>().FindAsync(Convert.ToInt32(id));
     }
 
     public async Task<IReadOnlyList<T>> ListAllAsync()

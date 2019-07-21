@@ -4,7 +4,7 @@ using StoreManager.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System;
 
 namespace StoreManager.Data
 {
@@ -22,9 +22,9 @@ namespace StoreManager.Data
             _dbContext = dbContext;
         }
         
-        public virtual async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(object id)
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            return await _dbContext.Set<T>().FindAsync(Convert.ToInt32(id));
         }
         
         public async Task<IReadOnlyList<T>> ListAllAsync()

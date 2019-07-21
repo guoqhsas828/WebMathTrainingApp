@@ -6,7 +6,7 @@ namespace StoreManager.Interfaces
 {
     public interface IAsyncRepository<T> where T : BaseEntityModel
     {
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(object id);
         Task<IReadOnlyList<T>> ListAllAsync();
         Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
         Task<T> AddAsync(T entity);
