@@ -22,6 +22,9 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Swashbuckle.AspNetCore.Swagger;
 using WebMathTraining.Services;
+using BaseEntity.Metadata;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace StoreManager
 {
@@ -83,7 +86,18 @@ namespace StoreManager
 
       //  config.Path = "/allservices";
       //});
-
+      //var namespaceToTypes = typeof(PersistentObject).Namespace;
+      //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+      //    .AddJsonOptions(options =>
+      //    {
+      //    // Indented to make it easier to read during this demo.
+      //    options.SerializerSettings.Formatting = Formatting.Indented;
+      //      options.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+      //      options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+      //      options.SerializerSettings.Converters.Add(new StringEnumConverter());
+      //      options.SerializerSettings.SerializationBinder =
+      //        new CustomJsonSerializationBinder(namespaceToTypes);
+      //    });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

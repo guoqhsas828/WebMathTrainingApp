@@ -10,7 +10,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using BaseEntity.Shared;
 
 namespace BaseEntity.Metadata
@@ -21,6 +23,7 @@ namespace BaseEntity.Metadata
   [DataContract]
   [Serializable]
   [DisplayName("Entity")]
+  [JsonConverter(typeof(PersistentObjectConverter))]
   public abstract class PersistentObject : BaseEntityObject
   {
     #region Constructors

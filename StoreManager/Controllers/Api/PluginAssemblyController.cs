@@ -23,13 +23,13 @@ namespace StoreManager.Controllers.Api
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetPluginAssembly()
-        {
-            var Items = await _context.PluginAssembly.ToListAsync();
-            int Count = Items.Count();
-            return Ok(new { Items, Count });
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetPluginAssembly()
+    {
+      var Items = await _context.PluginAssembly.ToListAsync();
+      int Count = Items.Count();
+      return Ok(new { Items, Count });
+    }
 
         [HttpPost("[action]")]
         public IActionResult Insert([FromBody]CrudViewModel<PluginAssembly> payload)

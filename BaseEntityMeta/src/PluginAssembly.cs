@@ -5,8 +5,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 using BaseEntity.Configuration;
 using BaseEntity.Shared;
+using Newtonsoft.Json;
 
 namespace BaseEntity.Metadata
 {
@@ -17,6 +19,7 @@ namespace BaseEntity.Metadata
   [Entity(EntityId = 3, Key = new[] {"Name"},  OldStyleValidFrom = true, //AuditPolicy = AuditPolicy.History,
     Description = "Defines an assembly that is dynamically loaded as an extension to the risk system")]
   [Serializable]
+  [JsonConverter(typeof(PersistentObjectConverter))]
   public class PluginAssembly : BaseEntityObject
   {
 
@@ -26,7 +29,7 @@ namespace BaseEntity.Metadata
     /// <remarks>
     ///   For internal use only.
     /// </remarks>
-    //[DataMember]
+    [DataMember]
     [ObjectIdProperty(IsPrimaryKey = true)]
     [Key]
     public long ObjectId
@@ -34,6 +37,7 @@ namespace BaseEntity.Metadata
       get { return _objectId; }
       set { _objectId = value; }
     }
+
     /// <summary>
     /// Uniquely identifies this plugin assembly
     /// </summary>
