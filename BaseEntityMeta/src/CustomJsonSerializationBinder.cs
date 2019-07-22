@@ -2,6 +2,8 @@
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using BaseEntity.Configuration;
+using System.Collections.Generic;
 
 namespace BaseEntity.Metadata
 {
@@ -34,19 +36,19 @@ namespace BaseEntity.Metadata
   {
     protected override PersistentObject Create(Type objectType, JObject jObject)
     {
-      if (FieldExists("PluginType", jObject))
-      {
-        return new PluginAssembly()
-        {
-          ObjectId =  FieldValue<long>(jObject, "ObjectId"),
-          Description = FieldValue<string>(jObject, "Description"),
-          Enabled = FieldValue<bool>(jObject, "Enabled"),
-          FileName = FieldValue<string>(jObject, "FileName"),
-          Name=FieldValue<string>(jObject, "Name"),
-          //PluginType = FieldValue<Enum>(jObject, "")
-        };
-      }
-      else
+      //if (FieldExists("PluginType", jObject))
+      //{
+      //  return new PluginAssembly()
+      //  {
+      //    ObjectId = FieldExists("ObjectId", jObject) ?  FieldValue<long>(jObject, "ObjectId") : 0,
+      //    Description = FieldValue<string>(jObject, "Description"),
+      //    Enabled = FieldValue<bool>(jObject, "Enabled"),
+      //    FileName = FieldValue<string>(jObject, "FileName"),
+      //    Name=FieldValue<string>(jObject, "Name"),
+      //    PluginType = FieldValue<PluginType>(jObject, "PluginType")
+      //  };
+      //}
+      //else
       {
         throw new NotImplementedException();
       }
@@ -80,9 +82,25 @@ namespace BaseEntity.Metadata
     /// <returns></returns>
     protected abstract T Create(Type objectType, JObject jObject);
 
+    private static Type GetElementType(Type objectType)
+    {
+      if (objectType.IsGenericType)
+      {
+        Type typeDef = objectType.GetGenericTypeDefinition();
+
+        Type[] types = objectType.GetGenericArguments();
+        var itemType = (typeDef == typeof(IDictionary<,>)) ? types[1] : types[0];
+        return GetElementType(itemType);
+      }
+      else
+        return objectType;
+    }
+
     public override bool CanConvert(Type objectType)
     {
-      return typeof(T).IsAssignableFrom(objectType);
+      Type itemType = GetElementType(objectType);
+
+      return typeof(T).IsAssignableFrom(itemType);
     }
 
     public override bool CanWrite
