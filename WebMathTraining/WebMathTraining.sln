@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Metadata", "..\B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Database", "..\BaseEntity.Database\BaseEntity.Database.csproj", "{3AEC87B2-72DB-4F47-BFE3-F33E2B3F65A5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit.Base", "..\BaseEntity.Toolkit.Base\BaseEntity.Toolkit.Base.csproj", "{7392F7DB-47FD-4643-A809-F4A9CB10C44D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{3AEC87B2-72DB-4F47-BFE3-F33E2B3F65A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AEC87B2-72DB-4F47-BFE3-F33E2B3F65A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AEC87B2-72DB-4F47-BFE3-F33E2B3F65A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7392F7DB-47FD-4643-A809-F4A9CB10C44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7392F7DB-47FD-4643-A809-F4A9CB10C44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7392F7DB-47FD-4643-A809-F4A9CB10C44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7392F7DB-47FD-4643-A809-F4A9CB10C44D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BaseEntity.Toolkit.Base</AssemblyName>
+    <RootNamespace>BaseEntity.Toolkit.Base</RootNamespace>
+    <Company>MagnoliaIG</Company>
+    <Authors>MagnoliaIG</Authors>
+    <Description></Description>
+    <Version>11.0.0</Version>
+    <AssemblyVersion>11.0.0.0</AssemblyVersion>
+    <FileVersion>11.0.0.0</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>$(OutDir)$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\BaseEntityObjects\src\BaseEntityObjects.csproj" />
+    <ProjectReference Include="..\ObjectModels\src\BaseEntity.Configuration.csproj" />
+  </ItemGroup>
+
+</Project>
