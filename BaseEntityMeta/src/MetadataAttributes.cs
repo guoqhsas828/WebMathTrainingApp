@@ -6,6 +6,26 @@ using System;
 namespace BaseEntity.Metadata
 {
   /// <summary>
+  /// </summary>
+  [AttributeUsage(AttributeTargets.Property)]
+  public class CalendarPropertyAttribute : PropertyAttribute
+  {
+  }
+
+  /// <summary>
+  /// </summary>
+  [AttributeUsage(AttributeTargets.Property)]
+  public class DtPropertyAttribute : PropertyAttribute
+  {
+  }
+
+  /// <summary>
+  /// </summary>
+  [AttributeUsage(AttributeTargets.Property)]
+  public class TenorPropertyAttribute : PropertyAttribute
+  {
+  }
+  /// <summary>
   /// Specified custom attributes of numeric (Int32, Int64, Double) properties
   /// </summary>
   [AttributeUsage(AttributeTargets.Property)]

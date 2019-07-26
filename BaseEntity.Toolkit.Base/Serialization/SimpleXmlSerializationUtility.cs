@@ -15,7 +15,7 @@ using BaseEntity.Shared;
 
 namespace BaseEntity.Toolkit.Base.Serialization
 {
-  internal static class SimpleXmlSerializationUtility
+  public static class SimpleXmlSerializationUtility
   {
     #region Serialization utilities
 
@@ -124,7 +124,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
       return true;
     }
 
-    internal static string GetTypeName(Type type,
+    public static string GetTypeName(Type type,
       SimpleXmlSerializer settings = null)
     {
       string name;
@@ -464,7 +464,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
       return instanceType;
     }
 
-    internal static Type[] TryGetCollectionType(
+    public static Type[] TryGetCollectionType(
       SimpleXmlSerializer settings,
       Type decalreType,
       out Type instanceType,

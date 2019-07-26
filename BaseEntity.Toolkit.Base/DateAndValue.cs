@@ -18,7 +18,7 @@ namespace BaseEntity.Toolkit.Base
     /// </summary>
     /// <param name="date">The date.</param>
     /// <param name="value">The value.</param>
-    internal DateAndValue(Dt date, TValue value) : this()
+    public DateAndValue(Dt date, TValue value) : this()
     {
       Date = date;
       Value = value;

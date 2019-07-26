@@ -1,9 +1,6 @@
 /*
  * MetadataException.cs -
  *
- * Copyright (c) WebMathTraining 2002-2008. All rights reserved.
- *
- * $Id: MetadataException.cs,v 1.1 2006/11/21 22:14:53 mtraudt Exp $
  *
  */
 

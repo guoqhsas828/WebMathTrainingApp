@@ -7,20 +7,20 @@ using System.Diagnostics;
 
 namespace BaseEntity.Toolkit.Base.Serialization
 {
-  internal static class CustomSerializers
+  public static class CustomSerializers
   {
     private static readonly IList<ISimpleXmlSerializer> Serializers = new List<ISimpleXmlSerializer>
     {
       NativeObjectSerializer.Instance
     };
 
-    internal static void Register(ISimpleXmlSerializer serializer)
+    public static void Register(ISimpleXmlSerializer serializer)
     {
       Debug.Assert(serializer != null);
       Serializers.Add(serializer);
     }
 
-    internal static ISimpleXmlSerializer TryGet(Type type)
+    public static ISimpleXmlSerializer TryGet(Type type)
     {
       var list = Serializers;
       for (int i = list.Count; --i >= 0;)

@@ -18,7 +18,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
   ///  This helps to reduce the XML file size and enable the generated
   ///  files to be compatible cross versions and .Net frameworks.
   /// </summary>
-  class TypeNameBuilder
+  public class TypeNameBuilder
   {
     public string GetName(Type type)
     {

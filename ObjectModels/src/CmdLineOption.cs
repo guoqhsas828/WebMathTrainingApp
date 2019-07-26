@@ -1,12 +1,6 @@
 /*
  * CmdLineOption.cs -
  *
- * Copyright (c) WebMathTraining 2002-2008. All rights reserved.
- *
- * $Id: CmdLineOption.cs,v 1.11 2006/11/06 23:49:40 rtd Exp $
- *
- * TODO: 
- *   o Fully implement --version
  *
  */
 

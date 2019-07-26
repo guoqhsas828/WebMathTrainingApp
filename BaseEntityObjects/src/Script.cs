@@ -1,9 +1,6 @@
 /*
  * Script.cs
  *
- * Copyright (c) WebMathTraining 2002-2008. All rights reserved.
- *
- * $Id: Script.cs,v 1.7 2006/09/27 18:57:41 tzhang Exp $
  *
  */
 

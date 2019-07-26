@@ -14,7 +14,7 @@ using Utility = BaseEntity.Toolkit.Base.Serialization.SimpleXmlSerializationUtil
 
 namespace BaseEntity.Toolkit.Base.Serialization
 {
-  internal abstract class SimpleXmlSerializationInfo
+  public abstract class SimpleXmlSerializationInfo
   {
     #region Instance method
 

@@ -18,7 +18,7 @@ namespace BaseEntity.Toolkit.Util.Configuration
   [Serializable]
   public class ToolkitConfigException : ToolkitException
   {
-    internal ToolkitConfigException(
+    public ToolkitConfigException(
       string message, Exception innerException)
       :base(message, innerException)
     { }
@@ -45,7 +45,7 @@ namespace BaseEntity.Toolkit.Util.Configuration
   [Serializable]
   public class ToolkitConfigReadException : ToolkitConfigException
   {
-    internal ToolkitConfigReadException(
+    public ToolkitConfigReadException(
       string message, Exception innerException)
       : base(message, innerException)
     { }

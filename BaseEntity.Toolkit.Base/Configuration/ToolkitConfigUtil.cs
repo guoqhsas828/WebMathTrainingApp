@@ -95,7 +95,7 @@ namespace BaseEntity.Toolkit.Util.Configuration
       return WriteSettingsXml(settings, rootName, false);
     }
 
-    internal static string WriteSettingsXml<T>(T settings,
+    public static string WriteSettingsXml<T>(T settings,
       string rootName, bool includeInternalMembers)
     {
       Debug.Assert(settings != null, "settings is null.");

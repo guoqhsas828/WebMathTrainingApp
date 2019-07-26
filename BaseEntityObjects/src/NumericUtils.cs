@@ -1,9 +1,6 @@
 /*
  * StringUtil.cs
  *
- * Copyright (c) WebMathTraining 2005-2008. All rights reserved.
- *
- * $Id: StringUtil.cs,v 1.3 2006/11/06 23:49:41 rtd Exp $
  */
 
 using System;

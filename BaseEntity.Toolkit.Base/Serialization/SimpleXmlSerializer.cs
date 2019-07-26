@@ -153,7 +153,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
       return NameBuilder.GetName(type);
     }
 
-    internal static readonly TypeNameBuilder NameBuilder= new TypeNameBuilder();
+    public static readonly TypeNameBuilder NameBuilder= new TypeNameBuilder();
 
     private void AddKnownTypes(
       IEnumerable<KeyValuePair<string, Type>> knownTypes)
@@ -381,7 +381,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
 
     #region SimpleXmlSerializationInfo
 
-    internal SimpleXmlSerializationInfo GetSerializationInfo(Type type)
+    public SimpleXmlSerializationInfo GetSerializationInfo(Type type)
     {
       Debug.Assert(type != null);
       SimpleXmlSerializationInfo info;

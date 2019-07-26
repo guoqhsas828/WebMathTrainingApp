@@ -49,7 +49,7 @@ namespace BaseEntity.Toolkit.Base
 
     // This method is called by ToolkitConfigurator only.
     // It is not supposed to be directly called from the user codes.
-    internal static void Init(ToolkitBaseConfigSettings settings)
+    public static void Init(ToolkitBaseConfigSettings settings)
     {
       _settings = settings;
     }

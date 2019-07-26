@@ -1,10 +1,6 @@
 /*
  * SubclassMappingStragegy.cs -
  *
- * Copyright (c) WebMathTraining 2002-2008. All rights reserved.
- *
- * $Id: SubclassMappingStrategy.cs,v 1.1 2006/11/21 22:14:54 mtraudt Exp $
- *
  */
 
 namespace BaseEntity.Metadata

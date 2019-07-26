@@ -1,15 +1,6 @@
 /*
  * CmdLineParser.cs -
  *
- * Copyright (c) WebMathTraining 2008. All rights reserved.
- *
- * $Id: CmdLineParser.cs,v 1.30 2006/11/16 22:55:27 rnagamalla Exp $
- *
- * TODO:
- *   o Add support for grouped single char options (e.g. -bc => -b -c)
- *   o Add support for keyword substitutions in usage text (e.g. for default values)
- *   o Check for conflicts in AddOption()
- *
  */
 
 using System;

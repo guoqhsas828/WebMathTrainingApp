@@ -18,7 +18,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
 {
   #region Type: FieldMap
 
-  class FieldMap : IEnumerable<FieldMap.Entry>
+  public class FieldMap : IEnumerable<FieldMap.Entry>
   {
     public class Entry
     {

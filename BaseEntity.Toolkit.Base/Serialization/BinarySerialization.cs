@@ -164,7 +164,7 @@ namespace BaseEntity.Toolkit.Base.Serialization
   ///   Wrapped as serializable the in-memory assemblies created by scripts
   /// </summary>
   [Serializable]
-  internal sealed class AssemblyData
+  public sealed class AssemblyData
   {
     #region Instance members
 

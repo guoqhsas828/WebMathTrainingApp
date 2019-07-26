@@ -2350,7 +2350,7 @@ namespace BaseEntity.Toolkit.Base
     /// <param name="start">Starting reference date</param>
     /// <param name="dt">date</param>
     /// <returns>Time in years from start date to dt</returns>
-    internal static double TimeInYears(Dt start, Dt dt)
+    public static double TimeInYears(Dt start, Dt dt)
     {
       return FractDiff(start, dt) / 365.0;
     }

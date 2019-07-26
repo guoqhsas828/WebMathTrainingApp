@@ -33,10 +33,10 @@ namespace BaseEntity.Toolkit.Base
     // mostly the composite calendars such as "NYB+LNB".  To ensure that the IDs come
     // from a single source, we make the native CalendarCalc the only calculator.
     //
-    // The switch bettween managed and native occurs in the initialization stage. 
+    // The switch between managed and native occurs in the initialization stage. 
 
     // Call Init() to switch to another calculator.
-    internal static void Init(
+    public static void Init(
       Func<string, Calendar> getCalendar,
       Func<Calendar, string> calendarName,
       Func<Calendar, bool> isValidCalendar,

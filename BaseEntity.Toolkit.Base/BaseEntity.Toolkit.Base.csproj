@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
-    <DocumentationFile>$(OutDir)$(AssemblyName).xml</DocumentationFile>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

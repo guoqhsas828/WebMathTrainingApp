@@ -1,10 +1,6 @@
 /*
  * HttpRequestUtil.cs
  *
- * Copyright (c) WebMathTraining 2008. All rights reserved.
- *
- * $Id: HttpRequestUtil.cs,v 1.5 2006/11/06 23:49:41 rtd Exp $
- *
  * ref www.codeproject.com
  * 
  */
