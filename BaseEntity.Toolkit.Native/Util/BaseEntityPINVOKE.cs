@@ -29,10 +29,10 @@ public static class NativeConfigurator
     }
   }
 
-  [DllImport("MagnoliaIGNative", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+  [DllImport("MagnoliaCppWrapper", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
   private static extern int GetMACAddressList(StringBuilder MACAddresses, ref int maxSize);
 
-  [DllImport("MagnoliaIGNative", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+  [DllImport("MagnoliaCppWrapper", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
   private static extern int GetHostID(string macAddr, StringBuilder hostID, StringBuilder messages, ref int maxSizeMsg);
 
   private static void CheckUpdate()

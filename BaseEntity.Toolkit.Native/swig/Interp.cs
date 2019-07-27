@@ -210,7 +210,7 @@ namespace BaseEntity.Toolkit.Numerics {
       }
 
       [System.Security.SuppressUnmanagedCodeSecurity]
-      [DllImport("MagnoliaIGNative", EntryPoint = "qn_Interp_getDataPointer", CallingConvention=CallingConvention.Cdecl)]
+      [DllImport("MagnoliaCppWrapper", EntryPoint = "qn_Interp_getDataPointer", CallingConvention=CallingConvention.Cdecl)]
       private static extern IntPtr qn_Interp_getDataPointer(HandleRef jarg1);
 
       private IntPtr getDataPointer()
