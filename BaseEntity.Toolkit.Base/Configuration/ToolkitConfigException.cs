@@ -7,10 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
-using BaseEntity.Toolkit.Util;
 
-namespace BaseEntity.Toolkit.Util.Configuration
+namespace BaseEntity.Toolkit.Base
 {
   /// <summary>
   ///  Toolkit configuration exception

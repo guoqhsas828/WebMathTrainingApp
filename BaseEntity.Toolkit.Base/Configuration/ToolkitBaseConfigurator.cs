@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml;
 using BaseEntity.Configuration;
-using BaseEntity.Toolkit.Base.Details;
+using BaseEntity.Shared;
 using BaseEntity.Toolkit.Util.Configuration;
 
 namespace BaseEntity.Toolkit.Base

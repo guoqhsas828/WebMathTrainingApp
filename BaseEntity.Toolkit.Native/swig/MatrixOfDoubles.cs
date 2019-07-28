@@ -13,6 +13,7 @@ using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.ComponentModel;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Util {
 
@@ -64,7 +65,7 @@ public partial class MatrixOfDoubles : IDisposable {
   public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
   {
     if (swigCMemOwn==false)
-      throw new BaseEntity.Toolkit.Util.ToolkitException("Object can not be serialized when swigCMemOwn is false.");
+      throw new ToolkitException("Object can not be serialized when swigCMemOwn is false.");
     double[,] data= new double[this.dim1(), this.dim2()];
     for (int i=0;i<this.dim1();i++)
     {

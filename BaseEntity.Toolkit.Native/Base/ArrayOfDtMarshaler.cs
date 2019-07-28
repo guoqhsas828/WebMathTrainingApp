@@ -8,7 +8,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-using BaseEntity.Toolkit.Util;
+using BaseEntity.Shared;
 
 namespace BaseEntity.Toolkit.Base
 {

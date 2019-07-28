@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Xml;
 
 using BaseEntity.Toolkit.Base;
-using BaseEntity.Toolkit.Util;
+using BaseEntity.Shared;
 
 unsafe public partial class BaseEntityPINVOKE {
 
@@ -703,7 +703,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_Interpolator")]
-  public static extern IntPtr new_Interpolator(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern IntPtr new_Interpolator(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Interpolator_evaluate")]
@@ -747,12 +747,12 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cubic_GetpublicData_Y2")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cubic_GetpublicData_Y2(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cubic_SetpublicData_Y2")]
-  public static extern void Cubic_SetpublicData_Y2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cubic_SetpublicData_Y2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_Flat__SWIG_0")]
@@ -860,30 +860,30 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_GetpublicData_B")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] PCHIP_GetpublicData_B(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_SetpublicData_B")]
-  public static extern void PCHIP_SetpublicData_B(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void PCHIP_SetpublicData_B(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_GetpublicData_C")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] PCHIP_GetpublicData_C(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_SetpublicData_C")]
-  public static extern void PCHIP_SetpublicData_C(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void PCHIP_SetpublicData_C(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_GetpublicData_D")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] PCHIP_GetpublicData_D(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_PCHIP_SetpublicData_D")]
-  public static extern void PCHIP_SetpublicData_D(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void PCHIP_SetpublicData_D(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_Quadratic__SWIG_0")]
@@ -907,12 +907,12 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadratic_GetpublicData_B")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Quadratic_GetpublicData_B(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadratic_SetpublicData_B")]
-  public static extern void Quadratic_SetpublicData_B(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Quadratic_SetpublicData_B(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_Tension__SWIG_0")]
@@ -944,21 +944,21 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Tension_SetTension__SWIG_1")]
-  public static extern void Tension_SetTension__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Tension_SetTension__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Tension_GetpublicData_T")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Tension_GetpublicData_T(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Tension_GetpublicData_S")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Tension_GetpublicData_S(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Tension_SetpublicData")]
-  public static extern void Tension_SetpublicData(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Tension_SetpublicData(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_delete_Tension")]
@@ -1382,11 +1382,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultivariateDistribution_pdf")]
-  public static extern double MultivariateDistribution_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double MultivariateDistribution_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultivariateDistribution_cdf")]
-  public static extern double MultivariateDistribution_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double MultivariateDistribution_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultivariateDistribution_dimension")]
@@ -1402,11 +1402,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BivariateNormal_pdf")]
-  public static extern double BivariateNormal_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double BivariateNormal_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BivariateNormal_cdf")]
-  public static extern double BivariateNormal_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double BivariateNormal_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BivariateNormal_dimension")]
@@ -1454,11 +1454,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_TrivariateNormal_pdf")]
-  public static extern double TrivariateNormal_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double TrivariateNormal_pdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_TrivariateNormal_cdf")]
-  public static extern double TrivariateNormal_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double TrivariateNormal_cdf(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_TrivariateNormal_dimension")]
@@ -1654,43 +1654,43 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussLegendre")]
-  public static extern void Quadrature_GaussLegendre(bool jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Quadrature_GaussLegendre(bool jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussChebyshev__SWIG_0")]
-  public static extern void Quadrature_GaussChebyshev__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Quadrature_GaussChebyshev__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussChebyshev__SWIG_1")]
-  public static extern void Quadrature_GaussChebyshev__SWIG_1(bool jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Quadrature_GaussChebyshev__SWIG_1(bool jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussHermite")]
-  public static extern void Quadrature_GaussHermite([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Quadrature_GaussHermite([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussJacobi")]
-  public static extern void Quadrature_GaussJacobi(double jarg1, double jarg2, bool jarg3, bool jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6);
+  public static extern void Quadrature_GaussJacobi(double jarg1, double jarg2, bool jarg3, bool jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussLaguerre")]
-  public static extern void Quadrature_GaussLaguerre(double jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Quadrature_GaussLaguerre(double jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_Normal")]
-  public static extern void Quadrature_Normal(double jarg1, double jarg2, bool jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void Quadrature_Normal(double jarg1, double jarg2, bool jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_StudentT")]
-  public static extern void Quadrature_StudentT(int jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Quadrature_StudentT(int jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_ChiSquare")]
-  public static extern void Quadrature_ChiSquare(int jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Quadrature_ChiSquare(int jarg1, bool jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_Gamma")]
-  public static extern void Quadrature_Gamma(double jarg1, bool jarg2, bool jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void Quadrature_Gamma(double jarg1, bool jarg2, bool jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Quadrature_GaussKronrod")]
@@ -1806,15 +1806,15 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CoreGenerator_StdUniform__SWIG_1")]
-  public static extern void CoreGenerator_StdUniform__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void CoreGenerator_StdUniform__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CoreGenerator_StdNormal__SWIG_1")]
-  public static extern void CoreGenerator_StdNormal__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void CoreGenerator_StdNormal__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CoreGenerator_StdExponential__SWIG_1")]
-  public static extern void CoreGenerator_StdExponential__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void CoreGenerator_StdExponential__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CoreGenerator_Gamma")]
@@ -1982,11 +1982,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Add__SWIG_1")]
-  public static extern void Curve_Add__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Curve_Add__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Set__SWIG_0")]
-  public static extern void Curve_Set__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Curve_Set__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Set__SWIG_1")]
@@ -2050,7 +2050,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Derivatives")]
-  public static extern void Curve_Derivatives(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Curve_Derivatives(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_R__SWIG_0")]
@@ -2106,12 +2106,12 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Get_publicState_x")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Curve_Get_publicState_x(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Get_publicState_y")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Curve_Get_publicState_y(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
@@ -2121,7 +2121,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_Set_publicState")]
-  public static extern void Curve_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, double jarg3, HandleRef jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg9, string jarg10, string jarg11, int jarg12, int jarg13, BaseEntity.Toolkit.Base.Dt jarg14);
+  public static extern void Curve_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, double jarg3, HandleRef jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg9, string jarg10, string jarg11, int jarg12, int jarg13, BaseEntity.Toolkit.Base.Dt jarg14);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_SetRate")]
@@ -2137,7 +2137,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_SetTensionFactors")]
-  public static extern void Curve_SetTensionFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Curve_SetTensionFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve_update__SWIG_0")]
@@ -2417,42 +2417,42 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_PrincipalsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_PrincipalsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_SpreadsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_SpreadsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_ProjectedArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] Cashflow_GetpublicData_ProjectedArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_PeriodFractionsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_PeriodFractionsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_AmountsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_AmountsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_AccruedArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_AccruedArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_CouponsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_CouponsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_GetpublicData_AAmountsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Cashflow_GetpublicData_AAmountsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
@@ -2473,35 +2473,35 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_PrincipalsArray")]
-  public static extern void Cashflow_SetpublicData_PrincipalsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_PrincipalsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_SpreadsArray")]
-  public static extern void Cashflow_SetpublicData_SpreadsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_SpreadsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_ProjectedArray")]
-  public static extern void Cashflow_SetpublicData_ProjectedArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2);
+  public static extern void Cashflow_SetpublicData_ProjectedArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_PeriodFractionsArray")]
-  public static extern void Cashflow_SetpublicData_PeriodFractionsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_PeriodFractionsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_AmountsArray")]
-  public static extern void Cashflow_SetpublicData_AmountsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_AmountsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_AccruedArray")]
-  public static extern void Cashflow_SetpublicData_AccruedArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_AccruedArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_CouponsArray")]
-  public static extern void Cashflow_SetpublicData_CouponsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_CouponsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetpublicData_AAmountsArray")]
-  public static extern void Cashflow_SetpublicData_AAmountsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void Cashflow_SetpublicData_AAmountsArray(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Cashflow_SetMaturityPaymentIfDefault")]
@@ -2537,11 +2537,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CashflowFactory_FillFixed")]
-  public static extern void CashflowFactory_FillFixed(HandleRef jarg1, HandleRef jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, BaseEntity.Toolkit.Base.Dt jarg5, BaseEntity.Toolkit.Base.Dt jarg6, BaseEntity.Toolkit.Base.Dt jarg7, int jarg8, double jarg9, BaseEntity.Toolkit.Base.Dt jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, int jarg13, int jarg14, int jarg15, BaseEntity.Toolkit.Base.Calendar jarg16, double jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, int jarg21, BaseEntity.Toolkit.Base.Dt jarg22, int jarg23, int jarg24);
+  public static extern void CashflowFactory_FillFixed(HandleRef jarg1, HandleRef jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, BaseEntity.Toolkit.Base.Dt jarg5, BaseEntity.Toolkit.Base.Dt jarg6, BaseEntity.Toolkit.Base.Dt jarg7, int jarg8, double jarg9, BaseEntity.Toolkit.Base.Dt jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, int jarg13, int jarg14, int jarg15, BaseEntity.Toolkit.Base.Calendar jarg16, double jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, int jarg21, BaseEntity.Toolkit.Base.Dt jarg22, int jarg23, int jarg24);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CashflowFactory_FillFloat")]
-  public static extern void CashflowFactory_FillFloat(HandleRef jarg1, HandleRef jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, BaseEntity.Toolkit.Base.Dt jarg5, BaseEntity.Toolkit.Base.Dt jarg6, BaseEntity.Toolkit.Base.Dt jarg7, int jarg8, double jarg9, BaseEntity.Toolkit.Base.Dt jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, int jarg13, int jarg14, int jarg15, BaseEntity.Toolkit.Base.Calendar jarg16, HandleRef jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg21, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg22, double jarg23, int jarg24, BaseEntity.Toolkit.Base.Dt jarg25, int jarg26, int jarg27);
+  public static extern void CashflowFactory_FillFloat(HandleRef jarg1, HandleRef jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, BaseEntity.Toolkit.Base.Dt jarg5, BaseEntity.Toolkit.Base.Dt jarg6, BaseEntity.Toolkit.Base.Dt jarg7, int jarg8, double jarg9, BaseEntity.Toolkit.Base.Dt jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, int jarg13, int jarg14, int jarg15, BaseEntity.Toolkit.Base.Calendar jarg16, HandleRef jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg21, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg22, double jarg23, int jarg24, BaseEntity.Toolkit.Base.Dt jarg25, int jarg26, int jarg27);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CashflowFactory_Init")]
@@ -2594,22 +2594,22 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_DividendSchedule_GetpublicData_TimeArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] DividendSchedule_GetpublicData_TimeArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_DividendSchedule_GetpublicData_CfArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] DividendSchedule_GetpublicData_CfArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_DividendSchedule_GetpublicData_TypeArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] DividendSchedule_GetpublicData_TypeArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_DividendSchedule_SetpublicData")]
-  public static extern void DividendSchedule_SetpublicData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5);
+  public static extern void DividendSchedule_SetpublicData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_DividendSchedule_Pv__SWIG_0")]
@@ -2649,71 +2649,71 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BDT_Tree__SWIG_0")]
-  public static extern void BDT_Tree__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void BDT_Tree__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BDT_Tree__SWIG_1")]
-  public static extern void BDT_Tree__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void BDT_Tree__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BDT_Tree__SWIG_2")]
-  public static extern void BDT_Tree__SWIG_2([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5);
+  public static extern void BDT_Tree__SWIG_2([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CapCalibrations_SabrGuessValues")]
-  public static extern void CapCalibrations_SabrGuessValues(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7);
+  public static extern void CapCalibrations_SabrGuessValues(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CapCalibrations_SabrFitSingleFwd")]
-  public static extern void CapCalibrations_SabrFitSingleFwd([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9);
+  public static extern void CapCalibrations_SabrFitSingleFwd([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_CalculateCapPvs")]
-  public static extern void RateVolatilityCurveBuilder_CalculateCapPvs([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, int jarg6);
+  public static extern void RateVolatilityCurveBuilder_CalculateCapPvs([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, int jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_BuildAtmVolCurve")]
-  public static extern void RateVolatilityCurveBuilder_BuildAtmVolCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, HandleRef jarg5, HandleRef jarg6);
+  public static extern void RateVolatilityCurveBuilder_BuildAtmVolCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, HandleRef jarg5, HandleRef jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_BootstrapEDFCapletCurve")]
-  public static extern void RateVolatilityCurveBuilder_BootstrapEDFCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg7, double jarg8, double jarg9, double jarg10, int jarg11, HandleRef jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13);
+  public static extern void RateVolatilityCurveBuilder_BootstrapEDFCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg7, double jarg8, double jarg9, double jarg10, int jarg11, HandleRef jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_BootstrapFlatEDFCapletCurve")]
-  public static extern void RateVolatilityCurveBuilder_BootstrapFlatEDFCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, double jarg3, HandleRef jarg4, int jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7);
+  public static extern void RateVolatilityCurveBuilder_BootstrapFlatEDFCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, double jarg3, HandleRef jarg4, int jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_BootstrapAtmCapletCurve")]
-  public static extern void RateVolatilityCurveBuilder_BootstrapAtmCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, HandleRef jarg4, double jarg5, int jarg6, HandleRef jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8);
+  public static extern void RateVolatilityCurveBuilder_BootstrapAtmCapletCurve([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, HandleRef jarg4, double jarg5, int jarg6, HandleRef jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateVolatilityCurveBuilder_CalculateAtmCapPvs")]
-  public static extern void RateVolatilityCurveBuilder_CalculateAtmCapPvs([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7);
+  public static extern void RateVolatilityCurveBuilder_CalculateAtmCapPvs([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_SabrGuessValues")]
-  public static extern void SabrCalibrations_SabrGuessValues(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11);
+  public static extern void SabrCalibrations_SabrGuessValues(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_SabrCalibrate3Params")]
-  public static extern void SabrCalibrations_SabrCalibrate3Params([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9);
+  public static extern void SabrCalibrations_SabrCalibrate3Params([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_SabrCalibrate2Params")]
-  public static extern void SabrCalibrations_SabrCalibrate2Params([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10);
+  public static extern void SabrCalibrations_SabrCalibrate2Params([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_SabrCombinedCalibrate")]
-  public static extern void SabrCalibrations_SabrCombinedCalibrate([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11);
+  public static extern void SabrCalibrations_SabrCombinedCalibrate([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_Calibrate__SWIG_0")]
-  public static extern void SabrCalibrations_Calibrate__SWIG_0(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6);
+  public static extern void SabrCalibrations_Calibrate__SWIG_0(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrCalibrations_Calibrate__SWIG_1")]
-  public static extern void SabrCalibrations_Calibrate__SWIG_1(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void SabrCalibrations_Calibrate__SWIG_1(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_OverHedgeCosts__SWIG_0")]
@@ -2721,7 +2721,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_OverHedgeCosts__SWIG_1")]
-  public static extern double VannaVolgaCalibrator_OverHedgeCosts__SWIG_1(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
+  public static extern double VannaVolgaCalibrator_OverHedgeCosts__SWIG_1(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_ImpliedVolatility__SWIG_0")]
@@ -2729,11 +2729,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_Calibrate")]
-  public static extern void VannaVolgaCalibrator_Calibrate([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, double jarg6, double jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9);
+  public static extern void VannaVolgaCalibrator_Calibrate([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, double jarg4, double jarg5, double jarg6, double jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_ImpliedVolatility__SWIG_1")]
-  public static extern double VannaVolgaCalibrator_ImpliedVolatility__SWIG_1(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
+  public static extern double VannaVolgaCalibrator_ImpliedVolatility__SWIG_1(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_VannaVolgaCalibrator_SolveDelta")]
@@ -2813,8 +2813,8 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BK_P")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] BK_P(int jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] BK_P(int jarg1, double jarg2, double jarg3, double jarg4, double jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BlackScholes_P__SWIG_0")]
@@ -3026,11 +3026,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CliquetOption_P")]
-  public static extern double CliquetOption_P(int jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
+  public static extern double CliquetOption_P(int jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CliquetOption_ImpliedVolatility")]
-  public static extern double CliquetOption_ImpliedVolatility(int jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
+  public static extern double CliquetOption_ImpliedVolatility(int jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LookbackFixedStrikeOption_P")]
@@ -3250,19 +3250,19 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_DiscountMarginToFullPrice")]
-  public static extern double BondModelFRN_DiscountMarginToFullPrice([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
+  public static extern double BondModelFRN_DiscountMarginToFullPrice([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_FullPriceToDiscountMargin")]
-  public static extern double BondModelFRN_FullPriceToDiscountMargin([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
+  public static extern double BondModelFRN_FullPriceToDiscountMargin([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_Duration")]
-  public static extern double BondModelFRN_Duration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, int jarg12);
+  public static extern double BondModelFRN_Duration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, int jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_ModDuration__SWIG_0")]
-  public static extern double BondModelFRN_ModDuration__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, int jarg12);
+  public static extern double BondModelFRN_ModDuration__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, int jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_ModDuration__SWIG_1")]
@@ -3270,23 +3270,23 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_Pv01")]
-  public static extern double BondModelFRN_Pv01([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10);
+  public static extern double BondModelFRN_Pv01([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_Convexity")]
-  public static extern double BondModelFRN_Convexity([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11);
+  public static extern double BondModelFRN_Convexity([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_dPdL")]
-  public static extern double BondModelFRN_dPdL([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10);
+  public static extern double BondModelFRN_dPdL([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_MarketSpreadDuration")]
-  public static extern double BondModelFRN_MarketSpreadDuration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, int jarg11);
+  public static extern double BondModelFRN_MarketSpreadDuration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, int jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelFRN_MarketSpreadModDuration")]
-  public static extern double BondModelFRN_MarketSpreadModDuration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, int jarg11);
+  public static extern double BondModelFRN_MarketSpreadModDuration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, double jarg5, double jarg6, double jarg7, double jarg8, double jarg9, double jarg10, int jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BondModelTM_PriceToDiscountRate")]
@@ -3610,7 +3610,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CevModel_CalibrateParameters")]
-  public static extern void CevModel_CalibrateParameters(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7);
+  public static extern void CevModel_CalibrateParameters(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrModel_BlackVolatility__SWIG_0")]
@@ -3622,7 +3622,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SabrModel_CalibrateParameters")]
-  public static extern void SabrModel_CalibrateParameters(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7, ref double jarg8, ref double jarg9);
+  public static extern void SabrModel_CalibrateParameters(double jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7, ref double jarg8, ref double jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CIR_P")]
@@ -3742,11 +3742,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CCCMonteCarloModel_ComputePvs")]
-  public static extern void CCCMonteCarloModel_ComputePvs(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, int jarg5, BaseEntity.Toolkit.Base.Calendar jarg6, int jarg7, int jarg8, double jarg9, int jarg10, double jarg11, int jarg12, double jarg13, int jarg14, int jarg15, int jarg16, double jarg17, double jarg18, double jarg19, double jarg20, double jarg21, double jarg22, double jarg23, double jarg24, double jarg25, double jarg26, double jarg27, double jarg28, double jarg29, HandleRef jarg30, HandleRef jarg31, double jarg32, HandleRef jarg33, HandleRef jarg34, HandleRef jarg35, double jarg36, double jarg37, double jarg38, int jarg39, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg40);
+  public static extern void CCCMonteCarloModel_ComputePvs(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, BaseEntity.Toolkit.Base.Dt jarg4, int jarg5, BaseEntity.Toolkit.Base.Calendar jarg6, int jarg7, int jarg8, double jarg9, int jarg10, double jarg11, int jarg12, double jarg13, int jarg14, int jarg15, int jarg16, double jarg17, double jarg18, double jarg19, double jarg20, double jarg21, double jarg22, double jarg23, double jarg24, double jarg25, double jarg26, double jarg27, double jarg28, double jarg29, HandleRef jarg30, HandleRef jarg31, double jarg32, HandleRef jarg33, HandleRef jarg34, HandleRef jarg35, double jarg36, double jarg37, double jarg38, int jarg39, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg40);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ContingentCommoditySwapMonteCarloModel_ComputePvs")]
-  public static extern void ContingentCommoditySwapMonteCarloModel_ComputePvs(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, HandleRef jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, double jarg9, double jarg10, double jarg11, double jarg12, HandleRef jarg13, HandleRef jarg14, double jarg15, double jarg16, double jarg17, int jarg18, int jarg19, int jarg20, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg21);
+  public static extern void ContingentCommoditySwapMonteCarloModel_ComputePvs(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, HandleRef jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, double jarg9, double jarg10, double jarg11, double jarg12, HandleRef jarg13, HandleRef jarg14, double jarg15, double jarg16, double jarg17, int jarg18, int jarg19, int jarg20, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoContingentCredit_FixedPv")]
@@ -3778,23 +3778,23 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoCredit_PremiumPv__SWIG_0")]
-  public static extern double QuantoCredit_PremiumPv__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13);
+  public static extern double QuantoCredit_PremiumPv__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoCredit_PremiumPv__SWIG_1")]
-  public static extern double QuantoCredit_PremiumPv__SWIG_1(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, HandleRef jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14);
+  public static extern double QuantoCredit_PremiumPv__SWIG_1(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, HandleRef jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoCredit_ProtectionPv__SWIG_0")]
-  public static extern double QuantoCredit_ProtectionPv__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13);
+  public static extern double QuantoCredit_ProtectionPv__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoCredit_ProtectionPv__SWIG_1")]
-  public static extern double QuantoCredit_ProtectionPv__SWIG_1(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, HandleRef jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14);
+  public static extern double QuantoCredit_ProtectionPv__SWIG_1(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, HandleRef jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoCredit_Df")]
-  public static extern double QuantoCredit_Df(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11);
+  public static extern double QuantoCredit_Df(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, HandleRef jarg3, HandleRef jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_QuantoOption_P")]
@@ -3802,22 +3802,22 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_CDSToSurvivalMarkit")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] Bootstrap_CDSToSurvivalMarkit([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] Bootstrap_CDSToSurvivalMarkit([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_CDSToSurvival")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] Bootstrap_CDSToSurvival([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] Bootstrap_CDSToSurvival([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_SurvivalToCDS")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] Bootstrap_SurvivalToCDS([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] Bootstrap_SurvivalToCDS([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_RdfToSurvival__SWIG_0")]
-  public static extern bool Bootstrap_RdfToSurvival__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern bool Bootstrap_RdfToSurvival__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_RdfToSurvival__SWIG_1")]
@@ -3825,7 +3825,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_SurvivalToRdf__SWIG_0")]
-  public static extern void Bootstrap_SurvivalToRdf__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void Bootstrap_SurvivalToRdf__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Bootstrap_SurvivalToRdf__SWIG_1")]
@@ -3841,7 +3841,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultiStreamRng_DrawUniform")]
-  public static extern void MultiStreamRng_DrawUniform(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void MultiStreamRng_DrawUniform(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_delete_MultiStreamRng")]
@@ -3849,11 +3849,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultiStreamRng_get__SWIG_0")]
-  public static extern IntPtr MultiStreamRng_get__SWIG_0(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern IntPtr MultiStreamRng_get__SWIG_0(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultiStreamRng_get__SWIG_1")]
-  public static extern IntPtr MultiStreamRng_get__SWIG_1(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern IntPtr MultiStreamRng_get__SWIG_1(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MultiStreamRng_clone")]
@@ -3889,11 +3889,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SimulatedPath_EvolveInterpolatedDiscounts")]
-  public static extern void SimulatedPath_EvolveInterpolatedDiscounts(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5, HandleRef jarg6, IntPtr jarg7);
+  public static extern void SimulatedPath_EvolveInterpolatedDiscounts(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5, HandleRef jarg6, IntPtr jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SimulatedPath_EvolveInterpolatedRnDensities")]
-  public static extern void SimulatedPath_EvolveInterpolatedRnDensities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, IntPtr jarg4);
+  public static extern void SimulatedPath_EvolveInterpolatedRnDensities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, IntPtr jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SimulatedPath_EvolveForwardCurve__SWIG_1")]
@@ -3993,19 +3993,19 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_GetSurvivalSigma")]
-  public static extern void Simulator_GetSurvivalSigma(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Simulator_GetSurvivalSigma(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_GetSurvivalThreshold")]
-  public static extern void Simulator_GetSurvivalThreshold(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Simulator_GetSurvivalThreshold(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_DefaultKernel")]
-  public static extern void Simulator_DefaultKernel(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Simulator_DefaultKernel(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_SurvivalKernel")]
-  public static extern void Simulator_SurvivalKernel(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void Simulator_SurvivalKernel(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_Dim")]
@@ -4013,136 +4013,136 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_GetSimulationGrid")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Simulator_GetSimulationGrid(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddDomesticDiscountProcess")]
-  public static extern int Simulator_AddDomesticDiscountProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
+  public static extern int Simulator_AddDomesticDiscountProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddDiscountProcess")]
-  public static extern int Simulator_AddDiscountProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, double jarg5, bool jarg6, HandleRef jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg8, bool jarg9, bool jarg10);
+  public static extern int Simulator_AddDiscountProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, double jarg5, bool jarg6, HandleRef jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg8, bool jarg9, bool jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddSurvivalProcess")]
-  public static extern int Simulator_AddSurvivalProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5);
+  public static extern int Simulator_AddSurvivalProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddForwardProcess")]
-  public static extern int Simulator_AddForwardProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
+  public static extern int Simulator_AddForwardProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddSpotProcess")]
-  public static extern int Simulator_AddSpotProcess(HandleRef jarg1, double jarg2, int jarg3, [In]ref BaseEntity.Toolkit.Models.Simulations.VolatilityParameter jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
+  public static extern int Simulator_AddSpotProcess(HandleRef jarg1, double jarg2, int jarg3, [In]ref BaseEntity.Toolkit.Models.Simulations.VolatilityParameter jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_AddRnDensityProcess")]
-  public static extern void Simulator_AddRnDensityProcess(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, double jarg4);
+  public static extern void Simulator_AddRnDensityProcess(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, double jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_CreateSimulator")]
-  public static extern IntPtr Simulator_CreateSimulator(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern IntPtr Simulator_CreateSimulator(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_CreateProjectiveSimulator")]
-  public static extern IntPtr Simulator_CreateProjectiveSimulator([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, int jarg3);
+  public static extern IntPtr Simulator_CreateProjectiveSimulator([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, int jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_PerturbTermStructures")]
-  public static extern IntPtr Simulator_PerturbTermStructures(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg4);
+  public static extern IntPtr Simulator_PerturbTermStructures(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_PerturbVolatilities")]
-  public static extern IntPtr Simulator_PerturbVolatilities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5);
+  public static extern IntPtr Simulator_PerturbVolatilities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Simulator_PerturbFactors")]
-  public static extern IntPtr Simulator_PerturbFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5);
+  public static extern IntPtr Simulator_PerturbFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LossProcess_Evolve")]
-  public static extern double LossProcess_Evolve(int jarg1, int jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7);
+  public static extern double LossProcess_Evolve(int jarg1, int jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LossProcess_InitializeSurvival")]
-  public static extern void LossProcess_InitializeSurvival(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7);
+  public static extern void LossProcess_InitializeSurvival(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LossProcess_InitializeTrancheLoss")]
-  public static extern void LossProcess_InitializeTrancheLoss(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg17);
+  public static extern void LossProcess_InitializeTrancheLoss(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg17);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LossProcess_InitializeNthLoss")]
-  public static extern void LossProcess_InitializeNthLoss(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg13);
+  public static extern void LossProcess_InitializeNthLoss(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, int jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg13);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_MapCapletVolatilities")]
-  public static extern void CalibrationUtils_MapCapletVolatilities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, bool jarg7);
+  public static extern void CalibrationUtils_MapCapletVolatilities(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, bool jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_InterpolateFactorLoadings")]
-  public static extern void CalibrationUtils_InterpolateFactorLoadings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void CalibrationUtils_InterpolateFactorLoadings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateLiborFactors")]
-  public static extern void CalibrationUtils_CalibrateLiborFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg9, bool jarg10);
+  public static extern void CalibrationUtils_CalibrateLiborFactors(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg9, bool jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_0")]
-  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_0(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg11, bool jarg12, bool jarg13);
+  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_0(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg11, bool jarg12, bool jarg13);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_1")]
-  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg10, bool jarg11, bool jarg12);
+  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg10, bool jarg11, bool jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_2")]
-  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7, bool jarg8, bool jarg9);
+  public static extern void CalibrationUtils_CalibrateFromSwaptionVolatility__SWIG_2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateCreditVol")]
-  public static extern void CalibrationUtils_CalibrateCreditVol(HandleRef jarg1, double jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, int jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10);
+  public static extern void CalibrationUtils_CalibrateCreditVol(HandleRef jarg1, double jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, int jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateFxVol")]
-  public static extern void CalibrationUtils_CalibrateFxVol(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg10, HandleRef jarg11, HandleRef jarg12, bool jarg13, bool jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15);
+  public static extern void CalibrationUtils_CalibrateFxVol(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg10, HandleRef jarg11, HandleRef jarg12, bool jarg13, bool jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateSemiAnalyticFxVol")]
-  public static extern void CalibrationUtils_CalibrateSemiAnalyticFxVol([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg7, double jarg8, HandleRef jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, HandleRef jarg11, bool jarg12, bool jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15);
+  public static extern void CalibrationUtils_CalibrateSemiAnalyticFxVol([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg7, double jarg8, HandleRef jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, HandleRef jarg11, bool jarg12, bool jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateSpotVol")]
-  public static extern void CalibrationUtils_CalibrateSpotVol(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7, HandleRef jarg8, HandleRef jarg9, bool jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11);
+  public static extern void CalibrationUtils_CalibrateSpotVol(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7, HandleRef jarg8, HandleRef jarg9, bool jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_CalibrateSemiAnalyticSpotVol")]
-  public static extern void CalibrationUtils_CalibrateSemiAnalyticSpotVol([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg4, double jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, bool jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11);
+  public static extern void CalibrationUtils_CalibrateSemiAnalyticSpotVol([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg4, double jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, bool jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_PerturbFactorLoadings")]
-  public static extern void CalibrationUtils_PerturbFactorLoadings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5);
+  public static extern void CalibrationUtils_PerturbFactorLoadings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_ChooseFactorDimension")]
-  public static extern int CalibrationUtils_ChooseFactorDimension([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, double jarg2);
+  public static extern int CalibrationUtils_ChooseFactorDimension([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, double jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_ErrorForGivenFactorDimension")]
-  public static extern double CalibrationUtils_ErrorForGivenFactorDimension([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2);
+  public static extern double CalibrationUtils_ErrorForGivenFactorDimension([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_FactorizeCorrelationMatrix")]
-  public static extern void CalibrationUtils_FactorizeCorrelationMatrix([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, ref double jarg6);
+  public static extern void CalibrationUtils_FactorizeCorrelationMatrix([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, ref double jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_FactorizeCorrelations")]
-  public static extern int CalibrationUtils_FactorizeCorrelations([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2, bool jarg3);
+  public static extern int CalibrationUtils_FactorizeCorrelations([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, int jarg2, bool jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_GetEigenValues")]
-  public static extern void CalibrationUtils_GetEigenValues([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void CalibrationUtils_GetEigenValues([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CalibrationUtils_ChooseNewCalibrationFromSwap")]
@@ -4150,43 +4150,43 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_CreateSimulator")]
-  public static extern IntPtr HullWhiteSimulatorFactory_CreateSimulator([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, int jarg3, double jarg4);
+  public static extern IntPtr HullWhiteSimulatorFactory_CreateSimulator([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, int jarg3, double jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddDomesticShortRateProcess")]
-  public static extern int HullWhiteSimulatorFactory_AddDomesticShortRateProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, bool jarg6);
+  public static extern int HullWhiteSimulatorFactory_AddDomesticShortRateProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddForeignShortRateProcess")]
-  public static extern int HullWhiteSimulatorFactory_AddForeignShortRateProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, double jarg6, bool jarg7, HandleRef jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg9, bool jarg10);
+  public static extern int HullWhiteSimulatorFactory_AddForeignShortRateProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, double jarg6, bool jarg7, HandleRef jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg9, bool jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddSurvivalProcess")]
-  public static extern int HullWhiteSimulatorFactory_AddSurvivalProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5);
+  public static extern int HullWhiteSimulatorFactory_AddSurvivalProcess(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddSpotProcess")]
-  public static extern int HullWhiteSimulatorFactory_AddSpotProcess(HandleRef jarg1, double jarg2, int jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
+  public static extern int HullWhiteSimulatorFactory_AddSpotProcess(HandleRef jarg1, double jarg2, int jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddForwardProcess")]
-  public static extern int HullWhiteSimulatorFactory_AddForwardProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
+  public static extern int HullWhiteSimulatorFactory_AddForwardProcess(HandleRef jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4, bool jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteSimulatorFactory_AddCrediKernelProcess")]
-  public static extern void HullWhiteSimulatorFactory_AddCrediKernelProcess(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, double jarg4);
+  public static extern void HullWhiteSimulatorFactory_AddCrediKernelProcess(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg3, double jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BasketCorrelationModel_getFactorArray")]
-  public static extern void BasketCorrelationModel_getFactorArray(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]System.Array jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5);
+  public static extern void BasketCorrelationModel_getFactorArray(BaseEntity.Toolkit.Base.Dt jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]System.Array jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BasketCorrelationModel_fitFactors")]
-  public static extern double BasketCorrelationModel_fitFactors(int jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern double BasketCorrelationModel_fitFactors(int jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BasketCorrelationModel_Cholesky")]
-  public static extern void BasketCorrelationModel_Cholesky(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void BasketCorrelationModel_Cholesky(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BasketCorrelationModel_toInt")]
@@ -4226,15 +4226,15 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmBinomialTree_calculateRateSystem")]
-  public static extern void BgmBinomialTree_calculateRateSystem(double jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8);
+  public static extern void BgmBinomialTree_calculateRateSystem(double jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmBinomialTree_calibrateCoTerminalSwaptions")]
-  public static extern void BgmBinomialTree_calibrateCoTerminalSwaptions(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg3, double jarg4, int jarg5, HandleRef jarg6);
+  public static extern void BgmBinomialTree_calibrateCoTerminalSwaptions(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg3, double jarg4, int jarg5, HandleRef jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmBinomialTree_evaluateTwoFactorCallable")]
-  public static extern void BgmBinomialTree_evaluateTwoFactorCallable(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg3, double jarg4, HandleRef jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg6, double jarg7, int jarg8, HandleRef jarg9);
+  public static extern void BgmBinomialTree_evaluateTwoFactorCallable(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg3, double jarg4, HandleRef jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwaptionInfo[] jarg6, double jarg7, int jarg8, HandleRef jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCorrelation_dim")]
@@ -4266,15 +4266,15 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCorrelation_createCorrelation")]
-  public static extern IntPtr BgmCorrelation_createCorrelation(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg3);
+  public static extern IntPtr BgmCorrelation_createCorrelation(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCorrelation_CorrelationFromYields")]
-  public static extern void BgmCorrelation_CorrelationFromYields(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg4);
+  public static extern void BgmCorrelation_CorrelationFromYields(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_Create")]
-  public static extern IntPtr BgmCalibrationInputs_Create(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg4, int jarg5, int jarg6, BaseEntity.Toolkit.Base.Calendar jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg8);
+  public static extern IntPtr BgmCalibrationInputs_Create(BaseEntity.Toolkit.Base.Dt jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg4, int jarg5, int jarg6, BaseEntity.Toolkit.Base.Calendar jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_GetRateCount")]
@@ -4286,22 +4286,22 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_GetTenors")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] BgmCalibrationInputs_GetTenors(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_GetDiscountFactors")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] BgmCalibrationInputs_GetDiscountFactors(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_GetFractions")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] BgmCalibrationInputs_GetFractions(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrationInputs_GetVolatilities")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]
   public static extern double[,] BgmCalibrationInputs_GetVolatilities(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
@@ -4314,11 +4314,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_CascadeCalibrate")]
-  public static extern void BgmCalibrations_CascadeCalibrate(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg6);
+  public static extern void BgmCalibrations_CascadeCalibrate(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_CascadeCalibrateLogNormal")]
-  public static extern void BgmCalibrations_CascadeCalibrateLogNormal([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo[] jarg4);
+  public static extern void BgmCalibrations_CascadeCalibrateLogNormal([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, HandleRef jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_CascadeCalibrateGeneric")]
@@ -4326,40 +4326,40 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_PiecewiseConstantFit")]
-  public static extern void BgmCalibrations_PiecewiseConstantFit(int jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg8);
+  public static extern void BgmCalibrations_PiecewiseConstantFit(int jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_PiecewiseConstantFitLogNormal")]
-  public static extern void BgmCalibrations_PiecewiseConstantFitLogNormal(int jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg8);
+  public static extern void BgmCalibrations_PiecewiseConstantFitLogNormal(int jarg1, double jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfStructMarshaler<BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo>))]BaseEntity.Toolkit.Models.BGM.Native.SwapVolatilityInfo[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_PiecewiseConstantFitGeneric")]
-  public static extern void BgmCalibrations_PiecewiseConstantFitGeneric(bool jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, HandleRef jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7);
+  public static extern void BgmCalibrations_PiecewiseConstantFitGeneric(bool jarg1, int jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, HandleRef jarg5, HandleRef jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_SwaptionVolatilities")]
-  public static extern void BgmCalibrations_SwaptionVolatilities(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg7);
+  public static extern void BgmCalibrations_SwaptionVolatilities(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, HandleRef jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_SwaptionVolatility__SWIG_0")]
-  public static extern double BgmCalibrations_SwaptionVolatility__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, HandleRef jarg7);
+  public static extern double BgmCalibrations_SwaptionVolatility__SWIG_0(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, HandleRef jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_SwaptionVolatility__SWIG_1")]
-  public static extern double BgmCalibrations_SwaptionVolatility__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, HandleRef jarg7);
+  public static extern double BgmCalibrations_SwaptionVolatility__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, HandleRef jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_CalculateDerivatives")]
-  public static extern void BgmCalibrations_CalculateDerivatives([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7);
+  public static extern void BgmCalibrations_CalculateDerivatives([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, ref double jarg6, ref double jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BgmCalibrations_CalculateSwaptionVolatility")]
-  public static extern double BgmCalibrations_CalculateSwaptionVolatility(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, HandleRef jarg9);
+  public static extern double BgmCalibrations_CalculateSwaptionVolatility(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, HandleRef jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhite_P")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] HullWhite_P(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] HullWhite_P(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, double jarg5, double jarg6, double jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Vasicek_P")]
@@ -4375,15 +4375,15 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SwigTest_ArrayOfDoubleSum")]
-  public static extern double SwigTest_ArrayOfDoubleSum([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double SwigTest_ArrayOfDoubleSum([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SwigTest_ArrayOfDoubleTimesTwo")]
-  public static extern void SwigTest_ArrayOfDoubleTimesTwo([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern void SwigTest_ArrayOfDoubleTimesTwo([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SwigTest_ReturnArrayByPtr")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] SwigTest_ReturnArrayByPtr();
 
   [SuppressUnmanagedCodeSecurity]
@@ -4412,8 +4412,8 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Add__SWIG_0")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_Add__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_Add__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Add__SWIG_1")]
@@ -4421,8 +4421,8 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Subtract__SWIG_0")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_Subtract__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_Subtract__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Subtract__SWIG_1")]
@@ -4430,7 +4430,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Multiply__SWIG_0")]
-  public static extern double LinearAlgebra_Multiply__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern double LinearAlgebra_Multiply__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Multiply__SWIG_1")]
@@ -4438,18 +4438,18 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_RightMultiply")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_RightMultiply(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_RightMultiply(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_LeftMultiply")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_LeftMultiply([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_LeftMultiply([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_ElementMultiply__SWIG_0")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_ElementMultiply__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_ElementMultiply__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_ElementMultiply__SWIG_1")]
@@ -4457,8 +4457,8 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_ElementDivide__SWIG_0")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] LinearAlgebra_ElementDivide__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] LinearAlgebra_ElementDivide__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_ElementDivide__SWIG_1")]
@@ -4470,31 +4470,31 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_QuadraticForm")]
-  public static extern double LinearAlgebra_QuadraticForm([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, bool jarg4);
+  public static extern double LinearAlgebra_QuadraticForm([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, HandleRef jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, bool jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Cholesky__SWIG_0")]
-  public static extern void LinearAlgebra_Cholesky__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1);
+  public static extern void LinearAlgebra_Cholesky__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Cholesky__SWIG_1")]
-  public static extern void LinearAlgebra_Cholesky__SWIG_1(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void LinearAlgebra_Cholesky__SWIG_1(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_0")]
-  public static extern void LinearAlgebra_SymmetricEVD__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3);
+  public static extern void LinearAlgebra_SymmetricEVD__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_1")]
-  public static extern void LinearAlgebra_SymmetricEVD__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, bool jarg4);
+  public static extern void LinearAlgebra_SymmetricEVD__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, bool jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_2")]
-  public static extern void LinearAlgebra_SymmetricEVD__SWIG_2(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4);
+  public static extern void LinearAlgebra_SymmetricEVD__SWIG_2(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_3")]
-  public static extern void LinearAlgebra_SymmetricEVD__SWIG_3(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, bool jarg5);
+  public static extern void LinearAlgebra_SymmetricEVD__SWIG_3(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, double jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_Cholesky__SWIG_2")]
@@ -4502,11 +4502,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_4")]
-  public static extern IntPtr LinearAlgebra_SymmetricEVD__SWIG_4(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3);
+  public static extern IntPtr LinearAlgebra_SymmetricEVD__SWIG_4(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LinearAlgebra_SymmetricEVD__SWIG_5")]
-  public static extern IntPtr LinearAlgebra_SymmetricEVD__SWIG_5(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, bool jarg4);
+  public static extern IntPtr LinearAlgebra_SymmetricEVD__SWIG_5(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, double jarg3, bool jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_LinearAlgebra")]
@@ -4518,44 +4518,44 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Mean")]
-  public static extern double Statistics_Mean([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double Statistics_Mean([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Variance__SWIG_0")]
-  public static extern double Statistics_Variance__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double Statistics_Variance__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Variance__SWIG_1")]
-  public static extern double Statistics_Variance__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2);
+  public static extern double Statistics_Variance__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_StdDev__SWIG_0")]
-  public static extern double Statistics_StdDev__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double Statistics_StdDev__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_StdDev__SWIG_1")]
-  public static extern double Statistics_StdDev__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2);
+  public static extern double Statistics_StdDev__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Skew__SWIG_0")]
-  public static extern double Statistics_Skew__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double Statistics_Skew__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Skew__SWIG_1")]
-  public static extern double Statistics_Skew__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, double jarg3);
+  public static extern double Statistics_Skew__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, double jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Kurtosis__SWIG_0")]
-  public static extern double Statistics_Kurtosis__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern double Statistics_Kurtosis__SWIG_0([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Kurtosis__SWIG_1")]
-  public static extern double Statistics_Kurtosis__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, double jarg3);
+  public static extern double Statistics_Kurtosis__SWIG_1([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, double jarg2, double jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Statistics_Histogram")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
-  public static extern double[] Statistics_Histogram([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
+  public static extern double[] Statistics_Histogram([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_Statistics")]
@@ -4727,22 +4727,22 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve2D_GetpublicData_DatesArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] Curve2D_GetpublicData_DatesArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve2D_GetpublicData_LevelsArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Curve2D_GetpublicData_LevelsArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve2D_GetpublicData_ValuesArray")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] Curve2D_GetpublicData_ValuesArray(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_Curve2D_Set_publicState")]
-  public static extern void Curve2D_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void Curve2D_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_NativeForwardVolatilityCube__SWIG_0")]
@@ -4790,11 +4790,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_SetFirstCapIdx")]
-  public static extern void NativeForwardVolatilityCube_SetFirstCapIdx(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2);
+  public static extern void NativeForwardVolatilityCube_SetFirstCapIdx(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_GetFirstCapIdx")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] NativeForwardVolatilityCube_GetFirstCapIdx(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
@@ -4851,52 +4851,52 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Get_public_State_runningTimes")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] NativeForwardVolatilityCube_Get_public_State_runningTimes(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Get_public_State_expiries")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] NativeForwardVolatilityCube_Get_public_State_expiries(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Get_public_State_strikes")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] NativeForwardVolatilityCube_Get_public_State_strikes(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Get_public_State_values")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] NativeForwardVolatilityCube_Get_public_State_values(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Get_public_State_FirstCapIdx")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] NativeForwardVolatilityCube_Get_public_State_FirstCapIdx(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg7);
+  public static extern void NativeForwardVolatilityCube_Set_publicState(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState_runningTimes")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState_runningTimes(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2);
+  public static extern void NativeForwardVolatilityCube_Set_publicState_runningTimes(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState_expiries")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState_expiries(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2);
+  public static extern void NativeForwardVolatilityCube_Set_publicState_expiries(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState_strikes")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState_strikes(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void NativeForwardVolatilityCube_Set_publicState_strikes(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState_values")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState_values(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void NativeForwardVolatilityCube_Set_publicState_values(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_Set_publicState_FirstCapIdx")]
-  public static extern void NativeForwardVolatilityCube_Set_publicState_FirstCapIdx(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2);
+  public static extern void NativeForwardVolatilityCube_Set_publicState_FirstCapIdx(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NativeForwardVolatilityCube_clone")]
@@ -4936,11 +4936,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_SetValues")]
-  public static extern void CurveArray_SetValues(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void CurveArray_SetValues(HandleRef jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_Interpolate")]
-  public static extern void CurveArray_Interpolate(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void CurveArray_Interpolate(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_NumDates")]
@@ -4952,17 +4952,17 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_Get_publicState_values")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] CurveArray_Get_publicState_values(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_Get_publicState_dates")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] CurveArray_Get_publicState_dates(HandleRef jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CurveArray_Set_publicState")]
-  public static extern void CurveArray_Set_publicState(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void CurveArray_Set_publicState(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CounterpartyRisk_TransformSurvivalCurves__SWIG_0")]
@@ -4982,7 +4982,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LoanModel_ComputeDistributions")]
-  public static extern void LoanModel_ComputeDistributions(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6);
+  public static extern void LoanModel_ComputeDistributions(HandleRef jarg1, HandleRef jarg2, HandleRef jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, HandleRef jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_AdjustedSurvivalCurve")]
@@ -4994,7 +4994,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_AdjustedSurvivalCurve_Derivatives")]
-  public static extern void AdjustedSurvivalCurve_Derivatives(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void AdjustedSurvivalCurve_Derivatives(HandleRef jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_delete_AdjustedSurvivalCurve")]
@@ -5002,19 +5002,19 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ABSBasketModel_ComputeDistributions")]
-  public static extern void ABSBasketModel_ComputeDistributions(bool jarg1, int jarg2, double jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, HandleRef jarg16);
+  public static extern void ABSBasketModel_ComputeDistributions(bool jarg1, int jarg2, double jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, HandleRef jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_FTDModel_ComputeLosses__SWIG_0")]
-  public static extern void FTDModel_ComputeLosses__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16);
+  public static extern void FTDModel_ComputeLosses__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_FTDModel_ComputeLosses__SWIG_1")]
-  public static extern void FTDModel_ComputeLosses__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, int jarg8, int jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14);
+  public static extern void FTDModel_ComputeLosses__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, int jarg8, int jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MarkovianBasketModel_ComputeDistributions")]
-  public static extern void MarkovianBasketModel_ComputeDistributions(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5, HandleRef jarg6);
+  public static extern void MarkovianBasketModel_ComputeDistributions(BaseEntity.Toolkit.Base.Dt jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, bool jarg5, HandleRef jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExponentialBasketModel_ComputeDistributions")]
@@ -5022,71 +5022,71 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExponentialBasketModel_HullWhiteProbabilities")]
-  public static extern void ExponentialBasketModel_HullWhiteProbabilities([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4);
+  public static extern void ExponentialBasketModel_HullWhiteProbabilities([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ForwardLossBasketModel_CalculateProbabilities__SWIG_0")]
-  public static extern void ForwardLossBasketModel_CalculateProbabilities__SWIG_0(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6);
+  public static extern void ForwardLossBasketModel_CalculateProbabilities__SWIG_0(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ForwardLossBasketModel_CalculateProbabilities__SWIG_1")]
-  public static extern void ForwardLossBasketModel_CalculateProbabilities__SWIG_1(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7);
+  public static extern void ForwardLossBasketModel_CalculateProbabilities__SWIG_1(int jarg1, double jarg2, double jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HullWhiteDynamicBasketModel_ComputeDistributions")]
-  public static extern void HullWhiteDynamicBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8);
+  public static extern void HullWhiteDynamicBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HomogeneousBasketModel_ComputeDistributions__SWIG_0")]
-  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
+  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HomogeneousBasketModel_ComputeDistributions__SWIG_1")]
-  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, HandleRef jarg16);
+  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, HandleRef jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HomogeneousBasketModel_ComputeDistributions__SWIG_2")]
-  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_2(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg12, int jarg13, int jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, HandleRef jarg17);
+  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_2(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg12, int jarg13, int jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, HandleRef jarg17);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HomogeneousBasketModel_ComputeDistributions__SWIG_3")]
-  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_3(bool jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_3(bool jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HomogeneousBasketModel_ComputeDistributions__SWIG_4")]
-  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, HandleRef jarg12);
+  public static extern void HomogeneousBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, HandleRef jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HeterogeneousBasketModel_ComputeDistributions__SWIG_0")]
-  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HeterogeneousBasketModel_ComputeDistributions__SWIG_1")]
-  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
+  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_1(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, int jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HeterogeneousBasketModel_ComputeDistributions__SWIG_2")]
-  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_2(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg12, int jarg13, int jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, HandleRef jarg21, HandleRef jarg22);
+  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_2(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg12, int jarg13, int jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg18, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg19, double jarg20, HandleRef jarg21, HandleRef jarg22);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HeterogeneousBasketModel_ComputeDistributions__SWIG_3")]
-  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_3(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8);
+  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_3(bool jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_HeterogeneousBasketModel_ComputeDistributions__SWIG_4")]
-  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, HandleRef jarg16, HandleRef jarg17);
+  public static extern void HeterogeneousBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, HandleRef jarg16, HandleRef jarg17);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MonteCarloBasketModel_ComputeDistributions__SWIG_0")]
-  public static extern void MonteCarloBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, int jarg16, bool jarg17, int jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void MonteCarloBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, int jarg16, bool jarg17, int jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MonteCarloBasketModel_ComputeDistributions__SWIG_1")]
-  public static extern void MonteCarloBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, int jarg11, bool jarg12, int jarg13, HandleRef jarg14, HandleRef jarg15);
+  public static extern void MonteCarloBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, int jarg11, bool jarg12, int jarg13, HandleRef jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MonteCarloBasketModel_ComputeNtdDistributions")]
-  public static extern void MonteCarloBasketModel_ComputeNtdDistributions(int jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, bool jarg11, int jarg12, HandleRef jarg13, HandleRef jarg14);
+  public static extern void MonteCarloBasketModel_ComputeNtdDistributions(int jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, bool jarg11, int jarg12, HandleRef jarg13, HandleRef jarg14);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_UniformBasketModel_Cumulative__SWIG_0")]
@@ -5110,7 +5110,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_UniformBasketModel_ComputeDistributions")]
-  public static extern void UniformBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
+  public static extern void UniformBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_UniformBasketModel_AdaptiveApproach")]
@@ -5118,27 +5118,27 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LargePoolBasketModel_Cumulative")]
-  public static extern double LargePoolBasketModel_Cumulative(bool jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, double jarg6, int jarg7, int jarg8, double jarg9, double jarg10, double jarg11);
+  public static extern double LargePoolBasketModel_Cumulative(bool jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, double jarg6, int jarg7, int jarg8, double jarg9, double jarg10, double jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LargePoolBasketModel_ComputeDistributions__SWIG_0")]
-  public static extern double LargePoolBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, double jarg16);
+  public static extern double LargePoolBasketModel_ComputeDistributions__SWIG_0(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, double jarg15, double jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_LargePoolBasketModel_ComputeDistributions__SWIG_1")]
-  public static extern void LargePoolBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
+  public static extern void LargePoolBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_FTDBasketModel_ComputeDistributions")]
-  public static extern void FTDBasketModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg18, double jarg19, HandleRef jarg20);
+  public static extern void FTDBasketModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg18, double jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_MonteCarloCDOSquaredModel_ComputeDistributions")]
-  public static extern void MonteCarloCDOSquaredModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, int jarg17, bool jarg18, HandleRef jarg19, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg20, uint jarg21);
+  public static extern void MonteCarloCDOSquaredModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, int jarg17, bool jarg18, HandleRef jarg19, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg20, uint jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_AnalyticCDOSquaredModel_ComputeDistributions")]
-  public static extern void AnalyticCDOSquaredModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19);
+  public static extern void AnalyticCDOSquaredModel_ComputeDistributions(bool jarg1, BaseEntity.Toolkit.Base.Dt jarg2, BaseEntity.Toolkit.Base.Dt jarg3, int jarg4, int jarg5, int jarg6, int jarg7, int jarg8, int jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_set_RecoveryCorrelationModel_modelChoice")]
@@ -5174,91 +5174,91 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_0")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_0(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_0(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_1")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_2")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_2(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_2(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_3")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_3(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_3(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_4")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, HandleRef jarg16, double jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_4(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, HandleRef jarg16, double jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel_ComputeDistributions__SWIG_5")]
-  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_5(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg18, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg19, double jarg20, HandleRef jarg21, HandleRef jarg22);
+  public static extern void SemiAnalyticBasketModel_ComputeDistributions__SWIG_5(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg18, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg19, double jarg20, HandleRef jarg21, HandleRef jarg22);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel2_ComputeDistributions__SWIG_0")]
-  public static extern void SemiAnalyticBasketModel2_ComputeDistributions__SWIG_0(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void SemiAnalyticBasketModel2_ComputeDistributions__SWIG_0(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg16, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModel2_ComputeDistributions__SWIG_1")]
-  public static extern void SemiAnalyticBasketModel2_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
+  public static extern void SemiAnalyticBasketModel2_ComputeDistributions__SWIG_1(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, BaseEntity.Toolkit.Models.SemiAnalyticBasketModel.RecoveryCorrelationModel jarg18, double jarg19, HandleRef jarg20, HandleRef jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModelGreeks_Compute__SWIG_0")]
-  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_0(double jarg1, double jarg2, int jarg3, int jarg4, int jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, int jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_0(double jarg1, double jarg2, int jarg3, int jarg4, int jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, int jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModelGreeks_Compute__SWIG_1")]
-  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_1(double jarg1, double jarg2, int jarg3, int jarg4, int jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, int jarg18, bool jarg19, HandleRef jarg20, HandleRef jarg21);
+  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_1(double jarg1, double jarg2, int jarg3, int jarg4, int jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg17, int jarg18, bool jarg19, HandleRef jarg20, HandleRef jarg21);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticBasketModelGreeks_Compute__SWIG_2")]
-  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_2(double jarg1, double jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, HandleRef jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, int jarg16, HandleRef jarg17, HandleRef jarg18);
+  public static extern void SemiAnalyticBasketModelGreeks_Compute__SWIG_2(double jarg1, double jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, HandleRef jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, int jarg16, HandleRef jarg17, HandleRef jarg18);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_0")]
-  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg7, int jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, HandleRef jarg12);
+  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg7, int jarg8, double jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, HandleRef jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_1")]
-  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_1(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, bool jarg9, HandleRef jarg10, HandleRef jarg11);
+  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_1(int jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, HandleRef jarg8, bool jarg9, HandleRef jarg10, HandleRef jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_2")]
-  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_2(int jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg11, Double_Vector_Fn jarg12);
+  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_2(int jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg11, Double_Vector_Fn jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_3")]
-  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_3(int jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.Array2DOfDoubleMarshaler))]double[,] jarg11);
+  public static extern void SemiAnalyticNtdModel_LossGivenNthDefault__SWIG_3(int jarg1, BaseEntity.Toolkit.Base.Dt jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(Array2DOfDoubleMarshaler))]double[,] jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CorrelatedRecoveryBasketModel_ComputeDistributions")]
-  public static extern void CorrelatedRecoveryBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
+  public static extern void CorrelatedRecoveryBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg9, int jarg10, int jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg15, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg16, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg17, double jarg18, HandleRef jarg19, HandleRef jarg20);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_0")]
-  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, int jarg14, HandleRef jarg15);
+  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, int jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_1")]
-  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_1(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg14, int jarg15, HandleRef jarg16);
+  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_1(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg14, int jarg15, HandleRef jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_2")]
-  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_2(int jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg15, int jarg16, HandleRef jarg17);
+  public static extern void SemiAnalyticCDOSquaredModel_ComputeDistributions__SWIG_2(int jarg1, int jarg2, int jarg3, int jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, int jarg6, int jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg14, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg15, int jarg16, HandleRef jarg17);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_0")]
-  public static extern void BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, int jarg14, HandleRef jarg15);
+  public static extern void BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_0(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, int jarg14, HandleRef jarg15);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_1")]
-  public static extern void BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_1(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg14, int jarg15, HandleRef jarg16);
+  public static extern void BaseCorrelationCDOSquaredModel_ComputeDistributions__SWIG_1(int jarg1, int jarg2, int jarg3, int jarg4, int jarg5, int jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg10, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg11, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg12, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg13, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg14, int jarg15, HandleRef jarg16);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ComovementBasketModel_ComputeDistributions")]
-  public static extern void ComovementBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9, double jarg10, HandleRef jarg11, HandleRef jarg12);
+  public static extern void ComovementBasketModel_ComputeDistributions(bool jarg1, int jarg2, int jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Native.ArrayOfObjectMarshaler))]BaseEntity.Toolkit.Native.INativeCurve[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9, double jarg10, HandleRef jarg11, HandleRef jarg12);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_RateOptionParamCollection")]
@@ -5266,7 +5266,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateOptionParamCollection_add")]
-  public static extern void RateOptionParamCollection_add(HandleRef jarg1, int jarg2, BaseEntity.Toolkit.Base.Dt jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg9);
+  public static extern void RateOptionParamCollection_add(HandleRef jarg1, int jarg2, BaseEntity.Toolkit.Base.Dt jarg3, double jarg4, double jarg5, double jarg6, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Base.ArrayOfDtMarshaler))]BaseEntity.Toolkit.Base.Dt[] jarg7, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg8, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_RateOptionParamCollection_count")]
@@ -5298,11 +5298,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addIntegrationKernel")]
-  public static extern void ExposureAggregatorNative_addIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3);
+  public static extern void ExposureAggregatorNative_addIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
-  [SuppressUnmanagedCodeSecurity]
-  [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addPreCalculatedMarketData")]
-  public static extern void ExposureAggregatorNative_addPreCalculatedMarketData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntPtrMarshaler))]IntPtr[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  //[SuppressUnmanagedCodeSecurity]
+  //[DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addPreCalculatedMarketData")]
+  //public static extern void ExposureAggregatorNative_addPreCalculatedMarketData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntPtrMarshaler))]IntPtr[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addCptyCurve")]
@@ -5318,71 +5318,71 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_0")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_1")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_2")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_2(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_3")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_3(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_3(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_4")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_4(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_4(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_5")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_5(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_5(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_6")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_6(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_6(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_7")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_7(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_7(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_8")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_8(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_8(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_9")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_9(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_9(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_10")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_10(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_10(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_11")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_11(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_11(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_12")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_12(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_12(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_13")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_13(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_13(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_14")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_14(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_14(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_15")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_15(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_15(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_createAggregator__SWIG_16")]
-  public static extern void ExposureAggregatorNative_createAggregator__SWIG_16(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3);
+  public static extern void ExposureAggregatorNative_createAggregator__SWIG_16(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addMeasureAccumulator")]
@@ -5398,11 +5398,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_getMeasureMarginal__SWIG_0")]
-  public static extern void ExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void ExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_getMeasureMarginal__SWIG_1")]
-  public static extern void ExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void ExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_reduce")]
@@ -5422,11 +5422,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_changeIntegrationKernel")]
-  public static extern void ExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern void ExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_diagnosticTable")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] ExposureAggregatorNative_diagnosticTable(HandleRef jarg1, int jarg2, int jarg3);
 
   [SuppressUnmanagedCodeSecurity]
@@ -5451,7 +5451,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_addMasterAgreement")]
-  public static extern void CollateralizedExposureAggregatorNative_addMasterAgreement(HandleRef jarg1, string jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14, double jarg15, double jarg16, double jarg17, double jarg18, bool jarg19, bool jarg20, bool jarg21, bool jarg22, bool jarg23, bool jarg24, bool jarg25);
+  public static extern void CollateralizedExposureAggregatorNative_addMasterAgreement(HandleRef jarg1, string jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14, double jarg15, double jarg16, double jarg17, double jarg18, bool jarg19, bool jarg20, bool jarg21, bool jarg22, bool jarg23, bool jarg24, bool jarg25);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_addCollateralMap__SWIG_0")]
@@ -5475,11 +5475,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_createAggregator__SWIG_0")]
-  public static extern void CollateralizedExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
+  public static extern void CollateralizedExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_createAggregator__SWIG_1")]
-  public static extern void CollateralizedExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
+  public static extern void CollateralizedExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_addMeasureAccumulator")]
@@ -5495,11 +5495,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_0")]
-  public static extern void CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_1")]
-  public static extern void CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void CollateralizedExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_getNetExposures")]
@@ -5527,11 +5527,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_changeIntegrationKernel")]
-  public static extern void CollateralizedExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern void CollateralizedExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_CollateralizedExposureAggregatorNative_diagnosticTable")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] CollateralizedExposureAggregatorNative_diagnosticTable(HandleRef jarg1, int jarg2, int jarg3);
 
   [SuppressUnmanagedCodeSecurity]
@@ -5560,11 +5560,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_createAggregator__SWIG_0")]
-  public static extern void NoNetAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
+  public static extern void NoNetAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_createAggregator__SWIG_1")]
-  public static extern void NoNetAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
+  public static extern void NoNetAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_addMeasureAccumulator")]
@@ -5580,11 +5580,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_getMeasureMarginal__SWIG_0")]
-  public static extern void NoNetAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void NoNetAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_getMeasureMarginal__SWIG_1")]
-  public static extern void NoNetAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void NoNetAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_reduce")]
@@ -5604,11 +5604,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_changeIntegrationKernel")]
-  public static extern void NoNetAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern void NoNetAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_NoNetAggregatorNative_diagnosticTable")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] NoNetAggregatorNative_diagnosticTable(HandleRef jarg1, int jarg2, int jarg3);
 
   [SuppressUnmanagedCodeSecurity]
@@ -5633,7 +5633,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_addMasterAgreement")]
-  public static extern void IncrementalCCRExposureAggregatorNative_addMasterAgreement(HandleRef jarg1, string jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14, double jarg15, double jarg16, double jarg17, double jarg18, bool jarg19, bool jarg20, bool jarg21, bool jarg22, bool jarg23, bool jarg24, bool jarg25);
+  public static extern void IncrementalCCRExposureAggregatorNative_addMasterAgreement(HandleRef jarg1, string jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg6, double jarg7, double jarg8, double jarg9, double jarg10, double jarg11, double jarg12, double jarg13, double jarg14, double jarg15, double jarg16, double jarg17, double jarg18, bool jarg19, bool jarg20, bool jarg21, bool jarg22, bool jarg23, bool jarg24, bool jarg25);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_addCollateralMap__SWIG_0")]
@@ -5657,11 +5657,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_0")]
-  public static extern void IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
+  public static extern void IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_0(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, bool jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_1")]
-  public static extern void IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
+  public static extern void IncrementalCCRExposureAggregatorNative_createAggregator__SWIG_1(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, bool jarg4, bool jarg5, bool jarg6, bool jarg7, bool jarg8, bool jarg9, bool jarg10, IntPtr jarg11);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_addMeasureAccumulator")]
@@ -5701,11 +5701,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_0")]
-  public static extern void IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_0(HandleRef jarg1, int jarg2, int jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_1")]
-  public static extern void IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg5);
+  public static extern void IncrementalCCRExposureAggregatorNative_getMeasureMarginal__SWIG_1(HandleRef jarg1, int jarg2, double jarg3, double jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_reduce")]
@@ -5729,11 +5729,11 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_changeIntegrationKernel")]
-  public static extern void IncrementalCCRExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
+  public static extern void IncrementalCCRExposureAggregatorNative_changeIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3, int jarg4);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_IncrementalCCRExposureAggregatorNative_diagnosticTable")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] IncrementalCCRExposureAggregatorNative_diagnosticTable(HandleRef jarg1, int jarg2, int jarg3);
 
   [SuppressUnmanagedCodeSecurity]
@@ -5783,21 +5783,21 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_ArrayOfInt")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]
   public static extern int[] new_ArrayOfInt();
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_delete_ArrayOfInt")]
-  public static extern void delete_ArrayOfInt([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfIntMarshaler))]int[] jarg1);
+  public static extern void delete_ArrayOfInt([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntMarshaler))]int[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_ArrayOfDouble")]
-  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]
+  [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]
   public static extern double[] new_ArrayOfDouble();
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_delete_ArrayOfDouble")]
-  public static extern void delete_ArrayOfDouble([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]double[] jarg1);
+  public static extern void delete_ArrayOfDouble([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg1);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_ArrayOfCurve")]
@@ -5822,7 +5822,7 @@ unsafe public partial class BaseEntityPINVOKE {
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_MatrixOfDoubles__SWIG_3")]
-  public static extern IntPtr new_MatrixOfDoubles__SWIG_3(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(BaseEntity.Toolkit.Util.ArrayOfDoubleMarshaler))]System.Array jarg3);
+  public static extern IntPtr new_MatrixOfDoubles__SWIG_3(int jarg1, int jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]System.Array jarg3);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_new_MatrixOfDoubles__SWIG_4")]

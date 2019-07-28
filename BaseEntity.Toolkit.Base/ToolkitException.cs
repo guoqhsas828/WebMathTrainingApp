@@ -1,14 +1,13 @@
 ﻿/*
  * ToolkitException.cs
  *
- * Copyright (c)    2005-2010. All rights reserved.
  * 
  */
 
 using System;
 using System.Runtime.Serialization;
 
-namespace BaseEntity.Toolkit.Util
+namespace BaseEntity.Toolkit.Base
 {
   /// <summary>
   /// Toolkit exception class

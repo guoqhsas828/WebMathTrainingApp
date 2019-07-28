@@ -11,7 +11,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
+using BaseEntity.Toolkit.Base;
 using System.ComponentModel;
 
 namespace BaseEntity.Toolkit.Numerics {
@@ -55,7 +55,7 @@ public partial class Complex : IDisposable {
 			public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
 			{ 
 				if (swigCMemOwn==false)
-					throw new Util.ToolkitException("Object can not be serialized when swigCMemOwn is false.");
+					throw new ToolkitException("Object can not be serialized when swigCMemOwn is false.");
 				info.AddValue("real", Real());
 				info.AddValue("image", Imag());
 			}

@@ -1,7 +1,6 @@
 /*
  * Curve.PartialProxy.cs
  *
- * Copyright (c)   2002-2008. All rights reserved.
  *
  */
 

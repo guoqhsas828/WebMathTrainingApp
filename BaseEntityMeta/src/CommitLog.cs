@@ -18,21 +18,21 @@ namespace BaseEntity.Metadata
     /// 
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public int Tid { get; set; }
 
     /// <summary>
     /// LastUpdated
     /// </summary>
     [DataMember]
-    [DateTimeProperty(AllowNull = false)]
+    [DateTimeProperty(AllowNullValue = false)]
     public DateTime LastUpdated { get; set; }
 
     /// <summary>
     /// UpdatedBy
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long UpdatedBy { get; set; }
 
     /// <summary>

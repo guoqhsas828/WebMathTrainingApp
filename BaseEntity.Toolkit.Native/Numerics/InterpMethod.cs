@@ -1,13 +1,12 @@
 ﻿//
 // InterpMethod.cs
-// Copyright (c)   2002-2008. All rights reserved.
 //
 
 using System;
 using System.Globalization;
 using BaseEntity.Shared;
 using BaseEntity.Toolkit.Curves;
-using BaseEntity.Toolkit.Util;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Numerics
 {

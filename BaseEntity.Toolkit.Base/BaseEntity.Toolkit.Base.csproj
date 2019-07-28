@@ -20,6 +20,10 @@
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
   </ItemGroup>
@@ -27,6 +31,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BaseEntityObjects\src\BaseEntityObjects.csproj" />
     <ProjectReference Include="..\ObjectModels\src\BaseEntity.Configuration.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="ObjectModel\" />
   </ItemGroup>
 
 </Project>

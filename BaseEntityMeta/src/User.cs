@@ -188,7 +188,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     ///   last password changed date
     /// </summary>
-    [DateTimeProperty(AllowNull = true)]
+    [DateTimeProperty(AllowNullValue = true)]
     public DateTime? LastPasswordChangedDate
     {
       get { return _lastPasswordChangedDate; }
@@ -198,7 +198,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     ///   last login date
     /// </summary>
-    [DateTimeProperty(AllowNull = true)]
+    [DateTimeProperty(AllowNullValue = true)]
     public DateTime? LastLoginDate
     {
       get { return _lastLoginDate; }
@@ -208,7 +208,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     ///   last lockout date
     /// </summary>
-    [DateTimeProperty(AllowNull = true)]
+    [DateTimeProperty(AllowNullValue = true)]
     public DateTime? LastLockoutDate
     {
       get { return _lastLockoutDate; }
@@ -218,7 +218,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     ///   creation date
     /// </summary>
-    [DateTimeProperty(AllowNull = true)]
+    [DateTimeProperty(AllowNullValue = true)]
     public DateTime? CreationDate
     {
       get { return _creationDate; }

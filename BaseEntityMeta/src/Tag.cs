@@ -38,7 +38,7 @@ namespace BaseEntity.Metadata
 
     /// <summary>
     /// </summary>
-    [StringProperty(MaxLength = 64, AllowNull = false)]
+    [StringProperty(MaxLength = 64, AllowNullValue = false)]
     public string Name
     {
       get { return _name; }

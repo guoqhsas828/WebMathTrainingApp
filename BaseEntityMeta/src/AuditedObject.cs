@@ -61,7 +61,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     /// 
     /// </summary>
-    [DateTimeProperty(Column = "ValidFrom", AllowNull = false, IsTreatedAsDateOnly = true)]
+    [DateTimeProperty(Column = "ValidFrom", AllowNullValue = false, IsTreatedAsDateOnly = true)]
     public DateTime ValidFrom
     {
       get { return _validFrom; }
@@ -72,7 +72,7 @@ namespace BaseEntity.Metadata
     ///   Last update time
     /// </summary>
     [DataMember]
-    [DateTimeProperty(Column = "LastUpdated", AllowNull = false, ReadOnly = true)]
+    [DateTimeProperty(Column = "LastUpdated", AllowNullValue = false, ReadOnly = true)]
     public DateTime LastUpdated
     {
       get { return _lastUpdated; }

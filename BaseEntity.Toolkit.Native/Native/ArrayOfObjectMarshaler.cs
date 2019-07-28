@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using BaseEntity.Toolkit.Util;
+using BaseEntity.Shared;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Native
 {

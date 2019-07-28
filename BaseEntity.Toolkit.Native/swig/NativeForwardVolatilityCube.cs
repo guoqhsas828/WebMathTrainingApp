@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.ComponentModel;
 using BaseEntity.Shared;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Curves {
 
@@ -65,7 +66,7 @@ namespace BaseEntity.Toolkit.Curves {
     public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
       if (! swigCMemOwn )
-        throw new BaseEntity.Toolkit.Util.ToolkitException("Object can not be serialized when swigCMemOwn is false.");
+        throw new ToolkitException("Object can not be serialized when swigCMemOwn is false.");
 
       info.AddValue("AsOf", AsOf);
 			info.AddValue("IsFlatCube",GetIsFlatCube());

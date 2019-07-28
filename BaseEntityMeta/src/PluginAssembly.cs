@@ -68,7 +68,7 @@ namespace BaseEntity.Metadata
     /// <summary>
     /// 
     /// </summary>
-    [EnumProperty(AllowNull = false)]
+    [EnumProperty(AllowNullValue = false)]
     public PluginType PluginType { get; set; }
 
     /// <summary>

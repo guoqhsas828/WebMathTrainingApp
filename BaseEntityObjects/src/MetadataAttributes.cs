@@ -116,10 +116,10 @@ namespace BaseEntity.Metadata
     /// <summary>
     /// Indicates if database column allows null (default=true)
     /// </summary>
-    public bool AllowNull
+    public bool AllowNullValue
     {
-      get { return allowNull_; }
-      set { allowNull_ = value; }
+      get { return allowNullValue_; }
+      set { allowNullValue_ = value; }
     }
 
     /// <summary>
@@ -189,7 +189,7 @@ namespace BaseEntity.Metadata
     private bool readOnly_;
     private string column_;
     private bool persistent_ = true;
-    private bool allowNull_ = true;
+    private bool allowNullValue_ = true;
     private string relatedProperty_;
     private bool isUnique_;
     private bool isPrimaryKey_;

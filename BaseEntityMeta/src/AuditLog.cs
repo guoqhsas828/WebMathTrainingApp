@@ -20,28 +20,28 @@ namespace BaseEntity.Metadata
     /// 
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public int Tid { get; set; }
 
     /// <summary>
     /// ObjectId
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long ObjectId { get; set; }
 
     /// <summary>
     /// ObjectId
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long RootObjectId { get; set; }
 
     /// <summary>
     /// ObjectId
     /// </summary>
     [DataMember]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long ParentObjectId { get; set; }
 
     /// <summary>

@@ -1,9 +1,9 @@
 //
 // PInvokeException.cs
-// Copyright (c)   2012-2013. All rights reserved.
 //
 using System;
 using System.Text;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Util
 {

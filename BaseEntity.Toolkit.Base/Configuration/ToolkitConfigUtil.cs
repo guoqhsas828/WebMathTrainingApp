@@ -14,7 +14,7 @@ using System.Xml.Schema;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Serialization;
-using BaseEntity.Toolkit.Util;
+using BaseEntity.Toolkit.Base;
 
 namespace BaseEntity.Toolkit.Util.Configuration
 {

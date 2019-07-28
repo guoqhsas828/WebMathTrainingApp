@@ -62,11 +62,11 @@ public partial class ExposureAggregatorNative : IDisposable {
     if (BaseEntityPINVOKE.SWIGPendingException.Pending) throw BaseEntityPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  /// <include file='swig/ExposureAggregatorNative.xml' path='doc/members/member[@name="M:ExposureAggregatorNative_addPreCalculatedMarketData"]/*' />
-  public void addPreCalculatedMarketData(double[] exposureDates, IntPtr discountFactors, IntPtr[] rnSim, double[] recoveryRates) {
-    BaseEntityPINVOKE.ExposureAggregatorNative_addPreCalculatedMarketData(swigCPtr, exposureDates, discountFactors, rnSim, recoveryRates);
-    if (BaseEntityPINVOKE.SWIGPendingException.Pending) throw BaseEntityPINVOKE.SWIGPendingException.Retrieve();
-  }
+  ///// <include file='swig/ExposureAggregatorNative.xml' path='doc/members/member[@name="M:ExposureAggregatorNative_addPreCalculatedMarketData"]/*' />
+  //public void addPreCalculatedMarketData(double[] exposureDates, IntPtr discountFactors, IntPtr[] rnSim, double[] recoveryRates) {
+  //  BaseEntityPINVOKE.ExposureAggregatorNative_addPreCalculatedMarketData(swigCPtr, exposureDates, discountFactors, rnSim, recoveryRates);
+  //  if (BaseEntityPINVOKE.SWIGPendingException.Pending) throw BaseEntityPINVOKE.SWIGPendingException.Retrieve();
+  //}
 
   /// <include file='swig/ExposureAggregatorNative.xml' path='doc/members/member[@name="M:ExposureAggregatorNative_addCptyCurve"]/*' />
   public void addCptyCurve(BaseEntity.Toolkit.Curves.Native.Curve curve) {

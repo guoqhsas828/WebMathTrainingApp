@@ -50,12 +50,12 @@ namespace BaseEntity.Metadata
       else if (IsKey)
       {
         IsUnique = true;
-        IsNullable = AllowNullableKey && propAttr.AllowNull;
+        IsNullable = AllowNullableKey && propAttr.AllowNullValue;
       }
       else
       {
         IsUnique = propAttr.IsUnique;
-        IsNullable = propAttr.AllowNull;
+        IsNullable = propAttr.AllowNullValue;
       }
 
       IsSystemProperty =

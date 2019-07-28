@@ -116,7 +116,7 @@ namespace BaseEntity.Database
     /// </summary>
     /// <value>The effective date.</value>
     [DataMember]
-    [DateTimeProperty(AllowNull = false, IsTreatedAsDateOnly = true)]
+    [DateTimeProperty(AllowNullValue = false, IsTreatedAsDateOnly = true)]
     public DateTime EffectiveDate { get; set; }
 
     /// <summary>
@@ -131,7 +131,7 @@ namespace BaseEntity.Database
     /// <value>The event order.</value>
     [DataMember]
     [Browsable(false)]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long EventOrder { get; set; }
 
 
@@ -141,7 +141,7 @@ namespace BaseEntity.Database
     /// <value>The target id.</value>
     [DataMember]
     [Browsable(false)]
-    [NumericProperty(AllowNull = false)]
+    [NumericProperty(AllowNullValue = false)]
     public long TargetId { get; set; }
 
 
