@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit.Base", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit.Native", "..\BaseEntity.Toolkit.Native\BaseEntity.Toolkit.Native.csproj", "{91485B85-F6B0-4798-8341-C1E1D70E3757}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit", "..\BaseEntity.Toolkit\BaseEntity.Toolkit.csproj", "{64B0E5A9-308D-4AE0-89D4-EC5622D09268}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,14 @@ Global
 		{91485B85-F6B0-4798-8341-C1E1D70E3757}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91485B85-F6B0-4798-8341-C1E1D70E3757}.Release|x86.ActiveCfg = Release|Any CPU
 		{91485B85-F6B0-4798-8341-C1E1D70E3757}.Release|x86.Build.0 = Release|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Debug|x86.Build.0 = Debug|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|x86.ActiveCfg = Release|Any CPU
+		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

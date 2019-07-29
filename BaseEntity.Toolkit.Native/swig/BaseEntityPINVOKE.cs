@@ -5300,9 +5300,9 @@ unsafe public partial class BaseEntityPINVOKE {
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addIntegrationKernel")]
   public static extern void ExposureAggregatorNative_addIntegrationKernel(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg3);
 
-  //[SuppressUnmanagedCodeSecurity]
-  //[DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addPreCalculatedMarketData")]
-  //public static extern void ExposureAggregatorNative_addPreCalculatedMarketData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfIntPtrMarshaler))]IntPtr[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef=typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
+  [SuppressUnmanagedCodeSecurity]
+  [DllImport("MagnoliaCppWrapper", EntryPoint = "CSharp_ExposureAggregatorNative_addPreCalculatedMarketData")]
+  public static extern void ExposureAggregatorNative_addPreCalculatedMarketData(HandleRef jarg1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ArrayOfDoubleMarshaler))]double[] jarg2, IntPtr jarg3, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ArrayOfIntPtrMarshaler))]IntPtr[] jarg4, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ArrayOfDoubleMarshaler))]double[] jarg5);
 
   [SuppressUnmanagedCodeSecurity]
   [DllImport("MagnoliaCppWrapper", EntryPoint="CSharp_ExposureAggregatorNative_addCptyCurve")]
