@@ -1,0 +1,906 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSuiteProject>
+  <group name="FxCategoryTests">
+    <fixture class="TestFxCurveConsistency" name="Mixed Forward and Basis Quotes" assembly="QUnitTest.dll"
+    FxSpotRate="77.732000" FxSpotDays="2" FromCcy="USD" ToCcy="JPY"
+    FxFwdTenors="1D, 1W, 2W, 1M, 2M, 3M, 4M, 5M, 6M, 9M, 1Y, 2Y"
+    FxFwdQuotes="
+      77.73074, 77.72331, 77.71492, 77.69553, 77.65507,
+      77.61495, 77.58239, 77.55950, 77.53896, 77.40684,
+      77.26689, 76.65695
+    "
+    FxCalendar="NYB+TKB+NYB"
+
+    FxBasisTenors="2Y, 3Y, 5Y, 7Y, 10Y, 15Y, 20Y, 30Y"
+    FxBasisQuotes="-50, -60.5, -65, -60.25, -49, -32.25, -22, -12"
+    FxBasisCalendar="NYB+TKB+NYB"
+  />
+  <fixture class="TestFxCurveConsistency" name="Forward Quotes only" assembly="QUnitTest.dll"
+    FxSpotRate="77.732000" FxSpotDays="2" FromCcy="USD" ToCcy="JPY"
+    FxFwdTenors="1D, 1W, 2W, 1M, 2M, 3M, 4M, 5M, 6M, 9M, 1Y, 2Y"
+    FxFwdQuotes="
+      77.73074, 77.72331, 77.71492, 77.69553, 77.65507,
+      77.61495, 77.58239, 77.55950, 77.53896, 77.40684,
+      77.26689, 76.65695
+    "
+    FxCalendar="NYB+TKB+NYB"
+  />
+  <fixture class="TestFxCurveConsistency" name="FX Forward Curve" assembly="QUnitTest.dll"
+    TestWhat="ForwardCurveOnly"
+    FxSpotRate="77.732000" FxSpotDays="2" FromCcy="USD" ToCcy="JPY"
+    FxFwdTenors="1D, 1W, 2W, 1M, 2M, 3M, 4M, 5M, 6M, 9M, 1Y, 2Y"
+    FxFwdQuotes="
+      77.73074, 77.72331, 77.71492, 77.69553, 77.65507,
+      77.61495, 77.58239, 77.55950, 77.53896, 77.40684,
+      77.26689, 76.65695
+    "
+    FxCalendar="NYB+TKB+NYB"
+
+    FxBasisTenors="2Y, 3Y, 5Y, 7Y, 10Y, 15Y, 20Y, 30Y"
+    FxBasisQuotes="-50, -60.5, -65, -60.25, -49, -32.25, -22, -12"
+    FxBasisCalendar="NYB+TKB+NYB"
+  />  
+    <!-- Vanilla FxOption-->
+    <fixture
+      name="TestVanilla1"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.33"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1294}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla1.expects"/>
+    <fixture
+      name="TestVanilla-Ccy1Prem-1"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      PremiumInBaseCcy="true"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.33"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1294}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla-Ccy1Prem-1.expects"/>
+    <fixture
+      name="TestVanilla2"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.32"
+      OptionType="Put"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1269}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla2.expects"/>
+    <fixture
+      name="TestVanilla3"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="1.41"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1193}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla3.expects"/>
+    <fixture
+      name="TestVanilla4"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.611"
+      OptionType="Put"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla4.expects"/>
+    <fixture
+      name="TestVanilla5"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.7"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla5.expects"/>
+    <fixture
+      name="TestVanilla6"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.775"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1115}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla6.expects"/>
+    <fixture
+      name="TestVanilla7"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="0.0115"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="0.012"
+      ForwardFxRate="0.012"
+      Volatility="{0.1451}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla7.expects"/>
+    <fixture
+      name="TestVanilla8"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20150209"
+      Strike="0.699"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.397"
+      Volatility="{0.1537}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla8.expects"/>
+    <fixture
+      name="TestVanilla9"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20080506"
+      Expiration="20160210"
+      Strike="1.665"
+      OptionType="Put"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla9.expects"/>
+    <fixture
+      name="TestVanilla10"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20071220"
+      Expiration="20290205"
+      Strike="1.39"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestVanilla10.expects"/>
+    <fixture
+      name="TestVanilla11"
+      class="TestFxOptionVanillaPricer"
+      description="FxOption test suite"
+      AsOf="20110315"
+      Settle="20110317"
+      Effective="20100317"
+      Expiration="20130317"
+      Strike="70"
+      OptionType="Call"
+      PayoffType="Regular"
+      FromRate="0.008"
+      ToRate="0.005"
+      SpotFxRate="82.1"
+      ForwardFxRate="81.237"
+      Volatility="
+{22-Mar-11,	 9.785%,	 0.00%,	0.26%},
+{29-Mar-11,	 9.523%,	-0.33%,	0.30%},
+{ 5-Apr-11,	 9.495%,	-0.50%,	0.32%},
+{15-Apr-11,	 9.358%,	-0.68%,	0.31%},
+{15-May-11,	 9.545%,	-0.94%,	0.32%},
+{15-Jun-11,	10.040%,	-1.19%,	0.33%},
+{15-Sep-11,	11.135%,	-1.41%,	0.34%},
+{15-Mar-12,	12.450%,	-1.66%,	0.38%},
+{15-Mar-13,	13.625%,	-1.86%,	0.38%},
+{15-Mar-14,	14.550%,	-2.09%,	0.38%},
+{15-Mar-16,	15.758%,	-2.67%,	0.29%}
+      "
+      ExpectsFileName="data/expects/FxOption.TestVanilla11.expects"/>
+
+    <!--
+      Single Barriers
+    -->
+    <fixture
+      name="TestSingleBarrier1"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.33"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="UpOut"
+      Barrier="1.5"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1294}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier1.expects"/>
+    <fixture
+      name="TestSingleBarrier-Ccy1Prem-1"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      PremiumInBaseCcy="true"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.33"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="UpOut"
+      Barrier="1.5"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1294}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier-Ccy1Prem-1.expects"/>
+    <fixture
+      name="TestSingleBarrier2"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.32"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="UpIn"
+      Barrier="1.5"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1269}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier2.expects"/>
+    <fixture
+      name="TestSingleBarrier3"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="1.41"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="DownOut"
+      Barrier="1.35"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1193}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier3.expects"/>
+    <fixture
+      name="TestSingleBarrier4"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.611"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="DownIn"
+      Barrier="1.5"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier4.expects"/>
+    <fixture
+      name="TestSingleBarrier5"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.7"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="UpOut"
+      Barrier="2.0"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier5.expects"/>
+    <fixture
+      name="TestSingleBarrier6"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.775"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="DownOut"
+      Barrier="1.2"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1115}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier6.expects"/>
+    <fixture
+      name="TestSingleBarrier7"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="0.0115"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="UpOut"
+      Barrier="0.019"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="0.012"
+      ForwardFxRate="0.012"
+      Volatility="{0.1451}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier7.expects"/>
+    <fixture
+      name="TestSingleBarrier8"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20150209"
+      Strike="0.699"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="DownIn"
+      Barrier="0.7"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.397"
+      Volatility="{0.1537}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier8.expects"/>
+    <fixture
+      name="TestSingleBarrier9"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20080506"
+      Expiration="20160210"
+      Strike="1.665"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="UpOut"
+      Barrier="1.5"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier9.expects"/>
+    <fixture
+      name="TestSingleBarrier10"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20071220"
+      Expiration="20290205"
+      Strike="1.39"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="DownOut"
+      Barrier="1.29"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier10.expects"/>
+
+    <fixture
+      name="TestSingleBarrier11"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110315"
+      Settle="20110317"
+      Effective="20100317"
+      Expiration="20130317"
+      Strike="70"
+      OptionType="Call"
+      PayoffType="Digital"
+      BarrierType="DownIn"
+      Barrier="80"
+      MonitoringFreq="Continuous"
+      FromRate="0.008"
+      ToRate="0.005"
+      SpotFxRate="82.1"
+      ForwardFxRate="81.237"
+      Volatility="
+{22-Mar-11,	 9.785%,	 0.00%,	0.26%},
+{29-Mar-11,	 9.523%,	-0.33%,	0.30%},
+{ 5-Apr-11,	 9.495%,	-0.50%,	0.32%},
+{15-Apr-11,	 9.358%,	-0.68%,	0.31%},
+{15-May-11,	 9.545%,	-0.94%,	0.32%},
+{15-Jun-11,	10.040%,	-1.19%,	0.33%},
+{15-Sep-11,	11.135%,	-1.41%,	0.34%},
+{15-Mar-12,	12.450%,	-1.66%,	0.38%},
+{15-Mar-13,	13.625%,	-1.86%,	0.38%},
+{15-Mar-14,	14.550%,	-2.09%,	0.38%},
+{15-Mar-16,	15.758%,	-2.67%,	0.29%}
+      "
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier11_%platform%.expects"/>
+    
+    <fixture
+      name="TestSingleBarrier12"
+      class="TestFxOptionSingleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110315"
+      Settle="20110317"
+      Effective="20100317"
+      Expiration="20130317"
+      Strike="70"
+      OptionType="Call"
+      PayoffType="Digital"
+      BarrierType="DownIn"
+      Barrier="80"
+      MonitoringFreq="Continuous"
+      FromRate="0.008"
+      ToRate="0.005"
+      SpotFxRate="82.1"
+      ForwardFxRate="81.237"
+      Volatility="
+{22-Mar-11,	 9.785%,	 0.00%,	0.26%},
+{29-Mar-11,	 9.523%,	-0.33%,	0.30%},
+{ 5-Apr-11,	 9.495%,	-0.50%,	0.32%},
+{15-Apr-11,	 9.358%,	-0.68%,	0.31%},
+{15-May-11,	 9.545%,	-0.94%,	0.32%},
+{15-Jun-11,	10.040%,	-1.19%,	0.33%},
+{15-Sep-11,	11.135%,	-1.41%,	0.34%},
+{15-Mar-12,	12.450%,	-1.66%,	0.38%},
+{15-Mar-13,	13.625%,	-1.86%,	0.38%},
+{15-Mar-14,	14.550%,	-2.09%,	0.38%},
+{15-Mar-16,	15.758%,	-2.67%,	0.29%}
+      "
+      SmileAdjustment="NoAdjusment"
+      ExpectsFileName="data/expects/FxOption.TestSingleBarrier12_%platform%.expects"/>
+
+    <!--
+      Double Barriers
+    -->
+    <fixture
+      name="TestDoubleBarrier1"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.33"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="1.5"
+      LowerBarrier="1.3"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1294}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier1.expects"/>
+    <fixture
+      name="TestDoubleBarrier2"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.32"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="Knockin"
+      UpperBarrier="1.4"
+      LowerBarrier="1.2"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1269}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier2.expects"/>
+    <fixture
+      name="TestDoubleBarrier3"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="1.41"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="1.5"
+      LowerBarrier="1.3"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.398"
+      Volatility="{0.1193}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier3.expects"/>
+    <fixture
+      name="TestDoubleBarrier4"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.611"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="KnockIn"
+      UpperBarrier="1.5"
+      LowerBarrier="1.3"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier4.expects"/>
+    <fixture
+      name="TestDoubleBarrier5"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20120131"
+      Strike="1.7"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="2.1"
+      LowerBarrier="1.3"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1078}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier5.expects"/>
+    <fixture
+      name="TestDoubleBarrier6"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20130201"
+      Strike="1.775"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="1.85"
+      LowerBarrier="1.7"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1115}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier6.expects"/>
+    <fixture
+      name="TestDoubleBarrier7"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20140205"
+      Strike="0.0115"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="0.02"
+      LowerBarrier="0.005"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="0.012"
+      ForwardFxRate="0.012"
+      Volatility="{0.1451}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier7.expects"/>
+    <fixture
+      name="TestDoubleBarrier8"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20010125"
+      Expiration="20150209"
+      Strike="0.699"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="Knock"
+      UpperBarrier="0.8"
+      LowerBarrier="0.6"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.398"
+      ForwardFxRate="1.397"
+      Volatility="{0.1537}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier8.expects"/>
+    <fixture
+      name="TestDoubleBarrier9"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20080506"
+      Expiration="20160210"
+      Strike="1.665"
+      OptionType="Put"
+      PayoffType="Regular"
+      BarrierType="KnockOut"
+      UpperBarrier="1.85"
+      LowerBarrier="1.7"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier9.expects"/>
+    <fixture
+      name="TestDoubleBarrier10"
+      class="TestFxOptionDoubleBarrierPricer"
+      description="FxOption test suite"
+      AsOf="20110303"
+      Settle="20110307"
+      Effective="20071220"
+      Expiration="20290205"
+      Strike="1.39"
+      OptionType="Call"
+      PayoffType="Regular"
+      BarrierType="KnockIn"
+      UpperBarrier="1.5"
+      LowerBarrier="1.3"
+      MonitoringFreq="Continuous"
+      FromRate="0.01"
+      ToRate="0.01"
+      SpotFxRate="1.620"
+      ForwardFxRate="1.620"
+      Volatility="{0.1208}"
+      ExpectsFileName="data/expects/FxOption.TestDoubleBarrier10.expects"/>
+    <fixture class="TestFxSensitivities"
+      ExpectsFileName="data/expects/TestFxSensitivities.expects" />
+  </group>
+  <group name="FxVolatilitySurfaceBuilding">
+    <fixture class="TestFxVolatilitySurface" name="EURUSD-vol-surface-strangle"
+      Tenors="1W, 2W, 3W, 1M, 2M, 3M, 4M, 6M, 9M, 1Y, 18M, 2Y, 3Y, 4Y, 5Y, 7Y, 10Y"
+      Ccy1Rates="-0.0076%, -0.0331%, -0.0391%,
+       -0.0346%, 0.0077%, 0.1016%, 0.0862%, 0.0382%, 0.0174%, 0.005%,
+       0.0033%,  0.0177%, 0.1217%, 0.3186%, 0.5269%, 1.0353%, 1.5766%"
+      Ccy2Rates="0.1961%, 0.2151%, 0.2273%,
+       0.2438%, 0.3394%, 0.4568%, 0.4525%, 0.4398%, 0.4556%, 0.4708%,
+       0.4987%, 0.5283%, 0.6229%, 0.7923%, 0.9965%, 1.4237%, 1.9608%"
+      FxRates="1.2498, 1.2499, 1.2500,
+       1.2501, 1.2505, 1.2509, 1.2514, 1.2524, 1.2540, 1.2557,
+       1.2593, 1.2628, 1.2688, 1.2735, 1.2788, 1.2819, 1.2918"
+      VolatilityQuoteTerm="
+       Currency 1: EUR;
+       Currency 2: AUD;
+       ATM settings: Spot Up To &lt;=	1Y Then	DeltaNeutral;
+       Delta Premium: Excluded;
+       Delta Style: Spot Up To &lt; 1Y Then Forward;
+       Risk Reversal: EUR Call - Put;
+       Butterfly: EUR Strangle - ATM;
+      "
+      DeltaSpecs="
+       5D Call, 10D Call, 15D Call, 20D Call, 25D Call,
+       30D Call, 35D Call, 40D Call, 45D Call,
+       ATM,
+       45D Put, 40D Put, 35D Put, 30D Put,
+       25D Put, 20D Put, 15D Put, 10D Put, 5D Put,
+      "
+      StickyDeltaVolatilities="
+       {10.474, 10.255, 10.116, 10.026, 9.969, 9.941, 9.932, 9.94, 9.962, 10, 10.055, 10.126, 10.218, 10.333, 10.478, 10.65, 10.872, 11.168, 11.598},
+       {10.267, 10.131, 10.043, 9.992, 9.967, 9.976, 10, 10.037, 10.087, 10.15, 10.233, 10.332, 10.452, 10.596, 10.771, 10.95, 11.175, 11.465, 11.904},
+       {10.395, 10.279, 10.222, 10.199, 10.198, 10.217, 10.251, 10.3, 10.362, 10.439, 10.549, 10.678, 10.831, 11.013, 11.234, 11.446, 11.711, 12.05, 12.568},
+       {9.675, 9.707, 9.779, 9.855, 9.938, 10.001, 10.073, 10.155, 10.247, 10.35, 10.501, 10.67, 10.861, 11.082, 11.339, 11.566, 11.838, 12.169, 12.671},
+       {9.773, 9.812, 9.873, 9.947, 10.033, 10.131, 10.24, 10.362, 10.498, 10.65, 10.839, 11.054, 11.301, 11.59, 11.934, 12.286, 12.715, 13.241, 13.952},
+       {9.92, 9.939, 9.958, 10.005, 10.072, 10.196, 10.333, 10.486, 10.657, 10.85, 11.066, 11.315, 11.607, 11.954, 12.372, 12.828, 13.392, 14.088, 14.981},
+       {10.319, 10.332, 10.339, 10.379, 10.442, 10.575, 10.723, 10.888, 11.073, 11.281, 11.509, 11.773, 12.084, 12.453, 12.902, 13.395, 14.008, 14.767, 15.735},
+       {10.602, 10.612, 10.599, 10.628, 10.686, 10.84, 11.011, 11.2, 11.411, 11.65, 11.905, 12.201, 12.551, 12.972, 13.486, 14.057, 14.772, 15.659, 16.769},
+       {11.205, 11.185, 11.141, 11.15, 11.194, 11.356, 11.536, 11.736, 11.962, 12.219, 12.492, 12.812, 13.191, 13.65, 14.217, 14.845, 15.639, 16.632, 17.886},
+       {11.509, 11.463, 11.39, 11.382, 11.415, 11.585, 11.774, 11.986, 12.226, 12.5, 12.792, 13.134, 13.544, 14.044, 14.666, 15.349, 16.223, 17.32, 18.709},
+       {11.826, 11.742, 11.643, 11.617, 11.636, 11.799, 11.983, 12.192, 12.429, 12.702, 12.993, 13.338, 13.752, 14.259, 14.894, 15.602, 16.518, 17.687, 19.182},
+       {11.613, 11.62, 11.584, 11.602, 11.654, 11.839, 12.042, 12.266, 12.517, 12.8, 13.088, 13.425, 13.824, 14.307, 14.905, 15.603, 16.498, 17.642, 19.08},
+       {11.833, 11.79, 11.689, 11.658, 11.669, 11.843, 12.033, 12.245, 12.482, 12.75, 13.011, 13.317, 13.681, 14.123, 14.671, 15.308, 16.132, 17.207, 18.624},
+       {11.419, 11.473, 11.476, 11.517, 11.584, 11.762, 11.954, 12.163, 12.393, 12.65, 12.917, 13.225, 13.585, 14.014, 14.537, 15.118, 15.857, 16.81, 18.1},
+       {11.259, 11.359, 11.413, 11.492, 11.588, 11.769, 11.962, 12.17, 12.398, 12.65, 12.923, 13.235, 13.597, 14.024, 14.541, 15.097, 15.798, 16.696, 17.94},
+       {11.257, 11.353, 11.463, 11.562, 11.675, 11.801, 11.971, 12.16, 12.368, 12.599, 12.855, 13.147, 13.485, 13.884, 14.357, 14.915, 15.624, 16.568, 17.837},
+       {11.253, 11.343, 11.449, 11.565, 11.693, 11.832, 11.985, 12.153, 12.339, 12.547, 12.783, 13.052, 13.365, 13.735, 14.183, 14.74, 15.454, 16.405, 17.701},
+      "
+      RrBfSpecs="ATM, 25RR, 25BF, 10RR, 10BF"
+      RrBfVolatilities="
+       {10.000%, -0.510%, 0.191%, -0.913%, 0.492%},
+       {10.150%, -0.805%, 0.196%, -1.335%, 0.549%},
+       {10.439%, -1.036%, 0.251%, -1.771%, 0.670%},
+       {10.350%, -1.401%, 0.249%, -2.462%, 0.590%},
+       {10.650%, -1.901%, 0.275%, -3.429%, 0.893%},
+       {10.850%, -2.301%, 0.300%, -4.149%, 1.193%},
+       {},
+       {11.650%, -2.801%, 0.350%, -5.047%, 1.545%},
+       {},
+       {12.500%, -3.251%, 0.450%, -5.857%, 1.995%},
+       {12.702%, -3.258%, 0.482%, -5.945%, 2.127%},
+       {12.800%, -3.251%, 0.400%, -6.022%, 1.943%},
+       {12.750%, -3.002%, 0.369%, -5.417%, 1.837%},
+       {},
+       {12.650%, -2.953%, 0.348%, -5.337%, 1.478%},
+       {},
+       {}
+      "
+    />
+    <fixture class="TestFxVolatilitySurface" name="EURUSD-vol-surface-average"
+      Tenors="1W, 2W, 3W, 1M, 2M, 3M, 4M, 6M, 9M, 1Y, 18M, 2Y, 3Y, 4Y, 5Y, 7Y, 10Y"
+      Ccy1Rates="-0.0076%, -0.0331%, -0.0391%,
+       -0.0346%, 0.0077%, 0.1016%, 0.0862%, 0.0382%, 0.0174%, 0.005%,
+       0.0033%,  0.0177%, 0.1217%, 0.3186%, 0.5269%, 1.0353%, 1.5766%"
+      Ccy2Rates="0.1961%, 0.2151%, 0.2273%,
+       0.2438%, 0.3394%, 0.4568%, 0.4525%, 0.4398%, 0.4556%, 0.4708%,
+       0.4987%, 0.5283%, 0.6229%, 0.7923%, 0.9965%, 1.4237%, 1.9608%"
+      FxRates="1.2498, 1.2499, 1.2500,
+       1.2501, 1.2505, 1.2509, 1.2514, 1.2524, 1.2540, 1.2557,
+       1.2593, 1.2628, 1.2688, 1.2735, 1.2788, 1.2819, 1.2918"
+      VolatilityQuoteTerm="
+       Currency 1: EUR;
+       Currency 2: AUD;
+       ATM settings: Spot Up To &lt;=	1Y Then	Forward;
+       Delta Premium: Excluded;
+       Delta Style: Spot Up To &lt; 1Y Then Forward;
+       Risk Reversal: EUR Call - Put;
+       Butterfly: (Call + Put)/2 - ATM;
+      "
+      DeltaSpecs="
+       5D Call, 10D Call, 15D Call, 20D Call, 25D Call,
+       30D Call, 35D Call, 40D Call, 45D Call,
+       ATM,
+       45D Put, 40D Put, 35D Put, 30D Put,
+       25D Put, 20D Put, 15D Put, 10D Put, 5D Put,
+      "
+      StickyDeltaVolatilities="
+       {10.474, 10.255, 10.116, 10.026, 9.969, 9.941, 9.932, 9.94, 9.962, 10, 10.055, 10.126, 10.218, 10.333, 10.478, 10.65, 10.872, 11.168, 11.598},
+       {10.267, 10.131, 10.043, 9.992, 9.967, 9.976, 10, 10.037, 10.087, 10.15, 10.233, 10.332, 10.452, 10.596, 10.771, 10.95, 11.175, 11.465, 11.904},
+       {10.395, 10.279, 10.222, 10.199, 10.198, 10.217, 10.251, 10.3, 10.362, 10.439, 10.549, 10.678, 10.831, 11.013, 11.234, 11.446, 11.711, 12.05, 12.568},
+       {9.675, 9.707, 9.779, 9.855, 9.938, 10.001, 10.073, 10.155, 10.247, 10.35, 10.501, 10.67, 10.861, 11.082, 11.339, 11.566, 11.838, 12.169, 12.671},
+       {9.773, 9.812, 9.873, 9.947, 10.033, 10.131, 10.24, 10.362, 10.498, 10.65, 10.839, 11.054, 11.301, 11.59, 11.934, 12.286, 12.715, 13.241, 13.952},
+       {9.92, 9.939, 9.958, 10.005, 10.072, 10.196, 10.333, 10.486, 10.657, 10.85, 11.066, 11.315, 11.607, 11.954, 12.372, 12.828, 13.392, 14.088, 14.981},
+       {10.319, 10.332, 10.339, 10.379, 10.442, 10.575, 10.723, 10.888, 11.073, 11.281, 11.509, 11.773, 12.084, 12.453, 12.902, 13.395, 14.008, 14.767, 15.735},
+       {10.602, 10.612, 10.599, 10.628, 10.686, 10.84, 11.011, 11.2, 11.411, 11.65, 11.905, 12.201, 12.551, 12.972, 13.486, 14.057, 14.772, 15.659, 16.769},
+       {11.205, 11.185, 11.141, 11.15, 11.194, 11.356, 11.536, 11.736, 11.962, 12.219, 12.492, 12.812, 13.191, 13.65, 14.217, 14.845, 15.639, 16.632, 17.886},
+       {11.509, 11.463, 11.39, 11.382, 11.415, 11.585, 11.774, 11.986, 12.226, 12.5, 12.792, 13.134, 13.544, 14.044, 14.666, 15.349, 16.223, 17.32, 18.709},
+       {11.826, 11.742, 11.643, 11.617, 11.636, 11.799, 11.983, 12.192, 12.429, 12.702, 12.993, 13.338, 13.752, 14.259, 14.894, 15.602, 16.518, 17.687, 19.182},
+       {11.613, 11.62, 11.584, 11.602, 11.654, 11.839, 12.042, 12.266, 12.517, 12.8, 13.088, 13.425, 13.824, 14.307, 14.905, 15.603, 16.498, 17.642, 19.08},
+       {11.833, 11.79, 11.689, 11.658, 11.669, 11.843, 12.033, 12.245, 12.482, 12.75, 13.011, 13.317, 13.681, 14.123, 14.671, 15.308, 16.132, 17.207, 18.624},
+       {11.419, 11.473, 11.476, 11.517, 11.584, 11.762, 11.954, 12.163, 12.393, 12.65, 12.917, 13.225, 13.585, 14.014, 14.537, 15.118, 15.857, 16.81, 18.1},
+       {11.259, 11.359, 11.413, 11.492, 11.588, 11.769, 11.962, 12.17, 12.398, 12.65, 12.923, 13.235, 13.597, 14.024, 14.541, 15.097, 15.798, 16.696, 17.94},
+       {11.257, 11.353, 11.463, 11.562, 11.675, 11.801, 11.971, 12.16, 12.368, 12.599, 12.855, 13.147, 13.485, 13.884, 14.357, 14.915, 15.624, 16.568, 17.837},
+       {11.253, 11.343, 11.449, 11.565, 11.693, 11.832, 11.985, 12.153, 12.339, 12.547, 12.783, 13.052, 13.365, 13.735, 14.183, 14.74, 15.454, 16.405, 17.701},
+      "
+      RrBfSpecs="ATM, 25RR, 25BF, 10RR, 10BF"
+      RrBfVolatilities="
+       {10.000%, -0.510%, 0.191%, -0.913%, 0.492%},
+       {10.150%, -0.805%, 0.196%, -1.335%, 0.549%},
+       {10.439%, -1.036%, 0.251%, -1.771%, 0.670%},
+       {10.350%, -1.401%, 0.249%, -2.462%, 0.590%},
+       {10.650%, -1.901%, 0.275%, -3.429%, 0.893%},
+       {10.850%, -2.301%, 0.300%, -4.149%, 1.193%},
+       {},
+       {11.650%, -2.801%, 0.350%, -5.047%, 1.545%},
+       {},
+       {12.500%, -3.251%, 0.450%, -5.857%, 1.995%},
+       {12.702%, -3.258%, 0.482%, -5.945%, 2.127%},
+       {12.800%, -3.251%, 0.400%, -6.022%, 1.943%},
+       {12.750%, -3.002%, 0.369%, -5.417%, 1.837%},
+       {},
+       {12.650%, -2.953%, 0.348%, -5.337%, 1.478%},
+       {},
+       {}
+      "
+    />
+  </group>
+</TestSuiteProject>

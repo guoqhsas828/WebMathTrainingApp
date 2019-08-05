@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSuiteProject>
+  <group name="CommodityCategoryTests">
+    <fixture
+      name="TestCommodityFutureOptionBlackPricer1"
+      class="TestCommodityFutureOptionBlackPricer"
+      description="TestCommodityFutureOptionBlackPricer - BBG tie-out 1"
+      AsOf="20120606"
+      Settle="20120606"
+      Expiration="20120626"
+      Strike="2.70"
+      OptionType="Call"
+			OptionStyle="European"
+			FuturesPrice="2.6979"
+      Volatility="{0.28791}"
+      ContractSize="42000"
+      NumContracts="1"
+      ExpectsFileName="data/expects/TestCommodityFutureOptionBlackPricer1.expects"/>
+    <fixture
+      name="TestCommodityFutureOptionBlackPricer2"
+      class="TestCommodityFutureOptionBlackPricer"
+      description="TestCommodityFutureOptionBlackPricer - BBG tie-out 2 - as (1) but with prices in cent units"
+      AsOf="20120606"
+      Settle="20120606"
+      Expiration="20120626"
+      Strike="270"
+      OptionType="Call"
+			OptionStyle="European"
+			FuturesPrice="269.79"
+      Volatility="{0.28791}"
+      ContractSize="420"
+      NumContracts="1"
+      ExpectsFileName="data/expects/TestCommodityFutureOptionBlackPricer2.expects"/>
+    <fixture
+      name="TestCommodityFutureOptionBlackPricer3"
+      class="TestCommodityFutureOptionBlackPricer"
+      description="TestCommodityFutureOptionBlackPricer - made up to test Vol surface testing"
+      AsOf="20120606"
+      Settle="20120606"
+      Expiration="20130626"
+      Strike="2.7"
+      OptionType="Call"
+			OptionStyle="European"
+			FuturesPrice="2.698"
+      ContractSize="42000"
+      NumContracts="1"
+      Volatility="
+									{6-Jun-12,2.6,.28}
+									{6-Jun-12,2.8,.29}
+									{6-Jun-14,2.6,.34}
+									{6-Jun-14,2.8,.35}
+								 "
+      ExpectsFileName="data/expects/TestCommodityFutureOptionBlackPricer3.expects"/>
+  </group>
+</TestSuiteProject>

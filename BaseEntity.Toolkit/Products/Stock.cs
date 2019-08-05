@@ -68,12 +68,31 @@ namespace BaseEntity.Toolkit.Products
       return new Stock(currency, ticker, schedule?
         .Select(d => new Dividend(d.Item1, d.Item1, d.Item2, d.Item3)).ToList());
     }
-    
+
 
     #endregion Methods
 
 
     #region Nested type: Dividend
+
+    /// <summary>
+    /// Market input choice of underlying stock dividend
+    /// </summary>
+    public enum StockDividendInput
+    {
+      /// <summary>
+      /// No dividend payment
+      /// </summary>
+      None,
+      /// <summary>
+      /// Annual dividend yield
+      /// </summary>
+      DividendYield,
+      /// <summary>
+      /// Projected (actual) dividend payment schedule
+      /// </summary>
+      DividendSchedule
+    }
 
     /// <summary>
     /// Class DividentSpec.

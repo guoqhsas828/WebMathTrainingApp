@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSuiteProject>
+  <!--
+      CDS Pricers
+    -->
+  <fixture smoke="true"
+    description="Test the CDS pricer with fee on the settle date."
+    name="TestCDSPricer_FeeOnSettle_CDX.NA.HY.7"
+    class="TestCDS"
+    excludeMethods="UpfrontFee"
+      
+    LiborDataFile="data/USD.LIBOR_Data061212.xml"
+    CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+    ExpectsFileName="data/expects/TestCDSPricer_FeeOnSettle.expects"
+    UseCashflowStreamPricer="false"
+    PricingDate="20061212"
+    SettleDate="20061213"
+    FeeSettleDate="20061213"
+    Fee="0.05"
+    SpreadHedgeParam="5Y,1,1"
+    SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+    RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+    DefaultSensitivityParam="true,5Y"
+    RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+  />
+  <fixture smoke="true"
+    description="Test the CDS pricer with High Yield Spreads, using the Cashflow model."
+    name="TestCDSPricer_FeeAfterSettle_CDX.NA.HY.7"
+    class="TestCDS"
+    excludeMethods="UpfrontFee"
+      
+    LiborDataFile="data/USD.LIBOR_Data061212.xml"
+    CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+    ExpectsFileName="data/expects/TestCDSPricer_FeeAfterSettle.expects"
+    UseCashflowStreamPricer="false"
+    PricingDate="20061212"
+    SettleDate="20061213"
+    FeeSettleDate="20061214"
+    Fee="0.05"
+    SpreadHedgeParam="5Y,1,1"
+    SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+    RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+    DefaultSensitivityParam="true,5Y"
+    RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+  />
+  <fixture smoke="true"
+    description="Test the CDS pricer with High Yield Spreads, using the Cashflow model."
+      name="CDX.NA.HY.7"
+      class="TestCDS"
+      excludeMethods="all"
+      selectGroups="SummaryRiskMethods,RiskMethods"
+      
+      LiborDataFile="data/USD.LIBOR_Data061212.xml"
+      CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+      ExpectsFileName="data/expects/TestCDSPricer_CDX.NA.HY.7.expects"
+      UseCashflowStreamPricer="false"
+      SpreadHedgeParam="5Y,1,1"
+      SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+      RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+      DefaultSensitivityParam="true,5Y"
+      RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+    />
+  <fixture smoke="true"
+    description="Test the CDS pricer with High Yield Spreads, using the Cashflow model."
+      name="CDX.NA.HY.7 Senstivities2"
+      class="TestCDS"
+      
+      UseSensitivities2="True"
+      LiborDataFile="data/USD.LIBOR_Data061212.xml"
+      CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+      ExpectsFileName="data/expects/TestCDSPricer_CDX.NA.HY.7.expects"
+      UseCashflowStreamPricer="false"
+      SpreadHedgeParam="5Y,1,1"
+      SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+      RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+      DefaultSensitivityParam="true,5Y"
+      RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+    />
+  <fixture smoke="true"
+    description="Test the CDS pricer for forward start CDSs, with High Yield Spreads,
+        using the Cashflow model.  Excluding the methods Irr(), ImpliedDiscountSpread()
+        and ImpliedSurvivalSpread() because these functions do not work with FCDS yet."
+    name="TestCDSCashflowPricer_FCDS_CDX.NA.HY.7"
+    class="TestCDS"
+      
+    excludeMethods="Irr,ImpliedDiscountSpread,ImpliedSurvivalSpread,AccruedFundedFloatingException,AccuedPaidOnDefaultFundedFloating"
+    LiborDataFile="data/USD.LIBOR_Data061212.xml"
+    CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+    ExpectsFileName="data/expects/TestCDSPricer_FCDS_CDX.NA.HY.7.expects"
+    UseCashflowStreamPricer="false"
+    EffectiveDate="20091220"
+    MaturityDate="20111220"
+    ForwarddSettleDate="20091220"
+    PvToDate="20101220"
+    FwdValueFromDate="20101220"
+    SpreadHedgeParam="5Y,1,1"
+    SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+    RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+    DefaultSensitivityParam="true,5Y"
+    RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+     />
+
+  <fixture smoke="true"
+    description="Test FeePv+ProtectionPv = Pv for PayRecoveryAtMaturity=TRUE"
+    name="TestCDSPayRecoveryAtMaturity"
+    class="TestCDSPayRecoveryAtMaturity"
+  />
+
+  <!--
+      CDS Option pricers
+    -->
+  <fixture
+    description="Test the CDS option pricer with High Yield Spreads Index names."
+    name="TestCDSOptionPricer_CDX.NA.HY.7"
+    class="TestCDSOption"
+      
+    LiborDataFile="data/USD.LIBOR_Data061212.xml"
+    CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+    ExpectsFileName="data/expects/TestCDSOptionPricer_CDX.NA.HY.7.expects"
+    UseCashflowStreamPricer="false"
+    SpreadHedgeParam="5Y,1,1"
+    SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+    RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+    DefaultSensitivityParam="true,5Y"
+    RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+    />
+  <fixture smoke="true"
+    description="Test the CDS option pricer with HY cds, with knock-out."
+    name="TestCDSOption_knockout_CDX.NA.HY.7"
+    class="TestCDSOption"
+      
+    KnockOut="true"
+    LiborDataFile="data/USD.LIBOR_Data061212.xml"
+    CreditDataFile="data/CDX.NA.HY.7_CreditData.xml"
+    ExpectsFileName="data/expects/TestCDSOptionPricer_knockout_CDX.NA.HY.7.expects"
+    UseCashflowStreamPricer="false"
+    SpreadHedgeParam="5Y,1,1"
+    SpreadSensitivityParam="0,1,1,false,true,Parallel,true,true,5Y"
+    RateSensitivityParam="0,1,1,false,false,Parallel,true,false,5 Yr,true"
+    DefaultSensitivityParam="true,5Y"
+    RecoverySensitivityParam="false,0.01,0.01,Parallel,true"
+    />
+
+</TestSuiteProject>

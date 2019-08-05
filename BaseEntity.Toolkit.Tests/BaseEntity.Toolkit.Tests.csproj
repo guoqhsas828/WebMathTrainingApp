@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net472;netcoreapp2.1</TargetFrameworks>
+    <AssemblyName>BaseEntity.Toolkit.Tests</AssemblyName>
+    <RootNamespace>BaseEntity.Toolkit.Tests</RootNamespace>
+    <Company></Company>
+    <Authors></Authors>
+    <Description></Description>
+    <Version>11.1.0</Version>
+    <AssemblyVersion>11.1.0.0</AssemblyVersion>
+    <FileVersion>11.1.0.0</FileVersion>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="cdo.test" />
+    <EmbeddedResource Include="cds.test" />
+    <EmbeddedResource Include="cdxoption.test" />
+    <EmbeddedResource Include="commodities.test" />
+    <EmbeddedResource Include="fx.test" />
+    <EmbeddedResource Include="stockoption.test" />
+    <EmbeddedResource Include="toolkit.test" />
+    <EmbeddedResource Include="vanillaproducts.test" />
+    <EmbeddedResource Include="volatilities.test" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Iesi.Collections" Version="4.0.4" />
+    <PackageReference Include="NUnit" Version="3.10.1" />
+    <ProjectReference Include="..\BaseEntity.Database\BaseEntity.Database.csproj" />
+    <ProjectReference Include="..\BaseEntity.Toolkit.Base\BaseEntity.Toolkit.Base.csproj" />
+    <ProjectReference Include="..\BaseEntity.Toolkit.Native\BaseEntity.Toolkit.Native.csproj" />
+    <ProjectReference Include="..\BaseEntity.Toolkit\BaseEntity.Toolkit.csproj" />
+    <ProjectReference Include="..\BaseEntityMeta\src\BaseEntity.Metadata.csproj" />
+    <ProjectReference Include="..\BaseEntityObjects\src\BaseEntityObjects.csproj" />
+    <ProjectReference Include="..\ObjectModels\src\BaseEntity.Configuration.csproj" />
+  </ItemGroup>
+
+</Project>
