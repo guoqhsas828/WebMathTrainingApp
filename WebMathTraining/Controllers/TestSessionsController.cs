@@ -24,13 +24,15 @@ namespace WebMathTraining.Controllers
     private readonly ICatalogRepository<TestImage> _testImageContext;
     private readonly ICatalogRepository<TestSession> _testSessions;
     private readonly ICatalogRepository<TestResult> _testResults;
+    private readonly IBlobFileService _blobFileService;
 
-    public TestSessionsController(ICatalogRepository<TestImage> testImageContext, IAppUserManageService userContext, 
-      UserManager<ApplicationUser> userManager, 
-      ITestSessionService<int> service, 
+
+    public TestSessionsController(ICatalogRepository<TestImage> testImageContext, IAppUserManageService userContext,
+      UserManager<ApplicationUser> userManager,
+      ITestSessionService<int> service,
       ICatalogRepository<TestSession> testSessions,
       ICatalogRepository<TestQuestion> testQuestions,
-      ICatalogRepository<TestResult> testResults)
+      ICatalogRepository<TestResult> testResults, IBlobFileService blobFileService)
     {
       _userContext = userContext;
       _userManager = userManager;
@@ -39,6 +41,7 @@ namespace WebMathTraining.Controllers
       _testSessions = testSessions;
       _questionRepository = testQuestions;
       _testResults = testResults;
+      _blobFileService = blobFileService;
     }
 
     // GET: TestSessions
@@ -113,18 +116,21 @@ namespace WebMathTraining.Controllers
       {
         var user = await _userContext.FindById(tester);
         if (user == null) continue;
-        testSession.Testers.Add(new TesterItem(){TesterId = tester, Grade = user.ExperienceLevel, Group = user.Continent.ToString()});
+        testSession.Testers.Add(new TesterItem() { TesterId = tester, Grade = user.ExperienceLevel, Group = user.Continent.ToString() });
       }
 
       testSession.TestQuestions.Clear();
-      for (var idx =0; idx < viewModel.DistinctQuestionIds.Count; ++idx)
+      for (var idx = 0; idx < viewModel.DistinctQuestionIds.Count; ++idx)
       {
         var questionId = viewModel.DistinctQuestionIds[idx];
-        var q = await _questionRepository.GetByIdAsync( questionId);
+        var q = await _questionRepository.GetByIdAsync(questionId);
         if (q == null) continue;
         testSession.TestQuestions.Add(new TestQuestionItem()
         {
-          Idx = idx, PenaltyPoint = -1, QuestionId = questionId, ScorePoint = viewModel.TestScores[idx]
+          Idx = idx,
+          PenaltyPoint = -1,
+          QuestionId = questionId,
+          ScorePoint = viewModel.TestScores[idx]
         });
       }
 
@@ -133,7 +139,7 @@ namespace WebMathTraining.Controllers
       testSession.Testers = testSession.Testers;
       testSession.TestQuestions = testSession.TestQuestions;
       await _testSessions.UpdateAsync(testSession);
- 
+
       return RedirectToAction(nameof(Index));
     }
 
@@ -143,7 +149,7 @@ namespace WebMathTraining.Controllers
       //var currentUser = await _userManager.GetUserAsync(User);
       //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
       //if (isAdmin)
-        return View();
+      return View();
       //else
       //  return RedirectToAction(nameof(Index));
     }
@@ -173,7 +179,7 @@ namespace WebMathTraining.Controllers
         testSession.LastUpdated = DateTime.UtcNow;
         if (testSession.TargetGrade <= 0) testSession.TargetGrade = currentUser.ExperienceLevel;
         var targetTestGrade = testSession.TargetGrade;
-        var testQuestions = _questionRepository.ListAsync(new TestQuestionFilterSpecification( targetTestGrade - 1)).Result.Select(q => new Tuple<int, int>(q.ObjectId, q.Level)).ToList();
+        var testQuestions = _questionRepository.ListAsync(new TestQuestionFilterSpecification(targetTestGrade - 1)).Result.Select(q => new Tuple<int, int>(q.ObjectId, q.Level)).ToList();
 
         var questionList = new List<Tuple<int, int>>();
         if (testQuestions.Count <= testSession.QuestionRequest)
@@ -193,8 +199,13 @@ namespace WebMathTraining.Controllers
 
         foreach (var q in questionList)
         {
-          testSession.TestQuestions.Add(new TestQuestionItem(){Idx = testSession.TestQuestions.Count, PenaltyPoint = -1, QuestionId = q.Item1,
-            ScorePoint = q.Item2 > currentUser.ExperienceLevel ? 5.0 : (q.Item2 < currentUser.ExperienceLevel ? 3.0 : 4.0)});
+          testSession.TestQuestions.Add(new TestQuestionItem()
+          {
+            Idx = testSession.TestQuestions.Count,
+            PenaltyPoint = -1,
+            QuestionId = q.Item1,
+            ScorePoint = q.Item2 > currentUser.ExperienceLevel ? 5.0 : (q.Item2 < currentUser.ExperienceLevel ? 3.0 : 4.0)
+          });
         }
 
         testSession.TestQuestions = testSession.TestQuestions;
@@ -278,7 +289,7 @@ namespace WebMathTraining.Controllers
       if (!isAdmin)
         return Challenge();
 
-      var testSession = await _testSessionService.GetTestSessionAsync( id.Value);
+      var testSession = await _testSessionService.GetTestSessionAsync(id.Value);
       if (testSession == null)
       {
         return NotFound();
@@ -305,7 +316,7 @@ namespace WebMathTraining.Controllers
       if (!isAdmin)
         return Challenge();
 
-      return View(new AddQuestionViewModel { TestSessionId = id});
+      return View(new AddQuestionViewModel { TestSessionId = id });
     }
 
     // POST: TestSessions/AddQuestion
@@ -377,7 +388,7 @@ namespace WebMathTraining.Controllers
       }
 
       var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
-      var testQuestion =  await _questionRepository.GetByIdAsync(testQuestionItem.QuestionId);
+      var testQuestion = await _questionRepository.GetByIdAsync(testQuestionItem.QuestionId);
       if (testQuestion == null)
         return BadRequest($"This test data of session {testSession.Name} has been corrupted, please contact with the administrator");
 
@@ -386,9 +397,9 @@ namespace WebMathTraining.Controllers
         return NotFound();
       }
 
-      var testImage = await _testImageContext.GetByIdAsync( testQuestion.QuestionImageId);
+      var testImage = await _testImageContext.GetByIdAsync(testQuestion.QuestionImageId);
       var vm = new NextQuestionDetailViewModel(testQuestion, testImage, id, testSession.Name, questionIdx)
-        {ScorePoint = testQuestionItem.ScorePoint, PenaltyPoint = testQuestionItem.PenaltyPoint};
+      { ScorePoint = testQuestionItem.ScorePoint, PenaltyPoint = testQuestionItem.PenaltyPoint };
       var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
       if (testResultItem != null)
       {
@@ -458,24 +469,24 @@ namespace WebMathTraining.Controllers
         if ((questionIdx.HasValue && idx == questionIdx.Value) || testQuestionItem.QuestionId == questionId)
         {
           var testQuestion = await _questionRepository.GetByIdAsync(testQuestionItem.QuestionId);
-          var testImage = await _testImageContext.GetByIdAsync( testQuestion.QuestionImageId);
+          var testImage = await _testImageContext.GetByIdAsync(testQuestion.QuestionImageId);
           var testResultItem = testResult.TestResults.Items.FirstOrDefault(ttr => ttr.QuestionId == testQuestion.ObjectId);
           var vm = new ReviewQuestionViewModel(testQuestion, testImage, id.Value, testSession.Name, idx)
-            {
-              ScorePoint = testQuestionItem.ScorePoint,
-              PenaltyPoint = testQuestionItem.PenaltyPoint,
-              UserId = testResult.UserId,
-              TextAnswer = testResultItem?.Answer ?? "",
-              ActualScore = testResultItem?.Score ?? 0,
-              CorrectAnswer = testQuestion.TestAnswer?.TextAnswer,
-              ShowAnswer = false,
-              TestUserName = requestUser?.FirstName
-        };
+          {
+            ScorePoint = testQuestionItem.ScorePoint,
+            PenaltyPoint = testQuestionItem.PenaltyPoint,
+            UserId = testResult.UserId,
+            TextAnswer = testResultItem?.Answer ?? "",
+            ActualScore = testResultItem?.Score ?? 0,
+            CorrectAnswer = testQuestion.TestAnswer?.TextAnswer,
+            ShowAnswer = false,
+            TestUserName = requestUser?.FirstName
+          };
           return View(vm);
         }
       }
 
-      return RedirectToAction(nameof(TestInstruction), new {id = id});
+      return RedirectToAction(nameof(TestInstruction), new { id = id });
     }
 
     [HttpPost]
@@ -501,7 +512,7 @@ namespace WebMathTraining.Controllers
       }
 
       var testQuestionItem = testSession.TestQuestions.Items[questionIdx];
-      var testQuestion = await _questionRepository.GetByIdAsync( testQuestionItem.QuestionId);
+      var testQuestion = await _questionRepository.GetByIdAsync(testQuestionItem.QuestionId);
       if (testQuestion == null)
         return NotFound();
 
@@ -524,7 +535,7 @@ namespace WebMathTraining.Controllers
       else if (questionIdx >= testSession.TestQuestions.Count - 1)
         return RedirectToAction(nameof(FinalSubmit), new { id = id });
 
-      return RedirectToAction(nameof(NextQuestion), new {id = id, questionIdx = questionIdx + 1});
+      return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = questionIdx + 1 });
     }
 
     // GET: TestSessions/FinalSubmit
@@ -547,8 +558,16 @@ namespace WebMathTraining.Controllers
       if (testResult == null)
         return NotFound();
 
-      return View(new FinalSubmitViewModel() { TestSessionId = id.Value, SessionName = testSession.Name, AllowedTimeSpan = testSession.SessionTimeSpan,
-        TestStart = testResult.TestStarted.ToLocalTime(), SessionObjectId = testSession.ObjectId, UserObjectId = testUser.ObjectId, UserName = testUser.UserName });
+      return View(new FinalSubmitViewModel()
+      {
+        TestSessionId = id.Value,
+        SessionName = testSession.Name,
+        AllowedTimeSpan = testSession.SessionTimeSpan,
+        TestStart = testResult.TestStarted.ToLocalTime(),
+        SessionObjectId = testSession.ObjectId,
+        UserObjectId = testUser.ObjectId,
+        UserName = testUser.UserName
+      });
     }
 
     [HttpPost]
@@ -592,7 +611,7 @@ namespace WebMathTraining.Controllers
 
       if (!testSession.IsRegisteredUser(testUser.ObjectId))
       {
-        return RedirectToAction(nameof(Register), new { id = id.Value});
+        return RedirectToAction(nameof(Register), new { id = id.Value });
       }
 
       var existingTestResult = await _testSessionService.GetTestResultAsync(testSession.ObjectId, testUser.ObjectId);
@@ -616,7 +635,7 @@ namespace WebMathTraining.Controllers
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> TestInstruction(int id, [Bind("SessionObjectId,UserName,UserObjectId,AllowedTimeSpan,SessionName, TestStart")]TestInstructionViewModel viewModel)
     {
-       await _testSessionService.CreateNewTestResult(viewModel.SessionObjectId, viewModel.UserObjectId);
+      await _testSessionService.CreateNewTestResult(viewModel.SessionObjectId, viewModel.UserObjectId);
 
       return RedirectToAction(nameof(NextQuestion), new { id = id, questionIdx = 0 });
     }
@@ -643,5 +662,36 @@ namespace WebMathTraining.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    public async Task<IActionResult> GetTestImageFile(int id)
+    {
+      var image = await _testImageContext.GetByIdAsync(id);
+      if (image == null || String.Compare(image.ContentType, "Text", StringComparison.InvariantCultureIgnoreCase) == 0)
+      {
+        return null;
+      }
+
+      byte[] imageBytes;
+      string contentType;
+      if (image.Width != CloudContainer.None)
+      {
+        //string base64Str = Convert.ToBase64String(image.Data);
+        //imageBytes = Convert.FromBase64String(base64Str);
+        var fileName = image.Name;
+        var containerName = image.Width.ToString();
+
+        if (fileName.IndexOf('.') < 0) fileName += ".PNG";
+        var cloudData = await _blobFileService.DownloadBlobToByteArrayAsync(fileName, containerName);
+        imageBytes = cloudData.Item1;
+        contentType = cloudData.Item2;
+      }
+      else
+      {
+        imageBytes = image.Data;
+        contentType = image.ContentType;
+      }
+
+      FileResult imageUserFile = File(imageBytes, contentType);
+      return imageUserFile;
+    }
   }
 }

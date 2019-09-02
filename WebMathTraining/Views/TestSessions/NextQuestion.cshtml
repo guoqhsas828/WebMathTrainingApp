@@ -19,7 +19,7 @@
                 @if (!Model.IsTextBased)
                 {
                     <div class="form-group">
-                        <img src="@Url.Action("GetTestImageFile", "TestImage", new { id = Model.ImageId })" />
+                        <img src="@Url.Action("GetTestImageFile", "TestSessions", new { id = Model.ImageId })" />
                     </div>
                 }
                 @if (Model.IsTextBased)

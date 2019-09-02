@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>BaseEntity.Toolkit.Tests</AssemblyName>
     <RootNamespace>BaseEntity.Toolkit.Tests</RootNamespace>
     <Company></Company>
@@ -15,6 +15,7 @@
 
   <PropertyGroup>
     <OutputPath>..\bin\Debug\</OutputPath>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
