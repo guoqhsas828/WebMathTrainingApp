@@ -64,7 +64,9 @@ namespace StoreManager.Models
 
     Math,
 
-    Physics
+    Physics,
+
+    History
 
   }
 

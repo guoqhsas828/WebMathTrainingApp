@@ -122,6 +122,7 @@ namespace WebMathTraining.Models
     public int TargetGrade { get; set; }
 
 
+    public TestCategory Category { get; set; }
 
     #region Methods
 
