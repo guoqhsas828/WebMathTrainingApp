@@ -99,6 +99,7 @@ namespace WebMathTraining.Models
     {
       AnswerChoice = entity.TestAnswer?.AnswerType ?? TestAnswerType.None;
       Image = image; //entity.QuestionImage;
+      ImageId = image?.Id ?? 0;
       TestSessionName = sessionName;
       QuestionIdx = idx;
       SessionId = id;
@@ -116,7 +117,8 @@ namespace WebMathTraining.Models
     [Required]
     public int ImageId
     {
-      get { return Image?.Id ?? 0; }
+      //get { return Image?.Id ?? 0; }
+      get;set;
     }
 
     public TestAnswerType AnswerChoice { get; set; }
