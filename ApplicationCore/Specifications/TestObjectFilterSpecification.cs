@@ -37,8 +37,8 @@ namespace StoreManager.Specifications
     {
     }
 
-    public TestQuestionFilterSpecification(int targetTestGrade)
-      : base(q => q.Level >= targetTestGrade - 1 && q.Level <= targetTestGrade + 1)
+    public TestQuestionFilterSpecification(int targetTestGrade, TestCategory category)
+      : base(q => q.Category == category && q.Level >= targetTestGrade - 1 && q.Level <= targetTestGrade + 1)
     {
     }
   }

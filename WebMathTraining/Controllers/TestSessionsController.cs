@@ -182,6 +182,17 @@ namespace WebMathTraining.Controllers
       //  return RedirectToAction(nameof(Index));
     }
 
+    // GET: TestSessions/Create
+    public IActionResult CreateHistory()
+    {
+      //var currentUser = await _userManager.GetUserAsync(User);
+      //var isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+      //if (isAdmin)
+      return View();
+      //else
+      //  return RedirectToAction(nameof(Index));
+    }
+
     // POST: TestSessions/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -196,6 +207,7 @@ namespace WebMathTraining.Controllers
         testSession.Description = $"Private Test ({user?.UserName ?? "?"}) Created {DateTime.Now}";
       }
 
+      testSession.Category = TestCategory.Math;
       var currentUser = await _userContext.FindByUserEmail(user?.Email);
       if (currentUser == null || currentUser.ExperienceLevel <= 0)
         return BadRequest(
@@ -207,7 +219,66 @@ namespace WebMathTraining.Controllers
         testSession.LastUpdated = DateTime.UtcNow;
         if (testSession.TargetGrade <= 0) testSession.TargetGrade = currentUser.ExperienceLevel;
         var targetTestGrade = testSession.TargetGrade;
-        var testQuestions = _questionRepository.ListAsync(new TestQuestionFilterSpecification(targetTestGrade - 1)).Result.Select(q => new Tuple<int, int>(q.ObjectId, q.Level)).ToList();
+        var testQuestions = _questionRepository.ListAsync(new TestQuestionFilterSpecification(targetTestGrade - 1, TestCategory.Math)).Result.Select(q => new Tuple<int, int>(q.ObjectId, q.Level)).ToList();
+
+        var questionList = new List<Tuple<int, int>>();
+        if (testQuestions.Count <= testSession.QuestionRequest)
+        {
+          questionList.AddRange(testQuestions);
+        }
+        else if (testSession.QuestionRequest > 0)
+        {
+          var random = new Random(DateTime.Now.Second);
+          HashSet<int> picked = new HashSet<int>();
+          while (picked.Count < testSession.QuestionRequest)
+            picked.Add(random.Next(testQuestions.Count));
+
+          foreach (var idx in picked)
+            questionList.Add(testQuestions[idx]);
+        }
+
+        foreach (var q in questionList)
+        {
+          testSession.TestQuestions.Add(new TestQuestionItem()
+          {
+            Idx = testSession.TestQuestions.Count,
+            PenaltyPoint = -1,
+            QuestionId = q.Item1,
+            ScorePoint = q.Item2 > currentUser.ExperienceLevel ? 5.0 : (q.Item2 < currentUser.ExperienceLevel ? 3.0 : 4.0)
+          });
+        }
+
+        testSession.TestQuestions = testSession.TestQuestions;
+        await _testSessions.AddAsync(testSession);
+        return RedirectToAction(nameof(Index));
+      }
+      return View(testSession);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CreateHistory([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade")] TestSession testSession)
+    {
+      var user = await _userManager.GetUserAsync(User);
+      var isAdmin = user != null && await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
+      if (!isAdmin)
+      {
+        testSession.Description = $"Private Test ({user?.UserName ?? "?"}) Created {DateTime.Now}";
+      }
+
+      testSession.Category = TestCategory.History;
+      var currentUser = await _userContext.FindByUserEmail(user?.Email);
+      if (currentUser == null || currentUser.ExperienceLevel <= 0)
+        return BadRequest(
+          "Only valid user with properly configured Grade information can create test sessions, please update your profile");
+
+      if (ModelState.IsValid)
+      {
+        //testSession.Id = Guid.NewGuid();
+        testSession.LastUpdated = DateTime.UtcNow;
+        if (testSession.TargetGrade <= 0) testSession.TargetGrade = currentUser.ExperienceLevel;
+        var targetTestGrade = testSession.TargetGrade;
+        var testQuestions = _questionRepository.ListAsync(new TestQuestionFilterSpecification(targetTestGrade - 1, TestCategory.History)).Result.Select(q => new Tuple<int, int>(q.ObjectId, q.Level)).ToList();
 
         var questionList = new List<Tuple<int, int>>();
         if (testQuestions.Count <= testSession.QuestionRequest)
