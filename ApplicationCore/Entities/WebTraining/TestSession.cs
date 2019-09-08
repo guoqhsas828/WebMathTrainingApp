@@ -17,7 +17,8 @@ namespace WebMathTraining.Models
 
     public TestSession()
     {
-
+      Name = String.Empty;
+      Description = String.Empty;
       PlannedStart = DateTime.UtcNow;
 
       PlannedEnd = DateTime.UtcNow.AddMinutes(30);

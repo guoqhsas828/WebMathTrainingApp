@@ -61,7 +61,7 @@ namespace WebMathTraining.Controllers
       {
         var list = await _testSessionService.FindAllAsync();
         testSessions = list.ToList();
-        var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
+        var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description != null && s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
         if (levelFilter > 0)
           testSessions = testSessions.Where(t =>  t.Category == TestCategory.Math && t.TargetGrade == levelFilter && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
         else
@@ -92,7 +92,7 @@ namespace WebMathTraining.Controllers
       {
         var list = await _testSessionService.FindAllAsync();
         testSessions = list.ToList();
-        var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
+        var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description != null && s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
           testSessions = testSessions.Where(t => t.Category == TestCategory.History && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
       }
 
@@ -198,7 +198,7 @@ namespace WebMathTraining.Controllers
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade")] TestSession testSession)
+    public async Task<IActionResult> Create([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade, Category")] TestSession testSession)
     {
       var user = await _userManager.GetUserAsync(User);
       var isAdmin = user != null && await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
@@ -257,7 +257,7 @@ namespace WebMathTraining.Controllers
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateHistory([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade")] TestSession testSession)
+    public async Task<IActionResult> CreateHistory([Bind("Id,Name,Description,PlannedStart,PlannedEnd,QuestionRequest,TargetGrade, Category")] TestSession testSession)
     {
       var user = await _userManager.GetUserAsync(User);
       var isAdmin = user != null && await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
@@ -309,7 +309,7 @@ namespace WebMathTraining.Controllers
 
         testSession.TestQuestions = testSession.TestQuestions;
         await _testSessions.AddAsync(testSession);
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(HistoryTest));
       }
       return View(testSession);
     }
