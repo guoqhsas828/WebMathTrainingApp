@@ -63,9 +63,37 @@ namespace WebMathTraining.Controllers
         testSessions = list.ToList();
         var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
         if (levelFilter > 0)
-          testSessions = testSessions.Where(t => t.TargetGrade == levelFilter && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
+          testSessions = testSessions.Where(t =>  t.Category == TestCategory.Math && t.TargetGrade == levelFilter && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
         else
-          testSessions = testSessions.Where(t => !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
+          testSessions = testSessions.Where(t => t.Category == TestCategory.Math && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
+      }
+
+      if (userProfile.UserStatus == UserStatus.Trial)
+      {
+        testSessions = testSessions.Where(s => s.Name.StartsWith("Trial")).ToList();
+      }
+
+      return View(testSessions);
+    }
+
+    public async Task<IActionResult> HistoryTest()
+    {
+      var user = await _userManager.GetUserAsync(User);
+
+      if (user == null)
+        return RedirectToAction("Login", "Account");
+
+      var userProfile = await _userContext.FindByUserEmail(user.Email);
+      var testSessions = new List<TestSession>();
+
+      var isAdmin = await _userManager.IsInRoleAsync(user, Constants.AdministratorRole);
+
+      if (userProfile.UserStatus != UserStatus.InActive)
+      {
+        var list = await _testSessionService.FindAllAsync();
+        testSessions = list.ToList();
+        var privateSessionsNotForUser = isAdmin ? new HashSet<int>() : testSessions.Where(s => s.Description.StartsWith("Private Test (", StringComparison.InvariantCultureIgnoreCase) && !s.Description.StartsWith($"Private Test ({user.UserName})", StringComparison.InvariantCultureIgnoreCase)).Select(s => s.ObjectId).ToHashSet();
+          testSessions = testSessions.Where(t => t.Category == TestCategory.History && !privateSessionsNotForUser.Contains(t.ObjectId)).ToList();
       }
 
       if (userProfile.UserStatus == UserStatus.Trial)

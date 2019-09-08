@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit.Native",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit", "..\BaseEntity.Toolkit\BaseEntity.Toolkit.csproj", "{64B0E5A9-308D-4AE0-89D4-EC5622D09268}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseEntity.Toolkit.Tests", "..\BaseEntity.Toolkit.Tests\BaseEntity.Toolkit.Tests.csproj", "{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,14 +131,6 @@ Global
 		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|x86.ActiveCfg = Release|Any CPU
 		{64B0E5A9-308D-4AE0-89D4-EC5622D09268}.Release|x86.Build.0 = Release|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Debug|x86.Build.0 = Debug|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Release|x86.ActiveCfg = Release|Any CPU
-		{B24ABCC9-9440-42B2-A652-6715D8A9BC7B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
