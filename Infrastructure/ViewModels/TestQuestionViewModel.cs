@@ -32,6 +32,8 @@ namespace WebMathTraining.Models
     public int SessionId { get; set; }
 
     public int ObjectId { get; set; }
+
+    public string AnswerTip { get; set; }
   }
 
   public class QuestionDetailViewModel

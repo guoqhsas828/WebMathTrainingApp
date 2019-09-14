@@ -13,8 +13,7 @@ namespace WebMathTraining.Services
   public interface ITestQuestionService<T> where T : struct
   {
     T CreateTestImage(byte[] imageData, string imageName, string contentType,string container=null);
-    T CreateOrUpdate(T id, T imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
-    TestAnswerType answerChoice = TestAnswerType.Text);
+    T CreateOrUpdate(T id, T imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,    TestAnswerType answerChoice = TestAnswerType.Text, string answerTip = null);
     int CountQuestions();
     void DeleteQuestion(T id);
     TestQuestion FindTestQuestion(T id);
@@ -78,7 +77,7 @@ namespace WebMathTraining.Services
     }
 
     public int CreateOrUpdate(int id, int imageId, int level, string textAnswer, TestCategory category = TestCategory.Math,
-      TestAnswerType answerChoice = TestAnswerType.Text)
+      TestAnswerType answerChoice = TestAnswerType.Text, string answerTip = null)
     {
       TestQuestion entity = null;
       try
@@ -94,7 +93,7 @@ namespace WebMathTraining.Services
             {
               Category = category,
               Level = level,
-              TestAnswer = new TestAnswer() {AnswerType = answerChoice, TextAnswer = textAnswer},
+              TestAnswer = new TestAnswer() {AnswerType = answerChoice, TextAnswer = textAnswer, AnswerChoice6 = answerTip},
               QuestionImageId = imageId
             };
             _questionRepository.AddAsync(entity).Wait();
@@ -105,7 +104,7 @@ namespace WebMathTraining.Services
             entity.Level = level;
             entity.QuestionImageId = imageId;
             entity.TestAnswer = new TestAnswer()
-              {AnswerType = answerChoice, TextAnswer = textAnswer};
+              {AnswerType = answerChoice, TextAnswer = textAnswer, AnswerChoice6 = answerTip};
 
             _questionRepository.UpdateAsync(entity).Wait();
           }

@@ -37,7 +37,7 @@ namespace StoreManager.Controllers
     [HttpPost]
     public IActionResult Insert()
     {
-      return View(new TestQuestionViewModel());
+      return View(new TestQuestionViewModel { AnswerChoice = TestAnswerType.SingleChoice, Category = TestCategory.Math, Level = 4});
     }
 
     public async Task<IActionResult> Details(int id)
@@ -156,8 +156,7 @@ namespace StoreManager.Controllers
     {
       var id = 0;
       var imageId = _testQuestionService.CreateTestImage(string.IsNullOrEmpty(viewModel.QuestionText) ? null : EncodingUtil.StrToByteArray(viewModel.QuestionText), string.IsNullOrEmpty(viewModel.Name) ? id.ToString() : viewModel.Name, viewModel.ImageContainer == CloudContainer.None ? "Text" : "PNG", viewModel.ImageContainer.ToString());
-      var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,
-        viewModel.Category, viewModel.AnswerChoice);
+      var retVal = _testQuestionService.CreateOrUpdate(id, imageId, viewModel.Level, viewModel.TextAnswer,        viewModel.Category, viewModel.AnswerChoice, viewModel.AnswerTip);
       if (viewModel.SessionId > 0)
       {
         //TODO need to get a test session service and add this question to a test session
