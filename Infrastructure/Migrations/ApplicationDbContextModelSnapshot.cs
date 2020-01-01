@@ -905,6 +905,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.Property<string>("ProfilePicture")
                         .HasMaxLength(1024);
 
+                    b.Property<string>("UserName")
+                        .HasMaxLength(512);
+
                     b.Property<int>("UserStatus");
 
                     b.HasKey("UserProfileId");

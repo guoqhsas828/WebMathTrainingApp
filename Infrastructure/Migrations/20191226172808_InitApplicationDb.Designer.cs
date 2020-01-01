@@ -10,8 +10,8 @@ using StoreManager.Data;
 namespace Microsoft.eShopWeb.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190622130441_InitDb")]
-    partial class InitDb
+    [Migration("20191226172808_InitApplicationDb")]
+    partial class InitApplicationDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,128 +131,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.CatalogItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CatalogBrandId");
-
-                    b.Property<int>("CatalogTypeId");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("PictureUri");
-
-                    b.Property<decimal>("Price");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CatalogBrandId");
-
-                    b.HasIndex("CatalogTypeId");
-
-                    b.ToTable("CatalogItems");
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.CatalogItemOrdered", b =>
-                {
-                    b.Property<int>("CatalogItemOrderedId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CatalogItemId");
-
-                    b.Property<string>("PictureUri");
-
-                    b.Property<string>("ProductName");
-
-                    b.HasKey("CatalogItemOrderedId");
-
-                    b.ToTable("CatalogItemOrdered");
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BuyerId");
-
-                    b.Property<string>("Notes");
-
-                    b.Property<DateTimeOffset>("OrderDate");
-
-                    b.Property<int?>("ShipToAddressAddressId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShipToAddressAddressId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ItemOrderedCatalogItemOrderedId");
-
-                    b.Property<int?>("OrderId");
-
-                    b.Property<decimal>("UnitPrice");
-
-                    b.Property<int>("Units");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ItemOrderedCatalogItemOrderedId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderItems");
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.Infrastructure.Identity.CatalogType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Type");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CatalogTypes");
-                });
-
-            modelBuilder.Entity("StoreManager.Models.Address", b =>
-                {
-                    b.Property<int>("AddressId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("Country");
-
-                    b.Property<string>("State");
-
-                    b.Property<string>("Street");
-
-                    b.Property<string>("ZipCode");
-
-                    b.HasKey("AddressId");
-
-                    b.ToTable("Address");
-                });
-
             modelBuilder.Entity("StoreManager.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -304,40 +182,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("StoreManager.Models.Basket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BuyerId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Baskets");
-                });
-
-            modelBuilder.Entity("StoreManager.Models.BasketItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BasketId");
-
-                    b.Property<int>("CatalogItemId");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<decimal>("UnitPrice");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BasketId");
-
-                    b.ToTable("BasketItems");
-                });
-
             modelBuilder.Entity("StoreManager.Models.Bill", b =>
                 {
                     b.Property<int>("BillId")
@@ -348,15 +192,18 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("BillDueDate");
 
-                    b.Property<string>("BillName");
+                    b.Property<string>("BillName")
+                        .HasMaxLength(64);
 
                     b.Property<int>("BillTypeId");
 
                     b.Property<int>("GoodsReceivedNoteId");
 
-                    b.Property<string>("VendorDONumber");
+                    b.Property<string>("VendorDONumber")
+                        .HasMaxLength(900);
 
-                    b.Property<string>("VendorInvoiceNumber");
+                    b.Property<string>("VendorInvoiceNumber")
+                        .HasMaxLength(900);
 
                     b.HasKey("BillId");
 
@@ -370,9 +217,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BillTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(900);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.HasKey("BillTypeId");
 
@@ -381,32 +230,41 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.Branch", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BranchId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(256);
 
                     b.Property<string>("BranchName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(64);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ContactPerson");
+                    b.Property<string>("ContactPerson")
+                        .HasMaxLength(128);
 
                     b.Property<int>("CurrencyId");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(512);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(32);
 
-                    b.Property<string>("State");
+                    b.Property<string>("State")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(32);
 
-                    b.HasKey("Id");
+                    b.HasKey("BranchId");
 
                     b.ToTable("Branch");
                 });
@@ -417,9 +275,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CashBankName");
+                    b.Property<string>("CashBankName")
+                        .HasMaxLength(64);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.HasKey("CashBankId");
 
@@ -428,17 +288,19 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.CatalogBrand", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CatalogBrandId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Brand");
+                    b.Property<string>("Brand")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
-                    b.HasKey("Id");
+                    b.HasKey("CatalogBrandId");
 
-                    b.ToTable("CatalogBrands");
+                    b.ToTable("CatalogBrand");
                 });
 
             modelBuilder.Entity("StoreManager.Models.Currency", b =>
@@ -448,12 +310,15 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CurrencyCode")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(8);
 
                     b.Property<string>("CurrencyName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(64);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.HasKey("CurrencyId");
 
@@ -462,30 +327,38 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.Customer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ContactPerson");
+                    b.Property<string>("ContactPerson")
+                        .HasMaxLength(128);
 
                     b.Property<string>("CustomerName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.Property<int>("CustomerTypeId");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(32);
 
-                    b.Property<string>("State");
+                    b.Property<string>("State")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(32);
 
-                    b.HasKey("Id");
+                    b.HasKey("CustomerId");
 
                     b.ToTable("Customer");
                 });
@@ -497,9 +370,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CustomerTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(64);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.HasKey("CustomerTypeId");
 
@@ -514,15 +389,18 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("GRNDate");
 
-                    b.Property<string>("GoodsReceivedNoteName");
+                    b.Property<string>("GoodsReceivedNoteName")
+                        .HasMaxLength(128);
 
                     b.Property<bool>("IsFullReceive");
 
                     b.Property<int>("PurchaseOrderId");
 
-                    b.Property<string>("VendorDONumber");
+                    b.Property<string>("VendorDONumber")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("VendorInvoiceNumber");
+                    b.Property<string>("VendorInvoiceNumber")
+                        .HasMaxLength(128);
 
                     b.Property<int>("WarehouseId");
 
@@ -541,7 +419,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("InvoiceDueDate");
 
-                    b.Property<string>("InvoiceName");
+                    b.Property<string>("InvoiceName")
+                        .HasMaxLength(128);
 
                     b.Property<int>("InvoiceTypeId");
 
@@ -558,10 +437,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("InvoiceTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("InvoiceTypeId");
 
@@ -577,13 +458,16 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.Property<int>("LastNumber");
 
                     b.Property<string>("Module")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(1024);
 
                     b.Property<string>("NumberSequenceName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.Property<string>("Prefix")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("NumberSequenceId");
 
@@ -604,7 +488,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("PaymentDate");
 
-                    b.Property<string>("PaymentReceiveName");
+                    b.Property<string>("PaymentReceiveName")
+                        .HasMaxLength(128);
 
                     b.Property<int>("PaymentTypeId");
 
@@ -619,10 +504,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("PaymentTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("PaymentTypeId");
 
@@ -631,7 +518,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.PaymentVoucher", b =>
                 {
-                    b.Property<int>("PaymentvoucherId")
+                    b.Property<int>("PaymentVoucherId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -647,20 +534,22 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<int>("PaymentTypeId");
 
-                    b.Property<string>("PaymentVoucherName");
+                    b.Property<string>("PaymentVoucherName")
+                        .HasMaxLength(128);
 
-                    b.HasKey("PaymentvoucherId");
+                    b.HasKey("PaymentVoucherId");
 
                     b.ToTable("PaymentVoucher");
                 });
 
             modelBuilder.Entity("StoreManager.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Barcode");
+                    b.Property<string>("Barcode")
+                        .HasMaxLength(128);
 
                     b.Property<int>("BranchId");
 
@@ -672,20 +561,24 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<double>("DefaultSellingPrice");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
-                    b.Property<string>("ProductCode");
+                    b.Property<string>("ProductCode")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ProductImageUrl");
+                    b.Property<string>("ProductImageUrl")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("ProductName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.Property<int>("ProductTypeId");
 
                     b.Property<int>("UnitOfMeasureId");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("CatalogBrandId");
 
@@ -696,16 +589,18 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.ProductType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductTypeId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("ProductTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductTypeId");
 
                     b.ToTable("ProductType");
                 });
@@ -730,7 +625,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("OrderDate");
 
-                    b.Property<string>("PurchaseOrderName");
+                    b.Property<string>("PurchaseOrderName")
+                        .HasMaxLength(128);
 
                     b.Property<int>("PurchaseTypeId");
 
@@ -757,7 +653,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<double>("Amount");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<double>("DiscountAmount");
 
@@ -792,10 +689,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("PurchaseTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("PurchaseTypeId");
 
@@ -804,7 +703,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             modelBuilder.Entity("StoreManager.Models.SalesOrder", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("SalesOrderId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -816,7 +715,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<int>("CustomerId");
 
-                    b.Property<string>("CustomerRefNumber");
+                    b.Property<string>("CustomerRefNumber")
+                        .HasMaxLength(128);
 
                     b.Property<DateTimeOffset>("DeliveryDate");
 
@@ -826,9 +726,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("OrderDate");
 
-                    b.Property<string>("Remarks");
+                    b.Property<string>("Remarks")
+                        .HasMaxLength(1024);
 
-                    b.Property<string>("SalesOrderName");
+                    b.Property<string>("SalesOrderName")
+                        .HasMaxLength(128);
 
                     b.Property<int>("SalesTypeId");
 
@@ -838,7 +740,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<double>("Total");
 
-                    b.HasKey("Id");
+                    b.HasKey("SalesOrderId");
 
                     b.ToTable("SalesOrder");
                 });
@@ -851,7 +753,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<double>("Amount");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<double>("DiscountAmount");
 
@@ -888,10 +791,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("SalesTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("SalesTypeId");
 
@@ -910,7 +815,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset>("ShipmentDate");
 
-                    b.Property<string>("ShipmentName");
+                    b.Property<string>("ShipmentName")
+                        .HasMaxLength(128);
 
                     b.Property<int>("ShipmentTypeId");
 
@@ -927,10 +833,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("ShipmentTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("ShipmentTypeId");
 
@@ -943,10 +851,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("UnitOfMeasureName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("UnitOfMeasureId");
 
@@ -959,21 +869,48 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId");
+                    b.Property<int>("AchievedLevel");
 
-                    b.Property<string>("ConfirmPassword");
+                    b.Property<double>("AchievedPoints");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("ApplicationUserId")
+                        .HasMaxLength(900);
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("ConfirmPassword")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("LastName");
+                    b.Property<int>("Continent");
 
-                    b.Property<string>("OldPassword");
+                    b.Property<DateTime>("Created");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Email")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("ProfilePicture");
+                    b.Property<int>("ExperienceLevel");
+
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("LastName")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("LastUpdated");
+
+                    b.Property<DateTime>("LatestLogin");
+
+                    b.Property<string>("OldPassword")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("ProfilePicture")
+                        .HasMaxLength(1024);
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(512);
+
+                    b.Property<int>("UserStatus");
 
                     b.HasKey("UserProfileId");
 
@@ -986,24 +923,32 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ContactPerson");
+                    b.Property<string>("ContactPerson")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(32);
 
-                    b.Property<string>("State");
+                    b.Property<string>("State")
+                        .HasMaxLength(128);
 
                     b.Property<string>("VendorName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.Property<int>("VendorTypeId");
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(32);
 
                     b.HasKey("VendorId");
 
@@ -1016,10 +961,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("VendorTypeName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("VendorTypeId");
 
@@ -1034,10 +981,12 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
                     b.Property<int>("BranchId");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("WarehouseName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("WarehouseId");
 
@@ -1087,44 +1036,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.CatalogItem", b =>
-                {
-                    b.HasOne("StoreManager.Models.CatalogBrand", "CatalogBrand")
-                        .WithMany()
-                        .HasForeignKey("CatalogBrandId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Microsoft.eShopWeb.Infrastructure.Identity.CatalogType", "CatalogType")
-                        .WithMany()
-                        .HasForeignKey("CatalogTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.Order", b =>
-                {
-                    b.HasOne("StoreManager.Models.Address", "ShipToAddress")
-                        .WithMany()
-                        .HasForeignKey("ShipToAddressAddressId");
-                });
-
-            modelBuilder.Entity("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.OrderItem", b =>
-                {
-                    b.HasOne("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.CatalogItemOrdered", "ItemOrdered")
-                        .WithMany()
-                        .HasForeignKey("ItemOrderedCatalogItemOrderedId");
-
-                    b.HasOne("Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate.Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId");
-                });
-
-            modelBuilder.Entity("StoreManager.Models.BasketItem", b =>
-                {
-                    b.HasOne("StoreManager.Models.Basket")
-                        .WithMany("Items")
-                        .HasForeignKey("BasketId");
                 });
 
             modelBuilder.Entity("StoreManager.Models.Product", b =>

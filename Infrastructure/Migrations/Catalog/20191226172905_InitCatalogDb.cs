@@ -22,6 +22,23 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                 });
 
             migrationBuilder.CreateTable(
+                name: "PluginAssembly",
+                columns: table => new
+                {
+                    ObjectId = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 128, nullable: true),
+                    Description = table.Column<string>(maxLength: 512, nullable: true),
+                    FileName = table.Column<string>(maxLength: 1024, nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    PluginType = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PluginAssembly", x => x.ObjectId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TestGroup",
                 columns: table => new
                 {
@@ -106,7 +123,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                     PlannedEnd = table.Column<DateTime>(nullable: false),
                     TesterData = table.Column<byte[]>(nullable: true),
                     LastUpdated = table.Column<DateTime>(nullable: false),
-                    TargetGrade = table.Column<int>(nullable: false)
+                    TargetGrade = table.Column<int>(nullable: false),
+                    Category = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -161,6 +179,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
         {
             migrationBuilder.DropTable(
                 name: "BasketItems");
+
+            migrationBuilder.DropTable(
+                name: "PluginAssembly");
 
             migrationBuilder.DropTable(
                 name: "TestGroup");

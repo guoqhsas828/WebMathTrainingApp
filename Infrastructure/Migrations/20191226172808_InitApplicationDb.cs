@@ -4,27 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Microsoft.eShopWeb.Infrastructure.Migrations
 {
-    public partial class InitDb : Migration
+    public partial class InitApplicationDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Address",
-                columns: table => new
-                {
-                    AddressId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Street = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Address", x => x.AddressId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -65,28 +48,15 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Baskets",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BuyerId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Baskets", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Bill",
                 columns: table => new
                 {
                     BillId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BillName = table.Column<string>(nullable: true),
+                    BillName = table.Column<string>(maxLength: 64, nullable: true),
                     GoodsReceivedNoteId = table.Column<int>(nullable: false),
-                    VendorDONumber = table.Column<string>(nullable: true),
-                    VendorInvoiceNumber = table.Column<string>(nullable: true),
+                    VendorDONumber = table.Column<string>(maxLength: 900, nullable: true),
+                    VendorInvoiceNumber = table.Column<string>(maxLength: 900, nullable: true),
                     BillDate = table.Column<DateTimeOffset>(nullable: false),
                     BillDueDate = table.Column<DateTimeOffset>(nullable: false),
                     BillTypeId = table.Column<int>(nullable: false)
@@ -102,8 +72,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     BillTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BillTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    BillTypeName = table.Column<string>(maxLength: 900, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -114,22 +84,22 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "Branch",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    BranchId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BranchName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
+                    BranchName = table.Column<string>(maxLength: 64, nullable: false),
+                    Description = table.Column<string>(maxLength: 512, nullable: true),
                     CurrencyId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    ContactPerson = table.Column<string>(nullable: true)
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    City = table.Column<string>(maxLength: 128, nullable: true),
+                    State = table.Column<string>(maxLength: 128, nullable: true),
+                    ZipCode = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
+                    Email = table.Column<string>(maxLength: 128, nullable: true),
+                    ContactPerson = table.Column<string>(maxLength: 128, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Branch", x => x.Id);
+                    table.PrimaryKey("PK_Branch", x => x.BranchId);
                 });
 
             migrationBuilder.CreateTable(
@@ -138,8 +108,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     CashBankId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CashBankName = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    CashBankName = table.Column<string>(maxLength: 64, nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -147,45 +117,17 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CatalogBrands",
+                name: "CatalogBrand",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    CatalogBrandId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Brand = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Brand = table.Column<string>(maxLength: 128, nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CatalogBrands", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CatalogItemOrdered",
-                columns: table => new
-                {
-                    CatalogItemOrderedId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CatalogItemId = table.Column<int>(nullable: false),
-                    ProductName = table.Column<string>(nullable: true),
-                    PictureUri = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CatalogItemOrdered", x => x.CatalogItemOrderedId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CatalogTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Type = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CatalogTypes", x => x.Id);
+                    table.PrimaryKey("PK_CatalogBrand", x => x.CatalogBrandId);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,9 +136,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     CurrencyId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CurrencyName = table.Column<string>(nullable: false),
-                    CurrencyCode = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    CurrencyName = table.Column<string>(maxLength: 64, nullable: false),
+                    CurrencyCode = table.Column<string>(maxLength: 8, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -207,21 +149,21 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "Customer",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CustomerName = table.Column<string>(nullable: false),
+                    CustomerName = table.Column<string>(maxLength: 128, nullable: false),
                     CustomerTypeId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    ContactPerson = table.Column<string>(nullable: true)
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    City = table.Column<string>(maxLength: 128, nullable: true),
+                    State = table.Column<string>(maxLength: 128, nullable: true),
+                    ZipCode = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
+                    Email = table.Column<string>(maxLength: 128, nullable: true),
+                    ContactPerson = table.Column<string>(maxLength: 128, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.Id);
+                    table.PrimaryKey("PK_Customer", x => x.CustomerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -230,8 +172,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     CustomerTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CustomerTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    CustomerTypeName = table.Column<string>(maxLength: 64, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -244,11 +186,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     GoodsReceivedNoteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    GoodsReceivedNoteName = table.Column<string>(nullable: true),
+                    GoodsReceivedNoteName = table.Column<string>(maxLength: 128, nullable: true),
                     PurchaseOrderId = table.Column<int>(nullable: false),
                     GRNDate = table.Column<DateTimeOffset>(nullable: false),
-                    VendorDONumber = table.Column<string>(nullable: true),
-                    VendorInvoiceNumber = table.Column<string>(nullable: true),
+                    VendorDONumber = table.Column<string>(maxLength: 128, nullable: true),
+                    VendorInvoiceNumber = table.Column<string>(maxLength: 128, nullable: true),
                     WarehouseId = table.Column<int>(nullable: false),
                     IsFullReceive = table.Column<bool>(nullable: false)
                 },
@@ -263,7 +205,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     InvoiceId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    InvoiceName = table.Column<string>(nullable: true),
+                    InvoiceName = table.Column<string>(maxLength: 128, nullable: true),
                     ShipmentId = table.Column<int>(nullable: false),
                     InvoiceDate = table.Column<DateTimeOffset>(nullable: false),
                     InvoiceDueDate = table.Column<DateTimeOffset>(nullable: false),
@@ -280,8 +222,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     InvoiceTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    InvoiceTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    InvoiceTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -294,9 +236,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     NumberSequenceId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NumberSequenceName = table.Column<string>(nullable: false),
-                    Module = table.Column<string>(nullable: false),
-                    Prefix = table.Column<string>(nullable: false),
+                    NumberSequenceName = table.Column<string>(maxLength: 128, nullable: false),
+                    Module = table.Column<string>(maxLength: 1024, nullable: false),
+                    Prefix = table.Column<string>(maxLength: 128, nullable: false),
                     LastNumber = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -310,7 +252,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     PaymentReceiveId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PaymentReceiveName = table.Column<string>(nullable: true),
+                    PaymentReceiveName = table.Column<string>(maxLength: 128, nullable: true),
                     InvoiceId = table.Column<int>(nullable: false),
                     PaymentDate = table.Column<DateTimeOffset>(nullable: false),
                     PaymentTypeId = table.Column<int>(nullable: false),
@@ -328,8 +270,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     PaymentTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PaymentTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    PaymentTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -340,9 +282,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "PaymentVoucher",
                 columns: table => new
                 {
-                    PaymentvoucherId = table.Column<int>(nullable: false)
+                    PaymentVoucherId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PaymentVoucherName = table.Column<string>(nullable: true),
+                    PaymentVoucherName = table.Column<string>(maxLength: 128, nullable: true),
                     BillId = table.Column<int>(nullable: false),
                     PaymentDate = table.Column<DateTimeOffset>(nullable: false),
                     PaymentTypeId = table.Column<int>(nullable: false),
@@ -352,21 +294,21 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaymentVoucher", x => x.PaymentvoucherId);
+                    table.PrimaryKey("PK_PaymentVoucher", x => x.PaymentVoucherId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ProductType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ProductTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProductTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    ProductTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductType", x => x.Id);
+                    table.PrimaryKey("PK_ProductType", x => x.ProductTypeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,7 +317,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     PurchaseOrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PurchaseOrderName = table.Column<string>(nullable: true),
+                    PurchaseOrderName = table.Column<string>(maxLength: 128, nullable: true),
                     BranchId = table.Column<int>(nullable: false),
                     VendorId = table.Column<int>(nullable: false),
                     OrderDate = table.Column<DateTimeOffset>(nullable: false),
@@ -401,8 +343,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     PurchaseTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PurchaseTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    PurchaseTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -413,17 +355,17 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "SalesOrder",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    SalesOrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    SalesOrderName = table.Column<string>(nullable: true),
+                    SalesOrderName = table.Column<string>(maxLength: 128, nullable: true),
                     BranchId = table.Column<int>(nullable: false),
                     CustomerId = table.Column<int>(nullable: false),
                     OrderDate = table.Column<DateTimeOffset>(nullable: false),
                     DeliveryDate = table.Column<DateTimeOffset>(nullable: false),
                     CurrencyId = table.Column<int>(nullable: false),
-                    CustomerRefNumber = table.Column<string>(nullable: true),
+                    CustomerRefNumber = table.Column<string>(maxLength: 128, nullable: true),
                     SalesTypeId = table.Column<int>(nullable: false),
-                    Remarks = table.Column<string>(nullable: true),
+                    Remarks = table.Column<string>(maxLength: 1024, nullable: true),
                     Amount = table.Column<double>(nullable: false),
                     SubTotal = table.Column<double>(nullable: false),
                     Discount = table.Column<double>(nullable: false),
@@ -433,7 +375,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SalesOrder", x => x.Id);
+                    table.PrimaryKey("PK_SalesOrder", x => x.SalesOrderId);
                 });
 
             migrationBuilder.CreateTable(
@@ -442,8 +384,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     SalesTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    SalesTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    SalesTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -456,7 +398,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     ShipmentId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ShipmentName = table.Column<string>(nullable: true),
+                    ShipmentName = table.Column<string>(maxLength: 128, nullable: true),
                     SalesOrderId = table.Column<int>(nullable: false),
                     ShipmentDate = table.Column<DateTimeOffset>(nullable: false),
                     ShipmentTypeId = table.Column<int>(nullable: false),
@@ -474,8 +416,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     ShipmentTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ShipmentTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    ShipmentTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -488,8 +430,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     UnitOfMeasureId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UnitOfMeasureName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    UnitOfMeasureName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -502,14 +444,23 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     UserProfileId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    ConfirmPassword = table.Column<string>(nullable: true),
-                    OldPassword = table.Column<string>(nullable: true),
-                    ProfilePicture = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    FirstName = table.Column<string>(maxLength: 128, nullable: true),
+                    LastName = table.Column<string>(maxLength: 128, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    Password = table.Column<string>(maxLength: 128, nullable: true),
+                    ConfirmPassword = table.Column<string>(maxLength: 128, nullable: true),
+                    OldPassword = table.Column<string>(maxLength: 128, nullable: true),
+                    ProfilePicture = table.Column<string>(maxLength: 1024, nullable: true),
+                    ApplicationUserId = table.Column<string>(maxLength: 900, nullable: true),
+                    Continent = table.Column<int>(nullable: false),
+                    ExperienceLevel = table.Column<int>(nullable: false),
+                    UserStatus = table.Column<int>(nullable: false),
+                    Created = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    LatestLogin = table.Column<DateTime>(nullable: false),
+                    AchievedPoints = table.Column<double>(nullable: false),
+                    AchievedLevel = table.Column<int>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 512, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -522,15 +473,15 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     VendorId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    VendorName = table.Column<string>(nullable: false),
+                    VendorName = table.Column<string>(maxLength: 128, nullable: false),
                     VendorTypeId = table.Column<int>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    ContactPerson = table.Column<string>(nullable: true)
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    City = table.Column<string>(maxLength: 128, nullable: true),
+                    State = table.Column<string>(maxLength: 128, nullable: true),
+                    ZipCode = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
+                    Email = table.Column<string>(maxLength: 128, nullable: true),
+                    ContactPerson = table.Column<string>(maxLength: 128, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -543,8 +494,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     VendorTypeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    VendorTypeName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    VendorTypeName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -557,35 +508,13 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 {
                     WarehouseId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    WarehouseName = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
+                    WarehouseName = table.Column<string>(maxLength: 128, nullable: false),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true),
                     BranchId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Warehouse", x => x.WarehouseId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    BuyerId = table.Column<string>(nullable: true),
-                    OrderDate = table.Column<DateTimeOffset>(nullable: false),
-                    ShipToAddressAddressId = table.Column<int>(nullable: true),
-                    Notes = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_Address_ShipToAddressAddressId",
-                        column: x => x.ShipToAddressAddressId,
-                        principalTable: "Address",
-                        principalColumn: "AddressId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -695,68 +624,16 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BasketItems",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UnitPrice = table.Column<decimal>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false),
-                    CatalogItemId = table.Column<int>(nullable: false),
-                    BasketId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BasketItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_BasketItems_Baskets_BasketId",
-                        column: x => x.BasketId,
-                        principalTable: "Baskets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CatalogItems",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false),
-                    PictureUri = table.Column<string>(nullable: true),
-                    CatalogTypeId = table.Column<int>(nullable: false),
-                    CatalogBrandId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CatalogItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CatalogItems_CatalogBrands_CatalogBrandId",
-                        column: x => x.CatalogBrandId,
-                        principalTable: "CatalogBrands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CatalogItems_CatalogTypes_CatalogTypeId",
-                        column: x => x.CatalogTypeId,
-                        principalTable: "CatalogTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ProductId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProductName = table.Column<string>(nullable: false),
-                    ProductCode = table.Column<string>(nullable: true),
-                    Barcode = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    ProductImageUrl = table.Column<string>(nullable: true),
+                    ProductName = table.Column<string>(maxLength: 128, nullable: false),
+                    ProductCode = table.Column<string>(maxLength: 128, nullable: true),
+                    Barcode = table.Column<string>(maxLength: 128, nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true),
+                    ProductImageUrl = table.Column<string>(maxLength: 1024, nullable: true),
                     UnitOfMeasureId = table.Column<int>(nullable: false),
                     DefaultBuyingPrice = table.Column<double>(nullable: false),
                     DefaultSellingPrice = table.Column<double>(nullable: false),
@@ -767,18 +644,18 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_Product", x => x.ProductId);
                     table.ForeignKey(
-                        name: "FK_Product_CatalogBrands_CatalogBrandId",
+                        name: "FK_Product_CatalogBrand_CatalogBrandId",
                         column: x => x.CatalogBrandId,
-                        principalTable: "CatalogBrands",
-                        principalColumn: "Id",
+                        principalTable: "CatalogBrand",
+                        principalColumn: "CatalogBrandId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Product_ProductType_ProductTypeId",
                         column: x => x.ProductTypeId,
                         principalTable: "ProductType",
-                        principalColumn: "Id",
+                        principalColumn: "ProductTypeId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -790,7 +667,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     PurchaseOrderId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true),
                     Quantity = table.Column<double>(nullable: false),
                     Price = table.Column<double>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
@@ -813,34 +690,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderItems",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ItemOrderedCatalogItemOrderedId = table.Column<int>(nullable: true),
-                    UnitPrice = table.Column<decimal>(nullable: false),
-                    Units = table.Column<int>(nullable: false),
-                    OrderId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_CatalogItemOrdered_ItemOrderedCatalogItemOrderedId",
-                        column: x => x.ItemOrderedCatalogItemOrderedId,
-                        principalTable: "CatalogItemOrdered",
-                        principalColumn: "CatalogItemOrderedId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "SalesOrderLine",
                 columns: table => new
                 {
@@ -848,7 +697,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SalesOrderId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true),
                     Quantity = table.Column<double>(nullable: false),
                     Price = table.Column<double>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
@@ -866,13 +715,13 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                         name: "FK_SalesOrderLine_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
-                        principalColumn: "Id",
+                        principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_SalesOrderLine_SalesOrder_SalesOrderId",
                         column: x => x.SalesOrderId,
                         principalTable: "SalesOrder",
-                        principalColumn: "Id",
+                        principalColumn: "SalesOrderId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -914,36 +763,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BasketItems_BasketId",
-                table: "BasketItems",
-                column: "BasketId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CatalogItems_CatalogBrandId",
-                table: "CatalogItems",
-                column: "CatalogBrandId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CatalogItems_CatalogTypeId",
-                table: "CatalogItems",
-                column: "CatalogTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_ItemOrderedCatalogItemOrderedId",
-                table: "OrderItems",
-                column: "ItemOrderedCatalogItemOrderedId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_OrderId",
-                table: "OrderItems",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_ShipToAddressAddressId",
-                table: "Orders",
-                column: "ShipToAddressAddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CatalogBrandId",
@@ -989,9 +808,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "BasketItems");
-
-            migrationBuilder.DropTable(
                 name: "Bill");
 
             migrationBuilder.DropTable(
@@ -1002,9 +818,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "CashBank");
-
-            migrationBuilder.DropTable(
-                name: "CatalogItems");
 
             migrationBuilder.DropTable(
                 name: "Currency");
@@ -1026,9 +839,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "NumberSequence");
-
-            migrationBuilder.DropTable(
-                name: "OrderItems");
 
             migrationBuilder.DropTable(
                 name: "PaymentReceive");
@@ -1079,18 +889,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Baskets");
-
-            migrationBuilder.DropTable(
-                name: "CatalogTypes");
-
-            migrationBuilder.DropTable(
-                name: "CatalogItemOrdered");
-
-            migrationBuilder.DropTable(
-                name: "Orders");
-
-            migrationBuilder.DropTable(
                 name: "PurchaseOrder");
 
             migrationBuilder.DropTable(
@@ -1100,10 +898,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 name: "SalesOrder");
 
             migrationBuilder.DropTable(
-                name: "Address");
-
-            migrationBuilder.DropTable(
-                name: "CatalogBrands");
+                name: "CatalogBrand");
 
             migrationBuilder.DropTable(
                 name: "ProductType");

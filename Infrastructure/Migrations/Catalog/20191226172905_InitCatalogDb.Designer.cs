@@ -10,14 +10,14 @@ using Microsoft.eShopWeb.Infrastructure.Data;
 namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
 {
     [DbContext(typeof(CatalogContext))]
-    [Migration("20190720142945_BaseEntity1")]
-    partial class BaseEntity1
+    [Migration("20191226172905_InitCatalogDb")]
+    partial class InitCatalogDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -27,13 +27,16 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(512);
 
                     b.Property<bool>("Enabled");
 
-                    b.Property<string>("FileName");
+                    b.Property<string>("FileName")
+                        .HasMaxLength(1024);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
 
                     b.Property<int>("PluginType");
 
@@ -178,6 +181,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations.Catalog
                     b.Property<int>("ObjectId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Category");
 
                     b.Property<string>("Description");
 
